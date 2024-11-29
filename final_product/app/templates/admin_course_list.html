@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            /* Advanced Styling */
+            background-image: linear-gradient(to right, #4CAF50, #2196F3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #45a049;
+            /* Advanced Hover Effect */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td a {
+            text-decoration: none;
+            color: #eef1f5;
+            /* Advanced Styling */
+            background-image: linear-gradient(to right, #007bff, #0056b3);
+            padding: 8px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        td a:hover {
+            text-decoration: none;
+            background-color: #0056b3;
+            /* Advanced Hover Effect */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .add-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .add-link button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            /* Advanced Styling */
+            background-image: linear-gradient(to right, #007bff, #0056b3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .add-link button:hover {
+            background-color: #0056b3;
+            /* Advanced Hover Effect */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Course List</h1>
+
+    <div class="container">
+        <!-- Dropdown menu for filtering courses by category -->
+        <form method="get" action="{% url 'admin_course_list' %}">
+            <label for="category">Filter by Category:</label>
+            <select name="category" id="category">
+                <option value="">All Categories</option>
+                <option value="c1">Tech Courses</option>
+                <option value="c2">Grade 9</option>
+                <option value="c3">Grade 10</option>
+                <option value="c4">Grade 11</option>
+                <option value="c5">Grade 12</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+        <hr>
+
+        {% if courses %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Category</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Detail View</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course.course_name }}</td>
+                    <td>{{ course.category_type }}</td>
+                    <td>{{ course.created_at }}</td>
+                    <td>{{ course.updated_at }}</td>
+                    <td>
+                        <a href="{% url 'admin_edit_course' course.id %}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'admin_delete_course' course.id %}">Delete</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'admin_view_course' course.id %}">View</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="add-link">
+            <a href="{% url 'admin_create_course' %}">Add Course</a>
+        </div>
+        {% else %}
+        <p>No courses available</p>
+        {% endif %}
+    </div>
+</body>
+</html>

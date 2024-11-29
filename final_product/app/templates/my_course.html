@@ -1,0 +1,872 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_course.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left-section">
+            <i id="toggleMenu" class="fa fa-bars" aria-hidden="true" style="cursor: pointer"></i>
+            <div class="menu-categories inactive">
+                <img src="{% static 'assets/roadmap/stacked-books.png' %}" class="first-image" width="180px"
+                    alt="Stack of Books">
+                <img src="{% static 'assets/roadmap/open-book.png' %}" class="second-image" width="200px"
+                    alt="Stack of Books">
+                <img src="{% static 'assets/roadmap/stacked-books.png' %}" class="third-image" width="200px"
+                    alt="Stack of Books">
+                <img src="{% static 'assets/roadmap/open-book.png' %}" class="fourth-image" width="200px"
+                    alt="Stack of Books">
+                <div class="menu-container">
+                    <ul>
+                        <a href="{% url 'my_course' %}">
+                            <a href="{% url 'my_course' %}">
+                                <li>My Courses</li>
+                            </a>
+                        </a>
+                        <a href="{% url 'certificate' %}">
+                            <li>Certificates</li>
+                        </a>
+                        <a href="{% url 'ticket' %}">
+                            <li>Support & Help</li>
+                        </a>
+                        <a href="{% url 'referral' %}">
+                            <li>Referral Program</li>
+                        </a>
+                        <a href="{% url 'payment_history' %}">
+                            <li>Payment History</li>
+                        </a>
+                        <a href="{% url 'blog' %}">
+                            <li>Blog</li>
+                        </a>
+                    </ul>
+
+                </div>
+            </div>
+            <a href="{% url 'landing_page_before_login' %}">
+                <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+            </a>
+            <div class="searchBar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="search" name="search" placeholder="Search">
+            </div>
+        </div>
+        <div class="right-section">
+            <p class="learnings">My Learnings</p>
+            <ul class="learnings-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+                <li class="ninth-category">Stock Market</li>
+                <li class="ninth-category">Graphic Design</li>
+                <li class="ninth-category">UI/UX</li>
+                <li class="ninth-category">Excel (Beginner to Advace)</li>
+                <li class="ninth-category">Digital Marketing</li>
+                <li class="ninth-category">R Language</li>
+            </ul>
+            <p class="categories">Categories</p>
+            <ul class="main-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+                <li class="ninth-category">Stock Market</li>
+                <li class="ninth-category">Graphic Design</li>
+                <li class="ninth-category">UI/UX</li>
+                <li class="ninth-category">Excel (Beginner to Advace)</li>
+                <li class="ninth-category">Digital Marketing</li>
+                <li class="ninth-category">R Language</li>
+            </ul>
+            <ul class="web-development-category category">
+                <li>HTML / CSS</li>
+                <li>Javascript</li>
+                <li>Bootstrap</li>
+                <li>React Js</li>
+                <li>Angular</li>
+                <li>Node Js</li>
+                <li>Express Js</li>
+            </ul>
+            <ul class="mobile-developement-category category">
+                <li>Android Development with Java/ Kotlin
+                </li>
+                <li>iOS Development with Swift</li>
+                <li> React Native </li>
+            </ul>
+            <ul class="programming-category category">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Ruby</li>
+                <li>PHP</li>
+                <li>Go</li>
+            </ul>
+            <ul class="engineering-category category">
+                <li>Software Development Lifecycle (SDLC)</li>
+                <li>Agile and Scrum</li>
+                <li> DevOps Principles</li>
+                <li>Software Testing and Quality Assurance</li>
+            </ul>
+            <ul class="block-chain-category category">
+                <li>Blockchain Fundamentals</li>
+                <li> Smart Contract Development</li>
+                <li>Cryptocurrency and Bitcoin Basic</li>
+            </ul>
+            <ul class="iot-category category">
+                <li>Introduction to loT
+                </li>
+                <li>IoT Platforms and Technologies
+                </li>
+                <li> IoT Security and Privacy</li>
+            </ul>
+            <ul class="cloud-category category">
+                <li> Introduction to Cloud Computing
+                </li>
+                <li>Amazon Web Services (AWS)
+                </li>
+                <li>Microsoft Azure</li>
+                <li>Google Cloud Platform (GCP)</li>
+                <li>DevOps Practices and Tools</li>
+            </ul>
+            <ul class="data-science-category category">
+                <li>Python for Data Science
+                </li>
+                <li>Data Analysis with Pandas
+                </li>
+                <li>NumPy and SciPy</li>
+                <li>Machine Learning Fundamentals</li>
+                <li>Deep Learning with TensorFlow or PyTorch</li>
+                <li>Natural Language Processing</li>
+            </ul>
+            <ul class="cybersecurity-category category">
+                <li> Introduction to Cybersecurity
+                </li>
+                <li>Ethical Hacking
+                </li>
+                <li>Network Security</li>
+                <li>Web Application Security</li>
+                <li> Cryptography</li>
+                <li> Incident Response and Forensics</li>
+            </ul>
+            <a href="{% url 'profile_page' %}">
+                <img class="logo" src="{% static 'assets/user.png' %}" alt="">
+
+            </a>
+            <p style="color: #fff; font-size: 0.9rem; margin-right: 10px">Student's Name</p>
+            <img id="toggleProfile" src="{% static 'assets/roadmap/down-arrow.png' %}" width="25px" alt=""
+                style="cursor: pointer">
+            <div class="profile-container inactive">
+                <a href="{% url 'profile_page' %}"><button class="profile-btn">Profile Setting Page</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="header-container">
+        <h2>My Courses</h2>
+        <div class="buttons">
+            <div class="line active">
+                <button data-target="in-progress-container">In Progress</button>
+            </div>
+
+            <div class="line">
+                <button data-target="completed-container">Completed</button>
+            </div>
+            <div class="line">
+                <button data-target="liked-container">Liked</button>
+            </div>
+            <div class="line">
+                <button data-target="cart-container">Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="containers in-progress-container active">
+        <h4 class="greetings">Welcome (Your Registered Name)</h4>
+        <div class="card-container">
+            <div class="card">
+                <i id="menu-icon" class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                <div class="card-menu inactive">
+                    <div id="share-btn" class="menu-btn">
+                        <i class="fa fa-share" aria-hidden="true"></i>
+                        <p>Share</p>
+                    </div>
+                    <div class="menu-btn">
+                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                        <p>Favourite</p>
+                    </div>
+                    <div class="menu-btn" id="rate-btn">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        <p>Leave a rating</p>
+                    </div>
+                </div>
+                <img src="{% static 'assets/landing_page/course-img.png' %}" class="card-img-top" alt="..."
+                    width="100%">
+
+                <div class="card-body">
+                    <h5 class="card-title" style="font-weight: 600; font-size: 1rem; color: #000">Name of the
+                        course here with title</h5>
+                    <p style="font-size: 0.95rem;">Which Academy</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="30" style="width: 30%;"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress-container">
+                        <p class="percentage" style="font-size: 0.95rem;">30%</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17px">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="view-more" style="text-align: center;background-color: #BDADAD;">
+                    <a href="{% url 'course_material' %}"><button>View More</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containers completed-container">
+        <h4 class="greetings">Welcome (Your Registered Name)</h4>
+        <div class="card-container">
+            <div class="card">
+                <i id="menu-icon" class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                <div class="card-menu inactive">
+                    <div id="share-btn" class="menu-btn">
+                        <i class="fa fa-share" aria-hidden="true"></i>
+                        <p>Share</p>
+                    </div>
+                    <div class="menu-btn">
+                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                        <p>Favourite</p>
+                    </div>
+                    <div class="menu-btn" id="rate-btn">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        <p>Leave a rating</p>
+                    </div>
+                </div>
+                <img src="{% static 'assets/my_course/featured-course.png' %}" class="card-img-top" alt="..."
+                    width="100%">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 600; font-size: 1rem; color: #000">Name of the
+                        course here with title</h5>
+                    <p style="font-size: 0.95rem;">Which Academy</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="30" style="width: 30%;"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress-container">
+                        <p class="percentage" style="font-size: 0.95rem;">30%</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17px">
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more" style="text-align: center;background-color: #BDADAD;">
+                    <a href="{% url 'course_material' %}"><button>View More</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containers liked-container">
+        <h4 class="greetings">Welcome (Your Registered Name)</h4>
+        <div class="card-container">
+            <div class="card">
+                <i id="menu-icon" class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                <div class="card-menu inactive">
+                    <div id="share-btn" class="menu-btn">
+                        <i class="fa fa-share" aria-hidden="true"></i>
+                        <p>Share</p>
+                    </div>
+                    <div class="menu-btn">
+                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                        <p>Favourite</p>
+                    </div>
+                    <div class="menu-btn" id="rate-btn">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        <p>Leave a rating</p>
+                    </div>
+                </div>
+                <img src="{% static 'assets/landing_page/course-img.png' %}" class="card-img-top" alt="..."
+                    width="100%">
+
+                <div class="liked-card-body">
+                    <h5 class="card-title" style="font-weight: 600; font-size: 1rem; color: #000">Name of the
+                        course here with title</h5>
+                    <p style="font-size: 0.95rem;">Which Academy</p>
+                    <div class="rating-container">
+                        <p class="rating">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                        <p class="views">(views)</p>
+                    </div>
+                    <p>₹3,699</p>
+                </div>
+            </div>
+            <div class="course-details">
+                <h4>Name of the course</h4>
+                <p>(Uploaded date)</p>
+                <div class="small-details">
+                    <p>1h23min</p>
+                    <p>23eps</p>
+                    <p>Medium</p>
+                </div>
+                <p style="font-size: 0.9rem">Small description regarding course and domain</p>
+                <div class="points">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <p>Point 1 to be noted regarding course</p>
+                </div>
+                <div class="points">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <p>Point 2 to be noted regarding course</p>
+                </div>
+                <div class="points">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <p>Point 3 to be noted regarding projects involved in course</p>
+                </div>
+                <div class="points">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <p>Points to be noted regarding tools involved in the project</p>
+                </div>
+                <div class="button">
+                    <button id="cart-btn" class="cart-btn">Add to cart</button>
+                    <div class="like">
+                        <i class="fa fa-heart inactive" aria-hidden="true" style="color: #EF0909"></i>
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containers cart-container">
+        <h4 class="greetings">Your Cart</h4>
+        <div class="course-added-in-cart">
+            <div class="course">
+                <img src="{% static 'assets/course/course.png' %}" class="course-img" alt="" width="300px">
+                <div class="content">
+                    <h5 class="card-title" style="font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">Name of the
+                        course here with title</h5>
+                    <p style="font-size: 0.95rem;">Which Academy</p>
+                    <div class="rating-container" style="white-space: nowrap;">
+                        <p class="rating">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17px">
+                        </div>
+                        <p class="views">(views)</p>
+                    </div>
+                    <p>₹3,699</p>
+                </div>
+                <div class="cart-buttons">
+                    <p>Remove</p>
+                    <p style="white-space: nowrap;">Move to liked</p>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="price-container">
+                    <h6 style="text-align: left">Total:</h6>
+                    <h4 style="font-size: 1.8rem; font-weight: 700">₹3,699</h4>
+                    <a href="{% url 'payment' %}"><button class="cart-btn" style="white-space: nowrap;">Proceed to
+                            Payment</button></a>
+                </div>
+            </div>
+            <div class="course">
+                <img src="{% static 'assets/course/course.png' %}" class="course-img" alt="" width="300px">
+                <div class="content">
+                    <h5 class="card-title" style="font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">Name of the
+                        course here with title</h5>
+                    <p style="font-size: 0.95rem;">Which Academy</p>
+                    <div class="rating-container" style="white-space: nowrap;">
+                        <p class="rating">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17px">
+                        </div>
+                        <p class="views">(views)</p>
+                    </div>
+                    <p>₹3,699</p>
+                </div>
+                <div class="cart-buttons">
+                    <p>Remove</p>
+                    <p style="white-space: nowrap;">Move to liked</p>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="price-container">
+                    <h6 style="text-align: left">Total:</h6>
+                    <h4 style="font-size: 1.8rem; font-weight: 700">₹3,699</h4>
+                    <a href="{% url 'payment' %}"><button class="cart-btn" style="white-space: nowrap;">Proceed to
+                            Payment</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-container" class="modal-container">
+        <div class="share-modal">
+            <div class="modal-header">
+                <p style="font-weight: 600">Link: www.github.com</p>
+                <img src="{% static 'assets/my_course/back-button.png' %}" style="cursor: pointer" class="close"
+                    alt="Back Arrow Icon" width="30px">
+            </div>
+            <div class="socials">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                <i class="fa fa-google" aria-hidden="true"></i>
+            </div>
+            <p style="font-weight: 300;font-size: 0.95rem">Copy link</p>
+        </div>
+        <div class="rating-modal">
+            <div style="text-align: right;"><img src="{% static 'assets/my_course/back-button.png' %}"
+                    style="cursor: pointer" class="close" alt="Back Arrow Icon" width="30px"></div>
+
+            <h6 style="font-size: 1.1rem">Rate this course as per your experience</h6>
+            <div class="star-icons">
+                <img src="{% static 'assets/landing_page/star.png' %}" alt="" class="rating-star" data-value="1"
+                    width="17px">
+                <img src="{% static 'assets/landing_page/star.png' %}" alt="" class="rating-star" data-value="2"
+                    width="17px">
+                <img src="{% static 'assets/landing_page/star.png' %}" alt="" class="rating-star" data-value="3"
+                    width="17px">
+                <img src="{% static 'assets/landing_page/star.png' %}" alt="" class="rating-star" data-value="4"
+                    width="17px">
+                <img src="{% static 'assets/landing_page/star.png' %}" alt="" class="rating-star" data-value="5"
+                    width="17px">
+            </div>
+            <textarea type="text" placeholder="Give your feedback here"></textarea>
+        </div>
+        <div class="cart-modal line">
+            <div class="close">
+                <i class="fa fa-long-arrow-left" aria-hidden="true" style="font-size: 1.9rem"></i>
+            </div>
+            <h4>Added to Cart</h4>
+            <div class="divider" style="display: flex; align-items: center;justify-content: space-between;">
+                <div class="added-course-container">
+                    <div class="added-course">
+                        <img src="{% static 'assets/landing_page/course.png' %}" class="card-img-top" alt="..."
+                            width="200px">
+                        <div class="course-info">
+                            <p>Name of the course</p>
+                            <p>Which Academy</p>
+                            <div class="rating-container">
+                                <p class="rating">4.0</p>
+                                <div class="rating-icons">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                                </div>
+                                <p class="views">(views)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button data-target="cart-container" class="cart-btn close">Go to
+                    cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="course-modal-container">
+        <div class="course-details-modal">
+            <div class="modal-header">
+                <div class="heading-container">
+                    <h4>Name of the course</h4>
+                    <h6>Deadline: 30-Apr-2024</h6>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-circle">
+                        <span class="progress-value">75%</span>
+                        <svg class="progress-ring" width="80" height="80">
+                            <circle class="progress-ring__circle" cx="40" cy="40" r="35" />
+                        </svg>
+                    </div>
+                    <p>Completed</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="{% url 'course_video' %}">
+                    <div class="button">
+                        <i class="fa fa-video-camera" aria-hidden="true"></i>
+                        <p>Watch Recorded Videos</p>
+                    </div>
+                </a>
+                <a href="{% url 'quiz_page' %}">
+                    <div class="button">
+                        <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                        <p>Start Quiz</p>
+                    </div>
+                </a>
+                <a href="{% url 'assignment_page' %}">
+                    <div class="button">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <p>Submit Assignment</p>
+                    </div>
+                </a>
+                <a href="{% url 'result' %}">
+                    <div class="button">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                        <p>Result</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.left-section .categories');
+            const categoryList = document.querySelector('.main-category');
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            categories.addEventListener('click', function () {
+                // Toggle the 'active' class on the main category list
+                categoryList.classList.toggle('active');
+                categoryLists.forEach(function (category) {
+                    category.classList.remove('active');
+                });
+            });
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Remove the 'active' class from all category lists
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+
+                    // Add the 'active' class to the clicked category list
+                    categoryLists[index].classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const profile = document.querySelector('.profile');
+            const listItems = document.querySelectorAll('.profile-container ul li');
+            const ul = document.querySelector('.profile-container ul');
+            const chevron = document.querySelector('.fa-chevron-down');
+
+            // Toggle 'active' class on ul when profile is clicked
+            profile.addEventListener('click', function () {
+                ul.classList.toggle('active');
+                chevron.classList.toggle('rotate');
+            });
+
+            // Add 'active' class to clicked li and remove from others
+            listItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Remove active class from all list items
+                    listItems.forEach(function (li) {
+                        li.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked item
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // const lines = document.querySelectorAll('.line');
+
+        // // Add click event listener to each line
+        // lines.forEach(function (line) {
+        //     line.addEventListener('click', function () {
+        //         // Remove the "active" class from all lines
+        //         lines.forEach(function (line) {
+        //             line.classList.remove('active');
+        //         });
+
+        //         // Add the "active" class to the clicked line
+        //         this.classList.add('active');
+        //     });
+        // });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the cart button in the modal
+            const cartBtn = document.querySelector('.cart-modal .cart-btn');
+
+            // Get all the line elements in the buttons section
+            const lines = document.querySelector('.buttons .go-to-cart');
+
+            // Add click event listener to the cart button
+            cartBtn.addEventListener('click', function () {
+                // Remove the active class from all line elements
+                lines.forEach(line => line.classList.remove('active'));
+
+                // Add the active class to the line with the Cart button
+                const button = lines.querySelector('button[data-target="cart-container"]');
+                if (button) {
+                    lines.classList.add('active');
+                }
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcons = document.querySelectorAll('#menu-icon');
+
+            menuIcons.forEach((menuIcon, index) => {
+                menuIcon.addEventListener('click', function () {
+                    const cardMenu = menuIcon.nextElementSibling;
+                    cardMenu.classList.toggle('inactive');
+                });
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.line button');
+            const containers = document.querySelectorAll('.containers');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Get the target container class from the data-target attribute
+                    const targetClass = this.getAttribute('data-target');
+
+                    // Remove 'active' class from all containers
+                    containers.forEach(container => {
+                        container.classList.remove('active');
+                    });
+
+                    // Add 'active' class to the target container
+                    const targetContainer = document.querySelector(`.${targetClass}`);
+                    targetContainer.classList.add('active');
+
+                    // Remove 'active' class from all buttons
+                    buttons.forEach(btn => btn.parentElement.classList.remove('active'));
+
+                    // Add 'active' class to the clicked button's parent div
+                    this.parentElement.classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalContainer = document.getElementById('modal-container');
+            const shareModal = document.querySelector('.share-modal');
+            const ratingModal = document.querySelector('.rating-modal');
+            const cartModal = document.querySelector(".cart-modal")
+
+            // Buttons to open modals
+            const shareButtons = document.querySelectorAll('#share-btn');
+            const rateButtons = document.querySelectorAll('#rate-btn');
+            const cartButtons = document.querySelectorAll('#cart-btn');
+
+            // Add click event listeners to buttons
+            shareButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    modalContainer.classList.add('active');
+                    shareModal.classList.add('active');
+                    ratingModal.classList.remove('active');
+                    cartModal.classList.remove("active")
+                });
+            });
+
+            // Add click event listeners to rate buttons
+            rateButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    modalContainer.classList.add('active');
+                    ratingModal.classList.add('active');
+                    shareModal.classList.remove('active');
+                    cartModal.classList.remove("active")
+                });
+            });
+
+            cartButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    modalContainer.classList.add('active');
+                    ratingModal.classList.remove('active');
+                    shareModal.classList.remove('active');
+                    cartModal.classList.add("active")
+                });
+            });
+
+            // Close buttons inside modals
+            const closeButtons = document.querySelectorAll('.modal-container .close');
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    modalContainer.classList.remove('active');
+                    shareModal.classList.remove('active');
+                    ratingModal.classList.remove('active');
+                    cartModal.classList.remove("active")
+                });
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function (event) {
+                if (event.target === modalContainer) {
+                    modalContainer.classList.remove('active');
+                    shareModal.classList.remove('active');
+                    ratingModal.classList.remove('active');
+                    cartModal.classList.remove("active")
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const circle = document.querySelector('.progress-ring__circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = `${circumference}`;
+
+            function setProgress(percent) {
+                const offset = circumference - (percent / 100) * circumference;
+                circle.style.strokeDashoffset = offset;
+            }
+
+            // Example: Set the progress to 75%
+            setProgress(75);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalContainer = document.querySelector('.course-modal-container');
+            const courseDetailsModal = document.querySelector('.course-details-modal');
+            const cardBodies = document.querySelectorAll('.card-body');
+
+            cardBodies.forEach(cardBody => {
+                cardBody.addEventListener('click', function () {
+                    modalContainer.classList.add('active');
+                    courseDetailsModal.classList.remove('hide');
+                });
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function (event) {
+                if (event.target === modalContainer) {
+                    courseDetailsModal.classList.add('hide');
+                    setTimeout(() => {
+                        modalContainer.classList.remove('active');
+                    }, 500); // Match this to the animation duration
+                }
+            });
+
+            // Optional: Close modal button
+            // const closeModalButton = document.querySelector('.course-details-modal .close');
+            // if (closeModalButton) {
+            //     closeModalButton.addEventListener('click', function () {
+            //         courseDetailsModal.classList.add('hide');
+            //         setTimeout(() => {
+            //             modalContainer.classList.remove('active');
+            //         }, 500); // Match this to the animation duration
+            //     });
+            // }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get all card title elements
+            const cardTitles = document.querySelectorAll(".liked-card-body");
+
+            // Add click event listener to each card title
+            cardTitles.forEach(function (cardTitle) {
+                cardTitle.addEventListener("click", function () {
+                    // Find the corresponding course details modal within the same container
+                    const courseDetails = this.closest(".card-container").querySelector(".course-details");
+
+                    // Toggle visibility of the course details modal
+                    courseDetails.classList.toggle("show");
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all like buttons
+            const likeButtons = document.querySelectorAll(".like");
+
+            // Loop through each like button
+            likeButtons.forEach(function (likeButton) {
+                // Select active and inactive heart icons within the current like button
+                const activeHeart = likeButton.querySelector(".fa-heart");
+                const inactiveHeart = likeButton.querySelector(".fa-heart-o");
+
+                // Add click event listener to the current like button
+                likeButton.addEventListener("click", function () {
+                    // Toggle the "inactive" class for both heart icons within the current like button
+                    activeHeart.classList.toggle("inactive");
+                    inactiveHeart.classList.toggle("inactive");
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const favouriteIcon = "{% static 'assets/landing_page/favourite.png' %}";
+            const starIcon = "{% static 'assets/landing_page/star.png' %}";
+            const ratingStars = document.querySelectorAll('.star-icons .rating-star');
+
+            ratingStars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const rating = this.getAttribute('data-value');
+                    updateRating(rating);
+                });
+            });
+
+            function updateRating(rating) {
+                ratingStars.forEach(star => {
+                    const starValue = star.getAttribute('data-value');
+                    if (starValue <= rating) {
+                        star.setAttribute('src', favouriteIcon);
+                    } else {
+                        star.setAttribute('src', starIcon);
+                    }
+                });
+            }
+        });
+
+
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

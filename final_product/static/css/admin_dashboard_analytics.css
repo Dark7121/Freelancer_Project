@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Analytics section styling starts */
+
+.analytics-wrapper{
+    margin-left: 8vw;
+    height: 50vh;
+    margin-bottom: 80px;
+}
+
+.analytics-cotainer{
+    width: 85vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between ;
+}
+
+.analytics-cards{
+    width: 280px;
+    padding: 20px;
+    padding-bottom: 25px;
+    border-radius: 30px;
+    height: 250px;
+    background-color: #FFFFFF;
+    color: #242424;
+    box-shadow: 0px 5px 5px gray;
+}
+
+.number-under-circle-container{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-under-circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border-top: 3px solid #D9D9D9;
+    border-left: 3px solid #D9D9D9;
+    border-bottom: 6px solid #00B894;
+    border-right: 6px solid #00B894;
+    transform: rotateZ(-55deg);
+}
+
+#circle-number{
+    transform: rotateZ(55deg);
+    font-size: 45px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.heading-percent-container{
+    height: 65%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.heading-percent-container span{
+    font-size: 40px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.analytics-card-bottom-path{
+    width: 100%;
+}
+
+
+/* Analytics section styling ends */
+
+
+/* Monthly report section styling starts */
+
+.monthly-report-wrapper{
+    margin-left: 8vw;
+    height: 65vh;
+}
+
+.monthly-report-cotainer{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between ;
+    padding-right: 50px;
+}
+
+.table-container{
+    width: 30vw;
+    height: 260px;
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #242424;
+    box-shadow: 0px 5px 5px gray;
+}
+
+#course-table{
+    width: 100%;
+}
+
+table thead,tbody{
+    border: none;
+}
+
+th, td {
+    text-align: center;
+}
+
+th {
+    font-weight: bold;
+    padding: 5px 0px;
+    font-size: 13px;
+}
+
+#name-heading{
+    text-align: left;
+    padding-left: 15px ;
+}
+
+td {
+    padding: 20px 0px;
+    height: 10px;
+    font-size: 12px;
+    word-wrap: break-word;
+}
+
+
+.img-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.img-cover{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 22px;
+}
+
+.img-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Monthly report styling ends */
+
+/* graph */
+
+.graph-container h1{
+    color:#444444;
+    font-size: 16px;
+    font-weight: bold !important;
+    margin-bottom: 30px !important;
+    margin-left: 5px !important;
+}
+.graph {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 409px;
+}
+
+.graph canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Graph Legend or inner text styling */
+
+
+.chart-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom:1px solid #4d4d4d2f;
+}
+
+.activity,
+.months {
+    color: #4D4D4D;
+    font-size: 11px;
+}

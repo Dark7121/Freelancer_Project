@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowlegopedia</title>
+    <link rel="stylesheet" href="{% static 'css/admin_1_to_1_Mentorship.css' %}">
+</head>
+<body>
+ 
+<!-- Container that contains "tables" STARTS -->
+
+        <!-- Container that contains " PAYMENT table" -->
+        <h1 id="main-payment-heading">1 : 1 MENTORSHIP</h1>
+        <div class="sror-search-container">
+            <div class="sort-continer">
+            <p>Sort By : </p>
+            <select id="sortSelect" onchange="sortTable()">
+                <option class="sort-option" value="default">Default</option>
+                <option class="sort-option" value="date">Date</option>
+            </select>
+            <i class="dropdown-icon fa fa-chevron-down"></i> 
+            </div>
+            <div class="search">
+            <input class="input-box" placeholder="search" type="text" id="search">
+            </div>
+        </div>
+
+
+        <div id="tables">
+        <div class="each-table-container">
+            <h2 class="sub-payment-heading">PENDING MENTORSHIP</h2>
+            <table id="table1">
+                <thead>
+                    <tr>
+                        <th>Date of Payment</th>
+                        <th>Name</th>
+                        <th>Email ID</th>
+                        <th>Phone No.</th>
+                        <th>Course Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="each-table-container">
+            <h2 class="sub-payment-heading">COMPLETED MENTORSHIP</h2>
+            <table id="table2">
+                <thead>
+                    <tr>
+                        <th>Date of Payment</th>
+                        <th>Name</th>
+                        <th>Email ID</th>
+                        <th>Phone No.</th>
+                        <th>Course Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                    <tr><td>Mar,2023</td><td>John dye</td><td>john56@gamil.com</td><td>(617)623-2338</td><td>Artificial intelligence</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!-- Container that contains "tables" ENDS -->
+
+
+</body>
+</html>

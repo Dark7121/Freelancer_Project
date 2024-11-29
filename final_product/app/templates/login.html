@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+        <p>Don't have an account? <select id="signupOption" class="form-control">
+                <option value="#">Admin</option>
+                <option value="{% url 'student-signup' %}">Student</option>
+                <option value="#}">Course Provider</option>
+            </select>
+            <button onclick="signup()" class="btn btn-primary">Signup</button>
+        </p>
+    </form>
+    <script>
+        function signup() {
+            var option = document.getElementById("signupOption").value;
+            window.location.href = option;
+        }
+    </script>
+</body>
+
+</html>

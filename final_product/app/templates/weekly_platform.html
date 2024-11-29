@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_learnings.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <title>Weekly Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .week-post {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .week-post p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .week-post small {
+            font-size: 12px;
+            color: #666;
+        }
+        .week-comment-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .week-comment-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            list-style: none;
+        }
+        .week-comment-form {
+            margin-top: 10px;
+        }
+        .week-comment-form textarea {
+            width: calc(100% - 90px); /* Adjusted to match button width */
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 14px;
+        }
+        .week-comment-form button {
+            width: 80px;
+            padding: 8px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px; /* Added margin for spacing */
+        }
+        .week-post-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 16px;
+            margin-bottom: 10px; /* Added margin for spacing */
+        }
+        .week-post-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sidebar {
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 20px 10px 10px 5px;
+    border-bottom: 1px solid #00000033;
+    width: 350px;
+    background: #DFDFDF;
+    z-index: 10
+}
+
+.sidebar h4 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 1.3rem;
+}
+
+.sidebar li {
+    list-style: none;
+}
+
+.sidebar li:hover {
+    cursor: pointer;
+}
+
+.main-list .li {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.main-list .li.active {
+    border-left: 3px solid #0085FF
+}
+
+.main-list .li.active span img {
+    transform: rotate(90deg) !important
+}
+
+.week-list {
+    padding: 10px;
+}
+
+.week-list .li {
+    font-size: 0.9rem;
+    padding: 10px;
+    padding-left: 40px;
+    position: relative;
+}
+
+.week-list .li.active {
+    border-left: 3px solid #0085FF
+}
+.week-list .li.active:before {
+    background-color: #0085FF;
+    border: 1.6px solid #0085FF
+}
+
+.week-list .li::before {
+    content: ''; /* Empty content for pseudo-element */
+    position: absolute;
+    left: 1em;
+    top: 1.1em; /* Vertical alignment */
+    width: 10px; /* Width of the custom bullet */
+    height: 10px; /* Height of the custom bullet */
+    border: 1.6px solid black; /* Border thickness and color */
+    border-radius: 50%; /* Make it a circle */
+    background-color: transparent; /* Circle background color */
+}
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="navbar">
+            <div class="left-section">
+                <a href="{% url 'landing_page_before_login' %}">
+                    <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+                </a>
+                <p class="company-name">UPSKyED</p>
+                <div class="searchBar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" id="search" name="search" placeholder="Search">
+                </div>
+                <a class="categories">Explore</a>
+                <ul class="main-category">
+                    <li class="first-category">Web Development</li>
+                    <li class="second-category">Mobile App Development</li>
+                    <li class="third-category">Programming Languages</li>
+                    <li class="fourth-category"> Software Engineering</li>
+                    <li class="fifth-category">Block Chain & Crypto Currency</li>
+                    <li class="sixth-category">Internet of things</li>
+                    <li class="seventh-category">Cloud Computing</li>
+                    <li class="eight-category">Data Science & Machine Learning</li>
+                    <li class="ninth-category">Cybersecurity</li>
+                </ul>
+                <ul class="web-development-category category ">
+                    <li>HTML / CSS</li>
+                    <li>Javascript</li>
+                    <li>Bootstrap</li>
+                    <li>React Js</li>
+                    <li>Angular</li>
+                    <li>Node Js</li>
+                    <li>Express Js</li>
+                </ul>
+                <ul class="mobile-developement-category category">
+                    <li>Android Development with Java/ Kotlin
+                    </li>
+                    <li>iOS Development with Swift</li>
+                    <li> React Native </li>
+                </ul>
+                <ul class="programming-category category">
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>C++</li>
+                    <li>C#</li>
+                    <li>Ruby</li>
+                    <li>PHP</li>
+                    <li>Go</li>
+                </ul>
+                <ul class="engineering-category category">
+                    <li>Software Development Lifecycle (SDLC)</li>
+                    <li>Agile and Scrum</li>
+                    <li> DevOps Principles</li>
+                    <li>Software Testing and Quality Assurance</li>
+                </ul>
+                <ul class="block-chain-category category">
+                    <li>Blockchain Fundamentals</li>
+                    <li> Smart Contract Development</li>
+                    <li>Cryptocurrency and Bitcoin Basic</li>
+                </ul>
+                <ul class="iot-category category">
+                    <li>Introduction to loT
+                    </li>
+                    <li>IoT Platforms and Technologies
+                    </li>
+                    <li> IoT Security and Privacy</li>
+                </ul>
+                <ul class="cloud-category category">
+                    <li> Introduction to Cloud Computing
+                    </li>
+                    <li>Amazon Web Services (AWS)
+                    </li>
+                    <li>Microsoft Azure</li>
+                    <li>Google Cloud Platform (GCP)</li>
+                    <li>DevOps Practices and Tools</li>
+                </ul>
+                <ul class="data-science-category category">
+                    <li>Python for Data Science
+                    </li>
+                    <li>Data Analysis with Pandas
+                    </li>
+                    <li>NumPy and SciPy</li>
+                    <li>Machine Learning Fundamentals</li>
+                    <li>Deep Learning with TensorFlow or PyTorch</li>
+                    <li>Natural Language Processing</li>
+                </ul>
+                <ul class="cybersecurity-category category">
+                    <li> Introduction to Cybersecurity
+                    </li>
+                    <li>Ethical Hacking
+                    </li>
+                    <li>Network Security</li>
+                    <li>Web Application Security</li>
+                    <li> Cryptography</li>
+                    <li> Incident Response and Forensics</li>
+                </ul>
+            </div>
+            <div class="right-section">
+                <a href="{% url 'landing_page_before_login' %}">Home</a>
+                <a href="{% url 'my_learnings' %}" class="active">My Learnings</a>
+
+                <!-- <a href="{% url 'common_discussion_forum' %}">Discussion Forum</a> -->
+                <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i></a>
+
+                <div class="profile-container">
+                    {% if profile == 10 %}
+                    <div class="profile">
+                        <img src="{% static 'assets/user.png' %}" alt="" width="40px">
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                     </div>
+                     {% else %}
+                     <div class="profile">
+                         <img src="{{ profile.profile_picture.url }}" alt="" width="40px">
+                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                     </div>
+                     {% endif %}
+                    <ul>
+                        <a href="{% url 'profile_page' %}">
+                            <li>Profile</li>
+                        </a>
+                        <a href="{% url 'certificate' %}">
+                            <li>My Certificates</li>
+                        </a>
+                        <a href="{% url 'blog' %}">
+                            <li>Blog</li>
+                        </a>
+                        <a href="{% url 'payment_history' %}">
+                            <li>Payment History</li>
+                        </a>
+                        <a href="{% url 'referral' %}">
+                            <li>Referral</li>
+                        </a>
+                        <a href="{% url 'ticket' %}">
+                            <li>Support & Help</li>
+                        </a>
+                        <a href="{% url 'logout' %}">
+                            <li>Log out</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-start; width: 100%;">
+            <div class="sidebar">
+                <h4>Discussion Forum</h4>
+                <ul class="main-list">
+                    <li class="li main-item " data-target="discussion-container">
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon4.png' %}" alt="" width="25px"> -->
+                         <p>Discussion Forum</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                                style="transform: rotate(180deg)" alt="" width="20px"></span>
+                    </li>
+                    </ul>
+            </div>
+            <div class="container">
+                <h2>Weekly Platform</h2>
+        <!-- Week post list -->
+        {% for week_post in week_posts %}
+        <div class="week-post">
+            <p>{{ week_post.content }}</p>
+            <small>Posted by {{ week_post.user }} on {{ week_post.timestamp }}</small>
+            <!-- Like and dislike buttons for week post -->
+            <button onclick="likeWeekPost({{ week_post.id }})" class="btn btn-primary btn-sm">Like <span id="week-post-like-count-{{ week_post.id }}">{{ week_post.likes }}</span></button>
+            <button onclick="dislikeWeekPost({{ week_post.id }})" class="btn btn-danger btn-sm">Dislike <span id="week-post-dislike-count-{{ week_post.id }}">{{ week_post.dislikes }}</span></button>
+
+            <!-- Week comment list -->
+            <ul class="week-comment-list">
+                {% for week_comment in week_post.weekcomment_set.all %}
+                <li>
+                    {{ week_comment.content }} - {{ week_comment.user }} - {{ week_comment.timestamp }}
+                    <!-- Like and dislike buttons for week comment -->
+                    <button onclick="likeWeekComment({{ week_comment.id }})" class="btn btn-primary btn-sm">Like <span id="week-comment-like-count-{{ week_comment.id }}">{{ week_comment.likes }}</span></button>
+                    <button onclick="dislikeWeekComment({{ week_comment.id }})" class="btn btn-danger btn-sm">Dislike <span id="week-comment-dislike-count-{{ week_comment.id }}">{{ week_comment.dislikes }}</span></button>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <!-- Week comment form -->
+            <form class="week-comment-form" method="POST" action="{% url 'add_week_comment' week_number week_post.id %}">
+                {% csrf_token %}
+                <textarea name="content" rows="2" placeholder="Add your comment"></textarea>
+                <button type="submit">Comment</button>
+            </form>
+        </div>
+        {% endfor %}
+
+        <!-- Week post form -->
+        <form class="week-post-form" method="POST" action="{% url 'add_week_post' week_number %}">
+            {% csrf_token %}
+            <textarea name="content" rows="4" placeholder="Write your week post here"></textarea><br>
+            <button type="submit">Post</button>
+        </form>
+    </div>
+
+           <!-- <div class="sidebar">
+                <h4>Academy</h4>
+                <ul class="main-list">
+                    <li class="li main-item active" data-target="module-container">
+                         <img class="sidebar-icon" src="{% static 'assets/course-material/icon1.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Course Material</p>
+                        <span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)" alt=""
+                                width="20px"></span>
+                    </li>
+                    {% for week in course.weeks.all %}
+                    <ul class="week-list">
+                        <li class="li week-item ">
+                            <p>Week {{ week.number }}</p>
+                            <p>1</p>
+                        </li>
+                    </ul>
+                    {% endfor %} -->
+                    <!-- <li class="li main-item " data-target="grade-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon2.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Grade</p><span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)"
+                                alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="notes-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon3.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Notes</p><span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)"
+                                alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="discussion-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon4.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Discussion Forum</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                                style="transform: rotate(180deg)" alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="message-container" data-section="messages"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon5.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Messages</p><span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)"
+                                alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="resource-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon6.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Resources</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                                style="transform: rotate(180deg)" alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="course-info-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon7.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Course Info</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                                style="transform: rotate(180deg)" alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="career-guidance-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon8.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Career Guidance</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                                style="transform: rotate(180deg)" alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="papers-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon9.png' %}" alt="" width="25px"> -->
+                        <!-- <p>Previous Q/P & Ans</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                                style="transform: rotate(180deg)" alt="" width="20px"></span>
+                    </li>
+                    <li class="li main-item " data-target="mentorship-container"> -->
+                        <!-- <img class="sidebar-icon" src="{% static 'assets/course-material/icon10.png' %}" alt=""
+                            width="25px"> -->
+                        <!-- <p>1 on 1 Mentorship</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                                style="transform: rotate(180deg)" alt="" width="20px"></span>
+                    </li>
+
+                </ul> -->
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+<!--
+<footer class="footer-section">
+    <div class="company-details">
+        <div class="description">
+            <h3 style="font-weight: 600;color: #0085FF">E-Learning</h3>
+        </div>
+        <div class="app">
+            <p style="font-size: 1rem; color: #fff;">Top learning experiences that <br>create more
+                talent in the world.</p>
+
+
+        </div>
+        <div>
+            <ul>
+                <li class="list-header">Company</li>
+                <a href="{% url 'about_us' %}">
+                    <li>About us</li>
+                </a>
+                <a href="{% url 'faq' %}">
+                    <li>FAQs</li>
+                </a>
+                <a href="{% url 'blog' %}">
+                    <li>Blog</li>
+                </a>
+                <a href="{% url 'ticket' %}">
+                    <li>Support</li>
+                </a>
+
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li class="list-header">Social</li>
+                <li>Twitter</li>
+                <li>LinkedIn</li>
+                <li>GitHub</li>
+                <li>Dribble</li>
+
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li class="list-header">Legal</li>
+                <li>Terms</li>
+                <li>Privacy</li>
+                <a href="{% url 'contact_us' %}">
+                    <li>Contact Us</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-below-section">
+        <p>© 2024 E-Learning. All rights reserved.</p>
+        <div class="socials">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+        </div>
+    </div>
+</footer> -->
+
+
+
+
+<!-- JavaScript for like/dislike functionality -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- jQuery and AJAX -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+    function likeWeekPost(postId) {
+        // Send AJAX request to like endpoint
+        fetch(`/like_week_post/${postId}/`)
+            .then(response => response.json())
+            .then(data => {
+                // Update like count
+                document.getElementById(`week-post-like-count-${postId}`).innerText = data.likes;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function dislikeWeekPost(postId) {
+        // Send AJAX request to dislike endpoint
+        fetch(`/dislike_week_post/${postId}/`)
+            .then(response => response.json())
+            .then(data => {
+                // Update dislike count
+                document.getElementById(`week-post-dislike-count-${postId}`).innerText = data.dislikes;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function likeWeekComment(commentId) {
+        // Send AJAX request to like endpoint
+        fetch(`/like_week_comment/${commentId}/`)
+            .then(response => response.json())
+            .then(data => {
+                // Update like count
+                document.getElementById(`week-comment-like-count-${commentId}`).innerText = data.likes;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function dislikeWeekComment(commentId) {
+        // Send AJAX request to dislike endpoint
+        fetch(`/dislike_week_comment/${commentId}/`)
+            .then(response => response.json())
+            .then(data => {
+                // Update dislike count
+                document.getElementById(`week-comment-dislike-count-${commentId}`).innerText = data.dislikes;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const categories = document.querySelector('.left-section .categories');
+        const categoryList = document.querySelector('.main-category');
+        const mainCategories = document.querySelectorAll('.main-category li');
+        const categoryLists = document.querySelectorAll('.category');
+
+        categories.addEventListener('click', function () {
+            // Toggle the 'active' class on the main category list
+            categoryList.classList.toggle('active');
+            categoryLists.forEach(function (category) {
+                category.classList.remove('active');
+            });
+        });
+
+        mainCategories.forEach(function (mainCategory, index) {
+            mainCategory.addEventListener('click', function () {
+                // Remove the 'active' class from all category lists
+                categoryLists.forEach(function (category) {
+                    category.classList.remove('active');
+                });
+
+                // Add the 'active' class to the clicked category list
+                categoryLists[index].classList.add('active');
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const profile = document.querySelector('.profile');
+        const listItems = document.querySelectorAll('.profile-container ul li');
+        const ul = document.querySelector('.profile-container ul');
+        const chevron = document.querySelector('.fa-chevron-down');
+
+        // Toggle 'active' class on ul when profile is clicked
+        profile.addEventListener('click', function () {
+            ul.classList.toggle('active');
+            chevron.classList.toggle('rotate');
+        });
+
+        // Add 'active' class to clicked li and remove from others
+        listItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // Remove active class from all list items
+                listItems.forEach(function (li) {
+                    li.classList.remove('active');
+                });
+
+                // Add active class to the clicked item
+                this.classList.add('active');
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.buttons .btn');
+        const containers = document.querySelectorAll('.containers');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active')
+                containers.forEach(container => container.classList.remove('active'))
+                const targetClass = button.getAttribute('data-target');
+                document.querySelector(`.containers.${targetClass}`).classList.add('active')
+            })
+        })
+    })
+
+
+</script>
+
+
+
+
+</body>
+</html>

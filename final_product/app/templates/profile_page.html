@@ -1,0 +1,606 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile_page.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<style>
+    .form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+</style>
+
+<body>
+    <div class="navbar">
+        <div class="left-section">
+            <a href="{% url 'landing_page_before_login' %}">
+                <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+            </a>
+            <p class="company-name">UPSKyED</p>
+            <div class="searchBar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="search" name="search" placeholder="Search">
+            </div>
+            <a class="categories">Explore</a>
+            <ul class="main-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+            </ul>
+            <ul class="web-development-category category ">
+                <li>HTML / CSS</li>
+                <li>Javascript</li>
+                <li>Bootstrap</li>
+                <li>React Js</li>
+                <li>Angular</li>
+                <li>Node Js</li>
+                <li>Express Js</li>
+            </ul>
+            <ul class="mobile-developement-category category">
+                <li>Android Development with Java/ Kotlin
+                </li>
+                <li>iOS Development with Swift</li>
+                <li> React Native </li>
+            </ul>
+            <ul class="programming-category category">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Ruby</li>
+                <li>PHP</li>
+                <li>Go</li>
+            </ul>
+            <ul class="engineering-category category">
+                <li>Software Development Lifecycle (SDLC)</li>
+                <li>Agile and Scrum</li>
+                <li> DevOps Principles</li>
+                <li>Software Testing and Quality Assurance</li>
+            </ul>
+            <ul class="block-chain-category category">
+                <li>Blockchain Fundamentals</li>
+                <li> Smart Contract Development</li>
+                <li>Cryptocurrency and Bitcoin Basic</li>
+            </ul>
+            <ul class="iot-category category">
+                <li>Introduction to loT
+                </li>
+                <li>IoT Platforms and Technologies
+                </li>
+                <li> IoT Security and Privacy</li>
+            </ul>
+            <ul class="cloud-category category">
+                <li> Introduction to Cloud Computing
+                </li>
+                <li>Amazon Web Services (AWS)
+                </li>
+                <li>Microsoft Azure</li>
+                <li>Google Cloud Platform (GCP)</li>
+                <li>DevOps Practices and Tools</li>
+            </ul>
+            <ul class="data-science-category category">
+                <li>Python for Data Science
+                </li>
+                <li>Data Analysis with Pandas
+                </li>
+                <li>NumPy and SciPy</li>
+                <li>Machine Learning Fundamentals</li>
+                <li>Deep Learning with TensorFlow or PyTorch</li>
+                <li>Natural Language Processing</li>
+            </ul>
+            <ul class="cybersecurity-category category">
+                <li> Introduction to Cybersecurity
+                </li>
+                <li>Ethical Hacking
+                </li>
+                <li>Network Security</li>
+                <li>Web Application Security</li>
+                <li> Cryptography</li>
+                <li> Incident Response and Forensics</li>
+            </ul>
+        </div>
+        <div class="right-section">
+            <a href="{% url 'landing_page_before_login' %}">Home</a>
+            <a href="{% url 'my_learnings' %}">My Learnings</a>
+
+            <!-- <a href="{% url 'common_discussion_forum' %}">Discussion Forum</a> -->
+            <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i></a>
+
+            <div class="profile-container">
+                {% if profile == 10 %}
+                <div class="profile">
+                    <img src="{% static 'assets/user.png' %}" alt="" width="40px">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                 </div>
+                 {% else %}
+                 <div class="profile">
+                     <img src="{{ profile.profile_picture.url }}" alt="" width="40px">
+                     <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                 </div>
+                 {% endif %}
+                <ul>
+                    <a href="{% url 'profile_page' %}">
+                        <li>Profile</li>
+                    </a>
+                    <a href="{% url 'certificate' %}">
+                        <li>My Certificates</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'payment_history' %}">
+                        <li>Payment History</li>
+                    </a>
+                    <a href="{% url 'referral' %}">
+                        <li>Referral</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support & Help</li>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <li>Log out</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="user-profile-container">
+        <div class="inner-container">
+            <div class="sidebar">
+                <div class="profile-img">
+                    <img src="{{ profile.profile_picture.url }}" alt="">
+                </div>
+                <p style="text-align: center;">{{ user.username }}</p>
+                <ul>
+                    <li id="profile-btn" class="active"><span>Profile</span><img
+                            src="{% static 'assets/profile/icon1.png' %}" alt=""></li>
+
+                    <li id="account-security-btn"><span>Account Security</span>
+                        <img src="{% static 'assets/profile/icon2.png' %}" alt="">
+                    </li>
+
+                    <li id="educational-details-btn">
+                        <span>Educational Details</span>
+                        <img src="{% static 'assets/profile/icon3.png' %}" alt="">
+                    </li>
+                    <li id="payment-method-btn"><span>
+                            Payment Methods
+                        </span><img src="{% static 'assets/profile/icon4.png' %}" alt=""></li>
+                    <li id="privacy-btn"><span>Privacy</span><img src="{% static 'assets/profile/icon5.png' %}" alt="">
+                    </li>
+                    <li id="notifications-btn"><span>
+                            Notifications
+                        </span><img src="{% static 'assets/profile/icon6.png' %}" alt="">
+                    </li>
+                    <li id="log-out-btn"><span>Log Out</span><img src="{% static 'assets/profile/icon7.png' %}" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="user-info-container containers active">
+                <div class="right-container">
+                    <div class="top-container">
+                        <p>Private/Public Account</p>
+                        <p>Details</p>
+                    </div>
+                    <div class="bottom-container">
+                        <form method="post" enctype="multipart/form-data">
+                        <div class="all-input">
+                            {% csrf_token %}
+                            {{ profileform.as_p }}
+                        </div>
+                        <div class="save-btn btn-container">
+                            <button class="purple-btn">Save</button>
+                        </div>
+                    </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="account-container containers">
+                <div class="right-container">
+                    <div class="top-container">
+                        <p>Account</p>
+                        <p>Edit your account setting and change your password here.</p>
+                    </div>
+                    <div class="bottom-container">
+                        <div class="all-input">
+
+                            <form method="post">
+                            <div class="form-group block">
+                                {% csrf_token %}
+                                {{ email_form.as_p }}
+                                {{ password_form.as_p }}
+                            </div>
+                            <div class="change-pwd-btn btn-container">
+                                <button class="purple-btn">Change Password</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="education-container containers">
+                <div class="right-container">
+                    <div class="top-container">
+                        <p>Education Details</p>
+                        <p>Details</p>
+                    </div>
+                    <div class="bottom-container">
+                        <ul>
+                            <li class="flex">
+                                <p>Work Experience</p>
+                                <button class="purple-btn" id="openWorkExperience">Add</button>
+                            </li>
+                            <li class="flex">
+                                <p>Education</p>
+                                <button class="purple-btn" id="openEducation">Add</button>
+                            </li>
+                            <li class="flex">
+                                <p>Projects</p>
+                                <button class="purple-btn" id="openProjects">Add</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-method-container containers">
+                <div class="right-container">
+                    <div class="top-container">
+                        <p>Payment Methods</p>
+                        <p>Details</p>
+                    </div>
+                    <div class="bottom-container">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Course Title</th>
+                                    <th>Date</th>
+                                    <th>Total Price</th>
+                                    <th>Payment Type</th>
+                                    <th>Receipt Invoice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for payment in payments %}
+                                <tr>
+                                    <td>{{ payment.course_title }}</td>
+                                    <td>{{ payment.date }}</td>
+                                    <td>{{ payment.total_price }}</td>
+                                    <td>{{ payment.payment_type }}</td>
+                                    <td>{{ payment.receipt_invoice }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="privacy-container containers">
+                <div class="right-container">
+                    <div class="top-container">
+                        <p>Privacy</p>
+                        <p>Modify your privacy settings here.</p>
+                    </div>
+                    <div class="bottom-container">
+                        <h6>Privacy Page Setting</h6>
+                        <form method="post">
+                        <div class="flex">
+                            {% csrf_token %}
+                            {{ privacyform.as_p }}
+                        </div>
+                        <div class="btn-container">
+                            <button class="purple-btn">Save</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="notifications containers">
+                <div class="right-container">
+                    <div class="top-container">
+                        <p>Notifications</p>
+                        <p>Turn promotional email notifications from Udemy on or off.</p>
+                    </div>
+                    <div class="bottom-container">
+                        <h6>I want to receive</h6>
+                        <form method="post">
+                        <div class="flex">
+                            {% csrf_token %}
+                            {{ notificationform.as_p }}
+                        </div>
+                        <div class="btn-container">
+                            <button class="purple-btn">Save</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="log-out containers">
+                <div class="right-container">
+                    <div class="top-container">
+                        <p>Log out</p>
+                        <p>Close your account.</p>
+                    </div>
+                    <div class="bottom-container">
+                        <p><span style="font-weight: 600; color: #C93636">Warning:</span>Do remember your password</p>
+                        <a href="{% url 'logout' %}">
+                            <div class="btn-container">
+                                <button class="purple-btn">Log out</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalContainer" class="modal-container">
+            <div class="work-experience modal-containers" id="workExperienceModal">
+                <h4>Work Experience</h4>
+                <p style="font-weight: 600; margin-bottom: 40px">Add your past work experience. If you're just starting
+                    out, you can add
+                    internships or volunteer
+                    experience instead.</p>
+                    <form method="post">
+                <div class="form-group block">
+
+                        {% csrf_token %}
+                        {{ work_experience_form.as_p }}
+                </div>
+                <div class="btn-container">
+                    <button class="purple-btn">Add</button>
+                </div>
+                </form>
+            </div>
+            <div class="education modal-containers" id="educationModal">
+                <h4>Education</h4>
+                <p style="font-weight: 600; margin-bottom: 40px">Add your educational background to let employers know
+                    where you studied or are currently studying. Even if you didn’t finish, it’s important to include it
+                    here. And if you’ve earned a college degree, you don’t need to add your high school/GED. All fields
+                    are optional.</p>
+                    <form method="post">
+                <div class="form-group block">
+
+                        {% csrf_token %}
+                        {{ education_form.as_p }}
+                </div>
+                <div class="btn-container">
+                    <button class="purple-btn">Add</button>
+                </div>
+            </form>
+            </div>
+            <div class="projects modal-containers" id="projectsModal">
+                <h4>Projects</h4>
+                <div class="inside-project-container">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ project_form.as_p }}
+                        <div class="btn-container">
+                            <button class="purple-btn">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section">
+        <div class="company-details">
+            <div class="description">
+                <h3 style="font-weight: 600;color: #0085FF">E-Learning</h3>
+            </div>
+            <div class="app">
+                <p style="font-size: 1rem; color: #fff;">Top learning experiences that <br>create more
+                    talent in the world.</p>
+
+
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Company</li>
+                    <a href="{% url 'about_us' %}">
+                        <li>About us</li>
+                    </a>
+                    <a href="{% url 'faq' %}">
+                        <li>FAQs</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Social</li>
+                    <li>Twitter</li>
+                    <li>LinkedIn</li>
+                    <li>GitHub</li>
+                    <li>Dribble</li>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Legal</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
+                    <a href="{% url 'contact_us' %}">
+                        <li>Contact Us</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-below-section">
+            <p>© 2024 E-Learning. All rights reserved.</p>
+            <div class="socials">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.left-section .categories');
+            const categoryList = document.querySelector('.main-category');
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            categories.addEventListener('click', function () {
+                // Toggle the 'active' class on the main category list
+                categoryList.classList.toggle('active');
+                categoryLists.forEach(function (category) {
+                    category.classList.remove('active');
+                });
+            });
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Remove the 'active' class from all category lists
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+
+                    // Add the 'active' class to the clicked category list
+                    categoryLists[index].classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const profile = document.querySelector('.profile');
+            const listItems = document.querySelectorAll('.profile-container ul li');
+            const ul = document.querySelector('.profile-container ul');
+            const chevron = document.querySelector('.fa-chevron-down');
+
+            // Toggle 'active' class on ul when profile is clicked
+            profile.addEventListener('click', function () {
+                ul.classList.toggle('active');
+                chevron.classList.toggle('rotate');
+            });
+
+            // Add 'active' class to clicked li and remove from others
+            listItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Remove active class from all list items
+                    listItems.forEach(function (li) {
+                        li.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked item
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.querySelector('.modal-container').classList.add('active')
+        }
+
+        function closeModal(modalContainerId) {
+            const modalContainer = document.getElementById(modalContainerId);
+            const modals = modalContainer.querySelectorAll('.modal-containers');
+            modals.forEach(modal => {
+                modal.classList.remove('active');
+            });
+            modalContainer.classList.remove('active')
+
+        }
+
+        // Event listeners for open buttons
+        document.getElementById('openWorkExperience').addEventListener('click', () => openModal('workExperienceModal'));
+        document.getElementById('openEducation').addEventListener('click', () => openModal('educationModal'));
+        document.getElementById('openProjects').addEventListener('click', () => openModal('projectsModal'));
+        const modalContainer = document.querySelector('.modal-container')
+
+        // Close the modal when the user clicks outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target.classList.contains('modal-container')) {
+                closeModal('modalContainer');
+            }
+        });
+
+        // Function to remove 'active' class from all containers
+        function hideAllContainers() {
+            const containers = document.querySelectorAll('.containers');
+            containers.forEach(container => container.classList.remove('active'));
+        }
+
+        // Function to show the specific container
+        function showContainer(containerId) {
+            hideAllContainers();
+            document.querySelector(`.${containerId}`).classList.add('active');
+        }
+
+        // Function to remove 'active' class from all sidebar items
+        function removeActiveClassFromSidebar() {
+            const sidebarItems = document.querySelectorAll('.sidebar li');
+            const sidebarSpan = document.querySelectorAll(".sidebar li span")
+            sidebarItems.forEach(item => item.classList.remove('active'));
+            sidebarSpan.forEach(item => item.classList.remove('active'));
+        }
+
+        // Function to add 'active' class to the clicked sidebar item
+        function addActiveClassToSidebar(item) {
+            removeActiveClassFromSidebar();
+            item.classList.add('active');
+        }
+
+        // Function to handle sidebar item click
+        function handleSidebarClick(event, containerId) {
+            addActiveClassToSidebar(event.target);
+            showContainer(containerId);
+        }
+
+        // Add event listeners to sidebar buttons
+        document.getElementById('profile-btn').addEventListener('click', (event) => handleSidebarClick(event, 'user-info-container'));
+        document.getElementById('account-security-btn').addEventListener('click', (event) => handleSidebarClick(event, 'account-container'));
+        document.getElementById('educational-details-btn').addEventListener('click', (event) => handleSidebarClick(event, 'education-container'));
+        document.getElementById('payment-method-btn').addEventListener('click', (event) => handleSidebarClick(event, 'payment-method-container'));
+        document.getElementById('privacy-btn').addEventListener('click', (event) => handleSidebarClick(event, 'privacy-container'));
+        document.getElementById('notifications-btn').addEventListener('click', (event) => handleSidebarClick(event, 'notifications'));
+        document.getElementById('log-out-btn').addEventListener('click', (event) => handleSidebarClick(event, 'log-out'));
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets_by_provider/css/style_cp.css' %}" />
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="Dashboard">
+      <!-- Left Slider -->
+      <div class="sidebar">
+        <div class="logoplusafter">
+          <div class="logo">
+            <img
+              class="logos"
+              src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/newlogo.png' %}"
+              alt=""
+              width="50px"
+            />
+          </div>
+          <div class="after-logo">
+            <p>UPSKyED</p>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="{% url 'provider_index' %}">
+                <span class="icon">
+                  <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/home.png' %}" alt="" width="24px" />
+                </span>
+                &nbsp; Dashboard <span class="notification-dot"></span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'provider_profile' %}">
+                <span class="icon"
+                  ><img
+                    src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/people.png' %}"
+                    alt=""
+                    width="20px"
+                /></span>
+                &nbsp; &nbsp;Profile
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'provider_course' %}">
+                <span class="icon"
+                  ><img
+                    src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/school1.png' %}"
+                    alt=""
+                    width="30px"
+                /></span>
+                Course details
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'provider_payout_statement' %}">
+                <span class="icon"
+                  ><img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/ps.png' %}" alt="" width="30px"
+                /></span>
+                Payout statement
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'provider_settings' %}">
+                <span class="icon"
+                  ><img
+                    src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/settingss.png' %}"
+                    alt=""
+                    width="30px"
+                /></span>
+                Settings
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon"
+                  ><img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/info1.png' %}" alt="" width="30px"
+                /></span>
+
+                Info
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Middle Dashboard -->
+      <div class="Dashboard-middle">
+        <div class="inp-profile">
+          <div class="input-section">
+            <input type="text" placeholder="search" />
+            <img
+              src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/search.png' %}"
+              alt="search"
+              style="width: 16px"
+            />
+          </div>
+          <!-- Right Dashboard -->
+          <div class="Dashboard-right">
+            <div class="dash-right-card">
+              <div class="profile-pic">
+                <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/hs.png' %}" alt="Profile Picture" />
+                <div class="online-status"></div>
+              </div>
+              <div class="user-info">
+                <div class="name">Hasan</div>
+                <div class="role">UX/UI Designer</div>
+              </div>
+              <div class="notifications">
+                <div class="notification-icon">
+                  <span class="notification-count">2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-mid-mid">
+          <div class="dashboard">
+            <div class="card">
+              <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/Users.png' %}" alt="" width="15%" />
+              <div class="value">971</div>
+              <div class="label">Total Enrollment</div>
+            </div>
+
+            <div class="card">
+              <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/Notebook.png' %}" alt="" width="15%" />
+              <div class="value">47</div>
+              <div class="label">Current Enrollment</div>
+            </div>
+            <div class="card">
+              <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/Crown.png' %}" alt="" width="15%" />
+              <div class="value">Rs 91,749</div>
+              <div class="label">Total Earning</div>
+            </div>
+            <div class="card">
+              <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/Users (1).png' %}" alt="" width="15%" />
+              <div class="value">142</div>
+              <div class="label">This Month Enrollment</div>
+            </div>
+            <div class="card">
+              <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/school.png' %}" alt="" width="15%" />
+              <div class="value">23</div>
+              <div class="label">Total Courses</div>
+            </div>
+            <div class="card">
+              <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/Crown (1).png' %}" alt="" width="15%" />
+              <div class="value">Rs 51,749</div>
+              <div class="label">This Month Earning</div>
+            </div>
+          </div>
+
+          <div class="chart-assign">
+            <div class="chart-container">
+              <header class="chart-header">
+                <h2>Revenue</h2>
+                <nav>
+                  <ul>
+                    <li><a href="#">Daily</a></li>
+                    <li><a href="#">Weekly</a></li>
+                    <li><a href="#" class="active">Monthly</a></li>
+                    <li><a href="#">Custom date</a></li>
+                  </ul>
+                </nav>
+              </header>
+              <div class="chart">
+                <div class="tooltip" style="left: 50%; top: 50%">
+                  <span>51,749</span>
+                  <small>7th Apr</small>
+                </div>
+                <svg viewBox="0 0 1000 400">
+                  <polygon
+                    points="0,350 0,250 100,200 200,150 300,200 400,100 500,200 600,150 700,250 800,200 900,250 1000,200 1000,350"
+                    class="chart-area"
+                  ></polygon>
+
+                  <polyline
+                    points="0,250 100,200 200,150 300,200 400,100 500,200 600,150 700,250 800,200 900,250 1000,200"
+                    class="chart-line"
+                  ></polyline>
+                </svg>
+              </div>
+              <footer class="chart-footer">
+                <span>Apr 01</span>
+                <span>Apr 10</span>
+                <span>Apr 20</span>
+                <span>Apr 31</span>
+              </footer>
+            </div>
+
+            <div class="assignments-container">
+              <h2 class="assignments-container-heading">Assignments</h2>
+              <a href="#" class="assignment-link">
+                <div class="assignment-icon-container">
+                  <img
+                    src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/ClipboardList.png' %}"
+                    alt="Assignment Icon"
+                  />
+                </div>
+                <div class="assignment-details-container">
+                  <div class="assignment-course-name">Course 1</div>
+                  <div class="assignment-title-name">Assignment 1</div>
+                  <div class="assignment-description">
+                    Submission NLP Programming
+                  </div>
+                  <div class="assignment-date-time">04 Jan, 09:20AM</div>
+                </div>
+                <div class="assignment-status-label">Submitted</div>
+              </a>
+              <a href="#" class="assignment-link">
+                <div class="assignment-icon-container">
+                  <img
+                    src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/ClipboardList.png' %}"
+                    alt="Assignment Icon"
+                  />
+                </div>
+                <div class="assignment-details-container">
+                  <div class="assignment-course-name">Course 2</div>
+                  <div class="assignment-title-name">Assignment 1</div>
+                  <div class="assignment-description">
+                    Submission NLP Programming
+                  </div>
+                  <div class="assignment-date-time">04 Jan, 09:20AM</div>
+                </div>
+                <!-- <div class="assignment-status-label">Submitted</div> -->
+              </a>
+              <a href="#" class="assignment-link">
+                <div class="assignment-icon-container">
+                  <img
+                    src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/ClipboardList.png' %}"
+                    alt="Assignment Icon"
+                  />
+                </div>
+                <div class="assignment-details-container">
+                  <div class="assignment-course-name">Course 3</div>
+                  <div class="assignment-title-name">Assignment 1</div>
+                  <div class="assignment-description">
+                    Submission NLP Programming
+                  </div>
+                  <div class="assignment-date-time">04 Jan, 09:20AM</div>
+                </div>
+                <!-- <div class="assignment-status-label">Submitted</div> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- After Payout and course overview -->
+    <section class="pay-cour">
+      <div class="pay-cour-right">
+        <div class="table-container">
+          <h2>Payout</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Invoice No</th>
+                <th>Provider Name</th>
+                <th>Month</th>
+                <th>Course Name</th>
+                <th>No.of Enrollments</th>
+                <th>Per Share</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                data-sno="1"
+                data-invoice="#16879"
+                data-user="John Dye"
+                data-enrollments="5 users"
+                data-enrollment-no="A487 14th May 2024,B487 15th May 2024,C487 16th May 2024,D487 17th May 2024,E487 18th May 2024"
+                data-per-share="$50"
+                data-amount="$250"
+              >
+                <td>1.</td>
+                <td><a href="#" class="invoice-link">#16879</a></td>
+                <td>John Dye</td>
+                <td>Mar, 2023</td>
+                <td>Artificial Intelligence</td>
+                <td>5 users</td>
+                <td>$50</td>
+                <td>$250</td>
+              </tr>
+              <tr
+                data-sno="2"
+                data-invoice="#16880"
+                data-user="Jane Doe"
+                data-enrollments="6 users"
+                data-enrollment-no="F487 14th May 2024,G487 15th May 2024,H487 16th May 2024,I487 17th May 2024,J487 18th May 2024"
+                data-per-share="$55"
+                data-amount="$330"
+              >
+                <td>2.</td>
+                <td><a href="#" class="invoice-link">#16880</a></td>
+                <td>Jane Doe</td>
+                <td>Mar, 2023</td>
+                <td>Machine Learning</td>
+                <td>6 users</td>
+                <td>$55</td>
+                <td>$330</td>
+              </tr>
+              <tr
+                data-sno="3"
+                data-invoice="#16880"
+                data-user="Jane Doe"
+                data-enrollments="6 users"
+                data-enrollment-no="F487 14th May 2024,G487 15th May 2024,H487 16th May 2024,I487 17th May 2024,J487 18th May 2024"
+                data-per-share="$55"
+                data-amount="$330"
+              >
+                <td>3.</td>
+                <td><a href="#" class="invoice-link">#16880</a></td>
+                <td>Jane Doe</td>
+                <td>Mar, 2023</td>
+                <td>Machine Learning</td>
+                <td>6 users</td>
+                <td>$55</td>
+                <td>$330</td>
+              </tr>
+              <tr
+                data-sno="4"
+                data-invoice="#16880"
+                data-user="Jane Doe"
+                data-enrollments="6 users"
+                data-enrollment-no="F487 14th May 2024,G487 15th May 2024,H487 16th May 2024,I487 17th May 2024,J487 18th May 2024"
+                data-per-share="$55"
+                data-amount="$330"
+              >
+                <td>4.</td>
+                <td><a href="#" class="invoice-link">#16880</a></td>
+                <td>Jane Doe</td>
+                <td>Mar, 2023</td>
+                <td>Machine Learning</td>
+                <td>6 users</td>
+                <td>$55</td>
+                <td>$330</td>
+              </tr>
+              <tr
+                data-sno="5"
+                data-invoice="#16880"
+                data-user="Jane Doe"
+                data-enrollments="6 users"
+                data-enrollment-no="F487 14th May 2024,G487 15th May 2024,H487 16th May 2024,I487 17th May 2024,J487 18th May 2024"
+                data-per-share="$55"
+                data-amount="$330"
+              >
+                <td>5.</td>
+                <td><a href="#" class="invoice-link">#16880</a></td>
+                <td>Jane Doe</td>
+                <td>Mar, 2023</td>
+                <td>Machine Learning</td>
+                <td>6 users</td>
+                <td>$55</td>
+                <td>$330</td>
+              </tr>
+              <tr
+                data-sno="6"
+                data-invoice="#16880"
+                data-user="Jane Doe"
+                data-enrollments="6 users"
+                data-enrollment-no="F487 14th May 2024,G487 15th May 2024,H487 16th May 2024,I487 17th May 2024,J487 18th May 2024"
+                data-per-share="$55"
+                data-amount="$330"
+              >
+                <td>6.</td>
+                <td><a href="#" class="invoice-link">#16880</a></td>
+                <td>Jane Doe</td>
+                <td>Mar, 2023</td>
+                <td>Machine Learning</td>
+                <td>6 users</td>
+                <td>$55</td>
+                <td>$330</td>
+              </tr>
+
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+        <!-- Modal structure -->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>S.No: <span id="modal-sno"></span></p>
+            <p>Invoice No: <span id="modal-invoice"></span></p>
+            <p>User name: <span id="modal-user"></span></p>
+            <p>No. of enrollments: <span id="modal-enrollments"></span></p>
+            <p>Enrollment No: <span id="modal-enrollment-no"></span></p>
+            <p>Per share: <span id="modal-per-share"></span></p>
+            <p>Amount: <span id="modal-amount"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="course-overview">
+        <h4>Course Overview</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Sl.No</th>
+              <th>Provider name</th>
+              <th>Course name</th>
+              <th>Rating</th>
+              <th>No.of enrollments</th>
+              <th>Commision</th>
+              <th>Earnings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>John dye</td>
+              <td>Artificial intelligence</td>
+              <td>4.5</td>
+              <td>500 users</td>
+              <td>$35</td>
+              <td>$50</td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>John dye</td>
+              <td>Artificial intelligence</td>
+              <td>4.8</td>
+              <td>500 users</td>
+              <td>$35</td>
+              <td>$50</td>
+            </tr>
+            <tr>
+              <td>3.</td>
+              <td>John dye</td>
+              <td>Artificial intelligence</td>
+              <td>4.8</td>
+              <td>500 users</td>
+              <td>$35</td>
+              <td>$50</td>
+            </tr>
+            <tr>
+              <td>4.</td>
+              <td>John dye</td>
+              <td>Artificial intelligence</td>
+              <td>5.0</td>
+              <td>500 users</td>
+              <td>$35</td>
+              <td>$50</td>
+            </tr>
+            <tr>
+              <td>5.</td>
+              <td>John dye</td>
+              <td>Artificial intelligence</td>
+              <td>5.0</td>
+              <td>500 users</td>
+              <td>$35</td>
+              <td>$50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer Up Section -->
+    <section class="footer-up">
+      <div class="foot-left">
+        <h2>UPSKyEd</h2>
+        <p>
+          Top learning experiences that create more <br />talent in the world.
+        </p>
+      </div>
+
+      <div class="foot-right">
+        <div class="product">
+          <h2>Product</h2>
+          <ul>
+            <!-- <li>Overview</li> -->
+            <li><a href="">Overview</a></li>
+            <li><a href="">Features</a></li>
+            <li><a href="">Solutions</a></li>
+            <li><a href="">Tutorials</a></li>
+            <li><a href="">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="product">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="">About us</a></li>
+            <li><a href="">Careers</a></li>
+            <li>
+              <a href="">Press</a>
+
+              <span
+                style="
+                  background-color: white;
+                  color: black;
+                  padding: 5px 10px;
+                  border-radius: 20px;
+                  margin: 10px;
+                "
+                >New</span
+              >
+            </li>
+            <li><a href="">News</a></li>
+          </ul>
+        </div>
+        <div class="product">
+          <h2>Social</h2>
+          <ul>
+            <li><a href="">Twitter</a></li>
+            <li><a href="">Linkedin</a></li>
+            <li><a href="">GitHub</a></li>
+            <li><a href="">Dribble</a></li>
+          </ul>
+        </div>
+        <div class="product">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Privacy</a></li>
+            <li><a href="">Cookies</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer">
+      <div class="footer-left">
+        <h2>© 2024 UPSKyEd. All rights reserved.</h2>
+      </div>
+
+      <div class="footer-right">
+        <div class="icon1">
+          <a href="">
+            <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/Social icon.png' %}" alt="img"
+          /></a>
+
+          <a href="">
+            <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/linkedin.png' %}" alt="img"
+          /></a>
+
+          <a href=""> <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/fb.png' %}" alt="img" /></a>
+
+          <a href=""> <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/github.png' %}" alt="img" /></a>
+
+          <a href=""> <img src="{% static 'assets_by_provider/img/Dashboard_main_by_provider/ball.png' %}" alt="img" /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="{% static 'assets_by_provider/js/scripts_cp.js' %}" ></script>
+  </body>
+</html>

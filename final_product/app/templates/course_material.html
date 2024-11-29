@@ -1,0 +1,2195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/course_material.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        .profile-btn:hover {
+            border-radius: 5px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        .profile-container.inactive {
+            display: none;
+        }
+
+
+        .left-section .menu-categories {
+            background-color: #BDADAD;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            padding: 35px;
+            width: 350px;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .menu-categories.inactive {
+            display: none;
+        }
+
+        .left-section .menu-categories img {
+            position: absolute;
+            z-index: 0;
+        }
+
+        .menu-categories .first-image {
+            top: -15px;
+            left: -15px;
+        }
+
+        .menu-categories .second-image {
+            top: -15px;
+            right: -65px;
+        }
+
+        .menu-categories .fourth-image {
+            bottom: 0;
+            left: -65px;
+        }
+
+        .menu-categories .third-image {
+            bottom: 40px;
+            right: -30px;
+        }
+
+        .menu-categories .menu-container {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #fff;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            position: relative;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .menu-container ul {
+            padding-left: 0 !important;
+        }
+
+        .menu-container ul li {
+            list-style: none;
+            margin-bottom: 20px;
+            border-bottom: 1.5px solid transparent;
+            cursor: pointer;
+        }
+
+        .menu-container li:hover {
+            border-bottom: 1.5px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left-section">
+            <a href="{% url 'landing_page_before_login' %}">
+                <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+            </a>
+            <p class="company-name">UPSKyED</p>
+            <div class="searchBar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="search" name="search" placeholder="Search">
+            </div>
+            <a class="categories">Explore</a>
+            <ul class="main-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+            </ul>
+            <ul class="web-development-category category ">
+                <li>HTML / CSS</li>
+                <li>Javascript</li>
+                <li>Bootstrap</li>
+                <li>React Js</li>
+                <li>Angular</li>
+                <li>Node Js</li>
+                <li>Express Js</li>
+            </ul>
+            <ul class="mobile-developement-category category">
+                <li>Android Development with Java/ Kotlin
+                </li>
+                <li>iOS Development with Swift</li>
+                <li> React Native </li>
+            </ul>
+            <ul class="programming-category category">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Ruby</li>
+                <li>PHP</li>
+                <li>Go</li>
+            </ul>
+            <ul class="engineering-category category">
+                <li>Software Development Lifecycle (SDLC)</li>
+                <li>Agile and Scrum</li>
+                <li> DevOps Principles</li>
+                <li>Software Testing and Quality Assurance</li>
+            </ul>
+            <ul class="block-chain-category category">
+                <li>Blockchain Fundamentals</li>
+                <li> Smart Contract Development</li>
+                <li>Cryptocurrency and Bitcoin Basic</li>
+            </ul>
+            <ul class="iot-category category">
+                <li>Introduction to loT
+                </li>
+                <li>IoT Platforms and Technologies
+                </li>
+                <li> IoT Security and Privacy</li>
+            </ul>
+            <ul class="cloud-category category">
+                <li> Introduction to Cloud Computing
+                </li>
+                <li>Amazon Web Services (AWS)
+                </li>
+                <li>Microsoft Azure</li>
+                <li>Google Cloud Platform (GCP)</li>
+                <li>DevOps Practices and Tools</li>
+            </ul>
+            <ul class="data-science-category category">
+                <li>Python for Data Science
+                </li>
+                <li>Data Analysis with Pandas
+                </li>
+                <li>NumPy and SciPy</li>
+                <li>Machine Learning Fundamentals</li>
+                <li>Deep Learning with TensorFlow or PyTorch</li>
+                <li>Natural Language Processing</li>
+            </ul>
+            <ul class="cybersecurity-category category">
+                <li> Introduction to Cybersecurity
+                </li>
+                <li>Ethical Hacking
+                </li>
+                <li>Network Security</li>
+                <li>Web Application Security</li>
+                <li> Cryptography</li>
+                <li> Incident Response and Forensics</li>
+            </ul>
+        </div>
+        <div class="right-section">
+            <a href="{% url 'landing_page_before_login' %}">Home</a>
+            <a href="{% url 'my_learnings' %}">My Learnings</a>
+
+            <!-- <a href="{% url 'common_discussion_forum' %}">Discussion Forum</a> -->
+            <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            <div class="profile-container">
+                {% if profile == 10 %}
+                <div class="profile">
+                    <img src="{% static 'assets/user.png' %}" alt="" width="40px">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                 </div>
+                 {% else %}
+                 <div class="profile">
+                     <img src="{{ profile.profile_picture.url }}" alt="" width="40px">
+                     <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                 </div>
+                 {% endif %}
+                <ul>
+                    <a href="{% url 'profile_page' %}">
+                        <li>Profile</li>
+                    </a>
+                    <a href="{% url 'certificate' %}">
+                        <li>My Certificates</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'payment_history' %}">
+                        <li>Payment History</li>
+                    </a>
+                    <a href="{% url 'referral' %}">
+                        <li>Referral</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support & Help</li>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <li>Log out</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: flex-start; width: 100%;">
+        <div class="sidebar">
+            <h4>Academy</h4>
+            <ul class="main-list">
+                <li class="li main-item active" data-target="module-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon1.png' %}" alt="" width="25px">
+                    <p>Course Material</p>
+                    <span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)" alt=""
+                            width="20px"></span>
+                </li>
+                {% for week in course.weeks.all %}
+                <ul class="week-list">
+                    <li class="li week-item ">
+                        <p>Week {{ week.number }}</p>
+                        <p>1</p>
+                    </li>
+                </ul>
+                {% endfor %}
+                <li class="li main-item " data-target="grade-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon2.png' %}" alt="" width="25px">
+                    <p>Grade</p><span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)"
+                            alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="notes-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon3.png' %}" alt="" width="25px">
+                    <p>Notes</p><span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)"
+                            alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="discussion-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon4.png' %}" alt="" width="25px">
+                    <p>Discussion Forum</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                            style="transform: rotate(180deg)" alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="message-container" data-section="messages">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon5.png' %}" alt="" width="25px">
+                    <p>Messages</p><span><img src="{% static 'assets/up-arrow.png' %}" style="transform: rotate(180deg)"
+                            alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="resource-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon6.png' %}" alt="" width="25px">
+                    <p>Resources</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                            style="transform: rotate(180deg)" alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="course-info-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon7.png' %}" alt="" width="25px">
+                    <p>Course Info</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                            style="transform: rotate(180deg)" alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="career-guidance-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon8.png' %}" alt="" width="25px">
+                    <p>Career Guidance</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                            style="transform: rotate(180deg)" alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="papers-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon9.png' %}" alt="" width="25px">
+                    <p>Previous Q/P & Ans</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                            style="transform: rotate(180deg)" alt="" width="20px"></span>
+                </li>
+                <li class="li main-item " data-target="mentorship-container">
+                    <img class="sidebar-icon" src="{% static 'assets/course-material/icon10.png' %}" alt=""
+                        width="25px">
+                    <p>1 on 1 Mentorship</p><span><img src="{% static 'assets/up-arrow.png' %}"
+                            style="transform: rotate(180deg)" alt="" width="20px"></span>
+                </li>
+
+            </ul>
+        </div>
+        <div class="module-container containers active">
+            <div class="borderline">
+                <div class="border-header flex">
+                    <img src="{% static 'assets/course/down-arrow.png' %}" alt="" width="20px"
+                        style="margin-bottom: 8px;">
+                    <h4> {{ course.title }}</h4>
+                </div>
+                <div class="course-progress flex">
+                    <div class="video-left flex" style="margin-right: 20px;margin-top: 10px">
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        <p>3hr 3min of video left</p>
+                    </div>
+                    <div class="reading flex" style="margin-right: 20px;margin-top: 10px">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                        <p>10 min of readings left</p>
+                    </div>
+                    <div class="grade flex" style="margin-right: 20px;margin-top: 10px">
+                        <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon"
+                            style="margin-right: 10px">
+                        <p>1 Graded assesment left</p>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <p style="font-size: 0.9rem; font-weight: 400;">{{ course.description }}</p>
+                <div class="flex" style="margin-top: 20px;">
+                    <p style="font-weight: 500">{{ course.roadmap }}</p>
+                    <img src="{% static 'assets/course/down-arrow.png' %}" alt="" width="20px"
+                        style="margin-left: 5px; margin-top: 3px">
+
+                </div>
+                {% for week in course.weeks.all %}
+                {% for topic in week.topics.all %}
+                <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <a href="{% url 'course_video' course.id week.id topic.id %}">
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;">  Week: {{ week.number }}</p>
+                            <div class="card-header">
+                                <h5>Topic: {{ topic.title }}</h5>
+                            </div>
+
+                        </div>
+                    </a>
+
+                </div>
+                {% endfor %}
+                {% endfor %}
+
+                <div class="line"></div>
+                <div class="flex" style="margin: 10px 0;">
+                    <p style="font-weight: 500">Lessons</p>
+                    <img src="{% static 'assets/course/down-arrow.png' %}" alt="" width="20px"
+                        style="margin-left: 5px; margin-top: 3px">
+
+                </div>
+                {% comment %} <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <a href="{% url 'course_video' %}">
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;"> Name of the video</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Video. 3min</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <a href="{% url 'course_video' %}">
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;"> Name of the video</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Video. 3min</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <a href="{% url 'course_video' %}">
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;"> Name of the video</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Video. 3min</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <a href="{% url 'course_video' %}">
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;"> Name of the video</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Video. 3min</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <a href="{% url 'course_video' %}">
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;"> Name of the video</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Video. 3min</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <a href="{% url 'course_video' %}">
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;"> Name of the video</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Video. 3min</p>
+                        </div>
+                    </a>
+                </div> {% endcomment %}
+                <div class="line"></div>
+                <div class="flex" style="margin-top: 20px;">
+                    <p style="font-weight: 500">Tools</p>
+                    <img src="{% static 'assets/course/down-arrow.png' %}" alt="" width="20px"
+                        style="margin-left: 5px; margin-top: 3px">
+                </div>
+                <div class="flex single-video">
+                    <i class="fa fa-play-circle-o" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                    <div class="video-info" style="margin-left: 10px">
+                        <p style="font-weight: 400;"> Name of the video</p>
+                        <p style="font-weight: 300; font-size: 0.9rem">Video. 3min</p>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="flex" style="margin-top: 20px;">
+                    <p style="font-weight: 500">Quiz</p>
+                    <img src="{% static 'assets/course/down-arrow.png' %}" alt="" width="20px"
+                        style="margin-left: 5px; margin-top: 3px">
+                </div>
+                <a href="{% url 'quiz_page' course.id %}">
+                    <div class="flex single-video">
+                        <i class="fa fa-lock" aria-hidden="true" style="font-size: 2.5rem;"></i>
+                        <div class="video-info" style="margin-left: 13px">
+                            <p style="font-weight: 400;"> {{ course }} Quiz</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Questions. 3min</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="{% url 'assignment_page' %}">
+                    <div class="flex single-video">
+                        <i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 2.2rem;"></i>
+                        <div class="video-info" style="margin-left: 10px">
+                            <p style="font-weight: 400;"> Name of the assessment</p>
+                            <p style="font-weight: 300; font-size: 0.9rem">Reading. 10min</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="grade-container containers">
+
+            <h6 class="weeks week-heading"><span><i class="fa fa-angle-right" aria-hidden="true"
+                        style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                1</h6>
+            <div class="borderline">
+                <div class="slide">
+                    <h5>Grades</h5>
+                    <div class="header-container flex">
+                        <div class="flex" style="margin-right: 15px;">
+                            <img src="{% static 'assets/course-material/checkmark.png' %}" alt="" width="25px"
+                                style="margin-right: 15px">
+                            <p>You have completed all of the assessments that are
+                                currently due.</p>
+                        </div>
+                        <div class="flex">
+                            <p class="red-circle">2</p>
+                            <p>You didn't pass 2 of the required assessments
+                                you attempted.</p>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="big-row">Items</th>
+                                <th class="small-row">Status</th>
+                                <th class="small-row">Due</th>
+                                <th class="small-row">Weight</th>
+                                <th class="small-row">Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for quiz in quizzes_data %}
+                            <tr>
+                                <td class="flex big-row" style="margin-top: 20px;">
+                                    <img src="{% static 'assets/course-material/checkmark.png' %}" alt="" width="25px"
+                                        style="margin-right: 15px">
+                                    <div class="video-info" style="margin-left: 10px">
+                                        <p>{{ quiz.video_title }}</p>
+                                        <p>Quiz</p>
+                                    </div>
+                                </td>
+                                <td class=" small-row">
+                                    {% if quiz.status == 'Locked' %}
+                                    <p>{{ quiz.status }}</p>
+                                    {% endif %}
+                                </td>
+                                <td class="date">
+                                    <p>{{ quiz.due_date|date:"M j, h:i A T" }}</p>
+                                </td>
+                                <td class="small-row">{{ quiz.weight }}%</td>
+                                <td class="small-row">{{ quiz.score }}</td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <div class="below-containers">
+                        <div class="assignment">
+                            <div class="flex">
+                                <i class="fa fa-file-o" aria-hidden="true"
+                                    style="font-size: 1.1rem; opacity: 0.6; margin-right: 15px"></i>
+                                <p>Submit Your Assessment</p>
+                            </div>
+                            <div class="flex" style="width:20%">
+                                <p>-</p>
+                            </div>
+                            <div class="date">
+                                <p style="font-size: 0.9rem;font-weight: 600">May 2</p>
+                                <p style="font-size: 0.9rem;font-weight: 600">12:00PM IST</p>
+                            </div>
+                        </div>
+                        <div class="assignment">
+                            <div class="flex">
+                                <i class="fa fa-commenting-o" aria-hidden="true"
+                                    style="font-size: 1.1rem; opacity: 0.6; margin-right: 15px"></i>
+                                <p>Review 3 peers assignments</p>
+                            </div>
+                            <div class="flex" style="width:20%">
+                                <p>-</p>
+                            </div>
+                            <div class="date">
+                                <p style="font-size: 0.9rem;font-weight: 600">May 2</p>
+                                <p style="font-size: 0.9rem;font-weight: 600">12:00PM IST</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="notes-container containers">
+            <h6 class="weeks week-heading"><span><i class="fa fa-angle-right" aria-hidden="true"
+                        style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                1</h6>
+            <div class="border">
+                <h4>Notes</h4>
+                {% for note in notes %}
+                <div class="note">
+                    <p>{{ note.content }}</p>
+                    <small>{{ note.created_at }}</small>
+                </div>
+                {% endfor %}
+                <form method="post" action="{% url 'notes_list' course.id %}">
+                    {% csrf_token %}
+                    <textarea id="note-content" class="form-control" rows="5"></textarea>
+                    <button id="save-note" class="btn btn-primary mt-2">Save Note</button>
+                </form>
+            </div>
+        </div>
+       <div class="discussion-container containers">
+            <h4>Forums</h4>
+            <div class="flex header-container">
+                <input type="text" name="search" placeholder="Search forum">
+                <button>Search</button>
+                <button>Create Post</button>
+            </div>
+            <div class="common-discussion-forum-container">
+                <h4 style="font-weight: 700;font-size: 1.6rem">Common Discussion Forum</h4>
+                <div class="flex" style="justify-content: space-between;">
+                    <p style="font-weight: 300;font-size: 1.1rem">Where Ideas Meet and Grow</p>
+                    <a href="{% url 'community_platform' %}"><button class="join">Join Now</button></a>
+                </div>
+            </div>
+            {% for week in course.weeks.all %}
+            <a href="{% url 'weekly_platform' week.id %}">
+            <div class="weekly-container week-row">
+                <h5>Week {{ week.number }}: {{ week.title }}</h5>
+                <div class="flex" style="justify-content: space-between;">
+                   Discuss this weeks modules here.</p>
+                    <p>1432 Threads</p>
+                </div>
+                <p style="font-weight: 300;font-size: 0.8rem">Last post a day ago</p>
+            </div>
+          </a>
+            {% endfor %}
+
+
+        </div>
+       <!-- <div class="week-basis-discussion-container containers">
+            <div class="flex">
+                <h6 class="week-heading discussion-weeks"><span><i class="fa fa-angle-right" aria-hidden="true"
+                            style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                    1</h6>
+                <h6 class="week-heading" style="margin-left: 10px"><span><i class="fa fa-angle-right" aria-hidden="true"
+                            style="font-size: 1.5rem; margin-right: 6px;"></i></span>Discussion forum</h6>
+            </div>
+            <p style="margin-top: 30px;font-size: 1.1rem">Discussion Forum</p>
+            <h6 class="discussion-weeks" style="margin-top: 50px; font-weight: 700">Week 1</h6>
+            <p style="font-size: 0.9rem">You can discuss this week modules here</p>
+            <div class="flex header-btn" style="margin-top: 20px; justify-content: space-between;">
+                <div class="flex">
+                    <div class="search-container">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <input type="text" placeholder="Search here">
+                    </div>
+
+                    <button class="search">Search</button>
+                </div>
+                <div class="btn-container createPostBtn">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <button>Create Post</button>
+                </div>
+            </div>
+            <div class="filter-container">
+                <div style="position: relative;margin-right: 40px">
+                    <div class="sort-container flex">
+                        <p>Sort:</p>
+                        <p style="font-weight: 400; font-size: 0.95rem; margin-left: 5px">Recent
+                        </p>
+                        <img class=" arrow rotate" src="{% static 'assets/up-arrow.png' %}" width="15px" alt="">
+                        <div class="sort-pop-up">
+                            <ul>
+                                <li>Recent</li>
+                                <li>Top</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="position:relative">
+                    <div class="filter flex">
+                        <p>Filter:</p>
+                        <p style="font-weight: 400; font-size: 0.95rem; margin-left: 5px">All
+                        </p>
+                        <img class="arrow rotate" src="{% static 'assets/up-arrow.png' %}" width="15px" alt="">
+
+                        <div class="filter-pop-up">
+                            <ul>
+                                <li>All</li>
+                                <li>Answered</li>
+                                <li>Unanswered</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="post" id="discussion-list">
+
+            </div>
+           <form id="discussion-form">
+                <input type="text" id="discussion-title" placeholder="Discussion Title" required>
+                <textarea id="discussion-content" placeholder="Discussion Content" required></textarea>
+                <button type="submit">Post Discussion</button>
+            </form> -->
+          <!-- <div class="post">
+                <h5>What is artificial intelligence?</h5>
+                <p>What would be the potential downsides for various use cases such as a creative writing task?What
+                    language can I include in my prompts (submitted via browser not API) that would reduce the
+                    probability or even eliminate the possibility of hallucinations in the response?
+                </p>
+                <button class="tag">Mentor</button>
+                <div class="btn-container">
+                    <div class="flex">
+                        <button>
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                            <p>23</p>
+                        </button>
+                        <button class="post-title">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <p>Reply</p>
+                            <p>3</p>
+                        </button>
+                    </div>
+                    <div class="flex author">
+                        <p class="icon">EL</p>
+                        <p class="small">Eddie Lake </p>
+                        <p class="small">2 days ago </p>
+                    </div>
+                </div>
+            </div> -->
+             <!-- <div class="post ">
+                <h5>Post Ttitle here as the user wish</h5>
+                <p>Pellentesque suscipit fringilla libero eu ullamcorper. Cras risus eros, faucibus sit amet augue id,
+                    tempus pellentesque eros. In imperdiet tristique tincidunt. Integer lobortis lorem lorem, id
+                    accumsan arcu tempor id. Suspendisse vitae accumsan massa. Duis porttitor, mauris et faucibus
+                    sollicitudin, tellus sem tristique risus, nec gravida velit diam aliquet enim. Curabitur eleifend
+                    ligula quis convallis interdum. Sed vitae condimentum urna, nec suscipit purus.</p>
+                <div class="btn-container">
+                    <div class="flex">
+                        <button>
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                            <p>23</p>
+                        </button>
+                        <button class="post-title">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <p>Reply</p>
+                            <p>3</p>
+                        </button>
+                    </div>
+                    <div class="flex author">
+                        <p class="icon">EL</p>
+                        <p class="small">Eddie Lake </p>
+                        <p class="small">2 days ago </p>
+                    </div>
+                </div>
+            </div>
+            <div class="post">
+                <h5>Wire frame in Figma</h5>
+                <p>Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa
+                    nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In
+                    hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod
+                    augue vitae.</p>
+                <button class="tag">Mentor</button>
+                <div class="btn-container">
+                    <div class="flex">
+                        <button>
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                            <p>23</p>
+                        </button>
+                        <button class="post-title">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <p>Reply</p>
+                            <p></p>
+                        </button>
+                    </div>
+                    <div class="flex author">
+                        <p class="icon">JD</p>
+                        <p class="small">Jone Duke </p>
+                        <p class="small">2 days ago </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="common-discussion-container containers">
+            <div class="flex">
+                <h6 class="week-heading" style="margin-left: 10px"><span><i class="fa fa-angle-right" aria-hidden="true"
+                            style="font-size: 1.5rem; margin-right: 6px;"></i></span>Common Discussion
+                    forum</h6>
+            </div>
+            <p style="margin-top: 30px;font-size: 1.1rem;font-weight: 500;">Common Discussion Forum</p>
+            <div class="flex" style="margin-top: 20px; justify-content: space-between;">
+                <div class="flex">
+                    <div class="search-container">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <input type="text" placeholder="Search here">
+                    </div>
+
+                    <button class="search">Search</button>
+                </div>
+                <div class="btn-container createPostBtn">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <button>Create Post</button>
+                </div>
+            </div>
+            <div class="filter-container">
+                <div style="position: relative;margin-right: 40px">
+                    <div class="sort-container flex">
+                        <p>Sort:</p>
+                        <p style="font-weight: 400; font-size: 0.95rem; margin-left: 5px">Recent
+                        </p>
+                        <img class=" arrow rotate" src="{% static 'assets/up-arrow.png' %}" width="15px" alt="">
+                        <div class="sort-pop-up">
+                            <ul>
+                                <li>Recent</li>
+                                <li>Top</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="position:relative">
+                    <div class="filter flex">
+                        <p>Filter:</p>
+                        <p style="font-weight: 400; font-size: 0.95rem; margin-left: 5px">All
+                        </p>
+                        <img class="arrow rotate" src="{% static 'assets/up-arrow.png' %}" width="15px" alt="">
+
+                        <div class="filter-pop-up">
+                            <ul>
+                                <li>All</li>
+                                <li>Answered</li>
+                                <li>Unanswered</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="line">
+
+            </div>
+            <div class="post">
+                <h5>Post Ttitle here as the user wish</h5>
+                <p>Pellentesque suscipit fringilla libero eu ullamcorper. Cras risus eros, faucibus sit amet augue id,
+                    tempus pellentesque eros. In imperdiet tristique tincidunt. Integer lobortis lorem lorem, id
+                    accumsan arcu tempor id. Suspendisse vitae accumsan massa. Duis porttitor, mauris et faucibus
+                    sollicitudin, tellus sem tristique risus, nec gravida velit diam aliquet enim. Curabitur eleifend
+                    ligula quis convallis interdum. Sed vitae condimentum urna, nec suscipit purus.</p>
+                <button class="tag">Mentor</button>
+                <div class="btn-container">
+                    <div class="flex">
+                        <button>
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                            <p>23</p>
+                        </button>
+                        <button class="post-title">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <p>Reply</p>
+                            <p>3</p>
+                        </button>
+                    </div>
+                    <div class="flex author">
+                        <p class="icon">EL</p>
+                        <p class="small">Eddie Lake </p>
+                        <p class="small">2 days ago </p>
+                    </div>
+                </div>
+            </div>
+             <div class="post">
+                <h5>What is artificial intelligence?</h5>
+                <p>What would be the potential downsides for various use cases such as a creative writing task?What
+                    language can I include in my prompts (submitted via browser not API) that would reduce the
+                    probability or even eliminate the possibility of hallucinations in the response?
+                </p>
+                <button class="tag">Mentor</button>
+                <div class="btn-container">
+                    <div class="flex">
+                        <button>
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                            <p>23</p>
+                        </button>
+                        <button class="post-title">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <p>Reply</p>
+                            <p>3</p>
+                        </button>
+                    </div>
+                    <div class="flex author">
+                        <p class="icon">EL</p>
+                        <p class="small">Eddie Lake </p>
+                        <p class="small">2 days ago </p>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="post ">
+                <h5>Post Ttitle here as the user wish</h5>
+                <p>Pellentesque suscipit fringilla libero eu ullamcorper. Cras risus eros, faucibus sit amet augue id,
+                    tempus pellentesque eros. In imperdiet tristique tincidunt. Integer lobortis lorem lorem, id
+                    accumsan arcu tempor id. Suspendisse vitae accumsan massa. Duis porttitor, mauris et faucibus
+                    sollicitudin, tellus sem tristique risus, nec gravida velit diam aliquet enim. Curabitur eleifend
+                    ligula quis convallis interdum. Sed vitae condimentum urna, nec suscipit purus.</p>
+                <div class="btn-container">
+                    <div class="flex">
+                        <button>
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                            <p>23</p>
+                        </button>
+                        <button class="post-title">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <p>Reply</p>
+                            <p>3</p>
+                        </button>
+                    </div>
+                    <div class="flex author">
+                        <p class="icon">EL</p>
+                        <p class="small">Eddie Lake </p>
+                        <p class="small">2 days ago </p>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="post">
+                <h5>Wire frame in Figma</h5>
+                <p>Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa
+                    nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In
+                    hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod
+                    augue vitae.</p>
+                <button class="tag">Mentor</button>
+                <div class="btn-container">
+                    <div class="flex">
+                        <button>
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                            <p>23</p>
+                        </button>
+                        <button class="post-title">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <p>Reply</p>
+                            <p></p>
+                        </button>
+                    </div>
+                    <div class="flex author">
+                        <p class="icon">JD</p>
+                        <p class="small">Jone Duke </p>
+                        <p class="small">2 days ago </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="post-basis-discussion-container containers">
+            <div class="flex">
+                <h6 class="week-heading discussion-weeks"><span><i class="fa fa-angle-right" aria-hidden="true"
+                            style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                    1</h6>
+                <h6 class="week-heading" style="margin-left: 10px"><span><i class="fa fa-angle-right" aria-hidden="true"
+                            style="font-size: 1.5rem; margin-right: 6px;"></i></span>Discussion forum</h6>
+            </div>
+
+            <h5 style="font-weight: 700; margin: 20px 0;">Post Ttitle here as the user wish</h5>
+            <div class="flex" style="align-items: flex-start;">
+                <div class="commentor" style="width: 100px">
+                    <img src="{% static 'assets/course-material/user1.png' %}" alt="">
+
+                </div>
+                <div class="post-container">
+                    <div class="flex">
+                        <h6 style="font-weight: 600;font-size: 1.1rem; color: #000">Phoebe buffay</h6>
+                        <p class="tag">Mentor</p>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9rem;">Content over here what ever the customer write What
+                        language can I
+                        include in my prompts
+                        (submitted via browser not API) that would reduce the probability or even eliminate the
+                        possibility of hallucinations in the response?
+                        What would be the potential downsides for various use cases such as a creative writing task?What
+                        language can I include in my prompts (submitted via browser not API) that would reduce the
+                        probability or even eliminate the possibility of hallucinations in the response?</p>
+                </div>
+            </div>
+            <div class="flex" style="justify-content: space-between; margin-top: 20px;">
+                <div class="flex btn-container">
+                    <div class="flex buttons">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                        <p>Like</p>
+                        <p>23</p>
+                    </div>
+                    <div class="flex buttons reply">
+                        <i class="fa fa-comment-o" aria-hidden="true"></i>
+                        <p>Reply</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reply-container">
+                <h5>Post a Reply</h5>
+                <textarea col="10" row="5" placeholder="Write here"></textarea>
+                <button>Reply</button>
+            </div>
+            <div class="line" style="margin-bottom: 15px;"></div>
+
+            <div class="comments-container">
+                <h5 style="margin-bottom: 15px">3 Replies</h5>
+                <div class="comments flex" style="align-items: flex-start;">
+                    <div class="commentor" style="width: 30px">
+                        <img src="{% static 'assets/course-material/user2.png' %}" alt="">
+
+                    </div>
+                    <div class="content">
+                        <div class="flex">
+                            <p style="font-size: 1.1rem;font-weight: 600;">Monica</p>
+                            <p class="learner-tag">Learner</p>
+                        </div>
+                        <p style="margin: 15px 0; font-size: 0.9rem;">Unable to access the video.....</p>
+                        <div class="flex btn-container">
+                            <div class="flex buttons">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                                <p>Like</p>
+                                <p>23</p>
+                            </div>
+                            <div class="flex buttons">
+                                <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                <p>Reply</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reply-to-comment">
+                    <div class="comments flex" style="align-items: flex-start;">
+                        <div class="commentor" style="width: 60px">
+                            <img src="{% static 'assets/course-material/user2.png' %}" alt="">
+
+                        </div>
+                        <div class="content">
+                            <div class="flex">
+                                <p style="font-size: 1.1rem;font-weight: 600;">Rachel</p>
+                                <p class="learner-tag">Learner</p>
+                            </div>
+                            <p style="margin: 15px 0; font-size: 0.9rem;">For questions not related to the course
+                                curriculum, our Help
+                                Center has extensive information regarding UPSKyED’s various features, and articles with
+                                troubleshooting steps. Use the search tool or topics to help you quickly resolve any
+                                issues you encounter.</p>
+                            <div class="flex btn-container">
+                                <div class="flex buttons">
+                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                    <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                                    <p>Like</p>
+                                    <p>23</p>
+                                </div>
+                                <div class="flex buttons">
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                    <p>Reply</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comments flex" style="align-items: flex-start;">
+                        <div class="commentor" style="width: 60px">
+                            <img src="{% static 'assets/course-material/user2.png' %}" alt="">
+
+                        </div>
+                        <div class="content">
+                            <div class="flex">
+                                <p style="font-size: 1.1rem;font-weight: 600;">Rachel</p>
+                                <p class="learner-tag">Learner</p>
+                            </div>
+                            <p style="margin: 15px 0; font-size: 0.9rem;">Ut sodales, ex sit amet consectetur accumsan,
+                                nibh ex sollicitudin
+                                metus, volutpat lacinia arcu nibh vel ante. Proin dapibus dui eget justo tincidunt
+                                eleifend. Mauris porta elementum est. Nullam euismod quis libero sed convallis.
+                                Vestibulum fringilla felis nec turpis aliquam auctor a a lectus. Etiam porttitor at eros
+                                vitae posuere. Suspendisse nec mollis dolor.</p>
+                            <div class="flex btn-container">
+                                <div class="flex buttons">
+                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                    <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                                    <p>Like</p>
+                                    <p>23</p>
+                                </div>
+                                <div class="flex buttons">
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                    <p>Reply</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="comments flex" style="align-items: flex-start;">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"
+                        style="font-size: 2.2rem; margin-right:  10px"></i>
+                    <div class="content">
+                        <div class="flex">
+                            <p style="font-size: 1.1rem;font-weight: 600;">Name</p>
+                            <p class="tag">Learner</p>
+                        </div>
+                        <p style="margin: 10px 0">Comment of the person...</p>
+                        <div class="flex">
+                            <div class="flex buttons">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                                <p>Like</p>
+                            </div>
+                            <div class="flex buttons">
+                                <i class="fa fa-reply" aria-hidden="true"></i>
+                                <p>Reply</p>
+                            </div>
+                            <div class="more-container">
+                                <div class="flex">
+                                    <p>More</p>
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                </div>
+                                <div class="more-pop-up">
+                                    <ul>
+                                        <li class="close">More<span><i class="fa fa-ellipsis-h"
+                                                    aria-hidden="true"></i></span></li>
+                                        <li>Report this post</li>
+                                        <li class="link-to-post">Link to post</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments flex" style="align-items: flex-start;">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"
+                        style="font-size: 2.2rem; margin-right:  10px"></i>
+                    <div class="content">
+                        <div class="flex">
+                            <p style="font-size: 1.1rem;font-weight: 600;">Name</p>
+                            <p class="tag">Learner</p>
+                        </div>
+                        <p style="margin: 10px 0">Comment of the person...</p>
+                        <div class="flex">
+                            <div class="flex buttons">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                                <p>Like</p>
+                            </div>
+                            <div class="flex buttons">
+                                <i class="fa fa-reply" aria-hidden="true"></i>
+                                <p>Reply</p>
+                            </div>
+                            <div class="more-container">
+                                <div class="flex">
+                                    <p>More</p>
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                </div>
+                                <div class="more-pop-up">
+                                    <ul>
+                                        <li class="close">More<span><i class="fa fa-ellipsis-h"
+                                                    aria-hidden="true"></i></span></li>
+                                        <li>Report this post</li>
+                                        <li class="link-to-post">Link to post</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="message-container containers">
+            <h6 class="weeks week-heading"><span><i class="fa fa-angle-right" aria-hidden="true"
+                        style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                1</h6>
+            <div class="borderline">
+
+                <div id="messages" class="content-section hidden">
+                <h4>Messages</h4>
+                {% for content in messages %}
+                <p style="margin: 15px;">{{ content }}</p>
+                {% endfor %}
+
+            </div>
+            </div>
+        </div>
+        <div class="resource-container containers">
+            <h6 class="weeks week-heading"><span><i class="fa fa-angle-right" aria-hidden="true"
+                        style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                1</h6>
+            <h4>Resources</h4>
+            <div class="borderline ">
+                <p style="margin: 15px;">You may wish to download your resources from here, to flourish your
+                    work</p>
+                    {% for week in weeks %}
+                <h6>{{ week.title }}</h6>
+
+                <div class="pdf-container">
+                    {% for resource in week.resources.all %}
+                    <p>{{ resource.title }} PDF here</p>
+                    {% if resource.pdf_file %}
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+
+                    <ul class="download-pop-up">
+                        <li><a href="{{ resource.pdf_file.url }}" target="_blank">Download PDF</a></li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+        <div class="course-info-container containers">
+            <h6 class="weeks week-heading"><span><i class="fa fa-angle-right" aria-hidden="true"
+                        style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                1</h6>
+            <h4>Course-info</h4>
+            <div class="borderline">
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.description }}</p>
+                <br>
+
+                <!-- Additional course details -->
+                <h4>What you'll learn</h4>
+                <p>{{ course.what_you_will_learn }}</p>
+
+                <br>
+                <h4>This course includes:</h4>
+                <p>{{ course.this_course_includes }}</p>
+                <br>
+                <h5 style="font-size: 1.2rem;font-weight: 600">Syllabus</h5>
+                <h6 style="font-size: 1rem;font-weight: 600; padding: 15px; background: #0085FF;color: #fff
+                ">Week 1</h6>
+                <div class="course-details">
+                    <h6 style="font-size: 0.95rem; margin-bottom: 3px;font-weight: 600;color: #fff">Course Name</h6>
+                    <p style="font-size: 0.95rem">Description about the course</p>
+                    <div class="small-details">
+                        <div class="flex">
+                            <i class="fa fa-play-circle-o" aria-hidden="true" style="margin-right: 10px;"></i>
+                            <p>11 videos</p>
+                        </div>
+                        <div class="flex">
+                            <i class="fa fa-file-text-o" aria-hidden="true" style="margin-right: 10px;"></i>
+                            <p>Duration here</p>
+                        </div>
+                        <div class="flex">
+                            <img src="{% static 'assets/globe.png' %}" alt="Globe Icon" width="20px"
+                                style="margin-right: 10px;">
+                            <p>No. of tests</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-break"></div>
+                <h5 style="font-size: 1.2rem;font-weight: 600;">How it works?</h5>
+                <div class="border" style="text-align: left; display: block; margin-bottom: 15px;">
+                    <p style="font-size: 1.2rem; font-weight: 300; margin-bottom: 20px;">General</p>
+                    <h6 style="margin-bottom: 10px; font-weight: 600; font-size: 1.1rem">How do I pass?</h6>
+                    <p style="font-size: 0.95rem;">Answer starts from here</p>
+                </div>
+                <div class="border" style="text-align: left; display: block;margin-bottom: 15px;">
+                    <p style="font-size: 1.2rem; font-weight: 300; margin-bottom: 20px;">Pre-graded
+                    </p>
+                    <h6 style="margin-bottom: 10px; font-weight: 600; font-size: 1.1rem">How do I pass?</h6>
+                    <p style="font-size: 0.95rem;">Answer starts from here</p>
+                </div>
+                <h5 style="font-size: 1.2rem;font-weight: 600; margin-top: 25px;">Related Courses?</h5>
+                <div class="card-container">
+                    <div class="card">
+
+                        <img src="{% static 'assets/landing_page_before_login/featured-course.png' %}"
+                            class="card-img-top" alt="..." width="100px" height="180px;" style="object-fit: cover;">
+
+                        <div class=" card-body">
+                            <h5 class="card-title" style="font-weight: 600; font-size: 1.2rem;">Name
+                                of the
+                                course</h5>
+                            <p class="academy">Which Academy</p>
+                            <div class="rating-container">
+                                <p class="rating">4.0</p>
+                                <div class="rating-icons">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                                </div>
+                                <p class="views">(views)</p>
+                            </div>
+                            <p>₹3,699</p>
+
+                        </div>
+
+                    </div>
+                    <div class="card">
+
+                        <img src="{% static 'assets/landing_page_before_login/featured-course.png' %}"
+                            class="card-img-top" alt="..." width="100px" height="180px;" style="object-fit: cover;">
+
+                        <div class=" card-body">
+                            <h5 class="card-title" style="font-weight: 600; font-size: 1.2rem;">Name
+                                of the
+                                course</h5>
+                            <p class="academy">Which Academy</p>
+                            <div class="rating-container">
+                                <p class="rating">4.0</p>
+                                <div class="rating-icons">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                    <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                                </div>
+                                <p class="views">(views)</p>
+                            </div>
+                            <p>₹3,699</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="career-guidance-container containers">
+            <h6 class="weeks week-heading"><span><i class="fa fa-angle-right" aria-hidden="true"
+                        style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                1</h6>
+            <h4 style="margin: 25px 0 15px 0">Career Guidance</h4>
+
+                <ul id="career-guidance-list">
+                    <!-- Career guidance messages will be appended here by JavaScript -->
+                </ul>
+                <p id="no-career-guidance" class="hidden">No career guidance available.</p>
+
+
+            <img src="{% static 'assets/course-material/career-img.jpeg' %}" alt="">
+
+            <h5>Reference blog links:</h5>
+            <div class="links">
+                <a href="https://www.indeed.com/career-advice">https://www.indeed.com/career-advice</a>
+                <a href="https://www.linkedin.com/learning">https://www.linkedin.com/learning</a>
+                <a href="https://www.glassdoor.com/index.htm">https://www.glassdoor.com/index.htm</a>
+                <a href="https://www.forbes.com/careers/">https://www.forbes.com/careers/</a>
+            </div>
+        </div>
+        <div class="papers-container containers">
+            <h6 class="weeks week-heading"><span><i class="fa fa-angle-right" aria-hidden="true"
+                        style="font-size: 1.5rem; margin-right: 6px;"></i></span>Week
+                1</h6>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Question Paper PDF</th>
+                            <th>Answer Paper PDF</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for paper in question_papers %}
+                        <tr>
+                            <td>{{ paper.title }} : {{ paper.subject }}</td>
+                            <td><a href="{% url 'download_question_paper' paper.id %}" download>Download</a></td>
+                            <td>Download</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="mentorship-container containers">
+            <div class="flex" style="width: 100%;justify-content: center;">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <input type="text" id="topic" name="topic" placeholder="Enter topic here">
+                    </div>
+                    <div class="flex">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date" placeholder="03/05/2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobileNumber">Mobile Number</label>
+                            <input type="number" id="mobileNumber" name="mobileNumber"
+                                placeholder="Enter your mobile number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="text" id="email" name="email" placeholder="Enter your email address">
+                    </div>
+                    <div class="buttons-container">
+
+                        <a href="{% url 'payment' %}" class="pay-btn">Proceed to pay</a>
+                    </div>
+                </form>
+
+                <div class="image-container">
+                    <img src="{% static 'assets/course-material/mentorship.png' %}" alt="" width="300px">
+                </div>
+            </div>
+            <p class="note">Note: Once you book your slot, Our team will contact you either through call or mail
+                in
+                couple of days ,the any topic you select or content you choose will be delievered for you with
+                high
+                quality content and with highly qualified mentors</p>
+            <h4 style="margin-bottom: 15px; font-weight: 600;">History</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>Payment Date</th>
+                            <th>Topic</th>
+                            <th>Booking Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>00/00/0000</td>
+                            <td>Topic Name</td>
+                            <td>00/00/0000</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>00/00/0000</td>
+                            <td>Topic Name</td>
+                            <td>00/00/0000</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>00/00/0000</td>
+                            <td>Topic Name</td>
+                            <td>00/00/0000</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>00/00/0000</td>
+                            <td>Topic Name</td>
+                            <td>00/00/0000</td>
+                            <td>Completed</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div> -->
+    <div class="modal-container">
+        <div class="link-modal">
+            <div class="flex">
+                <h6>Link to Post</h6>
+                <i class="fa fa-times close" aria-hidden="true"></i>
+            </div>
+            <p>link of the post will be here....</p>
+            <p><span><i class="fa fa-link" aria-hidden="true"></i></span>Copy link</p>
+        </div>
+        <div class="create-post-container">
+            <div class="flex" style="justify-content: space-between; align-items: flex-start;margin-bottom: 20px">
+                <div>
+                    <h4 style="font-weight:600;">Create Your Post</h4>
+                    <p>* Marked field are required</p>
+
+                </div>
+                <img src="{% static 'assets/course-material/close.png' %}" alt="" width="20px" class="close">
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter your title">
+            </div>
+            <div class="form-group">
+                <label for="reply">Reply</label>
+                <textarea name="reply" rows="4" cols="50" placeholder="Enter you reply here"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="forum">Forum</label>
+                <input type="text" placeholder="Write here" name="forum">
+            </div>
+            <div class="create-post-btn">
+                <button class="close">Cancel</button>
+                <button>Post</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <footer class="footer-section">
+        <div class="company-details">
+            <div class="description">
+                <h3 style="font-weight: 600;color: #0085FF">E-Learning</h3>
+            </div>
+            <div class="app">
+                <p style="font-size: 1rem; color: #fff;">Top learning experiences that <br>create more
+                    talent in the world.</p>
+
+
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Company</li>
+                    <a href="{% url 'about_us' %}">
+                        <li>About us</li>
+                    </a>
+                    <a href="{% url 'faq' %}">
+                        <li>FAQs</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Social</li>
+                    <li>Twitter</li>
+                    <li>LinkedIn</li>
+                    <li>GitHub</li>
+                    <li>Dribble</li>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Legal</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
+                    <a href="{% url 'contact_us' %}">
+                        <li>Contact Us</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-below-section">
+            <p>© 2024 E-Learning. All rights reserved.</p>
+            <div class="socials">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            </div>
+        </div>
+    </footer>
+
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+                <!-- jQuery and AJAX -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.left-section .categories');
+            const categoryList = document.querySelector('.main-category');
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            categories.addEventListener('click', function () {
+                // Toggle the 'active' class on the main category list
+                categoryList.classList.toggle('active');
+                categoryLists.forEach(function (category) {
+                    category.classList.remove('active');
+                });
+            });
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Remove the 'active' class from all category lists
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+
+                    // Add the 'active' class to the clicked category list
+                    categoryLists[index].classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const profile = document.querySelector('.profile');
+            const listItems = document.querySelectorAll('.profile-container ul li');
+            const ul = document.querySelector('.profile-container ul');
+            const chevron = document.querySelector('.fa-chevron-down');
+
+            // Toggle 'active' class on ul when profile is clicked
+            profile.addEventListener('click', function () {
+                ul.classList.toggle('active');
+                chevron.classList.toggle('rotate');
+            });
+
+            // Add 'active' class to clicked li and remove from others
+            listItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Remove active class from all list items
+                    listItems.forEach(function (li) {
+                        li.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked item
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function handleActiveState(listSelector, itemClass) {
+                const listItems = document.querySelectorAll(listSelector);
+
+                listItems.forEach(item => {
+                    item.addEventListener('click', function () {
+                        // Remove active class from all items within the same class
+                        const sameClassItems = document.querySelectorAll(itemClass);
+                        sameClassItems.forEach(li => li.classList.remove('active'));
+
+                        // Add active class to the clicked item
+                        this.classList.add('active');
+                    });
+                });
+            }
+
+            // Apply the active state handler to both main-list and week-list independently
+            handleActiveState('.main-list > .main-item', '.main-item');
+            // handleActiveState('.week-list > .week-item', '.week-item');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const weekItems = document.querySelectorAll('.week-list .week-item');
+            const weekHeaders = document.querySelectorAll('h6.weeks');
+
+            weekItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    // Remove active class from all week items
+                    weekItems.forEach(week => week.classList.remove('active'));
+
+                    // Add active class to the clicked item
+                    this.classList.add('active');
+
+                    // Get the selected week text
+                    const selectedWeek = this.textContent;
+
+                    // Update all h6 elements with the class 'weeks'
+                    weekHeaders.forEach(header => {
+                        header.innerHTML = `<span><i class="fa fa-angle-right" aria-hidden="true" style="font-size: 1.5rem; margin-right: 6px;"></i></span>${selectedWeek}`;
+                    });
+                });
+            });
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const pdfContainers = document.querySelectorAll('.pdf-container');
+
+            pdfContainers.forEach(container => {
+                const icon = container.querySelector('.fa-ellipsis-h');
+                const ul = container.querySelector('.download-pop-up');
+
+                icon.addEventListener('click', function () {
+                    ul.classList.toggle('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const listItems = document.querySelectorAll('.main-list .main-item');
+
+            listItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    // Remove 'active' class from all containers
+                    document.querySelectorAll('.containers').forEach(container => {
+                        container.classList.remove('active');
+                    });
+
+                    // Get the target container class from data-target attribute
+                    const targetClass = this.getAttribute('data-target');
+
+                    // Add 'active' class to the target container
+                    document.querySelector('.' + targetClass).classList.add('active');
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const sortContainer = document.querySelector('.sort-container');
+            const sortPopUp = document.querySelector('.sort-pop-up');
+            const filterContainer = document.querySelector('.filter');
+            const filterPopUp = document.querySelector('.filter-pop-up');
+            const sortChevron = document.querySelector('.sort-container .arrow')
+            const filterChevron = document.querySelector('.filter .arrow')
+
+            const sortDisplay = sortContainer.querySelector('p:nth-child(2)');
+            const filterDisplay = filterContainer.querySelector('p:nth-child(2)');
+
+            sortContainer.addEventListener('click', function () {
+                sortPopUp.classList.toggle('active');
+                filterPopUp.classList.remove('active');
+                sortChevron.classList.toggle('rotate')
+            });
+
+            filterContainer.addEventListener('click', function () {
+                filterPopUp.classList.toggle('active');
+                sortPopUp.classList.remove('active');
+                filterChevron.classList.toggle('rotate')
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!sortContainer.contains(event.target) && !sortPopUp.contains(event.target)) {
+                    sortPopUp.classList.remove('active');
+                }
+                if (!filterContainer.contains(event.target) && !filterPopUp.contains(event.target)) {
+                    filterPopUp.classList.remove('active');
+                }
+            });
+
+            sortPopUp.querySelectorAll('li').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    sortDisplay.textContent = `${this.textContent}`;
+                });
+                sortPopUp.classList.remove('active');
+
+            });
+
+            filterPopUp.querySelectorAll('li').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    filterDisplay.textContent = `${this.textContent}`;
+                });
+                filterPopUp.classList.remove('active');
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the elements
+            const linkToPostBtns = document.querySelectorAll('.link-to-post');
+            const createPostBtns = document.querySelectorAll('.createPostBtn');
+            const linkModal = document.querySelector('.link-modal');
+            const createPostModal = document.querySelector('.create-post-container');
+            const modalContainer = document.querySelector('.modal-container')
+            const closeBtns = document.querySelectorAll('.close');
+
+            // Event listener to open the link to post modal
+            linkToPostBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    linkModal.classList.add('active');
+                    modalContainer.classList.add('active')
+                });
+            });
+
+            createPostBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    createPostModal.classList.add('active');
+                    modalContainer.classList.add('active')
+                });
+            });
+
+            // Event listeners to close the link modal
+            document.querySelectorAll('.close').forEach(element => {
+                element.addEventListener('click', function () {
+                    linkModal.classList.remove('active');
+                    modalContainer.classList.remove('active')
+                });
+            });
+
+            // Event listeners to close the create post modal
+            document.querySelectorAll('.close').forEach(element => {
+                element.addEventListener('click', function () {
+                    createPostModal.classList.remove('active');
+                    modalContainer.classList.remove('active')
+                });
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const flexDivs = document.querySelectorAll('.flex');
+
+            flexDivs.forEach(flexDiv => {
+                const thumbOutline = flexDiv.querySelector('.fa-thumbs-o-up');
+                const thumbSolid = flexDiv.querySelector('.fa-thumbs-up');
+
+                flexDiv.addEventListener('click', function () {
+                    if (thumbOutline.style.display === 'none') {
+                        thumbOutline.style.display = 'inline';
+                        thumbSolid.style.display = 'none';
+                    } else {
+                        thumbOutline.style.display = 'none';
+                        thumbSolid.style.display = 'inline';
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all post title elements
+            const forumPostTitles = document.querySelectorAll('.week-basis-discussion-container .post-title');
+            const commonForumPostTitles = document.querySelectorAll('.common-discussion-container .post-title');
+            const postBasisContainer = document.querySelector('.post-basis-discussion-container');
+            const weekBasisContainer = document.querySelector('.week-basis-discussion-container');
+            const commonForum = document.querySelector('.common-discussion-container');
+
+            // Add click event listener to each post title
+            forumPostTitles.forEach(title => {
+                title.addEventListener('click', function () {
+                    // Toggle the active class on post-basis-container
+                    postBasisContainer.classList.add('active');
+                    weekBasisContainer.classList.remove('active');
+                });
+            });
+            commonForumPostTitles.forEach(title => {
+                title.addEventListener('click', function () {
+                    // Toggle the active class on post-basis-container
+                    postBasisContainer.classList.add('active');
+                    commonForum.classList.remove('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all post title elements
+            const weekRow = document.querySelectorAll('.week-row');
+            const discussionContainer = document.querySelector('.discussion-container');
+            const weekBasisContainer = document.querySelector('.week-basis-discussion-container');
+
+            // Add click event listener to each post title
+            weekRow.forEach(row => {
+                row.addEventListener('click', function () {
+                    // Toggle the active class on post-basis-container
+                    weekBasisContainer.classList.add('active');
+                    discussionContainer.classList.remove('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all post title elements
+            const weekRow = document.querySelectorAll('.week-row');
+            const discussionContainer = document.querySelector('.discussion-container');
+            const weekBasisContainer = document.querySelector('.week-basis-discussion-container');
+            const commonForum = document.querySelector('.common-discussion-container')
+            const forumBtn = document.querySelector('.discussion-container .join')
+
+            forumBtn.addEventListener('click', function () {
+                commonForum.classList.add('active');
+                discussionContainer.classList.remove('active')
+            })
+            // Add click event listener to each post title
+            weekRow.forEach(row => {
+                row.addEventListener('click', function () {
+                    // Toggle the active class on post-basis-container
+                    weekBasisContainer.classList.add('active');
+                    discussionContainer.classList.remove('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const weekItems = document.querySelectorAll('.discussion-table .col-1');
+            const weekHeaders = document.querySelectorAll('.discussion-weeks');
+
+            weekItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    // Remove active class from all week items
+                    weekItems.forEach(week => week.classList.remove('active'));
+
+                    // Add active class to the clicked item
+                    this.classList.add('active');
+
+                    // Get the selected week text
+                    const selectedWeek = this.textContent;
+
+                    // Update all h6 elements with the class 'weeks'
+                    weekHeaders.forEach(header => {
+                        header.innerHTML = `<span><i class="fa fa-angle-right" aria-hidden="true" style="font-size: 1.5rem; margin-right: 6px;"></i></span>${selectedWeek}`;
+                    });
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const replyBtn = document.querySelector('.reply');
+            const replyCont = document.querySelector('.reply-container');
+
+            replyBtn.addEventListener('click', function () {
+                replyCont.classList.toggle('active')
+            })
+        })
+
+
+        $(document).ready(function() {
+            // Function to show the correct section based on the sidebar link clicked
+            $('.list-group-item').click(function() {
+                var section = $(this).data('section');
+                $('.content-section').addClass('hidden');
+                $('#' + section).removeClass('hidden');
+
+                if (section === 'messages') {
+                    loadMessages();
+                } else if (section === 'career_guidance') {
+                    loadCareerGuidance();
+                } else if (section === 'resources') {
+                    loadResources();
+                } else if (section === 'discussions') {
+                    loadDiscussions();
+                }
+            });
+
+            // Function to load career guidance via AJAX
+            function loadCareerGuidance() {
+                var courseId = {{ course.id }};
+                $.ajax({
+                    url: '/courses/' + courseId + '/career_guidance/json/',
+                    method: 'GET',
+                    success: function(response) {
+                        var careerGuidanceList = $('#career-guidance-list');
+                        var noCareerGuidance = $('#no-career-guidance');
+                        careerGuidanceList.empty();  // Clear the existing career guidance
+
+                        if (response.guidance_messages.length > 0) {
+                            response.guidance_messages.forEach(function(guidance) {
+                                careerGuidanceList.append('<li>' + guidance.content + '</li>');
+                            });
+                            noCareerGuidance.addClass('hidden');
+                        } else {
+                            noCareerGuidance.removeClass('hidden');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        console.error('Status:', status);
+                        console.error('Response:', xhr.responseText);
+                        alert('Error loading career guidance: ' + error);
+                    }
+                });
+            }
+
+
+            // Function to load messages via AJAX
+            function loadMessages() {
+                var courseId = {{ course.id }};
+                $.ajax({
+                    url: '/course_material/' + courseId + '/messages/json/',
+                    method: 'GET',
+                    success: function(response) {
+                        var messagesList = $('#messages-list');
+                        var noMessages = $('#no-messages');
+                        messagesList.empty();  // Clear the existing messages
+
+                        if (response.messages.length > 0) {
+                            response.messages.forEach(function(message) {
+                                messagesList.append('<li>' + message.content + '</li>');
+                            });
+                            noMessages.addClass('hidden');
+                        } else {
+                            noMessages.removeClass('hidden');
+                        }
+                    },
+                    error: function() {
+                        alert('Error loading messages.');
+                    }
+                });
+            }
+
+
+
+
+
+
+
+
+
+            // Function to load resources via AJAX
+            function loadResources() {
+                var courseId = {{ course.id }};
+                $.ajax({
+                    url: '/courses/' + courseId + '/resources/json/',
+                    method: 'GET',
+                    success: function(response) {
+                        var resourcesSection = $('#resources');
+                        resourcesSection.empty();  // Clear the existing resources
+
+                        if (response.weeks.length > 0) {
+                            response.weeks.forEach(function(weekData) {
+                                var weekHTML = '<h3>' + weekData.week_title + '</h3>'; // Display the week title
+                                weekData.resources.forEach(function(resource) {
+                                    weekHTML += '<p>' + resource.title + '</p>';
+                                    if (resource.pdf_file) {
+                                        weekHTML += '<a href="' + resource.pdf_file + '" target="_blank">Download PDF</a>'; // Display PDF link
+                                    }
+                                });
+                                resourcesSection.append(weekHTML);
+                            });
+                        } else {
+                            resourcesSection.append('<p>No resources available.</p>');
+                        }
+                    },
+                    error: function() {
+                        alert('Error loading resources.');
+                    }
+                });
+            }
+
+            // Function to load discussions via AJAX
+
+            function loadDiscussions() {
+                var courseId = {{ course.id }};
+                $.ajax({
+                    url: '/courses/' + courseId + '/discussions/json/',
+                    method: 'GET',
+                    success: function(response) {
+                        var discussionList = $('#discussion-list');
+                        discussionList.empty();  // Clear the existing discussions
+
+                        if (response.discussions.length > 0) {
+                            response.discussions.forEach(function(discussion) {
+                                discussionList.append('<div class="discussion"><h5>' + discussion.title + '</h5><p>' + discussion.content + '</p><small>' + discussion.created_at + '</small></div>');
+                            });
+                        } else {
+                            discussionList.append('<p>No discussions available.</p>');
+                        }
+                    },
+                    error: function() {
+                        alert('Error loading discussions.');
+                    }
+                });
+            }
+            // Function to handle posting a new discussion
+            $('#discussion-form').submit(function(event) {
+                event.preventDefault();
+                var title = $('#discussion-title').val();
+                var content = $('#discussion-content').val();
+                var courseId = {{ course.id }};
+
+                $.ajax({
+                    url: '/courses/' + courseId + '/add_discussion/',
+                    method: 'POST',
+                    data: {
+                        title: title,
+                        content: content,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            $('#discussion-title').val('');
+                            $('#discussion-content').val('');
+                            loadDiscussions();
+                        } else {
+                            alert('Error posting discussion.');
+                        }
+                    }
+                });
+            });
+
+            // Load discussions on page load if the discussion section is visible
+            if ($('#discussions').is(':visible')) {
+                loadDiscussions();
+            }
+
+
+            // Function to toggle like
+            $('.toggle-like').click(function() {
+                var postId = $(this).data('post-id');
+                var button = $(this);
+                $.ajax({
+                    url: '/posts/' + postId + '/toggle_like/',
+                    method: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        button.text('👍 ' + response.likes_count + ' Like');
+                    }
+                });
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const saveNoteButton = document.getElementById('save-note');
+            const noteContentField = document.getElementById('note-content');
+            const notesList = document.getElementById('notes-list');
+            const courseId = {{ course.id }}; // Replace with the actual course ID
+
+
+            // Function to fetch and display notes
+            function fetchNotes() {
+                fetch(`/get_notes/${courseId}/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            notesList.innerHTML = ''; // Clear the notes list
+                            data.notes.forEach(note => {
+                                const noteDiv = document.createElement('div');
+                                noteDiv.classList.add('note-item', 'mt-2', 'p-2', 'border', 'border-secondary');
+                                noteDiv.innerHTML = `
+                                    <p>${note.content}</p>
+                                    <small>${new Date(note.created_at).toLocaleString()}</small>
+                                `;
+                                notesList.appendChild(noteDiv);
+                            });
+                        } else {
+                            alert('Failed to fetch notes');
+                        }
+                    })
+                    .catch(error => console.error('Error fetching notes:', error));
+            }
+
+            // Function to save a new note
+            function saveNote() {
+                const noteContent = noteContentField.value.trim();
+                if (noteContent === '') {
+                    alert('Note content cannot be empty');
+                    return;
+                }
+
+                fetch(`/save_note/${courseId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken') // Assuming Django's CSRF protection
+                    },
+                    body: JSON.stringify({ content: noteContent })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            noteContentField.value = ''; // Clear the textarea
+                            fetchNotes(); // Refresh the notes list
+                        } else {
+                            alert('Failed to save note');
+                        }
+                    })
+                    .catch(error => console.error('Error saving note:', error));
+            }
+
+            // Fetch notes when the page loads
+            fetchNotes();
+
+            // Event listener to save a note when the button is clicked
+            saveNoteButton.addEventListener('click', saveNote);
+
+            // Function to get CSRF token from cookie
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        });
+
+    </script>
+    <script>
+        function loadCareerGuidance() {
+            var courseId = {{ course.id }};
+            $.ajax({
+                url: '/courses/' + courseId + '/career_guidance/json/',
+                method: 'GET',
+                success: function(response) {
+                    var careerGuidanceList = $('#career-guidance-list');
+                    var noCareerGuidance = $('#no-career-guidance');
+                    careerGuidanceList.empty();  // Clear the existing career guidance
+
+                    if (response.guidance_messages.length > 0) {
+                        response.guidance_messages.forEach(function(guidance) {
+                            careerGuidanceList.append('<li>' + guidance.content + '</li>');
+                        });
+                        noCareerGuidance.addClass('hidden');
+                    } else {
+                        noCareerGuidance.removeClass('hidden');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                    console.error('Status:', status);
+                    console.error('Response:', xhr.responseText);
+                    alert('Error loading career guidance: ' + error);
+                }
+            });
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

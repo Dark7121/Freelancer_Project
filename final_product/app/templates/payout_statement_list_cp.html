@@ -1,0 +1,19 @@
+<!-- templates/payout_statement_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payout Statement List</title>
+</head>
+<body>
+    <h1>Payout Statement List</h1>
+    {% for payout in payouts %}
+        <div>
+            <p>{{ payout.payment_details }}</p>
+            {% if payout.image %}
+                <img src="{{ payout.image.url }}" alt="Payout Image" style="max-width: 200px; max-height: 200px;">
+            {% endif %}
+        </div>
+    {% endfor %}
+</body>
+</html>

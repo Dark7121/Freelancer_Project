@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Feedback</title>
+</head>
+<body>
+    <h1>Submit Feedback for {{ formfeedback.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ response_form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <a href="{% url 'admin_formfeedback_list' %}">Back to Feedback Forms</a>
+</body>
+</html>

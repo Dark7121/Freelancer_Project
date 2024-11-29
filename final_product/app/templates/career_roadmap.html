@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Roadmap</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-Learning</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'course_catalog' %}">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'enrolled_course' %}">Enrolled Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'community_platform' %}">Community</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'mentorship_page' %}">Personal Mentorship</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Content for Career Roadmap -->
+<div class="container mt-5">
+    <h2>Career Roadmap</h2>
+    <p>This is the Career Roadmap page.</p>
+
+    <!-- Buttons for choosing domain -->
+    <div class="mt-4">
+        <h4>Choose Domain:</h4>
+        <button type="button" class="btn btn-primary mr-2" onclick="showQuestions('After 10th')">After 10th</button>
+        <button type="button" class="btn btn-primary mr-2" onclick="showQuestions('After 12th')">After 12th</button>
+        <button type="button" class="btn btn-primary mr-2" onclick="showQuestions('After UG')">After UG</button>
+        <button type="button" class="btn btn-primary" onclick="showQuestions('After PG')">After PG</button>
+    </div>
+
+    <!-- Placeholder for questions -->
+    <div class="mt-4" id="questionsContainer" style="display: none;">
+        <h4>Questions:</h4>
+        <ul id="questionsList"></ul>
+    </div>
+</div>
+
+<!-- Bootstrap JS (Optional - Only if needed for JavaScript functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript function to show questions based on domain
+    function showQuestions(domain) {
+        var questionsContainer = document.getElementById("questionsContainer");
+        var questionsList = document.getElementById("questionsList");
+        questionsList.innerHTML = ""; // Clear previous questions
+
+        // Define questions based on domain
+        var questions = [];
+        if (domain === 'After 10th') {
+            questions = [
+                "What are the Career Options After 10th in Science?",
+                "What are the Career Options After 10th in Commerce?",
+                "What are the Career Options After 10th in Arts?"
+            ];
+        } else if (domain === 'After 12th') {
+            questions = [
+                "What are the Career Options After 12th in Science?",
+                "What are the Career Options After 12th in Commerce?",
+                "What are the Career Options After 12th in Arts?"
+            ];
+        } else if (domain === 'After UG') {
+            questions = [
+                "What are the Career Options After UG in Commerce?",
+                "What are the Career Options After UG in Electronics?",
+                "What are the Career Options After UG in Hotel Management?"
+            ];
+        } else if (domain === 'After PG') {
+            questions = [
+                "What are the Career Options After PG in Commerce?",
+                "What are the Career Options After PG in Electronics?",
+                "What are the Career Options After PG in Hotel Management?"
+            ];
+        }
+
+        // Display questions
+        questions.forEach(function(question) {
+            var listItem = document.createElement("li");
+            var link = document.createElement("a");
+            link.href = "#"; // Add actual URL here
+            link.textContent = question;
+            link.onclick = function() {
+                // Redirect to new page on question click
+                window.location.href = "question_page.html"; // Replace with actual URL
+            };
+            listItem.appendChild(link);
+            questionsList.appendChild(listItem);
+        });
+
+        // Show questions container
+        questionsContainer.style.display = "block";
+    }
+</script>
+
+</body>
+</html>

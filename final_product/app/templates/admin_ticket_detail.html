@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="chat-header">
+        <h3>Ticket ID: #{{ ticket.id }} - {{ ticket.status|capfirst }}</h3>
+        <p>Category: {{ ticket.category.name }} - Subcategory: {{ ticket.sub_category.name }}</p>
+    </div>
+
+    <div class="chat-box">
+        {% for message in messages %}
+        <div class="{% if message.sender == request.user %}sent{% else %}received{% endif %}">
+            <p>{{ message.message }}</p>
+            <small>{{ message.created_at }}</small>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="chat-form">
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="message" placeholder="Type your message here..."></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/admin_login_page.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Login</title>
+</head>
+<body>
+    <section class="login-section" >
+
+        <div class="login-container">
+            <div class="login-wrapper">
+
+            <div class="login-heading-container">
+                <h2 class="login-heading">LOGIN</h2>
+            <p class="login-description">How to i get started lorem ipsum dolor at?</p>
+            </div>
+
+
+                <form method="post" id="login-form">
+                    {% csrf_token %}
+                    <h1><i class="fas fa-sign-in-alt login-icon"></i>Login</h1>
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <p class="text-center">Don't have an account? <a href="{% url 'admin_signup' %}" class="btn btn-signup">Signup <i class="fas fa-user-plus"></i></a></p>
+                </form>
+
+
+            <p class="or-line"><span>Login</span> with other</p>
+            <div class="login-with-google-container">
+                <a href="#" class="login-form-anchor login-with-google"><img src="{%static 'admin_img/Log_in_img/google-icon.png' %}" alt="">Login with Google</a>
+            </div>
+            <div class="form-sign-in-container">
+                <p>Don’t have an account? </p>
+                <a href="{% url 'admin_signup' %}" class="form-sign-in"> Sign Up </a>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="login-side-image">
+            <img src="{%static 'admin_img/Log_in_img/Frame 1321314641.png' %}" alt="">
+        </div>
+
+    </section>
+
+
+    <script>
+        function togglePasswordVisibility() {
+    var passwordField = document.getElementById("password");
+    var eyeIcon = document.getElementById("eye-icon");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordField.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    }
+}
+document.getElementById("loginButton").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    window.location.href = "{% url 'admin_teachers' %}"; // Redirect to the 'teachers' URL
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body p {
+    margin: 0
+}
+
+body h5 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+
+.navbar {
+    width: 100% !important;
+    padding: 10px !important;
+}
+
+.navbar .left-section , .right-section {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+}
+
+.left-section .logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 10px;
+}
+
+.left-section  .categories {
+    color: #0085FF !important;
+    margin: 0 30px 0 0!important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem
+}
+
+.left-section .categories:hover,
+.left-section li:hover {
+    cursor: pointer
+}
+
+.searchBar {
+    position: relative;
+}
+
+.left-section .searchBar p {
+    position:absolute;
+    top: 3px;
+    right: 3px;
+  font-size: 0.85rem;
+  color: #0085FF;
+  padding:3px;
+  border-radius: 2px;
+  background-color: #F2FFFB;
+  font-weight: 500;
+  }
+  
+  .searchBar .fa-chevron-down {
+  color: #0085FF;
+  font-size: 0.7rem;
+  margin-left: 5px;
+  }
+  
+  .searchBar input{
+      background-color: #fff;
+      padding: 5px;
+      padding-left: 30px;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #D0D5DD;
+      font-weight: 300;
+      font-size: 0.9rem;
+  }
+  
+  .searchBar .fa-search {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      color: #98A2B3;
+  }
+
+  .navbar .right-section a {
+margin-right: 35px;
+font-size: 0.9rem;
+font-weight: 500;
+  }
+
+.navbar .right-section {
+    position: relative
+}
+
+  .navbar .right-section a.active {
+    color: #0085FF
+  }
+
+  .navbar .right-section a:hover {
+    cursor: pointer;
+    color: #0085FF !important
+  }
+
+  .right-section .profile i {
+    margin-left: 8px;
+  }
+
+  .right-section .profile i:hover {
+    cursor: pointer;
+  }
+
+
+.right-section .categories:hover,
+.right-section li:hover {
+    cursor: pointer
+}
+
+  .right-section .main-category {
+    top: 60px;
+    right: 115px;
+    position:absolute;
+}
+
+.right-section ul {
+    list-style: none;
+    background-color: #fff;
+    padding: 15px 15px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 9.1px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 2;
+}
+
+.right-section ul li {
+    padding-top: 20px;
+    font-size: 0.9rem;
+ }
+
+.right-section .category {
+    top: 70px;
+    right: 370px;
+    width: max-content
+}
+
+ .right-section .main-category, .right-section .web-development-category,  .right-section .mobile-developement-category,  .right-section .programming-category,  .right-section .engineering-category,  .right-section .block-chain-category,  .right-section .iot-category,  .right-section .cloud-category,  .right-section .data-science-category,  .right-section .cybersecurity-category {
+    display: none;
+ }
+
+ .right-section .main-category.active {
+    display: block;
+ }
+
+ .right-section .category.active {
+    display: block;
+ }
+
+.about-us-container{
+    margin: 10px 50px 50px 50px;
+}
+
+.about-us-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 80px;
+}
+
+.about-us-container .section  {
+margin: 50px 0;
+}
+
+.about-us-container h2 {
+    color: #00B894;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.about-us-container ul {
+    padding-left: 0;
+}
+
+.about-us-container li {
+    margin-bottom: 20px;
+}
+
+.about-us-container li span {
+    font-weight: 600;
+}
+
+.section .card-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.card-container img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.card-container h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.card-container .position {
+    font-size: 0.9rem;
+    color: #919191;
+    margin-bottom: 8px;
+}
+
+.about-us-container  p {
+    margin-bottom: 10px;
+    line-height: 30px;
+    color: #161439;
+    font-weight: 300;
+}
+
+
+.footer-section {
+    background-color: #101828;
+    padding-top: 40px;
+    padding-bottom: 15px;
+    padding-left: auto;
+    padding-right: auto;
+    text-align: center;
+}
+
+.footer-section li {
+    text-align: left;
+    color: #fff !important;
+    list-style: none;
+}
+
+.company-details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.app p {
+    margin: 0;
+}
+
+.more-items {
+    margin: 15px;
+}
+
+.more-items ul {
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.footer-section li {
+  margin-bottom: 5px;
+
+}
+
+.footer-section .list-header {
+  color: #98A2B3 !important;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+.footer-section li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+.socials i {
+    font-size: 1.5rem;
+    margin-right: 12px;
+    color: #98A2B3
+}
+
+.socials i:hover {
+  cursor: pointer;
+  color: #fff
+}
+
+.footer-below-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #98A2B3;
+}
+
+
+@media screen and (max-width: 1130px) {
+    .second-container .card {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .second-container .card {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .second-container .card .cart-btn {
+        padding: 10px 30px;
+    }
+}
+
+
+@media screen and (max-width: 670px) {
+    .navbar .left-section .searchBar input {
+        width: 100%;
+    }
+    .course-page-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .course-page-container .first-container,
+    .course-page-container .second-container {
+        width: 80%;
+    }
+    .second-container .card .cart-btn {
+        padding: 10px 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar .left-section .categories {
+        display: none
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .navbar .right-section .fa {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar .left-section .searchBar {
+        display: none;
+    }
+}

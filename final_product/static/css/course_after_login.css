@@ -1,0 +1,600 @@
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body p {
+    margin: 0
+}
+
+body h5 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.navbar {
+    width: 100% !important;
+    background-color: rgba(109, 98, 124, 1) !important;
+    padding: 10px !important;
+}
+
+.navbar .left-section , .right-section {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+}
+
+.logo {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #D9D9D9;
+    margin-right: 10px;
+}
+
+.left-section .fa-bars {
+    font-size: 1.8rem;
+    margin-right: 13px;
+    color: #fff;
+}
+
+.right-section  .categories,
+.right-section .learnings {
+    color: #fff !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 15px 0 0!important
+}
+
+.right-section .categories:hover,
+.right-section .learnings,
+.right-section li:hover {
+    cursor: pointer
+}
+
+.right-section ul {
+    list-style: none;
+    background-color: #fff;
+    padding: 15px 25px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 9.1px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 2;
+}
+
+
+.right-section ul li {
+    padding-top: 20px;
+    font-size: 0.9rem;
+ }
+
+.right-section .main-category {
+    top: 70px;
+    right: 5px;
+}
+
+.right-section .learnings-category {
+    top: 70px;
+    right: 150px;
+}
+
+.right-section .category {
+    top: 70px;
+    right: 285px;
+}
+
+ .right-section .main-category,  .right-section .learnings-category ,  .right-section .web-development-category,  .right-section .mobile-developement-category,  .right-section .programming-category,  .right-section .engineering-category,  .right-section .block-chain-category,  .right-section .iot-category,  .right-section .cloud-category,  .right-section .data-science-category,  .right-section .cybersecurity-category {
+    display: none;
+ }
+
+.searchBar {
+    position: relative;
+}
+
+.searchBar input{
+    background-color: #fff;
+    padding: 5px;
+    padding-left: 30px;
+    width: 250px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.searchBar .fa {
+    position: absolute;
+    left: 7px;
+    top: 8px;
+}
+
+.profile-btn:hover {
+    border-radius: 5px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+.left-section .menu-categories {
+    background-color: #BDADAD;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 35px;
+    width: 350px;
+    overflow: hidden;
+}
+
+.menu-categories.inactive {
+    display: none;
+}
+
+.left-section .menu-categories img {
+    position: absolute;
+    z-index: 0;
+}
+
+.menu-categories .first-image {
+    top: -15px;
+    left: -15px;
+}
+
+.menu-categories .second-image {
+    top: -15px;
+    right: -65px;
+}
+
+.menu-categories .fourth-image {
+    bottom: 0;
+    left: -65px;
+}
+
+.menu-categories .third-image {
+    bottom: 40px;
+    right: -30px;
+}
+
+.menu-categories .menu-container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    position: relative;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.menu-container ul {
+    padding-left: 0 !important;
+}
+
+.menu-container ul li {
+    list-style: none;
+    margin-bottom: 20px;
+    border-bottom: 1.5px solid transparent;
+    cursor: pointer;
+}
+
+.menu-container li:hover {
+    border-bottom: 1.5px solid #000;
+}
+
+.right-section .fa {
+    font-size: 1.6rem;
+    margin: 0 15px 0 0 !important;
+}
+
+.right-section .btn {
+padding: 7px 20px;
+background-color: #fff;
+margin-right: 15px;
+font-size: 0.8rem;
+font-weight: 500;
+border-radius: 0;
+}
+
+.right-section .profile-container {
+    background-color: #E8E8E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+}
+
+.profile-container .profile-btn {
+    border: 1px solid #000;
+    padding: 5px 15px;
+}
+
+.profile-btn:hover {
+    border-radius: 5px;
+}
+.profile-container.inactive {
+    display: none;
+}
+
+.course-page-container {
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: auto;
+margin-right: auto;
+}
+
+.first-container {
+    width: 50%;
+    margin-right: 10%;
+    margin-left: 3%;
+}
+
+.second-container {
+    width: 50%;
+}
+
+.course-page-container .first-container h2 {
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+/* .course-page-container .first-container p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+} */
+
+.rating-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px 0;
+  }
+
+  .rating-container .rating{
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  .rating-container .rating-icons {
+    margin-right: 8px;
+    color: #FFB602;
+    margin-bottom: 8px;
+  }
+
+
+  .rating-container .views {
+    opacity: 0.5;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .flex i,
+  .flex img {
+    margin-right: 10px
+  }
+
+  .small-details {
+    margin-top: 10px;
+  }
+
+  .small-details .updated-date{
+    margin-right: 50px;
+  }
+
+  .second-container .card {
+width: 60%;
+margin-bottom: 30px;
+  }
+
+  .second-container .card img {
+    width: 100%;
+  }
+
+  .card .buttons {
+margin-top: 15px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+  }
+
+  .cart-btn {
+    background-color: #BDADAD;
+    border-radius: 50px;
+    border: none;
+    padding: 15px 60px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.cart-btn:hover {
+    background-color: #625858;
+    color: #fff
+}
+
+.buttons .like {
+    border: 3px solid #000;
+    border-radius: 50%;
+    padding: 6px 10px;
+}
+
+.buttons .like:hover {
+    cursor: pointer;
+}
+
+.buttons .like .inactive {
+    display: none 
+}
+
+.first-container .border {
+    padding: 30px;
+    margin-top: 30px;
+    border: 1px solid #000 !important;
+    margin-bottom: 30px;
+}
+
+.accordion {
+    margin-top: 30px;
+}
+
+.accordion .accordion-item {
+    border: 1px solid #000 !important
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+}
+
+.arrow-icon {
+    margin-right: 10px;
+}
+
+.accordion-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.accordion-button::after {
+    display: none;
+}
+
+.accordion-button span {
+    flex-grow: 1;
+}
+
+.accordion-button p {
+    margin-left: 10px;
+}
+
+.accordion .accordion-item img {
+    margin-left: 10px;
+}
+
+.rotate-icon {
+    transform: rotate(180deg); /* Rotate the icon when the class is present */
+}
+
+.accordion-button:not(.collapsed) {
+    color: #000 !important;
+    background-color: #fff !important;
+    box-shadow: none !important;
+}
+
+.accordion-button.collapsed {
+    box-shadow: none !important;
+}
+
+.first-container .show-more-btn {
+    border: none;
+    background-color: transparent;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 30%;
+    cursor: pointer;
+}
+
+.first-container .redirecting-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1.5px solid #000;
+    font-size: 1.1rem;
+    padding: 20px;
+    width: 250px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.redirecting-btn:hover {
+    background-color: #CCBFBF;
+}
+
+.reviews-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review {
+    border-top: 1.5px solid #000;
+    border-bottom: 1.5px solid #000;
+    padding: 20px;
+    margin: 25px;
+}
+
+.footer-section {
+    background-color: rgba(189, 173, 173, 0.64);
+    padding-top: 40px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.company-details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.company-details .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    width: 250px 
+}
+
+.company-details .description .logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    margin-bottom: 10px;
+}
+
+.company-details .app {
+    margin: 15px;
+}
+
+.company-details .app .android,
+.company-details .app .apple {
+    background-color: #000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 8px;
+    margin-top: 20px;
+}
+
+.app p {
+    margin: 0;
+}
+
+.more-items {
+    margin: 15px;
+}
+
+.more-items ul {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5rem
+}
+
+.links {
+    margin: 15px;
+}
+
+.links .socials i {
+    font-size: 1.8rem;
+    margin-right: 12px;
+}
+
+.links .address {
+    margin-top: 30px;
+
+}
+
+.links .address div {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.links .address div p {
+    margin-left: 10px;
+
+}
+
+
+@media screen and (max-width: 1130px) {
+    .second-container .card {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .second-container .card {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 790px) {
+    .navbar .left-section .searchBar input {
+        width: 100%;
+    }
+    .second-container .card .cart-btn {
+        padding: 10px 30px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    
+    .course-page-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .course-page-container .first-container,
+    .course-page-container .second-container {
+        width: 80%;
+    }
+    .second-container .card .cart-btn {
+        padding: 10px 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar .right-section .categories, .learnings {
+        display: none
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .navbar .left-section .searchBar {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

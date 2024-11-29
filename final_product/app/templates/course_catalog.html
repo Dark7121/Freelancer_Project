@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Catalog</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-Learning</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'enrolled_course' %}">Enrolled Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'community_platform' %}">Community</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'mentorship_page' %}">Personal Mentorship</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Course Catalog -->
+<div class="container mt-5">
+    <h2>Course Catalog</h2>
+    <!-- Search Bar -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search courses..." aria-label="Search courses" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+        </div>
+    </div>
+
+
+
+    <!-- Filter by Category -->
+    <div class="form-group">
+        <label for="categorySelect">Filter by Category:</label>
+        <select class="form-control" id="categorySelect">
+            <option value="">All Categories</option>
+            <option value="Tech Courses">Tech Courses</option>
+            <option value="CBSE Courses">CBSE Courses</option>
+            <option value="Career Roadmap">Career Roadmap</option>
+
+        </select>
+    </div>
+
+
+
+
+    <!-- Course Cards -->
+        <div class="row" id="courseList">
+        {% for course in courses %}
+                {% if course.category == 'Tech Courses' %}
+
+        <div class="col-md-4 mb-4" data-category="{{ course.category }}">
+            <div class="card">
+                <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.title }}</h5>
+                    <p class="card-text">{{ course.description }}</p>
+                    <p class="card-text"><strong>Price: ₹ {{ course.price }}</strong></p>
+                    <a href="{% url 'view_course_details' course.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+                {% endif %}
+
+        {% endfor %}
+    </div>
+
+
+<div class="row" id="courseList">
+        {% for course in courses %}
+                {% if course.category == 'CBSE Courses' %}
+
+        <div class="col-md-4 mb-4" data-category="{{ course.category }}">
+            <div class="card">
+                <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.title }}</h5>
+                    <p class="card-text">{{ course.description }}</p>
+                    <p class="card-text"><strong>Price: ₹ {{ course.price }}</strong></p>
+                    <a href="{% url 'view_course_details' course.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+                {% endif %}
+
+        {% endfor %}
+    </div>
+
+
+
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+
+
+
+<!-- Bootstrap JS (Optional - Only if needed for JavaScript functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript for search and filter functionality -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to filter courses based on search input and selected category
+    function filterCourses() {
+        var searchInput = document.getElementById("searchInput").value.toLowerCase();
+        var categoryFilter = document.getElementById("categorySelect").value.toLowerCase();
+        var courseCards = document.querySelectorAll("#courseList .card");
+        courseCards.forEach(function(card) {
+            var title = card.querySelector(".card-title").textContent.toLowerCase();
+            var description = card.querySelector(".card-text").textContent.toLowerCase();
+            var category = card.closest('.col-md-4').dataset.category.toLowerCase();
+            if ((title.includes(searchInput) || description.includes(searchInput)) &&
+                (categoryFilter === "" || category.includes(categoryFilter))) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    // Event listener for search button click
+    document.getElementById("searchButton").addEventListener("click", filterCourses);
+
+    // Event listener for category select change
+    document.getElementById("categorySelect").addEventListener("change", function() {
+        filterCourses();
+        if (this.value === "Career Roadmap") {
+            window.location.href = "{% url 'career_roadmap' %}";
+        }
+    });
+});
+
+</script>
+
+
+</body>
+</html>

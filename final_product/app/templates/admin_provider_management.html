@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowlegopedia</title>
+    <link rel="stylesheet" href="{% static 'css/admin_provider_management.css' %}">
+</head>
+<body>
+
+<!-- Container that contains "statics boxes" and "Manager Details" STARTS-->   
+<div class="welcome-edit-btn-contianer">
+<h3 id="welcome-back-heading">Welcome Back</h3>
+<button class="edit-btns">Edit</button>
+</div>
+
+<!-- Container that contains "Manager Details" STARTS--> 
+<div class="student-manager-profile-wrapper">
+    <div class="student-manager-profile">
+        <div class="student-manager-content">
+            <h2>Drennan John</h2>
+            <p id="hash-tag-id">#569</p>
+            <p id="phone-no">+9666515565</p>
+            <p id="email">Drennan86@gmail.com</p>
+        </div>
+        <img src="./static/admin_img/student_management_img/student_manager_profile.png" alt="">
+    </div>
+    <div class="provider-account-details">
+        <p class="each-detail left"><span class="details-main-heading">Bank Name:</span>&nbsp;<span class="details-answer">ICICI Bank Pvt Ltd</span></p>
+        <p class="each-detail right"><span class="details-main-heading">IFSC Code: </span>&nbsp;<span class="details-answer">ICIC0977</span></p>
+        <p class="each-detail left"><span class="details-main-heading">Account Name: </span>&nbsp;<span class="details-answer">S David</span></p>
+        <p class="each-detail right"><span class="details-main-heading">Branch Name: </span>&nbsp;<span class="details-answer">Chennai</span></p>
+        <p class="each-detail left"><span class="details-main-heading">Account No.:</span>&nbsp;<span class="details-answer">652537569784</span></p>
+        <p class="each-detail right"><span class="details-main-heading">Pan: </span>&nbsp;<span class="details-answer">DAG84548QW</span></p>
+    </div>
+</div>
+<!-- Container that contains "Manager Details" ENDS-->   
+
+<!-- Container that contains "statics boxes" STARTS-->               
+<div class="earning-enroll-container">
+    <div class="statics-box  total-enroll-count">
+        <div class="statics-box-heading">
+        <h2>Total enrollment Count</h2>
+        <p><span>900 </span>users
+        </p></div>
+        <img src="../static/admin_img/dashborad_img/total_enroll.png" alt="">
+    </div>
+    <div class="statics-box total-earning">
+        <div class="statics-box-heading">
+            <h2>Total Earnings</h2>
+            <p><span>₹430.00</span>
+            </p></div>
+            <img src="../static/admin_img/dashborad_img/total_earnings.png" alt="">
+        </div>
+    <div class="statics-box total-payout">
+            <div class="statics-box-heading">
+                <h2>Total Payout</h2>
+                <p><span>$768</span></p></div>
+                <img src="../static/admin_img/dashborad_img/total_payout.png" alt="">
+        </div>
+    <div class="statics-box total-net-profit">
+                <div class="statics-box-heading">
+                    <h2>Total Net Profit</h2>
+                    <p><span>$768</span></p></div>
+                    <img src="../static/admin_img/dashborad_img/total_payout.png" alt="">
+        </div>
+    <div class="statics-box this-month-count">
+                    <div class="statics-box-heading">
+                        <h2>This month count</h2>
+                        <p><span>768 </span>users
+                        </p></div>
+                    <img src="../static/admin_img/dashborad_img/this_month_count.png" alt="">
+        </div>
+    <div class="statics-box this-month-earning">
+        <div class="statics-box-heading">
+            <h2>This month earnings</h2>
+            <p><span>₹1290</span></p></div>
+        <img src="../static/admin_img/dashborad_img/this_month_earnings.png" alt="">
+    </div>
+    <div class="statics-box this-month-payout">
+        <div class="statics-box-heading">
+            <h2>This month payout</h2>
+            <p><span>₹1290</span></p></div>
+        <img src="../static/admin_img/dashborad_img/this-month-payout.png" alt="">
+    </div>
+    <div class="statics-box this-month-net-profit">
+        <div class="statics-box-heading">
+            <h2>This month net profit</h2>
+            <p><span>₹430.00</span></p></div>
+        <img src="../static/admin_img/dashborad_img/total_earnings.png" alt="">
+    </div>
+</div>
+<!-- Container that contains "statics boxes" ENDS--> 
+
+<!-- Container that contains "statics boxes" and "Manager Details" ENDS-->   
+ 
+<!-- Container that contains "tables" STARTS -->
+    <div class="tables">
+
+        <!-- Container that contains " COURSE EARNINGS table" -->
+        <div class="each-table-container">
+            <h2>COURSE EARNINGS</h2>
+            <table id="table1">
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Provider Name</th>
+                        <th>Course name</th>
+                        <th>Rating</th>
+                        <th>No.of enrollments</th>
+                        <th>Earnings</th>
+                        <th>Commision</th>
+                        <th>Net Profit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.5</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+                    <tr><td>2.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.8</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+                    <tr><td>3.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.0</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+                    <tr><td>4.</td><td>John Dye</td><td>Artificial intelligence</td><td>5.0</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+                    <tr><td>5.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.1</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>    
+                </tbody>
+            </table>
+            </div>
+
+        <!-- Container that contains " PAYMENT table" -->
+        <div class="each-table-container">
+            <h2>PAYMENT</h2>
+            <table id="table2">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Invoice No</th>
+                        <th>Name</th>
+                        <th>Month</th>
+                        <th>Course Name</th>
+                        <th>No.of enrollments</th>
+                        <th>Per share</th>
+                        <th>Amount</th>
+                        <th>Pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="goToPaymentPage()"><td>1.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+                    <tr onclick="goToPaymentPage()"><td>2.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+                    <tr onclick="goToPaymentPage()"><td>3.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+                    <tr onclick="goToPaymentPage()"><td>4.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+                    <tr onclick="goToPaymentPage()"><td>5.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+                    <tr onclick="goToPaymentPage()"><td>6.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!-- Container that contains "tables" ENDS -->
+
+<script>
+    function goToPaymentPage() {
+        window.location.href = "{% url 'admin_provider_management_payment' %}";
+    }
+
+</script>
+</body>
+</html>

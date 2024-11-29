@@ -1,0 +1,19 @@
+<!-- assignment_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Detail: {{ assignment.title }}</title>
+</head>
+<body>
+    <h1>Assignment Detail: {{ assignment.title }}</h1>
+    
+    <p>Description: {{ assignment.description }}</p>
+    <p>Due Date: {{ assignment.due_date }}</p>
+    </ul>
+    <a href="{% url 'admin_edit_assignment' assignment.id %}">Edit Assignment</a>
+    <a href="{% url 'admin_mark_assignment' assignment.id %}">submit</a>
+</body>
+</html>

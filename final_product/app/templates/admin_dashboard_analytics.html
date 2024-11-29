@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard_analytics.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Analytics Section starts -->
+
+    <section class="analytics-wrapper">
+        <h2 class="analytics-main-heading">ANALYTICS</h2>
+        <div class="analytics-cotainer">
+            <div class="analytics-cards analytics-enrollment-count">
+                <h3>Enrollment Count</h3>
+                <div class="number-under-circle-container">
+                <div class="number-under-circle">
+                    <span id="circle-number">5679</span>    
+                </div>
+                </div>
+            </div>
+            <div class="analytics-cards analytics-total-revenue">
+                <div class="heading-percent-container">
+                <h3>Total Revenue</h3>
+                <span class="percent-status">86%</span>
+                </div>
+                <img src="../static/admin_img/analytics_img/total-revenue-path.png" alt="" class="analytics-card-bottom-path">
+            </div>
+            <div class="analytics-cards analytics-customer-trends">
+                <div class="heading-percent-container">
+                <h3>Customer Trends</h3>
+                <p>Artificial Inteligence</p>
+                <span class="percent-status">34%</span>
+                </div>
+                <img src="../static/admin_img/analytics_img/total-revenue-path.png" alt="" class="analytics-card-bottom-path">
+            </div>
+        </div>
+    </section>
+
+<!-- Analytics Section ends -->
+
+<!-- Monthly Report Section starts -->
+
+    <section class="monthly-report-wrapper">
+        <h2 class="monthly-report-main-heading">MONTHLY REPORT</h2>
+        <div class="monthly-report-cotainer">
+
+        <!-- Container that contains "graph" STARTS-->   
+            <div class="graph-container">
+               <div class="graph">
+                  <div class="chart-header">
+                         <div class="activity">Activity</div>
+                         <div class="months">Month</div>
+                    </div>
+                    <canvas id="abacusGraph" width="315" height="180"></canvas>
+                </div>
+            </div>
+        <!-- Container that contains "graph" ENDS-->
+
+        <!-- Container that contains "highest-selling-course STARTS--> 
+
+        <div class="highest-selling-course">
+            <div class="table-container">
+            <h3>Highest Selling Course</h3>
+            <table id="course-table">
+                <thead>
+                    <tr>
+                        <th id="name-heading">Name</th>
+                        <th>Course</th>
+                        <th>Earning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="img-container"><div class="img-cover"><img src="../static/admin_img/analytics_img/profile_img_1.png" alt=""></div><p>Mirabel</p></td><td>Web Design</td><td>₹20,000</td></tr>
+                    <tr><td class="img-container"><div class="img-cover"><img src="../static/admin_img/analytics_img/profile_img_2.png" alt=""></div><p>Mirabel</p></td><td>Web Design</td><td>₹20,000</td></tr>
+                    <tr><td class="img-container"><div class="img-cover"><img src="../static/admin_img/analytics_img/profile_img_3.png" alt=""></div><p>Mirabel</p></td><td>Web Design</td><td>₹20,000</td></tr>
+                </tbody>
+            </table>
+             </div>
+        </div>
+
+        <!-- Container that contains "highest-selling-course ENDS--> 
+        </div>
+    </section>
+
+<!-- Monthly Report Section starts --> 
+
+<script src="{% static 'js/admin_dashboard_analytics.js' %}"></script>
+
+</body>
+</html>

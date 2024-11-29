@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/payment.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+    <div class="heading-container">
+        <h4>Knowlegopedia</h4>
+        <a href="{% url 'cart' %}">
+            <h4 style="font-size: 1.2rem;">Cancel</h4>
+        </a>
+    </div>
+    <div class="main-container">
+        <div class="first-container">
+            <h6>Personal Plan</h6>
+            <div style="margin-left: 20px; margin-bottom: 30px;">
+                <div class="input-container">
+                    <input class="coupon-input" type="text" placeholder="Coupon Code">
+                    <button class="coupon-btn">Add coupon</button>
+                </div>
+                <ul>
+                    <li>Access to over 11,000 of our top courses in tech, business, and more</li>
+                    <li>Hands-on learning experiences to build your skills</li>
+                    <li>Course recommendations to help you start learning faster</li>
+                </ul>
+            </div>
+            <h6>Billing Address</h6>
+            <div class="flex billing-address"
+                style="margin-left: 20px;justify-content: space-between;margin-bottom: 30px;">
+                <div class="form-group">
+                    <label>Country</label>
+                    <div class="dropdown">
+                        <div class="select">
+                            <p>Select Country</p>
+                            <img src="{% static 'assets/up-arrow.png' %}" alt="" width="20px" class="rotate">
+                        </div>
+                        <ul>
+                            <li>India</li>
+                            <li>USA</li>
+                            <li>Canada</li>
+                            <li>Malaysia</li>
+                            <li>Singapore</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <div class="dropdown">
+                        <div class="select">
+                            <p>Select state</p>
+                            <img src="{% static 'assets/up-arrow.png' %}" alt="" width="20px" class="rotate">
+                        </div>
+                        <ul>
+                            <li>Maharashtra</li>
+                            <li>Karnataka</li>
+                            <li>Bihar</li>
+                            <li>Uttar Pradesh</li>
+                            <li>Rajasthan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h6>Payment Method</h6>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Payment through Card
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="">
+                            </div>
+                            <div class="flex two-input" style="justify-content: space-between;">
+                                <div class="form-group">
+                                    <label for="expirationDate">Expiration Date</label>
+                                    <input type="text" id="expirationDate" name="expirationDate" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="number" id="cvv" name="cvv" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Paytm
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-group">
+                                <label for="paytmID">Enter your Paytm ID here</label>
+                                <input type="text" id="paytmID" name="paytmID" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            PhonePe
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-group">
+                                <label for="phonePeID">Enter your PhonePe ID here</label>
+                                <input type="text" id="phonePeID" name="phonePeID" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Google Pay
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-group">
+                                <label for="gpay">Enter your Google pay ID here</label>
+                                <input type="text" id="gpay" name="gpay" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="second-container">
+            <h6 style="margin-bottom: 50px">Summary</h6>
+            <div class="flex" style="justify-content: space-between;">
+                <p>Yearly Access</p>
+                <p>₹1540</p>
+            </div>
+            <div class="line"></div>
+            <div class="flex" style="justify-content: space-between;">
+                <p>Total</p>
+                <p>₹1540</p>
+            </div>
+            <p class="note">Cancel anytime by visiting the subscription page in your account</p>
+            <p class="note">By clicking “Start subscription” you agree to our terms and are enrolling in
+                automatic payments
+                of the subscription fee of ₹3,245/year (plus applicable transaction fees) that will start today
+                and continue until you cancel. No refunds or credits for partial subscription periods unless
+                required by law.</p>
+            <div style="text-align: center">
+                <button class="subscription-btn">Start Subscription</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section">
+        <div class="company-details">
+            <div class="description">
+                <h3 style="font-weight: 600;color: #0085FF">E-Learning</h3>
+            </div>
+            <div class="app">
+                <p style="font-size: 1rem; color: #fff;">Top learning experiences that <br>create more
+                    talent in the world.</p>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Company</li>
+                    <a href="{% url 'about_us' %}">
+                        <li>About us</li>
+                    </a>
+                    <a href="{% url 'faq' %}">
+                        <li>FAQs</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Social</li>
+                    <li>Twitter</li>
+                    <li>LinkedIn</li>
+                    <li>GitHub</li>
+                    <li>Dribble</li>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Legal</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
+                    <a href="{% url 'contact_us' %}">
+                        <li>Contact Us</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-below-section">
+            <p>© 2024 E-Learning. All rights reserved.</p>
+            <div class="socials">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            </div>
+        </div>
+    </footer>
+</div>
+    <script>
+        document.querySelectorAll('.select').forEach(select => {
+            select.addEventListener('click', function () {
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('active');
+
+                // Toggle rotate class on the img element
+                const dropdownIcon = this.querySelector('img');
+                dropdownIcon.classList.toggle('up');
+
+                // Close other dropdowns
+                document.querySelectorAll('.dropdown ul').forEach(menu => {
+                    if (menu !== dropdownMenu) {
+                        menu.classList.remove('active');
+                        const icon = menu.previousElementSibling.querySelector('img');
+                        if (icon) {
+                            icon.classList.remove('up');
+                        }
+                    }
+                });
+            });
+
+            // Handle option selection
+            select.nextElementSibling.querySelectorAll('li').forEach(option => {
+                option.addEventListener('click', function () {
+                    select.querySelector('p').innerText = this.innerText;
+                    select.nextElementSibling.classList.remove('active');
+                    const dropdownIcon = select.querySelector('img');
+                    dropdownIcon.classList.remove('up');
+                });
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown ul').forEach(menu => {
+                    menu.classList.remove('active');
+                    const icon = menu.previousElementSibling.querySelector('img');
+                    if (icon) {
+                        icon.classList.remove('up');
+                    }
+                });
+            }
+        });
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

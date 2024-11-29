@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_affiliate_marketing_create_account.css' %}">
+</head>
+<body>
+
+    <div id="mian-head-container"><h2 id="main-heading">USER PROFILE</h2></div>
+
+    <div class="profile-container">
+        <div class="profile-photo">
+            <img src="../static/admin_img/course_management_img/course_profile_img/images.jpeg" alt="">
+        </div>
+        <div class="upload-btns">
+            <button class="edit-btns" id="uploadPhoto">Upload New Photo</button>
+            <button class="edit-btns">Delete</button>
+        </div>
+    </div>
+
+    <section id="name-section">
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading">First Name</h4>
+            <input class="input-box" type="text" placeholder="eg.Phoebe" id="firstName">
+        </div>
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading">Last Name</h4>
+            <input class="input-box" type="text" placeholder="eg.Buffay" id="lastName">
+        </div>
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Email Address</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/Vector.png" alt="">
+            <input class="input-box" type="email" placeholder="" id="emailAddress">
+        </div>
+        </div>
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Phone Number</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/phone_png.png" alt="">
+            <input class="input-box" type="number" placeholder="" id="phoneNumber">
+        </div>
+        </div>
+
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Date of Birth</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/card_icon.png" alt="">
+            <input class="input-box" type="date" placeholder="" id="accountName">
+            </div>
+        </div>
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Gender</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/gender.png" alt="">
+            <input class="input-box" type="text" placeholder="" id="gender">
+        </div>
+        </div>
+    </section>
+
+    <section id="info-container">
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Account Name</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/bank.png" alt="">
+            <input class="input-box" type="text" placeholder="" id="accountName">
+        </div>
+        </div>
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Account Number</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/card_icon_2.png" alt="">
+            <input class="input-box" type="number" placeholder="" id="accountNumber">
+            </div>
+        </div>
+
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Bank Name</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/bank.png" alt="">
+            <input class="input-box" type="text" placeholder="" id="bankName">
+        </div>
+        </div>
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">IFSC Code</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/ifsc_icon.png" alt="">
+            <input class="input-box" type="text" placeholder="" id="ifscCode">
+            </div>
+        </div>
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Account Type</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/account_type.png" alt="">
+            <input class="input-box" type="text" placeholder="" id="accountType">
+            </div>
+        </div>
+    </section>
+        <section class="select-course-section">
+
+            <div class="input-box-container2" id="location">
+                <h4 class="input-box-heading">Location</h4>
+                <div class="input-icon-container">
+                    <img class="input-icon" src="../static/admin_img/add_provider_img/location.png" alt="">
+                <input class="input-box" type="text" placeholder="" id="locationInput">
+                </div>
+            </div>
+
+            <div class="input-box-container2" id="timeZone">
+                <h4 class="input-box-heading2">Time Zone</h4>
+                <div class="input-icon-container">
+                <img class="input-icon" src="../static/admin_img/add_provider_img/time-zone.png" alt="">
+                <input class="input-box" type="text" placeholder="" id="selectCourse">
+            </div>
+            </div>
+
+        </section>
+
+
+    <section class="password-section">
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">Current Password</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" src="../static/admin_img/add_provider_img/pass_key.png" alt="">
+            <input class="input-box" type="password" placeholder="" id="currentPassword">
+
+            <img class="input-icon eye-icon" src="../static/admin_img/add_provider_img/eye-icon.png" alt="Toggle Password" onclick="togglePassword('currentPassword')">
+            </div>
+        </div>
+
+        <div class="input-box-container">
+            <h4 class="input-box-heading2">New Password</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" id="passKey" src="../static/admin_img/add_provider_img/pass_key.png" alt="">
+            <input class="input-box" type="password" placeholder="" id="newPassword">
+
+            <img class="input-icon eye-icon" src="../static/admin_img/add_provider_img/eye-icon.png" alt="Toggle Password" onclick="togglePassword('newPassword')">
+            </div>
+        </div>
+    </section>
+
+    <section id="confirm-password">
+        <div class="input-box-container2">
+            <h4 class="input-box-heading">Confirm New Password</h4>
+            <div class="input-icon-container">
+            <img class="input-icon" id="passKey2" src="../static/admin_img/add_provider_img/pass_key.png" alt="">
+
+            <input class="input-box" type="password" placeholder="" id="confirmNewPassword">
+
+            <img class="input-icon eye-icon" src="../static/admin_img/add_provider_img/eye-icon.png" alt="Toggle Password" onclick="togglePassword('confirmNewPassword')">
+            </div>
+        </div>
+    </section>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">Name</label>
+            <input type="text" class="form-control" id="id_name" name="name" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="id_email">Email</label>
+            <input type="email" class="form-control" id="id_email" name="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="id_commission_percentage">Commission Percentage</label>
+            <input type="number" class="form-control" id="id_commission_percentage" name="commission_percentage" step="0.01" placeholder="Enter commission percentage">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="id_frozen" name="frozen">
+            <label class="form-check-label" for="id_frozen">Frozen</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+    <div class="suspendAccountBtn-container" >
+        <button class="edit-btns" id="suspendAccountBtn">Add Account</button>
+        <button class="edit-btns" id="cancel">Cancel</button>
+    </div>
+
+  <script>
+ function togglePassword(id) {
+      const passwordInput = document.getElementById(id);
+      if (passwordInput) {
+        const inputType = passwordInput.getAttribute('type');
+        passwordInput.setAttribute('type', inputType === 'password' ? 'text' : 'password');
+      } else {
+        console.error(`Password input element with ID ${id} not found.`);
+      }
+    }
+  </script>
+</body>
+</html>

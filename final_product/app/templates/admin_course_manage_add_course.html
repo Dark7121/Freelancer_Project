@@ -1,0 +1,945 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_course_manage_add_course.css' %}">
+    <style>
+.week-container, .module-container, .content-container, .question-container, .option-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+.week-container{
+    width: 61rem;
+}
+
+.module-container{
+    width: 57rem;
+}
+
+
+h4, h5, h6 {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"], 
+.form-group input[type="number"],
+.form-group textarea {
+    width: 90%;
+    padding: 8px;
+    border-radius: 5px; 
+    border: none;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+  
+   
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+.btn {
+    width: 150px;
+    height: 50px;
+    font-weight: 700;
+    padding: 10px 10px 10px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 20px;
+    color: white;
+    background-color: #FF7675;
+    border: none;
+    cursor: pointer;
+}
+
+.red-button {
+    background-color: #FF7675 !important;
+    font-weight: 600 !important;
+}
+
+.green-button {
+    background-color: #00B894 !important;
+    font-weight: 600 !important;
+}
+
+.gray-button {
+    background-color: #6B6464 !important;
+    font-weight: 600 !important;
+}
+.gray-buttons {
+    background-color: #6B6464 !important;
+    font-weight: 500 !important;
+   
+}
+
+.btn .button-content {
+    display: flex;
+    align-items: center;
+}
+
+.btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn .img-margin-left {
+    margin-left: 2px;
+}
+
+
+.btn-remove {
+    background-color: #DC3545;
+}
+
+.btn-remove:hover {
+    background-color: #c82333;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    margin-left: 5px;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; 
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.content-options button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+} 
+
+
+.forum-group {
+    margin-top: 15px;
+}
+
+.forum-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.forum-description {
+    font-size: 12px;
+    color: #666;
+}
+
+
+/* Extra small devices (phones, 360px to 480px) */
+@media (min-width: 300px) and (max-width: 480px) {
+    .week-container  {
+        width: 90%;
+    }
+    .module-container{
+        width: 80%;
+    }
+    .btn {
+        width: 90%;
+        font-size: 15px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 480px and up) */
+@media (min-width: 481px) and (max-width: 600px) {
+    .week-container  {
+        width: 90%;
+    }
+    .module-container{
+        width: 80%;
+    }
+    .btn {
+        width: auto;
+        font-size: 16px;
+    }
+}
+
+/* Medium devices (landscape tablets and small desktops, 601px and up) */
+@media (min-width: 601px) and (max-width: 768px) {
+    .week-container, .module-container {
+        width: 90%;
+    }
+    .btn {
+        width: auto;
+        font-size: 16px;
+    }
+}
+
+/* Large devices (landscape tablets and small desktops, 769px and up) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .week-container, .module-container {
+        width: 80%;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+
+<!-- Container that contains "statics boxes" STARTS-->
+<h1 id="add-course-heading">ADD COURSE</h1>
+<!-- Container that contains "statics boxes" ENDS-->
+
+<!-- Container that contains "total-row-current-page" STARTS-->
+<div class="total-row-current-page-container">
+    <div class="current-page">
+        <img src="../static/admin_img/student_management_img/course_enroll_img/home_icon.png" alt="" class="home-icon">
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info" id="studentManagement">Course Name</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz 1</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+    </div>
+</div>
+<!-- Container that contains "total-row-current-page" ENDS-->
+<form id="courseForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="upload-img-container">
+    <div class="image-preview">
+    </div>
+    <div class="upload-btn-container">
+    <button class="edit-btns" id="upload-btn">Upload</button>
+    <p>Sample .jpg</p>
+    </div>
+</div>
+
+<!-- Container that contains "class-mentor-name" STARTS-->
+
+<div class="class-mentor-name-container">
+    <div class="class-name-container">
+        <h2>CLASS NAME</h2>
+        <input class="input-box" type="text" name="course_name" placeholder="Enter your class name" id="">
+    </div>
+    <div class="mentor-name-container">
+        <h2>MENTOR</h2>
+        <input class="input-box" type="text" name="mentor" placeholder="Search" id="">
+    </div>
+    <div class="mentor-name-container">
+        <h2>CATEGORY</h2>
+        <div class="custom-select" id="category-select">
+            <div class="select-selected"><span>Select your option</span>
+                <img id="arrow-img5" src="../static/admin_img/course_management_img/up_arrow.png" alt="">
+            </div>
+            <div class="select-items">
+                <select id="category_type" name="category_type">
+                    <option value="" class="options">Select a category</option>
+                    <option value="c1" class="options">Tech Courses</option>
+                    <option value="c2" class="options">Grade 9</option>
+                    <option value="c3" class="options">Grade 10</option>
+                    <option value="c4" class="options">Grade 11</option>
+                    <option value="c5" class="options">Grade 12</option>
+                </select>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Container that contains "class-mentor-name" ENDS-->
+
+<!-- Container that contains "CLASS DESCRIPTION, WHAT WILL YOU LEARN, SKILLS YOU WILL GAIN " STARTS-->
+
+<section id="class-description-section">
+
+<h2>CLASS DESCRIPTION</h2>
+<div class="class-description-container">
+    <div class="editor-container">
+        <div ><textarea contenteditable="true" class="editor" id="class-description" placeholder="Enter your class description" name="description"></textarea></div>
+    </div>
+    <div class="toolbar">
+        <button onclick="formatText('bold')"><img class="tool-icons" src="../static/admin_img/course_management_img/bold_icon.png" alt=""></button>
+        <button onclick="formatText('underline')"><img class="tool-icons" src="../static/admin_img/course_management_img/underline_icon.png" alt=""></button>
+        <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/unordered_list_icon.png" alt=""></button>
+        <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/ordred_list_icons.png" alt=""></button>
+        <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/admin_img/course_management_img/Aa_icon.png" alt=""></button>
+    </div>
+</div>
+
+
+<div class="what-will-you-learn-container">
+    <h2>WHAT WILL YOU LEARN</h2>
+
+    <textarea class="input-box" contenteditable="true" class="editor" placeholder="Add text" id="what-will-you-learn" placeholder="Enter your class description" name="what_you_will_learn"></textarea>
+</div>
+
+<div class="skills-you-will-learn-container">
+    <h2>SKILLS YOU WILL GAIN</h2>
+    <textarea class="input-box" contenteditable="true" class="editor" placeholder="Enter skills" id="skills-you-will-learn" name="skills_you_will_gain"></textarea>
+
+</div>
+
+</section>
+
+<!-- Container that contains "CLASS DESCRIPTION, WHAT WILL YOU LEARN, SKILLS YOU WILL GAIN " ENDS-->
+
+<!-- Container that contains "Modules" STARTS-->
+
+<!-- <section id="modules-section">
+    <div class="heading-container">
+    <h2>MODULES</h2>
+    <p>Add More Modules</p>
+    </div>
+    <div id="first-module-container">
+        <p>Module 1 : Title</p>
+        <img id="arrow-img" src="../static/img/course_management_img/up_arrow.png" alt="">
+    </div>
+
+<div id="add-modules-container">
+<div class="main-modules-wrapper">
+
+    <div class="module-title-description">
+            <div class="module-title-container">
+            <span id="moduleTitle">Module 1:</span>
+            <input class="input-box" type="text" id="module-title-input">
+            </div>
+            <div class="module-description-container">
+            <p class="description-heading">Description</p>
+            <div class="module-descrption-editor">
+                <div class="editor-container">
+                    <div contenteditable="true" class="editor" id="module-description" placeholder="Enter your class description"></div>
+                </div>
+                <div class="toolbar">
+                    <button onclick="formatText('bold')"><img class="tool-icons" src="../static/img/course_management_img/bold_icon.png" alt=""></button>
+                    <button onclick="formatText('underline')"><img class="tool-icons" src="../static/img/course_management_img/underline_icon.png" alt=""></button>
+                    <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/img/course_management_img/unordered_list_icon.png" alt=""></button>
+                    <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/img/course_management_img/ordred_list_icons.png" alt=""></button>
+                    <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/img/course_management_img/Aa_icon.png" alt=""></button>
+                </div>
+            </div>
+            </div>
+            <p id="sub-module">Sub Module</p>
+            <div class="add-subModules-btns">
+                <button class="edit-btns" id="addArticle"><div class="button-content"><span>Add Article</span> <img src="../static/img/course_management_img/plus_icon.png" alt=""></div></button>
+                <button class="edit-btns green-button" id="addVideo"><div class="button-content"><span>Add Video</span> <img class="img-margin-left" src="../static/img/course_management_img/plus_icon.png" alt=""></div></button>
+                <button class="edit-btns gray-button" id="addQuiz"><div class="button-content"><span>Add Quiz</span> <img class="img-margin-left" src="../static/img/course_management_img/plus_icon.png" alt=""></div></button>
+                <button class="edit-btns gray-button" id="addAssignment"><div class="button-content"><span>Add Assignment</span> <img class="img-margin-left" src="../static/img/course_management_img/plus_icon.png" alt=""></div></button>
+            </div>
+    </div>
+
+    <div class="add-article-container">
+        <div class="artical-main-div">
+            <p>Article : Title</p>
+            <img id="arrow-img2" src="../static/img/course_management_img/up_arrow.png" alt="">
+        </div>
+        <div class="article-desription-container" id="articleDesription">
+            <div class="module-title-container">
+                <span id="moduleTitle">Article :</span>
+                <input class="input-box" type="text" id="article-title-input">
+                </div>
+                <div class="module-description-container">
+                <p class="description-heading">Description</p>
+                <div class="module-descrption-editor">
+                    <div class="editor-container">
+                        <div contenteditable="true" class="editor" id="class-description" placeholder="Enter your class description"></div>
+                    </div>
+                    <div class="toolbar">
+                        <button onclick="formatText('bold')"><img class="tool-icons" src="../static/img/course_management_img/bold_icon.png" alt=""></button>
+                        <button onclick="formatText('underline')"><img class="tool-icons" src="../static/img/course_management_img/underline_icon.png" alt=""></button>
+                        <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/img/course_management_img/unordered_list_icon.png" alt=""></button>
+                        <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/img/course_management_img/ordred_list_icons.png" alt=""></button>
+                        <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/img/course_management_img/Aa_icon.png" alt=""></button>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="save-draft-btns">
+            <button class="save-btns" id="saveBtn"><div class="button-content">Save</button>
+            <button class="save-btns gray-button" id="draftBtn"><div class="button-content">Draft</div></button>
+        </div>
+    </div>
+
+    <div class="add-video-wrapper">
+        <div class="artical-main-div">
+            <p id="videoTitle">Video : Title</p>
+            <img id="arrow-img3" src="../static/img/course_management_img/up_arrow.png" alt="">
+        </div>
+        <div class="add-video-container">
+        <div class="module-title-container">
+            <p class="module-title">Video Title:</p>
+            <input class="input-box" type="text" id="">
+        </div>
+        <div class="module-title-container">
+            <p class="module-title">Youtube link:</p>
+            <input class="input-box" type="text" id="">
+        </div>
+        <div class="module-title-container" id="or-container">
+            <p id="or-text">- Or -</p>
+        </div>
+        <div class="module-title-container">
+            <p class="module-title">Upload Video:</p>
+            <input class="input-box" type="text" id="">
+        </div>
+    </div>
+    <div class="save-draft-btns" id="video-edit-btns">
+        <button class="save-btns" id="saveBtn2"><div class="button-content">Save</button>
+        <button class="save-btns gray-button" id="draftBtn2"><div class="button-content">Draft</div></button>
+    </div>
+    </div>
+
+    <div class="add-quiz-wrapper">
+        <div class="artical-main-div" id="quizTitleContainer">
+            <p id="addQuizTitle">Quiz : Title</p>
+            <img id="arrow-img4" src="../static/img/course_management_img/up_arrow.png" alt="">
+        </div>
+        <div class="module-title-container" id="quizHeading">
+            <p id="quizTitle">Quiz :</p>
+            <input class="input-box" type="text" id="quizInput">
+        </div>
+        <div class="questionNo-timeLimit-cotainer">
+            <div class="no-of-question" id="total-question">
+                <p>No. of Questions</p>
+                <input class="input-box" type="text" id="total-question-input">
+            </div>
+            <div class="no-of-question">
+                <p>Time Limit</p>
+                <input class="input-box" type="text" id="time-limit">
+            </div>
+        </div>
+        <div id="add-questions-btn">
+        <button class="edit-btns">Add Question</button>
+        </div>
+        <div class="questions" id="question1">
+            <div class="options" id="ques1">
+                <span id="ques-no1">1.</span>
+                <input class="input-box" type="text" id="">
+            </div>
+            <div class="options" id="option-button-container">
+                <button class="purple-status">Add Option</button>
+                <button class="green-status">Answer</button>
+            </div>
+            <div class="options">
+                <span>Option 1</span>
+                <input class="input-box" type="text" id="">
+            </div>
+            <div class="options">
+                <span>Option 2</span>
+                <input class="input-box" type="text" id="">
+            </div>
+            <div class="options">
+                <span>Option 3</span>
+                <input class="input-box" type="text" id="">
+            </div>
+        </div>
+        <div class="save-draft-btns">
+            <button class="save-btns" id="saveBtn"><div class="button-content">Save</button>
+            <button class="save-btns gray-button" id="draftBtn"><div class="button-content">Draft</div></button>
+        </div>
+    </div>
+
+</div>
+</div>
+</section> -->
+
+<section id="modules-section">
+    
+     <h2 class="heading-container">MODULES</h2>
+        <button type="button" class="btn" onclick="addWeek()">Add Week</button>
+        <div id="weeksContainer"></div>
+    
+</section>
+
+<!-- Container that contains "Modules" ENDS-->
+
+<section>
+    <h2>MESSAGES</h2>
+<div class="class-description-container">
+    <div class="editor-container">
+        <textarea contenteditable="true" class="editor" id="class-description" placeholder="Enter your class description" name="messageContent"></textarea>
+    </div>
+    <div class="toolbar">
+        <button onclick="formatText('bold')"><img class="tool-icons" src="../static/admin_img/course_management_img/bold_icon.png" alt=""></button>
+        <button onclick="formatText('underline')"><img class="tool-icons" src="../static/admin_img/course_management_img/underline_icon.png" alt=""></button>
+        <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/unordered_list_icon.png" alt=""></button>
+        <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/ordred_list_icons.png" alt=""></button>
+        <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/admin_img/course_management_img/Aa_icon.png" alt=""></button>
+    </div>
+</div>
+</section>
+
+<section id="resources-section">
+    <h2>RESOURCES</h2>
+    <div class="resources-container">
+        <div class="weekly-activity">
+            <h3>Week 1</h3>
+            <div class="input-container">
+                <input type="text" name="" id="title-input" placeholder="Title..." name="weekTitle">
+                <div class="upload-file-container">
+                <label for="file-upload" class="custom-file-label"><img class="cloud-img" src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+                <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()" name="videoUpload">
+                <span id="file-info" class="file-info">Max File Size 10mb</span>
+                </div>
+            </div>
+        </div>
+        <div class="weekly-activity">
+            <h3>Week 2</h3>
+            <div class="input-container">
+                <input type="text" name="" id="title-input" placeholder="Title...">
+                <div class="upload-file-container">
+                <label for="file-upload" class="custom-file-label"><img class="cloud-img"  src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+                <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()">
+                <span id="file-info" class="file-info">Max File Size 10mb</span>
+                </div>
+            </div>
+        </div>
+        <div class="weekly-activity">
+            <h3>Week 3</h3>
+            <div class="input-container">
+                <input type="text" name="" id="title-input" placeholder="Title...">
+                <div class="upload-file-container">
+                <label for="file-upload" class="custom-file-label"><img class="cloud-img" src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+                <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()">
+                <span id="file-info" class="file-info">Max File Size 10mb</span>
+                </div>
+            </div>
+        </div>
+        <div class="weekly-activity">
+            <h3>Week 4</h3>
+            <div class="input-container">
+                <input type="text" name="" id="title-input" placeholder="Title...">
+                <div class="upload-file-container">
+                <label for="file-upload" class="custom-file-label"><img class="cloud-img" src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+                <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()">
+                <span id="file-info" class="file-info">Max File Size 10mb</span>
+                </div>
+            </div>
+        </div>
+        <div class="weekly-activity">
+            <h3>Week 5</h3>
+            <div class="input-container">
+                <input type="text" name="" id="title-input" placeholder="Title...">
+                <div class="upload-file-container">
+                <label for="file-upload" class="custom-file-label"><img class="cloud-img"  src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+                <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()">
+                <span id="file-info" class="file-info">Max File Size 10mb</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="career-guidance">
+    <h2>CAREER GUIDANCE</h2>
+    <div class="upload-file-container2">
+    <label for="file-upload" class="career-guidance-label"><img class="cloud-img" src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+    <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()" name="careerGuidanceImage">
+    <span id="file-info" class="file-info">Max File Size 10mb OR 800 X 600px</span>
+    </div>
+</div>
+
+<div class="class-description-container" id="career-guidance-description">
+    <div class="editor-container" id="editor-container">
+        <textarea name="careerGuidanceContent" contenteditable="true" class="editor" id="class-description" placeholder="Enter your class description"></textarea>
+    </div>
+    <div class="toolbar" id="toolbar2">
+        <button onclick="formatText('bold')"><img class="tool-icons" src="../static/admin_img/course_management_img/bold_icon.png" alt=""></button>
+        <button onclick="formatText('underline')"><img class="tool-icons" src="../static/admin_img/course_management_img/underline_icon.png" alt=""></button>
+        <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/unordered_list_icon.png" alt=""></button>
+        <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/ordred_list_icons.png" alt=""></button>
+        <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/admin_img/course_management_img/Aa_icon.png" alt=""></button>
+    </div>
+</div>
+
+<section id="table-section">
+    <h2>PREVIOUS YEAR QUESTION PAPERS AND ANSWERS</h2>
+    <table id="table">
+        <thead>
+            <th>Title</th>
+            <th>Upload Question Paper</th>
+            <th>Upload Answer Sheet</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="enter-upload-box">
+                        <span>Enter Title</span>
+                        <input type="text" name="previousQpTitle" id="">
+                    </div>
+                </td>
+                <td>
+                    <div class="enter-upload-box">
+                        <span>Upload Question Paper</span>
+                        <input class="upload-file-input" type="file" name="" id="" name="previousQpUpload">
+                    </div>
+                </td>
+                <td>
+                    <div class="enter-upload-box">
+                        <span>Upload Answer Sheet</span>
+                        <input class="upload-file-input" type="file" name="previousAnsUpload" id="">
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+<h2>1 ON 1 MENTORSHIP REQUIRED</h2>
+<div class="class-description-container" id="career-guidance-description">
+    <div class="editor-container" id="editor-container">
+        <textarea name="mentorshipContent" contenteditable="true" class="editor" id="class-description" placeholder="Enter your Mentor description"></textarea>
+    </div>
+</div>
+
+<h2>Mentor Names</h2>
+<div class="class-description-container" id="career-guidance-description">
+    <div class="editor-container" id="editor-container">
+        <textarea name="mentorNames" contenteditable="true" class="editor" id="class-description" placeholder="Enter your Mentor name"></textarea>
+    </div>
+</div>
+
+<div id="course-amount">
+    <h2>AMOUNT :</h2>
+    <input type="number" name="price" id="">
+</div>
+
+<div id="draft-publish-btn">
+    <button class="edit-btns" id="exitBTN">Save Draft and Exit</button>
+    <button class="edit-btns" id="publishBTN" type="submit"> Save and Publish</button>
+</div>
+</form>
+<!-- <script  src="{% static 'js/admin_course_manage_add_course.js' %}" > -->
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+    const firstModule = document.querySelector("#first-module-container");
+    const moduleDetails = document.querySelector("#add-modules-container");
+    const addArticle = document.querySelector("#addArticle");
+    const addVideo = document.querySelector("#addVideo");
+    const addQuiz = document.querySelector("#addQuiz");
+    const categorySelect = document.querySelector("#category-select");
+    const addArticleContainer = document.querySelector(".add-article-container");
+    const addVideoWrapper = document.querySelector(".add-video-wrapper");
+    const addQuizWrapper = document.querySelector(".add-quiz-wrapper");
+    const arrow = document.querySelector("#arrow-img");
+    const arrow2 = document.querySelector("#arrow-img2");
+    const arrow3 = document.querySelector("#arrow-img3");
+    const arrow4 = document.querySelector("#arrow-img4");
+    const arrow5 = document.querySelector("#arrow-img5");
+    const upArrowSrc = '../static/admin_img/course_management_img/up_arrow.png';
+    const downArrowSrc = '../static/admin_img/course_management_img/down_arrow.png';
+
+    // General function to toggle display and arrow image
+    function toggleDisplay(element, arrow) {
+        if (element.style.display === "none") {
+            element.style.display = "block";
+            arrow.src = downArrowSrc;
+        } else {
+            element.style.display = "none";
+            arrow.src = upArrowSrc;
+        }
+    }
+
+    // Function to toggle arrow image
+    function toggleArrow(arrow) {
+        arrow.src = arrow.src.includes('up_arrow') ? downArrowSrc : upArrowSrc;
+    }
+
+    // Function to switch classes without toggling display
+    function switchClass(element, oldClass, newClass) {
+        if (element.classList.contains(oldClass)) {
+            element.classList.remove(oldClass);
+            element.classList.add(newClass);
+        } else {
+            element.classList.remove(newClass);
+            element.classList.add(oldClass);
+        }
+    }
+
+    firstModule.addEventListener("click", () => {
+        toggleDisplay(moduleDetails, arrow);
+    });
+
+    addArticle.addEventListener("click", () => {
+        if (addArticleContainer.style.display === "none") {
+            addArticleContainer.style.display = "block";
+        }else{
+            addArticleContainer.style.display = "none";
+        }
+    });
+
+    addArticleContainer.addEventListener("click", () => {
+        switchClass(addArticleContainer, 'add-article-container', 'add-article-container2');
+        toggleArrow(arrow2);
+    });
+
+    addVideo.addEventListener("click", () => {
+        if (addVideoWrapper.style.display === "none") {
+            addVideoWrapper.style.display = "block";
+        }else{
+            addVideoWrapper.style.display = "none";
+        }
+    });
+
+    addVideoWrapper.addEventListener("click", () => {
+        switchClass(addVideoWrapper, 'add-video-wrapper', 'add-video-wrapper2');
+        toggleArrow(arrow3);
+    });
+
+    addQuiz.addEventListener("click", () => {
+        if (addQuizWrapper.style.display === "none") {
+            addQuizWrapper.style.display = "block";
+        }else{
+            addQuizWrapper.style.display = "none";
+        }
+    });
+
+    addQuizWrapper.addEventListener("click", () => {
+        switchClass(addQuizWrapper, 'add-quiz-wrapper', 'add-quiz-wrapper2');
+        toggleArrow(arrow4);
+    });
+    categorySelect.addEventListener("click", () => {
+        toggleArrow(arrow5);
+    });
+});
+
+function formatText(command, value = null) {
+    document.execCommand(command, false, value);
+}
+
+function increaseFontSize() {
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        const span = document.createElement('span');
+        const currentFontSize = window.getComputedStyle(range.commonAncestorContainer.parentNode).fontSize;
+        const newSize = parseInt(currentFontSize) + 2; // Increase font size by 2px
+        span.style.fontSize = newSize + 'px';
+        range.surroundContents(span);
+    }
+}
+
+// Add extra handling for the 'fontName' command
+document.querySelector('.select-selected').addEventListener('click', function() {
+        var items = document.querySelector('.select-items');
+        items.style.display = items.style.display === 'none' || items.style.display === '' ? 'block' : 'none';
+    });
+
+function updateFileInfo() {
+        var input = document.getElementById('file-upload');
+        var info = document.getElementById('file-info');
+        if (input.files.length > 0) {
+            info.textContent = input.files[0].name;
+        } else {
+            info.textContent = 'Max File Size 10mb';
+        }
+    }
+
+    let contentIndex = 0;
+
+    function addWeek() {
+            const weekContainer = document.createElement('div');
+            weekContainer.className = 'week-container';
+            weekContainer.innerHTML = `
+                <h4>New Week</h4>
+                <div class="form-group">
+                    <label for="weekTitle${contentIndex}">Week Title (Required)</label>
+                    <input type="text" id="weekTitle${contentIndex}" name="weekTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="weekDescription${contentIndex}">Week Description (Required)
+                        <span class="tooltip">?
+                            <span class="tooltiptext">Use bold, font size, bullet points, numbered points</span>
+                        </span>
+                    </label>
+                    <textarea id="weekDescription${contentIndex}" name="weekDescription" required></textarea>
+                </div>
+                <button type="button" class="btn" onclick="addModule(this)">Add Module</button>
+                <div class="modulesContainer"></div>
+                <div class="forum-group">
+                    <label for="weekForum${contentIndex}">Week Forum</label>
+                    <input type="checkbox" id="weekForum${contentIndex}" name="weekForum">
+                    <p class="forum-description">Enable forum for this week's content</p>
+                </div>
+            `;
+            document.getElementById('weeksContainer').appendChild(weekContainer);
+            contentIndex++;
+        }
+
+        function addModule(button) {
+            const moduleContainer = document.createElement('div');
+            moduleContainer.className = 'module-container module-content';
+            moduleContainer.innerHTML = `
+                <h5>New Module</h5>
+                <div class="form-group">
+                    <label for="moduleName${contentIndex}">Module Name (Required)</label>
+                    <input type="text" id="moduleName${contentIndex}" name="moduleName" required>
+                </div>
+                <div class="content-options">
+                    <button type="button" class=" btn button-content red-button" onclick="addContent(this, 'article')"><img src="../static/admin_img/course_management_img/plus_icon.png" alt="">Add Article</button>
+                    <button type="button" class=" btn button-content green-button" onclick="addContent(this, 'video')"> <img class="img-margin-left" src="../static/admin_img/course_management_img/plus_icon.png" alt="">Add Video</button>
+                    <button type="button" class="btn button-content gray-buttons" onclick="addContent(this, 'assignment')"><img class="img-margin-left" src="../static/admin_img/course_management_img/plus_icon.png" alt="">Add Assignment</button>
+                    <button type="button" class="btn button-content gray-button " onclick="addContent(this, 'quiz')"> <img class="img-margin-left" src="../static/admin_img/course_management_img/plus_icon.png" alt="">Add Quiz</button>
+                </div>
+                <div class="contentsContainer"></div>
+            `;
+            button.nextElementSibling.appendChild(moduleContainer);
+            contentIndex++;
+        }
+
+        function addContent(button, type) {
+            const contentsContainer = button.parentElement.nextElementSibling;
+            let contentContainer = document.createElement('div');
+            contentContainer.className = 'content-container';
+            contentContainer.id = `content-${contentIndex}`; // Set unique ID for content container
+
+            switch (type) {
+                case 'article':
+                    contentContainer.innerHTML = `
+                        <h6>New Article</h6>
+                        <div class="form-group">
+                            <label for="articleTitle${contentIndex}">Article Title (Required)</label>
+                            <input type="text" id="articleTitle${contentIndex}" name="articleTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleDescription${contentIndex}">Description (Required)
+                                <span class="tooltip">?
+                                    <span class="tooltiptext">Use bold, font size, bullet points, numbered points</span>
+                                </span>
+                            </label>
+                            <textarea id="articleDescription${contentIndex}" name="articleDescription" required></textarea>
+                        </div>
+                    `;
+                    break;
+                case 'video':
+                    contentContainer.innerHTML = `
+                        <h6>New Video</h6>
+                        <div class="form-group">
+                            <label for="videoTitle${contentIndex}">Video Title (Required)</label>
+                            <input type="text" id="videoTitle${contentIndex}" name="videoTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="videoUpload${contentIndex}">Upload Video</label>
+                            <input type="file" id="videoUpload${contentIndex}" name="videoUpload">
+                        </div>
+                    `;
+                    break;
+                case 'assignment':
+                    contentContainer.innerHTML = `
+                        <h6>New Assignment</h6>
+                        <div class="form-group">
+                            <label for="assignmentTitle${contentIndex}">Assignment Title (Required)</label>
+                            <input type="text" id="assignmentTitle${contentIndex}" name="assignmentTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="assignmentDescription${contentIndex}">Description (Required)
+                                <span class="tooltip">?
+                                    <span class="tooltiptext">Use bold, font size, bullet points, numbered points</span>
+                                </span>
+                            </label>
+                            <textarea id="assignmentDescription${contentIndex}" name="assignmentDescription" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="assignmentUpload${contentIndex}">Upload PDF</label>
+                            <input type="file" id="assignmentUpload${contentIndex}" name="assignmentUpload">
+                        </div>
+                    `;
+                    break;
+                case 'quiz':
+                    contentContainer.innerHTML = `
+                        <h6>New Quiz</h6>
+                        <div class="form-group">
+                            <label for="quizTitle${contentIndex}">Quiz Title (Required)</label>
+                            <input type="text" id="quizTitle${contentIndex}" name="quizTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quizNumQuestions${contentIndex}">Number of Questions (Required)</label>
+                            <input type="number" id="quizNumQuestions${contentIndex}" name="quizNumQuestions" required min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="quizTimeLimit${contentIndex}">Time Limit (Required, HH:MM format)</label>
+                            <input type="text" id="quizTimeLimit${contentIndex}" name="quizTimeLimit" required>
+                        </div>
+                        <button type="button" class="btn green-button" onclick="addQuestion(this)">Add Question</button>
+                        <div class="questionsContainer"></div>
+                    `;
+                    break;
+                default:
+                    return;
+            }
+
+            contentContainer.innerHTML += `
+                <button type="button" class="btn btn-remove" onclick="removeContent(${contentIndex})">Remove ${type.charAt(0).toUpperCase() + type.slice(1)}</button>
+            `;
+
+            contentsContainer.appendChild(contentContainer);
+            contentIndex++;
+        }
+
+        function addQuestion(button) {
+            const questionsContainer = button.parentElement.querySelector('.questionsContainer');
+            let questionContainer = document.createElement('div');
+            questionContainer.className = 'question-container';
+            questionContainer.innerHTML = `
+                <div class="form-group">
+                    <label for="question${contentIndex}">Question (Required)</label>
+                    <input type="text" id="question${contentIndex}" name="question" required>
+                </div>
+                <button type="button" class="btn green-button" onclick="addOption(this)">Add Option</button>
+                <div class="optionsContainer"></div>
+            `;
+            questionsContainer.appendChild(questionContainer);
+        }
+
+        function addOption(button) {
+            const optionsContainer = button.parentElement.querySelector('.optionsContainer');
+            if (optionsContainer.children.length < 5) { // Limit options to 5 per question
+                let optionContainer = document.createElement('div');
+                optionContainer.className = 'option-container';
+                optionContainer.innerHTML = `
+                    <div class="form-group">
+                        <label for="option${contentIndex}">Option (Required)</label>
+                        <input type="text" id="option${contentIndex}" name="option" required>
+                    </div>
+                `;
+                optionsContainer.appendChild(optionContainer);
+            }
+        }
+
+        function removeContent(contentId) {
+            const contentToRemove = document.getElementById(`content-${contentId}`);
+            contentToRemove.parentNode.removeChild(contentToRemove);
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_course_manage_bulk_course.css' %}">
+</head>
+<body>
+
+
+<!-- Container that contains "statics boxes" STARTS-->   
+<h1 id="add-course-heading">CREATE BULK COURSE</h1>
+<!-- Container that contains "statics boxes" ENDS--> 
+
+<!-- Container that contains "class-mentor-name" STARTS-->  
+
+<div class="class-mentor-name-container" id="course1">
+    <div class="mentor-name-container">
+        <h2>TITLE (Course 1)</h2>
+        <input class="input-box" type="text" name="" placeholder="Enter title for course 1 here.." id="">
+    </div>
+
+    <h2>DESCRIPTION</h2>
+    <div class="class-description-container">
+    <div class="editor-container">
+        <div contenteditable="true" class="editor" id="class-description" placeholder="Enter your class description"></div>
+    </div>
+    <div class="toolbar">
+        <button onclick="formatText('bold')"><img class="tool-icons" src="../static/admin_img/course_management_img/bold_icon.png" alt=""></button>
+        <button onclick="formatText('underline')"><img class="tool-icons" src="../static/admin_img/course_management_img/underline_icon.png" alt=""></button>
+        <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/unordered_list_icon.png" alt=""></button>
+        <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/ordred_list_icons.png" alt=""></button>
+        <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/admin_img/course_management_img/Aa_icon.png" alt=""></button>
+    </div>
+    </div>
+</div>
+<div class="class-mentor-name-container" id="course2">
+    <div class="mentor-name-container">
+        <h2>TITLE (Course 2)</h2>
+        <input class="input-box" type="text" name="" placeholder="Enter title for course 2 here.." id="">
+    </div>
+
+    <h2>DESCRIPTION</h2>
+    <div class="class-description-container">
+    <div class="editor-container">
+        <div contenteditable="true" class="editor" id="class-description" placeholder="Enter your class description"></div>
+    </div>
+    <div class="toolbar">
+        <button onclick="formatText('bold')"><img class="tool-icons" src="../static/admin_img/course_management_img/bold_icon.png" alt=""></button>
+        <button onclick="formatText('underline')"><img class="tool-icons" src="../static/admin_img/course_management_img/underline_icon.png" alt=""></button>
+        <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/unordered_list_icon.png" alt=""></button>
+        <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/ordred_list_icons.png" alt=""></button>
+        <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/admin_img/course_management_img/Aa_icon.png" alt=""></button>
+    </div>
+    </div>
+
+</div>
+
+<div class="mentor-name-container">
+    <h2>BULK COURSE AMOUNT</h2>
+    <input class="input-box" type="text" name="" placeholder="Enter bulk course amount" id="">
+</div>
+
+<div class="btn-container">
+    <button id="submit-btn">Submit</button>
+</div>
+<!-- Container that contains "class-mentor-name" ENDS-->
+ 
+<script>
+   
+   function formatText(command, value = null) {
+       document.execCommand(command, false, value);
+   }
+   
+   function increaseFontSize() {
+       const selection = window.getSelection();
+       if (selection.rangeCount > 0) {
+           const range = selection.getRangeAt(0);
+           const span = document.createElement('span');
+           const currentFontSize = window.getComputedStyle(range.commonAncestorContainer.parentNode).fontSize;
+           const newSize = parseInt(currentFontSize) + 2; // Increase font size by 2px
+           span.style.fontSize = newSize + 'px';
+           range.surroundContents(span);
+       }
+   }
+   
+   // Add extra handling for the 'fontName' command
+   document.querySelector('.select-selected').addEventListener('click', function() {
+           var items = document.querySelector('.select-items');
+           items.style.display = items.style.display === 'none' || items.style.display === '' ? 'block' : 'none';
+       });
+   
+   </script>  
+</body>
+</html>
+
+

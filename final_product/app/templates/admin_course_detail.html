@@ -1,0 +1,22 @@
+<!-- course_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Detail</title>
+</head>
+<body>
+    <h1>Course Detail</h1>
+    
+    <p><strong>Course Name:</strong> {{ course.course_name }}</p>
+    <p><strong>Category:</strong> {{ course.category_type }}</p>
+    <p><strong>Created At:</strong> {{ course.created_at }}</p>
+    <p><strong>Updated At:</strong> {{ course.updated_at }}</p>
+
+    
+    <a href="{% url 'admin_create_assignment' course.id %}">Create Assignment</a>
+    <a href="{% url 'admin_edit_course' course.id %}">Edit Course</a>
+</body>
+</html>

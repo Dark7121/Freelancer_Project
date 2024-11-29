@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowlegopedia</title>
+    <link rel="stylesheet" href="{% static 'css/admin_affiliate_marketing_payments.css' %}">
+</head>
+<body>
+ 
+
+    <div class="edit-btn-contianer">
+        <button class="edit-btns">Edit</button>
+        </div>
+        
+
+        <div class="earning-enroll-container">
+            <div class="statics-box student-manager-profile">
+                <div class="statics-box-heading">
+                    <h2>Drennan John</h2>
+                    <p>+9666515565</p>
+                    <p id="email">Drennan86@gmail.com</p>
+                </div>
+                <img src="./static/admin_img/student_management_img/student_manager_profile.png" alt="">
+            </div>
+            <div class="statics-box  total-enroll-count">
+                <div class="statics-box-heading">
+                <h2>Total enrollment count</h2>
+                <p><span>9 Users</p></div>
+                <img src="../static/admin_img/dashborad_img/total_enroll.png" alt="">
+            </div>
+            <div class="statics-box ongoing-course-count">
+                <div class="statics-box-heading">
+                    <h2>Total Earnings</h2>
+                    <p>5 Course</p>
+                </div>
+                <img src="./static/admin_img/student_management_img/ongoing_course_count.png" alt="">
+            </div>
+        </div>
+        
+        <!-- Container that contains "statics boxes" ENDS-->  
+
+
+<!-- Container that contains "tables" STARTS -->
+
+        <!-- Container that contains " PAYMENT table" -->
+        <div id="tables">
+        
+            <div class="each-table-container">
+                <h2 class="sub-payment-heading">PENDING PAYMENT</h2>
+                <table id="table2">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Invoice No</th>
+                            <th>Name</th>
+                            <th>Month</th>
+                            <th>Course Name</th>
+                            <th>No.of enrollments</th>
+                            <th>Per share</th>
+                            <th>Amount</th>
+                            <th>Pay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="goToPaymentPayPage()"><td>1.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="green-status">Pay</p></td></tr>
+                        <tr onclick="goToPaymentPayPage()"><td>2.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="green-status">Pay</p></td></tr>
+                        <tr onclick="goToPaymentPayPage()"><td>3.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="green-status">Pay</p></td></tr>
+                        <tr onclick="goToPaymentPayPage()"><td>4.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="green-status">Pay</p></td></tr>
+                        <tr onclick="goToPaymentPayPage()"><td>5.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="green-status">Pay</p></td></tr>
+                        <tr onclick="goToPaymentPayPage()"><td>6.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="green-status">Pay</p></td></tr>
+                      
+                    </tbody>
+                </table>
+            </div>
+
+        <div class="each-table-container">
+            <h2 class="sub-payment-heading">PAID PAYMENT</h2>
+            <table id="table1">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Invoice No</th>
+                        <th>Name</th>
+                        <th>Month</th>
+                        <th>Course Name</th>
+                        <th>No.of enrollments</th>
+                        <th>Per share</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th id="bill">Bill</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="purple-status">Paid</p></td><td><p class="purple-status">View Bill</p></td></tr>
+                    <tr><td>2.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="purple-status">Paid</p></td><td><p class="purple-status">View Bill</p></td></tr>
+                    <tr><td>3.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="purple-status">Paid</p></td><td><p class="purple-status">View Bill</p></td></tr>
+                    <tr><td>4.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="purple-status">Paid</p></td><td><p class="purple-status">View Bill</p></td></tr>
+                    <tr><td>5.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="purple-status">Paid</p></td><td><p class="purple-status">View Bill</p></td></tr>
+                    <tr><td>6.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td class="status"><p class="purple-status">Paid</p></td><td><p class="purple-status">View Bill</p></td></tr>
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!-- Container that contains "tables" ENDS -->
+
+<script>
+
+    function goToPaymentPayPage() {
+        window.location.href = "{% url 'admin_affiliate_marketing_payments_pay' %}";
+    }
+
+</script>
+</body>
+</html>

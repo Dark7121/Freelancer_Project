@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Assignment</title>
+</head>
+<body>
+    <h1>Submit Assignment - {{ assignment.title }}</h1>
+    <form id="assignmentForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('assignmentForm').addEventListener('submit', function(event) {
+            var dueDate = new Date('{{ form.instance.due_date }}');
+            var currentDate = new Date();
+            if (dueDate < currentDate) {
+                alert('The deadline for submitting this assignment has passed.');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>

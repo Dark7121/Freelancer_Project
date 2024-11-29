@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Quiz Title</th>
+                <th>Student</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quiz in quizzes %}
+                {% for result in quiz_results %}
+                    {% if result.quiz == quiz %}
+                        <tr>
+                            <td><a href="{% url 'admin_quiz-detail' quiz.id %}">{{ quiz.title }}</a></td>
+                            <td>{{ result.student.username }}</td>
+                            <td>{{ result.score }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

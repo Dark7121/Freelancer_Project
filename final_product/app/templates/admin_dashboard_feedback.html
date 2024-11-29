@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard_feedback.css' %}">
+</head>
+<body>
+
+<!-- Container that contains "statics boxes" STARTS-->
+<h2 id="pending-payment-heading">FEED BACK</h2>
+<!-- Container that contains "statics boxes" ENDS-->
+
+<div class="total-row-current-page-container">
+    <div class="current-page">
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/home_icon.png' %}" alt="" class="home-icon">
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info" id="studentManagement">Course Name</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info">Feedback</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info">Feedback 1</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+    </div>
+
+    <div class="edit-buttons-container">
+        <button class="edit-btns" id="createFeedbackBtn" onclick="createFeedback()">Create Feedback</button>
+    </div>
+</div>
+
+<!-- Table Section STARTS -->
+<div class="table-container">
+    <table id="activeAccountsTable">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Feedback Name</th>
+                <th>No. of Questions</th>
+                <th>No. of Response</th>
+                <th>View/ Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formfeedback in formfeedbacks %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ formfeedback.title }}</td>
+                <td>{{ formfeedback.num_questions }}</td> <!-- Number of questions -->
+                <td>{{ formfeedback.num_responses }}</td> <!-- Number of responses -->
+                <td class="table-actions">
+                    <a href="{% url 'admin_submit_feedback' formfeedback.id %}" class="btn btn-success btn-sm">View</a>
+                    <a href="{% url 'admin_formfeedback_update' formfeedback.id %}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{% url 'admin_formfeedback_delete' formfeedback.id %}" class="btn btn-danger btn-sm"
+                       onclick="return confirm('Are you sure you want to delete this feedback form?');">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination Controls STARTS -->
+<div class="pagination">
+    <div class="select-page">Select by Page No. :
+        <select id="pageSelect" onchange="changePage()"></select>
+    </div>
+    <div id="currentPage">Page 1 of 1</div>
+    <img id="prevBtn" class="next-previous-button" src="{% static 'admin_img/student_management_img/course_enroll_img/Arrow_left.png' %}" alt="Previous" onclick="prevPage()">
+    <img id="nextBtn" class="next-previous-button" src="{% static 'admin_img/student_management_img/course_enroll_img/Arrow_right.png' %}" alt="Next" onclick="nextPage()">
+</div>
+<!-- Pagination Controls ENDS -->
+
+<!-- Table 1 Section ENDS -->
+
+<!-- scripts -->
+
+<script>
+    function createFeedback() {
+        window.location.href = "{% url 'admin_dashboard_create_feedback' %}";
+    }
+    function viewFeedback() {
+        window.location.href = "{% url 'admin_dashboard_feedback_view' %}";
+    }
+</script>
+</body>
+</html>

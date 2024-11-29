@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#payment-details-heading{
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+/* statics boxes styling */
+
+ .earning-enroll-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.statics-box {
+    width: 25vw;
+    margin: 1% 2vh;
+    height: 8.4rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 2.5px 6px grey;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.student-manager-profile{
+    width: 35vw;
+    box-shadow: none;
+    height: 8.2rem;
+}
+
+.statics-box-heading {
+    flex-grow: 1;
+}
+
+.statics-box h2{
+    font-size: 15px;
+    margin: 0;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.statics-box p{
+    font-size: 20px;
+    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 5px;
+}
+
+.student-manager-profile h2{
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.student-manager-profile p{
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+.student-manager-profile #email{
+    font-size: 14px;
+   padding-bottom: 10px;
+}
+
+#student-manager-profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}
+
+#student-manager-profile-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+.total-enroll-count img {
+    width: 100px;
+    height: 70px;
+}
+
+.ongoing-course-count img {
+    width: 140px;
+    height: 80px;
+}
+ 
+/* current page information styling */
+.total-row-current-page-container{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 85vw;
+    margin-left: 8vw;
+    margin-top: 30px;
+}
+
+.current-page{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+}
+
+.current-page-info{
+    margin: 0px 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.home-icon{
+    margin-right: 5px;
+}
+
+.page-arrow,.home-icon{
+    width: 22px;
+    height: 22px;
+}
+
+/* table styling STARTS */
+
+table {
+    width: 85%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(50% - 20px); /* Adjust width and ensure wrapping */
+    min-width: 300px; /* Minimum width for a table */
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+#paymentTable-container{
+    margin-top: 30px;
+    margin-left: 8vw;
+}
+
+#paymentTable tbody {
+    display: block;
+    min-height: 55vh; /* Adjust based on your row height to ensure space for 10 rows */
+}
+
+#paymentTable tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#paymentTable .status {
+    display: flex;
+    justify-content: center;
+}
+
+table thead,tbody{
+    border: none;
+}
+
+th, td {
+    text-align: start;
+}
+
+th {
+    font-weight: bold;
+    padding: 10px 10px;
+    font-size: 13px;
+    text-align: center;
+    border-bottom: 3px solid #EDEDFF;
+}
+
+td {
+    padding: 5px 0px;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Styling for the status column */
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green-status {
+    color:#069855;
+    background-color: #E6F5EE;
+    width: 81px;
+    text-align: center;
+    align-content: center;
+    border-radius: 11px;
+    font-size: 13px;
+    margin: 0;
+    height: 28px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 20px 50px;
+}
+.pagination .next-previous-button{
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+
+.next-previous-button:hover{
+    background-color: rgb(197, 195, 195);
+}
+
+.page-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.total-rows {
+    text-align: right;
+    margin-right: 50px;
+    /* font-weight: bold; */
+}
+
+.select-page{
+    margin-right: 30px;
+}
+#pageSelect{
+    border-radius: 5px;
+    padding: 2px;
+    border: none;
+    background-color: rgb(226, 226, 226);
+    box-shadow: 0px 0px 5px rgb(177, 177, 177);
+}
+#pageSelect option{
+    border-radius: 5px;
+    padding: 2px;
+}
+
+/* table styling ENDS */

@@ -1,0 +1,16 @@
+<!-- templates/create_payout_statement.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Payout Statement</title>
+</head>
+<body>
+    <h1>Create Payout Statement</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

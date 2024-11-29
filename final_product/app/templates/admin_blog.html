@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin_blog.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+        <div class="blog-content flex">
+            <div class="left-section">
+                <div class="flex header-container">
+                    <h4 style="font-size: 1.4rem">RECENT BLOGS</h4>
+                    <div class="flex">
+                        <button style="background-color: #00B894;" onclick="gotoAddBlog()">Create blog</button>
+                    </div>
+                </div>
+                <div class="card-container">
+                    {% for blog in blogs %}
+                    <div class="card">
+                        {% if blog.thumbnail %}
+                        <div class="img-container">
+                            <img src="{{ blog.thumbnail.url }}" alt="{{ blog.title }}">
+                            <p>Trending</p>
+                        </div>
+                        {% endif %}
+                        <div class="flex small-details">
+                            <div class="flex">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                <p>{{ blog.created_at|date:"F d, Y" }}</p>
+                            </div>
+                            <div class="flex">
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                <p>by Admin</p>
+                            </div>
+                        </div>
+                        <h5 style="line-height: 25px">{{ blog.title }}</h5>
+                        <div class="text-right">
+                            <a href="{% url 'admin_edit_blog' blog.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="{% url 'admin_delete_blog' blog.pk %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</a>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+
+
+
+
+                </div>
+
+                <h4 style="font-size: 1.4rem; margin-top: 50px;margin-left: 5%;font-weight: 600;">Recent Blogs</h4>
+                <div class="card-container">
+                    {% for blog in blogs %}
+                    <div class="card">
+                        {% if blog.thumbnail %}
+                        <div class="img-container">
+                            <img src="{{ blog.thumbnail.url }}" alt="{{ blog.title }}">
+                            <p>Trending</p>
+                        </div>
+                        {% endif %}
+                        <div class="flex small-details">
+                            <div class="flex">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                <p>{{ blog.created_at|date:"F d, Y" }}</p>
+                            </div>
+                            <div class="flex">
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                <p>by Admin</p>
+                            </div>
+                        </div>
+                        <h5 style="line-height: 25px">{{ blog.title }}</h5>
+                        <div class="text-right">
+                            <a href="{% url 'admin_edit_blog' blog.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="{% url 'admin_delete_blog' blog.pk %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="blog-right-section">
+                <div class="search-container flex">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" name="search" placeholder="Search here">
+                </div>
+                <div class="categories-container">
+                    <h5 style="font-weight: 600; font-size: 1.2rem">Categories</h5>
+                    <ul>
+                        <li><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>Art & Design</li>
+                        <li><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>Business</li>
+                        <li><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>Data Science</li>
+                        <li><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>Development</li>
+                        <li><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>Finance</li>
+                        <li><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>Health & Fitness</li>
+                        <li><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>Lifestyle</li>
+                    </ul>
+                </div>
+                <div class="post-container">
+                    <h5 style="font-weight: 600; font-size: 1.2rem">Latest Post</h5>
+                    <div class="flex post">
+                        <img src="{% static '/admin_img/blog/blog-main-img.jpeg' %}" alt="" class="post-img">
+                        <div class="block">
+                            <div class="flex">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                <p>April 13, 2024</p>
+                            </div>
+                            <h6>The Right Learning
+                                Path for your</h6>
+                        </div>
+                    </div>
+                    <div class="flex post">
+                        <img src="{% static '/admin_img/blog/blog-main-img.jpeg' %}" alt="" class="post-img">
+                        <div class="block">
+                            <div class="flex">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                <p>April 13, 2024</p>
+                            </div>
+                            <h6>The Growing Need
+                                Management</h6>
+                        </div>
+                    </div>
+                    <div class="flex post">
+                        <img src="{% static '/admin_img/blog/blog-main-img.jpeg' %}" alt="" class="post-img">
+                        <div class="block">
+                            <div class="flex">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                <p>April 13, 2024</p>
+                            </div>
+                            <h6>The Right Learning
+                                Path for your</h6>
+                        </div>
+                    </div>
+                    <div class="flex post">
+                        <img src="{% static '/admin_img/blog/blog-main-img.jpeg' %}" alt="" class="post-img">
+                        <div class="block">
+                            <div class="flex">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                <p>April 13, 2024</p>
+                            </div>
+                            <h6>The Growing Need
+                                Management</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <h5 style="font-weight: 600; font-size: 1.2rem">Tags</h5>
+                    <div class="flex">
+                        <p>Education</p>
+                        <p>Training</p>
+                        <p>Online</p>
+                        <p>Learn</p>
+                        <p>Course</p>
+                        <p>LMS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.categories');
+            const categoryList = document.querySelector('.main-category');
+            const categoryLists = document.querySelectorAll('.category');
+            categories.addEventListener('click', function () {
+                // Toggle the visibility of the list
+                categoryList.style.display = categoryList.style.display === 'none' ? 'block' : 'none';
+                categoryLists.forEach(function (category) {
+                    category.style.display = 'none';
+                });
+            });
+        });
+
+        function gotoAddBlog(){
+            window.location.href = "{% url 'admin_create_blog' %}";
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Hide all category lists
+                    const categoryList = categoryLists[index];
+                    categoryList.style.display = (categoryList.style.display === 'none') ? 'block' : 'none';
+
+                    // Hide all other category lists
+                    categoryLists.forEach(function (category, idx) {
+                        if (idx !== index) {
+                            category.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        document.getElementById('toggleProfile').addEventListener('click', function () {
+            const profileContainer = document.querySelector('.profile-container');
+            profileContainer.classList.toggle('inactive');
+        });
+
+        document.getElementById('toggleMenu').addEventListener('click', function () {
+            const profileContainer = document.querySelector('.menu-categories');
+            profileContainer.classList.toggle('inactive');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!-- course_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.name }}</title>
+</head>
+<body>
+    <h1>{{ course.name }}</h1>
+    <p>Number of Students Enrolled: {{ student_count }}</p>
+    <h2>Quiz Results</h2>
+    <ul>
+        {% for quiz_result in quiz_results %}
+            <li>{{ quiz_result.student.name }}: {{ quiz_result.score }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,559 @@
+html,body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    height: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body p {
+    margin: 0;
+}
+
+body a {
+    text-decoration: none;
+    color: #000;
+}
+
+body a:hover {
+    color: #000 !important
+}
+ul {
+    list-style: none;
+}
+
+input:focus, select:focus, textarea:focus {
+outline: none;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+  
+  .navbar .left-section {
+    position: relative
+  }
+  
+  .navbar .left-section , .right-section {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+  }
+  
+  .left-section .logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 10px;
+  }
+  
+  .left-section .company-name {
+    color: #0085FF !important;
+    margin: 0 30px 0 0!important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem
+  }
+  
+  .left-section .categories {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .left-section .categories:hover,
+  .left-section .company-name,
+  .left-section li:hover {
+    cursor: pointer
+  }
+  
+  
+  .left-section .main-category {
+    top: 60px;
+    left: 420px;
+    position:absolute;
+    width: max-content
+  }
+  
+  .left-section ul {
+    list-style: none;
+    background-color: #fff;
+    padding: 15px 15px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 9.1px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .left-section ul li {
+    padding-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .left-section .category {
+    top: 70px;
+    right: 75px;
+    width: max-content;
+    z-index: 30;
+  }
+  
+  .left-section .main-category, .left-section .web-development-category,  .left-section .mobile-developement-category,  .left-section .programming-category,  .left-section .engineering-category,  .left-section .block-chain-category,  .left-section .iot-category,  .left-section .cloud-category,  .left-section .data-science-category,  .left-section .cybersecurity-category {
+    display: none;
+  }
+  
+  .left-section .main-category.active {
+    display: block;
+  }
+  
+  .left-section .category.active {
+    display: block;
+  }
+  
+  
+  .searchBar {
+    position: relative;
+    margin: 0 20px;
+  }
+  
+  .searchBar input{
+      background-color: #fff;
+      padding: 5px;
+      padding-left: 30px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #D0D5DD;
+      font-weight: 300;
+      font-size: 0.9rem;
+  }
+  
+  .searchBar .fa-search {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      color: #98A2B3;
+  }
+  
+  .navbar .right-section a {
+  margin-right: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  }
+  
+  .navbar .right-section {
+    position: relative
+  }
+  
+  .navbar  a.active {
+    color: #0085FF !important
+  }
+  
+  .navbar  a:hover {
+    cursor: pointer;
+    color: #0085FF !important
+  }
+  
+  .right-section .cart {
+    font-size: 1.5rem;
+    margin-right: 20px;
+  }
+  
+  .right-section .cart:hover {
+    color: #0085FF;
+    cursor: pointer;
+  }
+  
+  .right-section .cart.active {
+    color: #0085FF;
+  
+  }
+  
+  .right-section .profile i {
+    margin-left: 8px;
+  }
+  
+  .right-section .profile i.rotate {
+    transform: rotate(180deg)
+  }
+  
+  .right-section .profile i:hover {
+    cursor: pointer;
+  }
+  
+  .right-section .profile-container {
+    position: relative;
+  }
+  
+  .right-section .profile-container ul {
+    position: absolute;
+    right: 15px;
+    top: 55px;
+    background-color: #E6E6E6;
+    padding-left: 0;
+    border-radius: 4px;
+    border: 0.5px solid #747474;
+    width: 200px;
+    z-index: 10;
+    display: none;
+  }
+  
+  .right-section .profile-container ul.active {
+    display: block;
+  }
+
+  .right-section .profile-container a {
+    color: #000;
+    margin: 0;
+    font-weight: 400;
+  }
+  .right-section .profile-container a:hover {
+    color: #000 !important
+  }
+  
+  .right-section .profile-container li {
+    padding: 10px 20px;
+    border: 0.5px solid transparent;
+    font-size: 0.9rem;
+  }
+  
+  .right-section .profile-container li:hover {
+    background-color: #C3C3C3;
+    border: 0.5px solid #747474;
+    cursor: pointer;
+  }
+  
+  .right-section .profile-container li.active {
+    background-color: #C3C3C3;
+    border: 0.5px solid #747474;
+  }
+
+  .my-learnings-container {
+    margin: 40px;
+    flex: 1;
+  }
+  
+  .my-learnings-container h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .cart-container .card {
+    border: none;
+    display: flex !important;
+    /* align-items: flex-start; */
+    flex-direction: row;
+    margin-top: 40px;
+    height: 180px;
+  }
+   .card .course-img {
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    margin-right: 20px;
+    overflow: hidden; /* Ensure that the image does not overflow the container */
+    position: relative; /* Create a positioning context for the image */
+}
+
+.card .course-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position it absolutely to cover the container */
+    top: 0;
+    left: 0;
+}
+  .in-progress-container h4 {
+    font-weight: 600;
+    font-size: 1.5rem
+  }
+.cart-container .content {
+    position:relative;
+    width: 100%;
+}
+  .cart-container .content p {
+    font-weight: 300;
+  }
+ 
+.image-container {
+    position: relative;
+}
+
+.image-container .time {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    padding: 3px;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #667085;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+.image-container h2 {
+    color: #fff;
+    position: absolute;
+    top: 40%;
+    left: 13%;
+    font-weight: 700;
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+}
+
+.ratings img {
+    margin-right: 3px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.user-info img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.action-container div {
+    display: flex;
+    align-items: center;
+}
+
+.action-container div p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.action-container div:hover {
+    cursor: pointer;
+}
+.vertical-line {
+    height: 100%;
+    width: 4px;
+    background-color: #000;
+    margin: 0 15px;
+    border-radius: 20px;
+}
+.price-container {
+    position: relative;
+    width: 100%;
+}
+
+.price-container h6{
+font-size: 1.1rem;
+font-weight: 600;
+}
+.price-container h4{
+    font-weight: 700;
+    font-size: 1.7rem
+}
+.price-container button {
+    position: absolute;
+    bottom: 5px;
+    border-radius: 15px;
+    border: none;
+    background-color: #0085FF;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 0.95rem
+}
+
+.price-container button:hover {
+    background-color: #006dd2
+}
+
+.footer-section {
+    background-color: #101828;
+    padding-top: 40px;
+    padding-bottom: 15px;
+    padding-left: auto;
+    padding-right: auto;
+    text-align: center;
+  }
+  
+  .footer-section li {
+    text-align: left;
+    color: #fff !important;
+  }
+  
+  .company-details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  .app p {
+    margin: 0 0 0 10px;
+  }
+  
+  .more-items {
+    margin: 15px;
+  }
+  
+  .more-items ul {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+  
+  .footer-section li {
+  margin-bottom: 5px;
+  
+  }
+  
+  .footer-section .list-header {
+  color: #98A2B3 !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  }
+  
+  .footer-section li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  }
+  
+  
+  .socials i {
+    font-size: 1.5rem;
+    margin-right: 12px;
+    color: #98A2B3
+  }
+  
+  .socials i:hover {
+  cursor: pointer;
+  color: #fff
+  }
+  
+  .footer-below-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #98A2B3;
+  }
+
+
+  @media screen and (max-width: 1050px) {
+    .containers {
+      display: flex;
+    }
+   
+    .containers .course-img {
+margin-bottom: 10px;
+    }
+
+    .containers  .card {
+      flex-direction: column;
+      height: max-content;
+      width: 300px;
+      padding: 10px;
+      margin-right: 20px;
+    }
+    .containers .card .course-img {
+      width: 300px;
+    }
+    .containers .action-container {
+      margin: 10px 0;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+
+    }
+    .containers .action-container div {
+      align-self: flex-end;
+    }
+    .price-container {
+      display: flex;
+      flex-direction: column;
+  }
+  .price-container div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price-container button {
+    position: static;
+    margin-top: 10px;
+    width: 100%;
+  }
+    
+  }
+
+  @media screen and (max-width: 865px) {
+    .navbar .left-section .searchBar {
+      display: none;
+    }
+    .navbar .left-section .categories {
+      display: none;
+    }
+    .footer-section .company-details{
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .company-details ul,
+    .company-details .description,
+    .company-details .app {
+    margin-top: 10px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .containers {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media screen and (max-width: 610px) {
+    .footer-below-section {
+      flex-direction: column-reverse;
+    }
+    .footer-below-section .socials {
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    .navbar .company-name {
+      display: none;
+    }
+    .header-section .lower-section {
+      display: none;
+    }
+    .navbar .right-section .btn {
+      z-index: 10;
+    }
+  }
+

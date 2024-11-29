@@ -1,0 +1,175 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowlegopedia</title>
+    <link rel="stylesheet" href="{% static 'css/admin_student_management.css' %}">
+</head>
+<body>
+
+<!-- Container that contains "statics boxes" STARTS-->
+
+<div class="welcome-edit-btn-contianer">
+        <h3 id="welcome-back-heading">Welcome Back <span>{{ student.Full_Name }}</span>,</h3>
+        <a href="{% url 'admin_edit-student' student.pk %}"  class="edit-btns">Edit</a>
+        </div>
+
+<div class="earning-enroll-container">
+    <div class="statics-box student-manager-profile">
+        <div class="statics-box-heading">
+            <h2>{{ student.Full_Name }}</h2>
+            <p>{{ student.Mobile_no }}</p>
+            <p id="email">{{ student.EmailID }}</p>
+        </div>
+        <img src="./static/admin_img/student_management_img/student_manager_profile.png" alt="">
+    </div>
+    <div class="statics-box  total-enroll-count">
+        <div class="statics-box-heading">
+        <h2>Total enrollment count</h2>
+        <p><span>{{ student.cart.count }} Users</p></div>
+        <img src="../static/admin_img/dashborad_img/total_enroll.png" alt="">
+    </div>
+    <div class="statics-box ongoing-course-count">
+        <div class="statics-box-heading">
+            <h2>Total Earnings</h2>
+            <p>5 Course</p>
+        </div>
+        <img src="./static/admin_img/student_management_img/ongoing_course_count.png" alt="">
+    </div>
+</div>
+
+<!-- Container that contains "statics boxes" ENDS-->
+
+<!-- Container that contains "tables" STARTS -->
+    <div class="tables">
+
+        <!-- Container that contains " ENROLLMENT COURSES table" -->
+        <div class="each-table-container">
+        <h2>ENROLLMENT COURSES</h2>
+        <table id="table1">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Completed</th>
+                    <th>Date of enrollment</th>
+                    <th>Course provider name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in student.cart.all %}
+                <tr onclick="goToCoursePage()">
+                    <td>{{ course.course_name }}</td>
+                    <td>{% if course in student.completed_courses.all %}
+                        Completed
+                        {% elif course in student.ongoing_courses.all %}
+                        Ongoing
+                        {% else %}
+                        Not Started
+                        {% endif %}</td>
+                    <td>{{ course.enrollment_date }}</td>
+                    <td>{{ course.provider }}</td>
+                    <td class="status"><p class="green-status">Ongoing</p></td>
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+        <!-- Container that contains " PAYMENT HISTORY table" -->
+        <div class="each-table-container">
+        <h2>PAYMENT HISTORY</h2>
+        <table id="table2">
+            <thead>
+                <tr>
+                    <th>Invoice ID</th>
+                    <th>Date</th>
+                    <th>Course Name</th>
+                    <th>Amount</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  onclick="goToPaymentPage()">
+                    <td>#16879</td>
+                    <td>Jan 26,2023</td>
+                    <td>Analytics & Ethics</td>
+                    <td>$603</td>
+                    <td>300</td>
+                    <td class="status"><p class="green-status">Success</p></td>
+                </tr>
+
+            </tbody>
+        </table>
+        </div>
+
+        <!-- Container that contains " REFERRAL HISTORY table" -->
+        <div class="each-table-container">
+        <h2>REFERRAL HISTORY</h2>
+        <table id="table3">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email ID</th>
+                    <th>No.of enrolled course</th>
+                    <th>Total bonus</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for referral in student.referrals_made.all %}
+                <tr onclick="goToReferralPage()">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ referral.referred_student.Full_Name }}</td>
+                    <td>{{ referral.referred_student.EmailID }}</td>
+                    <td>{{ referral.referred_student.cart.count }}</td>
+                    <td>${{ referral.total_bonus_earned }}</td>
+                </tr>
+                {% endfor %}
+           </tbody>
+        </table>
+        </div>
+
+        <!-- Container that contains " GREEN table" -->
+        <div class="each-table-container" id="table4-container">
+        <table id="table4">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Course Name</th>
+                    <th>Cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in student.cart.all %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ course.course_name }}</td>
+                    <td class="cart-rate">₹{{ course.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+<!-- Container that contains "tables" ENDS -->
+
+<script>
+    function goToCoursePage() {
+        window.location.href = "{% url 'admin_student_management_course_enroll' %}";
+    }
+
+    function goToReferralPage() {
+        window.location.href = "{% url 'admin_student_management_referral_detail' %}";
+    }
+
+    function goToPaymentPage() {
+        window.location.href = "{% url 'admin_student_management_payment_details' %}";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_student_management_database.css' %}">
+</head>
+<body>
+
+<!-- Container that contains "statics boxes" STARTS-->
+<h1 id="pending-payment-heading">STUDENT DATABASE</h1>
+<!-- Container that contains "statics boxes" ENDS-->
+
+<div class="total-row-current-page-container">
+    <div class="current-page">
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/home_icon.png' %}" alt="" class="home-icon">
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info" id="studentManagement">Course Name</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz 1</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+
+    </div>
+    <div class="total-rows" id="totalCourses">Total Course Enrollments: 0</div>
+    <div class="edit-buttons-container">
+        <button class="edit-btns" id="createAccountBtn">Add Student</button>
+    </div>
+</div>
+
+<div class="add-student-popup" id="add-student-popUp">
+    <form method="post">
+    <div class="main-pop-up" id="main-student-popup">
+
+        <h3>Add Student</h3>
+        <div class="student-details-input">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+        </div>
+        <div class="popup-btn-container">
+        <button class="edit-btns" id="popup-activate-btn">Add</button>
+        <button class="edit-btns" id="popup-cancel-btn2">Cancel</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+<!-- Table Section STARTS -->
+<div class="table-container">
+    <table id="activeAccountsTable">
+        <thead>
+            <tr>
+                <th id="serial_no">S No.</th>
+                <th id="name">Created Date</th>
+                <th id="name">Student Name</th>
+                <th id="email">Mail ID</th>
+                <th id="phonenum">Phone No.</th>
+                <th id="date">Date of Birth</th>
+                <th id="gender">Gender</th>
+                <th id="usersnum">No. of courses enrolled</th>
+                <th id="usersnum">No. of ongoing courses</th>
+                <th id="usersnum">No. of completed courses</th>
+                <th id="actionHead">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ student.created_at }}</td>
+                <td>{{ student.Full_Name }}</td>
+                <td>{{ student.EmailID }}</td>
+                <td>{{ student.Mobile_no }}</td>
+                <td>{{ student.DOB }}</td>
+                <td>{{ student.get_Gender_display }}</td>
+                <td>{{ student.cart.count }}</td>
+                <td>{{ student.ongoing_courses.count }}</td>
+                <td>{{ student.completed_courses.count }}</td>
+                <td>
+                    <a href="{% url 'admin_student_management' student.pk %}" class="btn btn-info">View</a>
+                    <a href="{% url 'admin_edit-student' student.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'admin_suspend-student' student.pk %}" class="btn btn-warning">Suspend</a>
+                    <a href="{% url 'admin_delete-student' student.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="suspend-account-popup" id="popUp-container">
+        <div class="main-pop-up">
+            <p>Are you sure you want to Suspend Account?</p>
+            <div class="popup-btn-container">
+            <button class="edit-btns" id="popup-suspend-btn">Suspend Account</button>
+            <button class="edit-btns" id="popup-cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination Controls STARTS -->
+<div class="pagination">
+    <div class="select-page">Select by Page No. :
+        <select id="pageSelect" onchange="changePage()"></select>
+    </div>
+    <div id="currentPage">Page 1 of 1</div>
+    <img id="prevBtn" class="next-previous-button" src="{% static 'admin_img/student_management_img/course_enroll_img/Arrow_left.png' %}" alt="Previous" onclick="prevPage()">
+    <img id="nextBtn" class="next-previous-button" src="{% static 'admin_img/student_management_img/course_enroll_img/Arrow_right.png' %}" alt="Next" onclick="nextPage()">
+</div>
+<!-- Pagination Controls ENDS -->
+
+<!-- Table 1 Section ENDS -->
+
+<!-- scripts -->
+
+
+<script src="{% static 'js/admin_student_management_database.js' %}">
+</script>
+
+</body>
+</html>

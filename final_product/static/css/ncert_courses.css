@@ -1,0 +1,323 @@
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+body p {
+    margin: 0
+}
+
+body h5 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.navbar {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+  
+  .navbar .left-section {
+    position: relative
+  }
+  
+  .navbar .left-section , .right-section {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+  }
+  
+  .left-section .logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 10px;
+  }
+  
+  .left-section .company-name {
+    color: #0085FF !important;
+    margin: 0 30px 0 0!important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem
+  }
+  
+  .left-section .categories {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .left-section .categories:hover,
+  .left-section .company-name,
+  .left-section li:hover {
+    cursor: pointer
+  }
+  
+  
+  .left-section .main-category {
+    top: 60px;
+    left: 420px;
+    position:absolute;
+    width: max-content
+  }
+  
+  .left-section ul {
+    list-style: none;
+    background-color: #fff;
+    padding: 15px 15px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 9.1px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .left-section ul li {
+    padding-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .left-section .category {
+    top: 70px;
+    right: 75px;
+    width: max-content
+  }
+  
+  .left-section .main-category, .left-section .web-development-category,  .left-section .mobile-developement-category,  .left-section .programming-category,  .left-section .engineering-category,  .left-section .block-chain-category,  .left-section .iot-category,  .left-section .cloud-category,  .left-section .data-science-category,  .left-section .cybersecurity-category {
+    display: none;
+  }
+  
+  .left-section .main-category.active {
+    display: block;
+  }
+  
+  .left-section .category.active {
+    display: block;
+  }
+  
+  
+  .searchBar {
+    position: relative;
+    margin: 0 20px;
+  }
+  
+  .searchBar input{
+      background-color: #fff;
+      padding: 5px;
+      padding-left: 30px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #D0D5DD;
+      font-weight: 300;
+      font-size: 0.9rem;
+  }
+  
+  .searchBar .fa-search {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      color: #98A2B3;
+  }
+  
+  .navbar .right-section a {
+  margin-right: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  }
+  
+  .navbar .right-section {
+    position: relative
+  }
+  
+  .navbar  a.active {
+    color: #0085FF !important
+  }
+  
+  .navbar  a:hover {
+    cursor: pointer;
+    color: #0085FF !important
+  }
+  
+  .right-section .cart {
+    font-size: 1.5rem;
+    margin-right: 20px;
+  }
+  
+  .right-section .cart:hover {
+    color: #0085FF;
+    cursor: pointer;
+  }
+  
+  .right-section .cart.active {
+    color: #0085FF;
+  
+  }
+  
+  .right-section .profile i {
+    margin-left: 8px;
+  }
+  
+  .right-section .profile i.rotate {
+    transform: rotate(180deg)
+  }
+  
+  .right-section .profile i:hover {
+    cursor: pointer;
+  }
+  
+  .right-section .profile-container {
+    position: relative;
+  }
+  
+  .right-section .profile-container ul {
+    position: absolute;
+    right: 15px;
+    top: 55px;
+    background-color: #E6E6E6;
+    padding-left: 0;
+    border-radius: 4px;
+    border: 0.5px solid #747474;
+    width: 200px;
+    z-index: 10;
+    display: none;
+  }
+  
+  .right-section .profile-container ul.active {
+    display: block;
+  }
+  .right-section .profile-container a {
+    color: #000;
+    margin: 0;
+    font-weight: 400;
+  }
+  .right-section .profile-container a:hover {
+    color: #000 !important
+  }
+  
+  .right-section .profile-container li {
+    padding: 10px 20px;
+    border: 0.5px solid transparent;
+    font-size: 0.9rem;
+  }
+  
+  .right-section .profile-container li:hover {
+    background-color: #C3C3C3;
+    border: 0.5px solid #747474;
+    cursor: pointer;
+  }
+  
+  .right-section .profile-container li.active {
+    background-color: #C3C3C3;
+    border: 0.5px solid #747474;
+  }
+  
+
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.ncert-courses-container {
+    margin: 4%;
+}
+
+.ncert-courses-container .purple-btn{
+    padding: 10px 40px;
+    border: none;
+    background-color: #DBC3FB;
+    border-radius: 40px;
+}
+
+.ncert-courses-container .purple-btn:hover {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+}
+
+.header-container {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20%;
+    position: relative;
+}
+
+.header-container a {
+   position: absolute;
+   left: 0;
+}
+
+.ncert-courses-container .flex:last-child {
+    justify-content: space-evenly;
+}
+
+/* .header-container .purple-btn {
+    margin-right: 10%;
+} */
+
+@media screen and (max-width: 1040px) {
+    .header-container a {
+        position:relative;
+        margin-top: 20px;
+    }
+    .header-container {
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .navbar .left-section .searchBar input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .navbar .right-section .learnings {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .ncert-courses-container div:last-child {
+        flex-wrap: wrap;
+    }
+    .ncert-courses-container div:last-child a {
+        margin: 10px
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .navbar .right-section .categories {
+        display: none
+    }
+}
+
+
+@media screen and (max-width: 520px) {
+    .navbar .left-section .searchBar {
+        display: none;
+    }
+}

@@ -1,0 +1,1027 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/course.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page_before_login.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+        <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+
+
+
+
+    <style>
+        .course-progress p {
+            margin-right: 10px;
+            font-size: 0.8rem !important
+        }
+
+        .card .play-btn {
+            position: absolute;
+            top: 35%;
+            left: 40%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 3rem;
+            cursor: pointer
+        }
+
+        .card .preview-text {
+            color: #fff;
+            font-weight: 600;
+            position: absolute;
+            bottom: 10px;
+            left: 30%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="left-section">
+            <a href="{% url 'landing_page_before_login' %}">
+                <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+            </a>
+            <p class="company-name">UPSKyED</p>
+            <div class="searchBar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="search" name="search" placeholder="Search">
+            </div>
+            <a class="categories">Explore</a>
+            <ul class="main-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+            </ul>
+            <ul class="web-development-category category ">
+                <li>HTML / CSS</li>
+                <li>Javascript</li>
+                <li>Bootstrap</li>
+                <li>React Js</li>
+                <li>Angular</li>
+                <li>Node Js</li>
+                <li>Express Js</li>
+            </ul>
+            <ul class="mobile-developement-category category">
+                <li>Android Development with Java/ Kotlin
+                </li>
+                <li>iOS Development with Swift</li>
+                <li> React Native </li>
+            </ul>
+            <ul class="programming-category category">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Ruby</li>
+                <li>PHP</li>
+                <li>Go</li>
+            </ul>
+            <ul class="engineering-category category">
+                <li>Software Development Lifecycle (SDLC)</li>
+                <li>Agile and Scrum</li>
+                <li> DevOps Principles</li>
+                <li>Software Testing and Quality Assurance</li>
+            </ul>
+            <ul class="block-chain-category category">
+                <li>Blockchain Fundamentals</li>
+                <li> Smart Contract Development</li>
+                <li>Cryptocurrency and Bitcoin Basic</li>
+            </ul>
+            <ul class="iot-category category">
+                <li>Introduction to loT
+                </li>
+                <li>IoT Platforms and Technologies
+                </li>
+                <li> IoT Security and Privacy</li>
+            </ul>
+            <ul class="cloud-category category">
+                <li> Introduction to Cloud Computing
+                </li>
+                <li>Amazon Web Services (AWS)
+                </li>
+                <li>Microsoft Azure</li>
+                <li>Google Cloud Platform (GCP)</li>
+                <li>DevOps Practices and Tools</li>
+            </ul>
+            <ul class="data-science-category category">
+                <li>Python for Data Science
+                </li>
+                <li>Data Analysis with Pandas
+                </li>
+                <li>NumPy and SciPy</li>
+                <li>Machine Learning Fundamentals</li>
+                <li>Deep Learning with TensorFlow or PyTorch</li>
+                <li>Natural Language Processing</li>
+            </ul>
+            <ul class="cybersecurity-category category">
+                <li> Introduction to Cybersecurity
+                </li>
+                <li>Ethical Hacking
+                </li>
+                <li>Network Security</li>
+                <li>Web Application Security</li>
+                <li> Cryptography</li>
+                <li> Incident Response and Forensics</li>
+            </ul>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="right-section">
+            <a href="{% url 'landing_page_before_login' %}" class="active">Home</a>
+
+            <a href="{% url 'my_learnings' %}">My Learnings</a>
+
+
+            <!-- <a href="{% url 'common_discussion_forum' %}">Discussion Forum</a> -->
+            <div class="profile-container">
+               {% if profile == 10 %}
+               <div class="profile">
+                <img src="{% static 'assets/user.png' %}" alt="" width="40px">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                {% else %}
+                <div class="profile">
+                    <img src="{{ profile.profile_picture.url }}" alt="" width="40px">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                {% endif %}
+                <ul>
+                    <a href="{% url 'profile_page' %}">
+                        <li>Profile</li>
+                    </a>
+                    <a href="{% url 'certificate' %}">
+                        <li>My Certificates</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'payment_history' %}">
+                        <li>Payment History</li>
+                    </a>
+                    <a href="{% url 'referral' %}">
+                        <li>Referral</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support & Help</li>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <li>Log out</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="middle-section">
+        <a href="{% url 'landing_page_before_login' %}">
+            <p class="active">Home</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p>Courses</p>
+        </a>
+
+        <a href="{% url 'about_us' %}">
+            <p>About us</p>
+        </a>
+
+        <a href="{% url 'contact_us' %}">
+            <p>Contact us</p>
+        </a>
+        <a href="{% url 'faq' %}">
+            <p>FAQs</p>
+        </a>
+    </div>
+    <div class="right-section">
+        <a href="#"> <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i></a>
+        </a>
+        <button id="loginButton" class="btn loginButton">Sign in</button>
+        <button id="signupButton" class="btn signupButton">Create free account</button>
+    </div>
+</div>
+<div class="authentication-modal" id="auth-modal">
+    <div id="signup" class="auth signup">
+        <img class="close" src="{% static 'assets/landing_page/close.png' %}" width="25px" alt="Icon">
+        <h3 style="margin-bottom: 5px">Sign Up</h3>
+        <p style="margin-top: 0; font-size: 0.88rem;
+            font-weight: 400; margin-bottom: 40px">Sign Up to create account</p>
+            <form  method="post">
+                {% csrf_token %}
+                {{ studnetform.as_p }}
+
+        <button class="join" style="width: 100%">Join For Free</button>
+        </form>
+                <div class="break">
+            <hr>
+            <p style="font-size: 0.88rem; color: #98989A; font-weight: 300; padding: 6px">OR</p>
+            <hr>
+        </div>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/google.png' %}" alt="" width="20px">
+            <p>Continue with Google</p>
+        </button>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/facebook.png' %}" alt="" width="20px">
+            <p>Continue with Facebook</p>
+        </button>
+        <p style="font-size: 0.92rem">Already have an account with UPSKyED? <a href="#" class="login">Log
+                In</a></p>
+    </div>
+
+    <div id="login" class="auth login">
+
+        <img class="close" src="{% static 'assets/landing_page/close.png' %}" width="25px" alt="Icon">
+        <h3 style="margin-bottom: 45px">Welcome back</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+        <a href="#" style="text-align: left; font-size: 0.82rem;margin-bottom: 30px">Forgot password?</a>
+        <a href="{% url 'landing_page' %}"><button class="join" style="width: 100%">Login</button></a>
+        </form>
+        <div class="break">
+            <hr>
+            <p style="font-size: 0.88rem; color: #98989A; font-weight: 300; padding: 6px">OR</p>
+            <hr>
+        </div>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/google.png' %}" alt="" width="20px">
+            <p>Continue with Google</p>
+        </button>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/facebook.png' %}" alt="" width="20px">
+            <p>Continue with Facebook</p>
+        </button>
+        <p style="font-size: 0.92rem">New to UPSKyED? <a href="#" class="signup">Sign Up</a></p>
+    </div>
+</div>
+    {% endif %}
+
+
+
+    <div class="course-page-container">
+        <div class="first-container">
+            <div style="margin-left: 8%">
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.description }}</p>
+                <div class="rating-container">
+                    <p class="rating">4.0</p>
+                    <div class="rating-icons">
+                        <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/star2.png' %}" alt="" width="17pxpx">
+                    </div>
+                    <p class="views">(views)</p>
+                </div>
+                <p style="font-size: 0.9rem">Created by which academy</p>
+                <div class="small-details flex">
+                    <div class="updated-date flex">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <p style="font-size: 0.9rem">Last updated on 03/05/2024</p>
+                    </div>
+                    <div class="language flex">
+                        <img src="{% static 'assets/course/globe.png' %}" alt="Link icon" width="20px"
+                            style="margin-bottom: 5px;">
+                        <p style="font-size: 0.9rem">English</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <h5>What you'll learn</h5>
+                <ul>
+                    <li>
+                        {{ course.what_you_will_learn }}
+                    </li>
+                </ul>
+            </div>
+            <h5>This course includes:</h5>
+            <ul style="margin-left: 5%">
+                <li>{{ course.this_course_includes }}</li>
+            </ul>
+            <h5 style="margin-top: 30px;">Course content</h5>
+            <p>6 sections • 72 lectures • 7h 49m total length</p>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                {% for week in course.weeks.all %}
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingOne">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <span>Module {{forloop.counter}}</span>
+                            <p style="opacity: 0.5;">1 lecture: 30min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module {{forloop.counter}} : 1 lecture: 30 min
+                            </h6>
+                            <h7>{{ week.topics.all|length }} Topics -- Duration 00:00 -- {{ quizzes.all|length }} No. of tests</h7>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week {{ week.number }} module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week {{ week.number }} module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week {{ week.number }}</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>{{ quizzes.all|length }} Graded assesment left</p>
+                                </div>
+                            </div>
+
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+            <button class="show-more-btn">Show more sections</button>
+            <h5>Requirements:</h5>
+            <ul style="margin-left: 5%">
+                <li>{{ course.requirement }}</li>
+            </ul>
+            <h5>Description:</h5>
+            <ul style="margin-left: 5%">
+                <li>Description of the course is written here</li>
+            </ul>
+
+            <!-- <a href="{% url 'roadmap_after_pg' %}" class="redirecting-btn">
+                <p>Roadmap</p>
+                <img src="{% static 'assets/course/up-arrow.png' %}" alt="Left arrow icon" width="25px"
+                    style="transform: rotate(90deg);">
+            </a>
+            <a href="{% url 'notes' %}" class="redirecting-btn">
+                <p>Notes of courses</p>
+                <img src="{% static 'assets/course/up-arrow.png' %}" alt="Left arrow icon" width="25px"
+                    style="transform: rotate(90deg);">
+            </a>
+            <a href="{% url 'download_pdf' %}" class="redirecting-btn">
+                <p>Sample Q/P & Ans</p>
+                <img src="{% static 'assets/course/up-arrow.png' %}" alt="Left arrow icon" width="25px"
+                    style="transform: rotate(90deg);">
+            </a> -->
+            <h5 style="margin-top: 20px">Instructions:</h5>
+            <ul style="margin-left: 5%">
+                <li>{{ course.instructor }}</li>
+            </ul>
+            <h5 style="margin-top: 25px">Ratings</h5>
+            <div class="reviews-container">
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star2.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star2.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star2.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px;">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star2.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="second-container">
+            {% for course in courses %}
+                {% if course.video %}
+            <div class="card">
+                <div style="position:relative">
+                    <i class="fa fa-play-circle-o play-btn" aria-hidden="true"></i>
+                    <p class="preview-text">Course Preview Video</p>
+                    <video controls>
+                        <source src="{{ course.video.url }}" type="{{ course.video.content_type }}">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="card-body">
+                    <h4 style="font-weight: 700; font-size: 1.5rem">₹{{ course.price }}</h4>
+                    <p style="font-size: 0.9rem;">Original Price ₹3099</p>
+                    <p style="font-size: 0.9rem;">Discount 86% off</p>
+                    <p style="font-size: 0.95rem; opacity: 0.5; margin-top: 15px">1 day left for this offer!</p>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'add_to_cart' course.id %}">
+                    <div class="buttons">
+                        {% csrf_token %}
+                        <button class="cart-btn" style="border-radius: 15px !important">
+                            Add to Cart</button>
+                        </form>
+                        <form method="post" action="{% url 'add_to_wishlist' course.id %}">
+                        {% csrf_token %}
+                        <div class="like">
+                            <button>
+                            <i class="fa fa-heart inactive" aria-hidden="true" style="color: #EF0909"></i>
+                            <i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="buttons">
+
+                        <a href="{% url 'landing_page_before_login' %}"><button class="cart-btn" style="border-radius: 15px !important">Add to Cart</button></a>
+
+                        <div class="like">
+                            <a href="{% url 'landing_page_before_login' %}">
+                            <button>
+                            <i class="fa fa-heart inactive" aria-hidden="true" style="color: #EF0909"></i>
+                            <i class="fa fa-heart-o" aria-hidden="true"></i></button></a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <footer class="footer-section">
+        <div class="company-details">
+            <div class="description">
+                <h3 style="font-weight: 600;color: #0085FF">E-Learning</h3>
+            </div>
+            <div class="app">
+                <p style="font-size: 1rem; color: #fff;">Top learning experiences that <br>create more
+                    talent in the world.</p>
+
+
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Company</li>
+                    <a href="{% url 'about_us' %}">
+                        <li>About us</li>
+                    </a>
+                    <a href="{% url 'faq' %}">
+                        <li>FAQs</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Social</li>
+                    <li>Twitter</li>
+                    <li>LinkedIn</li>
+                    <li>GitHub</li>
+                    <li>Dribble</li>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Legal</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-below-section">
+            <p>© 2024 E-Learning. All rights reserved.</p>
+            <div class="socials">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.left-section .categories');
+            const categoryList = document.querySelector('.main-category');
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            categories.addEventListener('click', function () {
+                // Toggle the 'active' class on the main category list
+                categoryList.classList.toggle('active');
+                categoryLists.forEach(function (category) {
+                    category.classList.remove('active');
+                });
+            });
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Remove the 'active' class from all category lists
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+
+                    // Add the 'active' class to the clicked category list
+                    categoryLists[index].classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const profile = document.querySelector('.profile');
+            const listItems = document.querySelectorAll('.profile-container ul li');
+            const ul = document.querySelector('.profile-container ul');
+            const chevron = document.querySelector('.fa-chevron-down');
+
+            // Toggle 'active' class on ul when profile is clicked
+            profile.addEventListener('click', function () {
+                ul.classList.toggle('active');
+                chevron.classList.toggle('rotate');
+            });
+
+            // Add 'active' class to clicked li and remove from others
+            listItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Remove active class from all list items
+                    listItems.forEach(function (li) {
+                        li.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked item
+                    this.classList.add('active');
+                });
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all like buttons
+            const likeButtons = document.querySelectorAll(".like");
+
+            // Loop through each like button
+            likeButtons.forEach(function (likeButton) {
+                // Select active and inactive heart icons within the current like button
+                const activeHeart = likeButton.querySelector(".fa-heart");
+                const inactiveHeart = likeButton.querySelector(".fa-heart-o");
+
+                // Add click event listener to the current like button
+                likeButton.addEventListener("click", function () {
+                    // Toggle the "inactive" class for both heart icons within the current like button
+                    activeHeart.classList.toggle("inactive");
+                    inactiveHeart.classList.toggle("inactive");
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            const arrowIcons = document.querySelectorAll('.arrow-icon');
+
+            accordionButtons.forEach(function (button, index) {
+                button.addEventListener('click', function () {
+                    arrowIcons[index].classList.toggle('rotate-icon');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            const showMoreBtn = document.querySelector('.show-more-btn');
+
+            // Hide last 3 accordion items initially
+            for (let i = 5; i < accordionItems.length; i++) {
+                accordionItems[i].style.display = 'none';
+            }
+
+            // Toggle visibility of last 3 accordions on button click
+            showMoreBtn.addEventListener('click', function () {
+                for (let i = 5; i < accordionItems.length; i++) {
+                    if (accordionItems[i].style.display === 'none') {
+                        accordionItems[i].style.display = 'block';
+                    } else {
+                        accordionItems[i].style.display = 'none';
+                    }
+                }
+
+                // Toggle button text
+                if (showMoreBtn.textContent === 'Show more sections') {
+                    showMoreBtn.textContent = 'Show less sections';
+                } else {
+                    showMoreBtn.textContent = 'Show more sections';
+                }
+            });
+        });
+
+        function toggleLike(element) {
+            const likeIcon = element.parentElement.querySelector('.fa.fa-thumbs-up');
+            const outlineLikeIcon = element.parentElement.querySelector('.fa.fa-thumbs-o-up');
+
+            likeIcon.style.display = likeIcon.style.display === 'none' ? 'inline-block' : 'none';
+            outlineLikeIcon.style.display = outlineLikeIcon.style.display === 'none' ? 'inline-block' : 'none';
+
+            // If like button is clicked, reset dislike button to 'thumbs-o-down'
+            const dislikeIcon = element.parentElement.nextElementSibling.querySelector('.fa.fa-thumbs-down');
+            const outlineDislikeIcon = element.parentElement.nextElementSibling.querySelector('.fa.fa-thumbs-o-down');
+            dislikeIcon.style.display = 'none';
+            outlineDislikeIcon.style.display = 'inline-block';
+        }
+
+        function toggleDislike(element) {
+            const dislikeIcon = element.parentElement.querySelector('.fa.fa-thumbs-down');
+            const outlineDislikeIcon = element.parentElement.querySelector('.fa.fa-thumbs-o-down');
+
+            dislikeIcon.style.display = dislikeIcon.style.display === 'none' ? 'inline-block' : 'none';
+            outlineDislikeIcon.style.display = outlineDislikeIcon.style.display === 'none' ? 'inline-block' : 'none';
+
+            // If dislike button is clicked, reset like button to 'thumbs-o-up'
+            const likeIcon = element.parentElement.previousElementSibling.querySelector('.fa.fa-thumbs-up');
+            const outlineLikeIcon = element.parentElement.previousElementSibling.querySelector('.fa.fa-thumbs-o-up');
+            likeIcon.style.display = 'none';
+            outlineLikeIcon.style.display = 'inline-block';
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the modal container
+            var modal = document.getElementById("modal-container");
+
+            // Get all buttons with the ID open-modal-btn
+            var buttons = document.querySelectorAll('#open-modal-btn');
+
+            // Attach click event listeners to all buttons
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Open the modal by setting its display style to block
+                    modal.style.display = "flex";
+                });
+            });
+
+            // Get the close button inside the modal
+            var closeButton = document.querySelector('.modal-container .close');
+
+            // Attach click event listener to the close button
+            closeButton.addEventListener('click', function () {
+                // Close the modal by setting its display style to none
+                modal.style.display = "none";
+            });
+
+            // Attach click event listener to close modal when clicking outside of it
+            window.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+        {% if user.is_authenticated %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const categories = document.querySelector('.left-section .categories');
+                const categoryList = document.querySelector('.main-category');
+                const mainCategories = document.querySelectorAll('.main-category li');
+                const categoryLists = document.querySelectorAll('.category');
+
+                categories.addEventListener('click', function () {
+                    // Toggle the 'active' class on the main category list
+                    categoryList.classList.toggle('active');
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+                });
+
+                mainCategories.forEach(function (mainCategory, index) {
+                    mainCategory.addEventListener('click', function () {
+                        // Remove the 'active' class from all category lists
+                        categoryLists.forEach(function (category) {
+                            category.classList.remove('active');
+                        });
+
+                        // Add the 'active' class to the clicked category list
+                        categoryLists[index].classList.add('active');
+                    });
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const profile = document.querySelector('.profile');
+                const listItems = document.querySelectorAll('.profile-container ul li');
+                const ul = document.querySelector('.profile-container ul');
+                const chevron = document.querySelector('.fa-chevron-down');
+
+                // Toggle 'active' class on ul when profile is clicked
+                profile.addEventListener('click', function () {
+                    ul.classList.toggle('active');
+                    chevron.classList.toggle('rotate');
+                });
+
+                // Add 'active' class to clicked li and remove from others
+                listItems.forEach(function (item) {
+                    item.addEventListener('click', function () {
+                        // Remove active class from all list items
+                        listItems.forEach(function (li) {
+                            li.classList.remove('active');
+                        });
+
+                        // Add active class to the clicked item
+                        this.classList.add('active');
+                    });
+                });
+            });
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Select all sliders on the page
+                const sliders = document.querySelectorAll(".wrapper");
+
+                sliders.forEach(function (slider) {
+                    const carousel = slider.querySelector(".carousel");
+                    const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+                    const leftButton = slider.querySelector(".left");
+                    const rightButton = slider.querySelector(".right");
+
+                    leftButton.addEventListener("click", () => {
+                        carousel.scrollLeft -= firstCardWidth;
+                    });
+
+                    rightButton.addEventListener("click", () => {
+                        carousel.scrollLeft += firstCardWidth;
+                    });
+                });
+            });
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+        {% else %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const categories = document.querySelector('.left-section .categories');
+                const categoryList = document.querySelector('.main-category');
+                const mainCategories = document.querySelectorAll('.main-category li');
+                const categoryLists = document.querySelectorAll('.category');
+
+                categories.addEventListener('click', function () {
+                    // Toggle the 'active' class on the main category list
+                    categoryList.classList.toggle('active');
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+                });
+
+                mainCategories.forEach(function (mainCategory, index) {
+                    mainCategory.addEventListener('click', function () {
+                        // Remove the 'active' class from all category lists
+                        categoryLists.forEach(function (category) {
+                            category.classList.remove('active');
+                        });
+
+                        // Add the 'active' class to the clicked category list
+                        categoryLists[index].classList.add('active');
+                    });
+                });
+            });
+
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const loginButton = document.getElementById("loginButton");
+                const signupButton = document.getElementById("signupButton");
+                const loginModal = document.getElementById("login");
+                const signupModal = document.getElementById("signup");
+                const modalContainer = document.getElementById("auth-modal");
+
+                function openModal(modal) {
+                    modalContainer.classList.add("active");
+                    modal.classList.add("active");
+                }
+
+                function closeModal() {
+                    modalContainer.classList.remove("active");
+                    loginModal.classList.remove("active");
+                    signupModal.classList.remove("active");
+                }
+
+                loginButton.addEventListener("click", function () {
+                    closeModal(); // Close any open modals first
+                    openModal(loginModal);
+                });
+
+                signupButton.addEventListener("click", function () {
+                    closeModal(); // Close any open modals first
+                    openModal(signupModal);
+                });
+
+                modalContainer.addEventListener("click", function (event) {
+                    if (event.target === modalContainer) {
+                        closeModal();
+                    }
+                });
+
+                const closeModalButtons = document.querySelectorAll(".close");
+                closeModalButtons.forEach(button => {
+                    button.addEventListener("click", closeModal);
+                });
+            });
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Select all sliders on the page
+                const sliders = document.querySelectorAll(".wrapper");
+
+                sliders.forEach(function (slider) {
+                    const carousel = slider.querySelector(".carousel");
+                    const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+                    const leftButton = slider.querySelector(".left");
+                    const rightButton = slider.querySelector(".right");
+
+                    leftButton.addEventListener("click", () => {
+                        carousel.scrollLeft -= firstCardWidth;
+                    });
+
+                    rightButton.addEventListener("click", () => {
+                        carousel.scrollLeft += firstCardWidth;
+                    });
+                });
+            });
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+        {% endif %}
+
+</body>
+
+</html>

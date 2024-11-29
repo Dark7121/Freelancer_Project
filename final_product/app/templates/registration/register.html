@@ -1,0 +1,76 @@
+{% extends 'base_cp.html' %}
+{% load static %}
+{% block content %}
+
+<!-- PAGE TITLE -->
+<header class="py-8 py-md-11" style="background-image: none;">
+    <div class="container text-center py-xl-2">
+        <h1 class="display-4 fw-semi-bold mb-0">Register</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-scroll justify-content-center">
+                <li class="breadcrumb-item">
+                    <a class="text-gray-800" href="#">
+                        Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item text-gray-800 active" aria-current="page">
+                    Register
+                </li>
+            </ol>
+        </nav>
+    </div>
+</header>
+
+<!-- REGISTER -->
+<div class="container mb-11">
+    <div class="row gx-0">
+        <div class="col-md-7 col-xl-4 mx-auto">
+            <!-- Registration Form -->
+            <h3 class="mb-6">Sign Up and Start Learning!</h3>
+            {% include 'components/msg.html' %}
+            
+            <div id="signup" class="auth signup">
+                <h3>Sign Up</h3>
+                <p>Create an account to start learning</p>
+                
+                <!-- Registration Form -->
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="EmailID">Email</label>
+                        <input type="email" name="EmailID" id="EmailID" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password1">Password</label>
+                        <input type="password" name="password1" id="password1" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label>
+                        <input type="password" name="password2" id="password2" class="form-control" required>
+                    </div>
+                    <button class="btn btn-primary w-100 mt-4">Register</button>
+                </form>
+
+                <div class="break">
+                    <hr>
+                    <p>OR</p>
+                    <hr>
+                </div>
+
+                <!-- Social Login Buttons -->
+                <button class="social-btn">
+                    <img src="{% static 'assets/landing_page/google.png' %}" alt="" width="20px">
+                    <p>Continue with Google</p>
+                </button>
+                <button class="social-btn">
+                    <img src="{% static 'assets/landing_page/facebook.png' %}" alt="" width="20px">
+                    <p>Continue with Facebook</p>
+                </button>
+
+                <p>Already have an account? <a href="{% url 'landing_page' %}">Log In</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

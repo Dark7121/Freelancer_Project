@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="admin_styles.css"> <!-- Your custom CSS file -->
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="heading">Offers</h1>
+            <button class="btn btn-primary btn-new-voucher"><i class="fas fa-plus"></i> New Voucher</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Voucher Creation -->
+        <section class="voucher-creation">
+            <h2 class="section-title">Create Vouchers</h2>
+            <div class="form-wrapper">
+                <form id="voucher-form" action="{% url 'admin_create_voucher' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="voucher_code">Voucher Code</label>
+                        <input type="text" id="voucher_code" name="voucher_code" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discount_percentage">Discount Percentage</label>
+                        <input type="number" id="discount_percentage" name="discount_percentage" class="form-control" min="0" max="100" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Voucher</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Student Discounts -->
+        <section class="student-discounts">
+            <h2 class="section-title">Student Discounts</h2>
+            <div class="discount-details">
+                <p>Students can enjoy discounts of up to 20% on course purchases.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for New Voucher -->
+    <div id="new-voucher-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Voucher</h2>
+            <form id="new-voucher-form">
+                <div class="form-group">
+                    <label for="new_voucher_code">Voucher Code</label>
+                    <input type="text" id="new_voucher_code" name="new_voucher_code" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="new_discount_percentage">Discount Percentage</label>
+                    <input type="number" id="new_discount_percentage" name="new_discount_percentage" class="form-control" min="0" max="100" required>
+                </div>
+                <button type="button" id="create-new-voucher" class="btn btn-primary">Create Voucher</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="admin_scripts.js"></script> <!-- Your custom JavaScript file -->
+    <script>
+        // Open modal for new voucher
+        $('.btn-new-voucher').click(function() {
+            $('#new-voucher-modal').show();
+        });
+
+        // Close modal
+        $('.close').click(function() {
+            $('#new-voucher-modal').hide();
+        });
+
+        // Submit new voucher form
+        $('#create-new-voucher').click(function() {
+            $('#new-voucher-form').submit();
+        });
+    </script>
+</body>
+</html>

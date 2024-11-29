@@ -1,0 +1,148 @@
+<!-- view_course_details.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.title }} Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .video-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-details {
+            margin-left: 40px; /* Adjust the margin as needed */
+        }
+
+        .video-card .card-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .video-card video {
+            width: 100%;
+            max-width: 480px; /* Adjust the max-width as needed */
+            display: block;
+            margin: 0 auto; /* Center the video horizontally */
+
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-Learning</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'course_catalog' %}">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'enrolled_course' %}">Enrolled Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'community_platform' %}">Community</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'mentorship_page' %}">Personal Mentorship</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>{{ course.title }}</h2>
+            <p>{{ course.description }}</p>
+            <br>
+
+            <!-- Additional course details -->
+            <h4>Course Details</h4>
+            <ul>
+                <li><strong>Created by:</strong> Which Academy</li>
+                <li><strong>Last updated on:</strong> 00/00/0000</li>
+                <li><strong>Language:</strong> English</li>
+            </ul>
+            <br>
+            <h4>What you'll learn</h4>
+            <ul>
+                <li>Extensive, informative, and interesting video lectures</li>
+                <li>Complete code demonstrated in lectures</li>
+                <li>Lab exercises</li>
+                <li>Lab solution sets</li>
+                <li>All PowerPoint demonstrations used in the course</li>
+                <li>Instructor contact email for questions and clarifications</li>
+                <li>Coverage of all important primary JavaScript concepts</li>
+            </ul>
+            <br>
+            <h4>This course includes:</h4>
+            <ul>
+                <li>7.5 hours on-demand video</li>
+                <li>6 coding exercises</li>
+                <li>1 article</li>
+                <li>25 downloadable resources</li>
+                <li>Access on mobile and TV</li>
+                <li>Certificate of completion</li>
+            </ul>
+
+        </div>
+        <div class="col-md-6">
+            <!-- Course Video -->
+            {% if course.demo_video %}
+            <div class="video-card mt-4">
+                <div class="card-header">
+                    Course Preview Video
+                </div>
+                <br>
+                <video controls>
+                    <source src="{{ course.demo_video.url }}" type="{{ course.demo_video.content_type }}">
+                    Your browser does not support the video tag.
+                </video>
+                <br>
+
+                <div class="card-details">
+                <h4><strong>Price: ₹{{ course.price }}</strong></h4>
+
+                <form method="post" action="{% url 'course_payment' course.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary mt-4">Enroll Now</button>
+                </form>
+
+                <button class="btn btn-primary mt-4">Add to Cart</button>
+
+                <button class="btn btn-primary mt-4">Like</button>
+
+                </div>
+                <br>
+            </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS (Optional - Only if needed for JavaScript functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
