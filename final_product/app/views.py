@@ -2549,7 +2549,10 @@ def admin_create_course(request):
         form = Admin_CourseForm(request.POST, request.FILES)
         if form.is_valid():
             course_instance = form.save(commit=False)
-            course_instance.user = request.user
+            if request.user.is_authenticated:
+                course_instance.user = request.user
+            else:
+                return redirect('landing_page_before_login')
             #print(course_instance.image.path)  # Check image path
             #print(course_instance.video.path)  # Check video path
             course_instance.save()
@@ -3072,7 +3075,7 @@ def admin_add_payout_detail(request):
 
             payoutdetails.save()
             # Redirect to success URL after adding payout detail
-            return HttpResponse('admin_success_url')
+            return HttpResponse('success_url')
     else:
         form = Admin_PayoutDetailForm()
     return render(request, 'admin_add_payout_detail.html', {'form': form})
@@ -3085,7 +3088,7 @@ def admin_edit_payout_detail(request, payout_detail_id):
         if form.is_valid():
             form.save()
             # Redirect to success URL after editing payout detail
-            return redirect('admin_success_url')
+            return redirect('success_url')
     else:
         form = Admin_PayoutDetailForm(instance=payout_detail)
     return render(request, 'admin_edit_payout_detail.html', {'form': form, 'payout_detail': payout_detail})
@@ -3096,7 +3099,7 @@ def admin_delete_payout_detail(request, payout_detail_id):
     if request.method == 'POST':
         payout_detail.delete()
         # Redirect to success URL after deleting payout detail
-        return redirect('admin_success_url')
+        return redirect('success_url')
     return render(request, 'admin_confirm_delete_payout_detail.html', {'payout_detail': payout_detail})
 
 
@@ -3404,20 +3407,20 @@ class FormFeedbackCreateView(CreateView):
     model = Admin_FormFeedback
     form_class = Admin_FormFeedbackForm
     template_name = 'admin_formfeedback_form.html'
-    admin_success_url = reverse_lazy('formfeedback_list')
+    success_url = reverse_lazy('admin_formfeedback_list')
 
 
 class FormFeedbackUpdateView(UpdateView):
     model = Admin_FormFeedback
     form_class = Admin_FormFeedbackForm
     template_name = 'admin_formfeedback_form.html'
-    admin_success_url = reverse_lazy('formfeedback_list')
+    success_url = reverse_lazy('admin_formfeedback_list')
 
 
 class FormFeedbackDeleteView(DeleteView):
     model = Admin_FormFeedback
     template_name = 'admin_formfeedback_confirm_delete.html'
-    admin_success_url = reverse_lazy('formfeedback_list')
+    success_url = reverse_lazy('admin_formfeedback_list')
 
 def admin_submit_feedback(request, formfeedback_id):
     formfeedback = get_object_or_404(Admin_FormFeedback, pk=formfeedback_id)

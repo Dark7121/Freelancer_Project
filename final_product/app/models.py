@@ -209,7 +209,7 @@ class Grade(models.Model):
 
 class Enrollment(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='enrollements')
-    user = models.ForeignKey(Student, on_delete=models.CASCADE, limit_choices_to={'user_type': 2})
+    user = models.ForeignKey(Student, on_delete=models.CASCADE, limit_choices_to={'user__user_type': 2})
     enrollment_date = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
