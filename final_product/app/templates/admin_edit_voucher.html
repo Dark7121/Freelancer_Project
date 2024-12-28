@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Voucher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+            border-color: #d1d1d1;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Edit Voucher</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="code" class="form-label">Voucher Code</label>
+                <input type="text" class="form-control" id="code" name="code" value="{{ voucher.code }}" disabled>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="discount" class="form-label">Discount</label>
+                    <input type="number" class="form-control" id="discount" name="discount" value="{{ voucher.discount }}" disabled>
+                </div>
+                <div class="col">
+                    <label for="discount_type" class="form-label">Discount Type</label>
+                    <select class="form-select" id="discount_type" name="discount_type" disabled>
+                        <option value="flat" {% if voucher.discount_type == 'flat' %}selected{% endif %}>Flat Amount</option>
+                        <option value="percentage" {% if voucher.discount_type == 'percentage' %}selected{% endif %}>Percentage with Limit</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="start_date" class="form-label">Valid From</label>
+                <input type="date" class="form-control" id="start_date" name="start_date" value="{{ voucher.start_date }}" {% if is_started %}disabled{% endif %}>
+            </div>
+            <div class="mb-3">
+                <label for="end_date" class="form-label">Valid To</label>
+                <input type="date" class="form-control" id="end_date" name="end_date" value="{{ voucher.end_date }}">
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="min_amount" class="form-label">Minimum Amount</label>
+                    <input type="number" class="form-control" id="min_amount" name="min_amount" value="{{ voucher.min_amount }}" disabled>
+                </div>
+                <div class="col">
+                    <label for="num_courses" class="form-label">Number of Courses</label>
+                    <input type="number" class="form-control" id="num_courses" name="num_courses" value="{{ voucher.num_courses }}" disabled>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="courses" class="form-label">Courses</label>
+                <select class="form-select" id="courses" name="courses" multiple disabled>
+                    {% for course in courses %}
+                        <option value="{{ course.id }}" {% if course.id in voucher_courses %}selected{% endif %}>{{ course.course_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="discount_limit" class="form-label">Discount Limit</label>
+                <input type="number" class="form-control" id="discount_limit" name="discount_limit" value="{{ voucher.discount_limit }}" disabled>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Voucher</button>
+        </form>
+    </div> <!--The below script is changed as it was giving errors-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var isStarted = ({ is_started,yesno:"true,false" });
+            if (isStarted) {
+                var inputs = document.querySelectorAll('.form-control[disabled]');
+                inputs.forEach(function(input) {
+                    input.setAttribute('title', 'This field cannot be edited because the voucher has already started.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

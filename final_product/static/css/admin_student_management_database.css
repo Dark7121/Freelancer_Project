@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    padding-left: 8vw;
+}
+
+#pending-payment-heading {
+    margin-top: 30px;
+}
+
+/* Current page information styling */
+.total-row-current-page-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 85vw;
+    margin-top: 30px;
+}
+
+.current-page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.current-page-info {
+    margin: 0px 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.home-icon {
+    margin-right: 5px;
+}
+
+.page-arrow, .home-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.total-rows{
+    margin-left: 40px;
+}
+
+/* edit accounts buttons styling start */
+
+.edit-buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.edit-btns{
+    width: 100px;
+    height: 40px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#detailsBtn{
+    background-color: #DE5753;
+    color: white;
+}
+
+#editBtn{
+    background-color: #e1e0e0;
+    color: black;
+}
+
+.suspendAccountBtn-container{
+    display: flex;
+    justify-content: end;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+#createAccountBtn{
+    width: 150px;
+    color: white;
+    background-color:#FF7675;
+}
+
+#suspendAccountBtn{
+    width: 150px;
+    color: white;
+    background-color:#686868;
+}
+#activateAccountBtn{
+    width: 150px;
+    color: white;
+    background-color:#686868;
+}
+
+/* edit accounts buttons styling ends */
+
+/* Table styling */
+
+#activeAccountsTable {
+    position: relative;
+}
+
+.table-container {
+    margin-top: 40px;
+    width: 90%;
+    overflow-x: auto; /* Ensure container can scroll horizontally */
+}
+
+table {
+    width: 100%;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 30px;
+    overflow: hidden;
+    border-collapse: collapse; /* Ensure borders are combined */
+}
+
+table th, table td {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    white-space: nowrap; /* Prevent text wrap */
+}
+table th {
+    font-weight: bold;
+    border-bottom: 2px solid gray;
+    background-color: #e4e4e4;
+}
+
+table td {
+    font-size: 14px;
+}
+
+thead {
+    color: #212121;
+}
+
+tr {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+tr:hover {
+    box-shadow: 0px 3px 2px rgba(128, 128, 128, 0.849);
+}
+
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 20px 50px;
+}
+
+.pagination .next-previous-button {
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+
+.next-previous-button:hover {
+    background-color: rgb(197, 195, 195);
+}
+
+.page-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.select-page {
+    margin-right: 30px;
+}
+
+#pageSelect, #pageSelect2 {
+    border-radius: 5px;
+    padding: 2px;
+    border: none;
+    background-color: rgb(226, 226, 226);
+    box-shadow: 0px 0px 5px rgb(177, 177, 177);
+}
+
+#pageSelect option, #pageSelect2 option {
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.suspend-account-popup{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff85;
+    top: 20%;
+    left: 0;
+    display: none;
+}
+
+.add-student-popup{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff85;
+    top: 10%;
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+
+.main-pop-up{
+    width: 25rem;
+    height: 12rem;
+    position: absolute;
+    display: flex;
+    top: 20%;
+    left: 30%;
+    flex-direction: column;
+    align-content:center;
+    justify-content: space-evenly;
+    background: #ffffff;
+    border: 2px solid black;
+}
+
+#main-student-popup{
+    height: 25rem;
+}
+
+.main-pop-up p{
+    text-align: center;
+}
+
+.main-pop-up h3{
+    text-align: center;
+}
+
+
+.popup-btn-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+#popup-suspend-btn{
+    width: 150px;
+    color: white;
+    background-color:#FF7675;
+}
+
+#popup-activate-btn{
+    width: 150px;
+    color: white;
+    background-color:#FF7675;
+}
+
+#popup-cancel-btn{
+    width: 150px;
+    color: white;
+    background-color:#686868;
+}
+
+#popup-cancel-btn2{
+    width: 150px;
+    color: white;
+    background-color:#686868;
+}
+
+.student-details-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-details-input input{
+    width: 80%;
+    height: 20px;
+    margin: 10px 10%;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(173, 173, 173);
+}
+
+
+/* Actions column styling */
+.actions {
+    display: flex;
+    font-weight: 600;
+    height: 100%;
+}
+
+.action-btns{
+    margin: 1px 5px;
+    background: none;
+    border: none;
+    height: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.view{
+    color: #369912; 
+}
+.view:hover{
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.281));
+}
+.edit{
+    color: #FF3535;
+}
+.suspend{
+    color: #3B82F6;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.title }} - Course Detail</title>
+</head>
+<body>
+    <h1>{{ course.title }}</h1>
+    
+    <p><strong>Course Code:</strong> {{ course.code }}</p>
+    <p><strong>Course Title:</strong> {{ course.title }}</p>
+    
+    <p><strong>Course Image:</strong><img src="{{ course.image.url }}" alt="Course Image"></p>
+    
+    <p><strong>Course Description:</strong> {{ course.description }}</p>
+    <p><strong>Category:</strong> {{ course.category }}</p>
+    <p><strong>Duration:</strong> {{ course.duration }} hours</p>
+    <p><strong>Level:</strong> {{ course.level }}</p>
+    <p><strong>Price:</strong> ${{ course.price }}</p>
+    
+    <p><strong>Course Videos:</strong></p>
+    {% if course.videos.all %}
+        <ul>
+        {% for video in course.videos.all %}
+            <li>
+                <video width="320" height="240" controls>
+                    <source src="{{ video.video.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No videos found for this course.</p>
+    {% endif %}
+    
+    <p><strong>Course Materials:</strong></p>
+    {% if course.materials.all %}
+        <ul>
+        {% for material in course.materials.all %}
+            <li><a href="{{ material.file.url }}">{{ material.file.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No materials found for this course.</p>
+    {% endif %}
+    
+    <p><strong>Course Quizzes:</strong></p>
+    {% if course.quizzes.all %}
+        <ul>
+        {% for quiz in course.quizzes.all %}
+            <li><a href="{{ quiz.file.url }}">{{ quiz.file.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No quizzes found for this course.</p>
+    {% endif %}
+
+    <p><strong>Course Assignments:</strong></p>
+    {% if course.assignments.all %}
+        <ul>
+        {% for assignment in course.assignments.all %}
+            <li><a href="{{ assignment.file.url }}">{{ assignment.file.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No assignments found for this course.</p>
+    {% endif %}
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+
+<header class="navbar navbar-expand-xl navbar-light">
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="provider_index">
+            <img src="{% static 'assets_by_provider/img/brand-gigas.svg' %}" class="navbar-brand-img" alt="...">
+        </a>
+
+        <!-- Navigation -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'provider_base' %}">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Courses
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'provider_upload_course' %}">Add Course</a>
+                </div>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</header>
+
+<!-- Your content goes here -->
+
+<!-- Bootstrap JavaScript and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

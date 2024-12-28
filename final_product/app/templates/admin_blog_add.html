@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_blog_add.css' %}">
+</head>
+<body>
+
+
+<!-- Container that contains "statics boxes" STARTS-->
+<h1 id="add-course-heading">CREATE NEW BLOG</h1>
+<!-- Container that contains "statics boxes" ENDS-->
+
+
+<!-- Container that contains "CLASS DESCRIPTION, WHAT WILL YOU LEARN, SKILLS YOU WILL GAIN " STARTS-->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<section id="class-description-section">
+
+    <div class="what-will-you-learn-container">
+        <h2>TITLE</h2>
+        <input class="input-box" type="text" placeholder="Blog title here" id="what-will-you-learn">
+        {{ form.title }}
+    </div>
+
+    <div class="skills-you-will-learn-container">
+        <h2>DESCRIPTION</h2>
+        <input class="input-box" type="text" placeholder="Blog description here" id="skills-you-will-learn">
+        {{ form.content }}
+    </div>
+
+    <div class="career-guidance">
+        <h2>Cover Image</h2>
+        <div class="upload-file-container2">
+        <label for="file-upload" class="career-guidance-label"><img class="cloud-img" src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+        <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()">
+        {{ form.cover_pic }}
+        <span id="file-info" class="file-info">Max File Size 10mb OR 800 X 600px</span>
+        </div>
+    </div>
+
+    <div class="career-guidance">
+        <h2>Thumbnail</h2>
+        <div class="upload-file-container2">
+        <label for="file-upload" class="career-guidance-label"><img class="cloud-img" src="../static/admin_img/course_management_img/upload-img.png" alt="">Upload File</label>
+        <input type="file" id="file-upload" class="custom-file-input" onchange="updateFileInfo()">
+        {{ form.thumbnail }}
+        <span id="file-info" class="file-info">Max File Size 10mb OR 800 X 600px</span>
+        </div>
+    </div>
+
+<h2>BLOG TEXT</h2>
+<div class="class-description-container">
+    <div class="editor-container">
+        <div contenteditable="true" class="editor" id="class-description" placeholder="Enter your class description"></div>
+    </div>
+    <div class="toolbar">
+        <button onclick="formatText('bold')"><img class="tool-icons" src="../static/admin_img/course_management_img/bold_icon.png" alt=""></button>
+        <button onclick="formatText('underline')"><img class="tool-icons" src="../static/admin_img/course_management_img/underline_icon.png" alt=""></button>
+        <button onclick="formatText('insertUnorderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/unordered_list_icon.png" alt=""></button>
+        <button onclick="formatText('insertOrderedList')"><img class="tool-icons" src="../static/admin_img/course_management_img/ordred_list_icons.png" alt=""></button>
+        <button onclick="increaseFontSize()"><img class="tool-icons" src="../static/admin_img/course_management_img/Aa_icon.png" alt=""></button>
+        {{ form.tags }}
+    </div>
+</div>
+
+<div class="add-tag">
+    <h2>ADD TAG</h2>
+    <div class="tag-input-container">
+        <input class="input-box" placeholder="Lable 1" id="tag-input1" type="text">
+        <input class="input-box" placeholder="Lable 2" id="tag-input2" type="text">
+        <input class="input-box" placeholder="Lable 3" id="tag-input3" type="text">
+        {{ form.tags }}
+    </div>
+</div>
+<div class="mentor-name-container">
+    <h2>CATEGORY</h2>
+    <div class="custom-select" id="category-select">
+        <div class="select-selected"><span>Select your option</span>
+            <img id="arrow-img5" src="../static/admin_img/course_management_img/up_arrow.png" alt="">
+        </div>
+        <div class="select-items">
+            <div class="options">Art & Design</div>
+            <div class="options">Business</div>
+            <div class="options">Data Science</div>
+            <div class="options">Development</div>
+            <div class="options">Finance</div>
+            <div class="options">Health & Fitness</div>
+            <div class="options">Lifestyle</div>
+            </div>
+            {{ form.category }}
+        </div>
+    </div>
+</div>
+
+<div id="make-trending">
+    <input type="checkbox" name="trending" id="">
+    <h2>Make this blog Trending</h2>
+</div>
+
+<div class="tag-related-course">
+    <h3>Tag related courses</h3>
+    <p>Tagging a course will make your blog visible to learners taking that course. You can tag upto 3 courses.</p>
+    <div class="custom-select-wrapper">
+        {{ form.related_courses }}
+        <div class="custom-select2">
+        <div class="select-selected2">Select a course</div>
+        <div class="select-items2 select-hide">
+            <div class="select-item">Course 1</div>
+            <div class="select-item">Course 2</div>
+            <div class="select-item">Course 3</div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="publish-btn-container">
+    <button id="publishBTN" type="submit">Publish</button>
+</div>
+
+</section>
+</form>
+
+<script>
+     document.addEventListener('DOMContentLoaded', () => {
+    const categorySelect = document.querySelector("#category-select");
+    const arrow5 = document.querySelector("#arrow-img5");
+    const upArrowSrc = '../static/admin_img/course_management_img/up_arrow.png';
+    const downArrowSrc = '../static/admin_img/course_management_img/down_arrow.png';
+
+    // General function to toggle display and arrow image
+    function toggleDisplay(element, arrow) {
+        if (element.style.display === "none") {
+            element.style.display = "block";
+            arrow.src = downArrowSrc;
+        } else {
+            element.style.display = "none";
+            arrow.src = upArrowSrc;
+        }
+    }
+
+    // Function to toggle arrow image
+    function toggleArrow(arrow) {
+        arrow.src = arrow.src.includes('up_arrow') ? downArrowSrc : upArrowSrc;
+    }
+
+    // Function to switch classes without toggling display
+    function switchClass(element, oldClass, newClass) {
+        if (element.classList.contains(oldClass)) {
+            element.classList.remove(oldClass);
+            element.classList.add(newClass);
+        } else {
+            element.classList.remove(newClass);
+            element.classList.add(oldClass);
+        }
+    }
+
+    categorySelect.addEventListener("click", () => {
+        toggleArrow(arrow5);
+    });
+});
+
+function formatText(command, value = null) {
+    document.execCommand(command, false, value);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const selectWrapper = document.querySelector('.custom-select-wrapper');
+    const selected = document.querySelector('.select-selected2');
+    const itemsContainer = document.querySelector('.select-items2');
+    const items = document.querySelectorAll('.select-item');
+    const select = document.getElementById('course-select');
+
+    selected.addEventListener('click', function() {
+        itemsContainer.classList.toggle('select-hide');
+    });
+
+    items.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            selected.textContent = this.textContent;
+            select.selectedIndex = index;
+            itemsContainer.classList.add('select-hide');
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!selectWrapper.contains(event.target)) {
+            itemsContainer.classList.add('select-hide');
+        }
+    });
+});
+
+function increaseFontSize() {
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        const span = document.createElement('span');
+        const currentFontSize = window.getComputedStyle(range.commonAncestorContainer.parentNode).fontSize;
+        const newSize = parseInt(currentFontSize) + 2; // Increase font size by 2px
+        span.style.fontSize = newSize + 'px';
+        range.surroundContents(span);
+    }
+}
+
+// Add extra handling for the 'fontName' command
+document.querySelector('.select-selected').addEventListener('click', function() {
+        var items = document.querySelector('.select-items');
+        items.style.display = items.style.display === 'none' || items.style.display === '' ? 'block' : 'none';
+    });
+
+
+</script>
+</body>
+</html>

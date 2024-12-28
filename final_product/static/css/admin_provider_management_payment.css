@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main-payment-heading{
+    margin-left: 8vw;
+}
+
+/* tables styling starts */
+
+#tables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+    margin-left: 8vw;
+}
+
+.each-table-container{
+    display: flex;
+    flex-direction:column;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(50% - 20px); /* Adjust width and ensure wrapping */
+    min-width: 300px; /* Minimum width for a table */
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#table1{
+    width: 85vw;
+}
+#table2{
+    width: 80vw;
+}
+
+table thead,tbody{
+    border: none;
+}
+
+th, td {
+    text-align: center;
+    justify-items: center;
+}
+
+th {
+    font-weight: bold;
+    padding: 20px 10px;
+    font-size: 11px;
+    border-bottom: 3px solid #EDEDFF;
+}
+
+#bill{
+    margin-left: -20px;
+}
+
+td {
+    padding: 20px;
+    font-size: 12px;
+    word-wrap: break-word;
+    justify-content: center;
+}
+
+tr{
+    cursor: pointer;
+    transition: all 0.5s;
+}
+tr:hover{
+    box-shadow: 0px 2px 2px rgba(128, 128, 128, 0.849);
+}
+
+tr .status{
+    display: flex;
+    justify-content: center;
+}
+
+
+.green-status{
+    color:#069855;
+    background-color: #E6F5EE;
+    width: 91px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 0;
+    height: 25px;
+}
+.purple-status{
+    color:#534FEB;
+    background-color: #F6F6FE;
+    width: 91px;
+    text-align: center;
+    align-content: center;
+    border-radius: 20px;
+    margin: 0;
+    height: 25px;
+    border: 0.5px solid #534FEB;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    table {
+        flex-basis: calc(50% - 20px); /* Adjust width for medium screens */
+    }
+}
+@media (max-width: 768px) {
+    table {
+        flex-basis: calc(100% - 20px); /* Adjust width for small screens */
+        margin-left: 0; /* Remove left margin on small screens */
+    }
+}
+
+/* tables styling ends */

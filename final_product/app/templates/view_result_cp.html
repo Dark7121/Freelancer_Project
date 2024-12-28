@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz and Assignment Results</title>
+</head>
+<body>
+    <h2>Results for {{ student.name }}</h2>
+    <h3>Quiz Results:</h3>
+    <ul>
+        {% for result in results %}
+        <li>{{ result.quiz.title }}: {{ result.score }} out of {{ result.quiz.total_score }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Assignment Results:</h3>
+    <ul>
+        {% for assignment_result in assignment_results %}
+        <li>{{ assignment_result.assignment.title }}: {{ assignment_result.score }} out of {{ assignment_result.assignment.total_score }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

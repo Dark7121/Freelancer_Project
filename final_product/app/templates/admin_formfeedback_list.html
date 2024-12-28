@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Forms</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn-create {
+            margin-bottom: 20px;
+            background-color: #ff6961;
+            color: white;
+        }
+        .btn-create:hover {
+            background-color: #ff5a50;
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .table-actions a {
+            margin-right: 10px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page Title and Create Button -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="display-4">Feedback Forms</h1>
+            <a href="{% url 'admin_formfeedback_create' %}" class="btn btn-create"><i class="fas fa-plus"></i> Create Feedback</a>
+        </div>
+
+        <!-- Feedback Forms Table -->
+        <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>S.No</th>
+                    <th>Feedback Name</th>
+                    <th>No. of Questions</th>
+                    <th>No. of Responses</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for formfeedback in formfeedbacks %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ formfeedback.title }}</td>
+        <td>{{ formfeedback.num_questions }}</td> <!-- Number of questions -->
+        <td>{{ formfeedback.num_responses }}</td> <!-- Number of responses -->
+        <td class="table-actions">
+            <a href="{% url 'admin_submit_feedback' formfeedback.id %}" class="btn btn-success btn-sm">View</a>
+            <a href="{% url 'admin_formfeedback_update' formfeedback.id %}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{% url 'admin_formfeedback_delete' formfeedback.id %}" class="btn btn-danger btn-sm"
+               onclick="return confirm('Are you sure you want to delete this feedback form?');">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+
+        </table>
+
+        <!-- Pagination Section -->
+        <div class="pagination">
+            <label for="page-select">Select by Page No.:</label>
+            <select id="page-select" class="custom-select w-auto">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <span class="ml-2">Page 1 of 3</span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

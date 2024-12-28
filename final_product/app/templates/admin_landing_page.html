@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Learning</title>
+<link rel="stylesheet" href="{% static 'css/admin_landing_page.css'%}">
+</head>
+<body>
+    <!-- Nav Bar -->
+   <section class="navbar">
+    <div class="navbar-left">
+            <div class="logo">
+                <img id="logo-icon" src="{%static 'admin_img/Teachers_page_img/icon.png' %}" alt="" />
+                <img id="logo-name" src="../static/admin_img/dashborad_img/nav_bar/up_sky_ed.png" alt="" />
+            </div>
+    </div>
+    <div class="navbar-right">
+        <a href="#" class="navbar-items" id="home">Home</a>
+        <a href="#" class="navbar-items" id="our-courses">Our Courses</a>
+        <a href="{% url 'admin_teachers'%}" class="navbar-items" id="teach">Teach</a>
+        <a href="#" class="navbar-items" id="add-courses">Add Course</a>
+        <a href="#" class="navbar-items" id="blog">Blog</a>
+        <a href="{% url 'admin_login_page'%}">
+        <button class="button login" >LOG IN</button></a>
+        <a href="{% url 'admin_signup'%}">
+        <button class="button signup" >SIGN UP</button></a>
+    </div>
+   </section>
+
+   <!-- Hero Section -->
+   <section class="hero-section">
+    <div class="hero-wrapper">
+        <div class="hero-container">
+            <div class="hero-image">
+            <img src="{%static 'admin_img/Landing_page_img/Isolation_Mode.png' %}" alt="">
+            </div>
+        </div>
+        <div class="hero-description">
+            <div class="new-platform">
+                <div class="cirlce"></div>
+                <p style="margin-bottom: 0;">New Platform.</p>
+            </div>
+            <h1 class="hero-description-heading">Take Your Time and Learn from <span>Anywhere</span></h1>
+            <p class="hero-description-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In perferendis repellat quisquam cum eaque atque minus,</p>
+            <div class="hero-button-container">
+                <button class="button free-trial-button">Start a free trial</button>
+                <a href="#" class="how-it-works"><img src="{%static 'admin_img/Landing_page_img/free-trial.png' %}" alt="">How it works</a>
+            </div>
+            <div class="hero-description-users">
+                <img  src="{%static 'admin_img/Landing_page_img/Avatars/3d_avatar_1.png' %}" alt="">
+                <img class="users-avatar" src="{%static 'admin_img/Landing_page_img/Avatars/3d_avatar_2.png' %}" alt="">
+                <img class="users-avatar-3" src="{%static 'admin_img/Landing_page_img/Avatars/3d_avatar_3.png' %}" alt="">
+                <p>Joined By 2000 + Students</p>
+            </div>
+        </div>
+    </div>
+   </section>
+
+</body>
+</html>

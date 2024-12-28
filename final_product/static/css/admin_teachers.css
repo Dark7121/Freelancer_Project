@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Poppins",sans-serif;
+}
+.teachers-navbar {
+    background-color: #EDEEEF;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.logo {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+#logo-icon{
+  width: 30px;
+  height: 40px;
+  margin-right: 15px;
+}
+#logo-name{
+  margin-top: 10px;
+  width: 8rem;
+  height: 30px;
+}
+.teachers-navbar .teachers-navbar-left {
+    order: 1;
+    width: 50vw;
+}
+
+.teachers-navbar .teachers-navbar-right {
+    display: flex;
+    order: 2;
+    flex-direction: row;
+    justify-content: end !important;
+    align-items: center;
+    width: 50vw;
+    color: #252641;
+    font-size: 18px;
+    /* background-color: #686868; */
+}
+
+
+.button {
+    font-size: 15.5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 5px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.05s;
+}
+.button:hover {
+    box-shadow: 0px 0px 10px -1px #aaaaab;
+}
+.begin-a-class-btn {
+    background-color: #FF7675;
+    color: #ffffff;
+    width: 150px;
+    height: 50px;
+    border: none;
+    margin-right: 5rem;
+}
+.nav-profile-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C8F7DC;
+    margin-right: 2rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #C8F7DC;
+    border-right: 2px solid #34C471;
+    border-bottom: 2px solid #34C471;
+    transform: rotateZ(-65deg);
+}
+.nav-profile-logo img{
+    width: 15px;
+    height: 15px;
+    margin-left: 2px;
+    object-fit: cover;
+    transform: rotateZ(65deg);
+}
+.bell-icon{
+    margin-right: 3rem;
+    width: 30px;
+    height: 30px;
+}
+.teachers-top-section{
+    position: relative;
+    height: 65vh;
+    text-align: center;
+    overflow: hidden;
+}
+.teachers-top-section img{
+    position: absolute;
+    top: -10%;
+    left: 0;
+    height: 110%;
+    z-index: -1;
+    width: 100vw;
+}
+.teachers-top-section .imagecover{
+    position: absolute;
+    background-color: #00000067;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+.teachers-top-text-container{
+    position: absolute;
+    color: white;
+    top: 38%;
+    left: 22%;
+    width: 60vw;
+    z-index: 2;
+}
+
+.teachers-top-heading{
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: "Poppins",sans-serif;
+}
+.teachers-top-description{
+    color: rgba(255, 255, 255, 0.785);
+    font-size: 1.3rem;
+    font-family: 'DM Sans',sans-serif;
+}
+
+/* why tech on knowlegopedia section styling*/
+
+.why-teach-on-knowlegopedia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+    text-align: center;
+    
+}
+.question-answer-container{
+    height: 100%;
+    align-items: start;
+    padding: 0px 10rem;
+}
+.question-answer-container .question{
+    margin: 3.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: "Poppins",sans-serif;
+}
+.question-answer-container .answer{
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    font-family: 'DM Sans',sans-serif;
+}
+/* meet our teachers section styling */
+
+.meet-out-teachers {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.team-profile-main-heading {
+  text-align: start;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 70px;
+  margin-left: 10vw;
+  color: #000000;
+  font-family: "Poppins",sans-serif;
+}
+
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8vw;
+}
+
+.proifle-card-wrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+.profile-card {
+  background-color: #fff;
+  overflow: hidden;
+  
+}
+
+.profile-image-container {
+  width: 100%;
+  padding-top: 75%;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name-container {
+    margin-top: 20px;
+  padding: 2px;
+  text-align: start;
+}
+
+.profile-description {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-family: 'DM Sans',sans-serif;
+}
+
+.profile-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: "Poppins",sans-serif;
+}
+
+@media (max-width: 768px) {
+  .team-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* how it works section styling */
+
+.how-it-works {
+    margin-top: 20px;
+    padding: 40px 20px;
+    padding-left: 5%;
+    background-color: #F7F8FB;
+    box-shadow: 0px 3px 2px  rgba(92, 92, 92, 0.416);
+  }
+  
+  .how-it-works-heading {
+    text-align: start;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 70px;
+    margin-left: 5vw;
+    color: #000000;
+    font-family: "Poppins",sans-serif;
+  }
+  
+  .how-it-works-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw;
+    margin-left: 5% !important;
+  }
+  
+  .how-it-works-card-wrapper {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .how-it-works-card {
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  .how-it-works-card-image-container {
+    width: 5rem;
+   height: 5rem;
+  }
+  
+  .how-it-works-card-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .how-it-works-card-name-container {
+    padding: 2px;
+    text-align: start;
+  }
+  
+  .how-it-works-card-description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 30px;
+    font-family: 'DM Sans',sans-serif;
+  }
+  
+  .how-it-works-card-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 20px 0px;
+    font-family: "Poppins",sans-serif;
+  }
+  
+  @media (max-width: 768px) {
+    .team-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+/* Frequently asked questions styling */
+
+.frequently-asked-questions-section{
+  margin: 7rem 0px;
+}
+
+.frequently-asked-question-heading {
+  text-align: start;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 70px;
+  margin-left: 7vw;
+  color: #000000;
+  font-family: "Poppins",sans-serif;
+}
+
+.frequently-asked-questions-section{
+    width: 100vw;
+    height: 40vh;
+}
+
+.accordion-button::after {
+  display: none;
+}
+
+.accordion-button .icon-plus,
+.accordion-button .icon-minus {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: #00B894
+}
+
+.accordion-button:not(.collapsed) .icon-plus {
+  display: none;
+}
+
+.accordion-button.collapsed .icon-minus {
+  display: none;
+}
+
+.accordion-item {
+  border: none !important;
+  width: 90vw;
+  margin: 0px 5vw;
+}
+
+
+.accordion-item .accordion-header{
+  border-bottom: 1px solid #000;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #000 !important;
+  background-color: #fff !important;
+  box-shadow: none !important;
+  font-weight: bold;
+  font-family: "Poppins",sans-serif;
+}
+.accordion-button.collapsed {
+  box-shadow: none !important;
+  font-family: 'DM Sans',sans-serif;
+}
+
+/* styling for the end question */
+
+.question-at-end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 5rem;
+    margin-left: 3rem;
+}
+.question-at-end-answer-container{
+    height: 60%;
+    align-items: start;
+    padding: 0px 15rem;
+    margin-bottom: 3rem;
+}
+.question-at-end-answer-container .question{
+    margin: 3.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: "Poppins",sans-serif;
+}
+.question-at-end-answer-container .answer{
+    font-size: 1.15rem;
+    font-weight: 400;
+    font-family: 'DM Sans',sans-serif;
+}
+
+#begin-a-class-btn-2{
+  margin: 0;
+}
+
+
+
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Quiz</title>
+</head>
+<body>
+    <h1>Take Quiz: {{ quiz.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for form in formset %}
+            <h2>{{ form.instance.question.question_text }}</h2>
+            {{ form.as_p }}
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+    </form>
+</body>
+</html>

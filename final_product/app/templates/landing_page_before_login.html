@@ -1,0 +1,1225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page_before_login.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+        <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+
+    </head>
+
+<body>
+
+    <div class="navbar">
+        <div class="left-section">
+            <a href="{% url 'landing_page_before_login' %}">
+                <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+            </a>
+            <p class="company-name">UPSKyED</p>
+            <div class="searchBar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="search" name="search" placeholder="Search">
+            </div>
+            <a class="categories">Explore</a>
+            <ul class="main-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+            </ul>
+            <ul class="web-development-category category ">
+                <li>HTML / CSS</li>
+                <li>Javascript</li>
+                <li>Bootstrap</li>
+                <li>React Js</li>
+                <li>Angular</li>
+                <li>Node Js</li>
+                <li>Express Js</li>
+            </ul>
+            <ul class="mobile-developement-category category">
+                <li>Android Development with Java/ Kotlin
+                </li>
+                <li>iOS Development with Swift</li>
+                <li> React Native </li>
+            </ul>
+            <ul class="programming-category category">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Ruby</li>
+                <li>PHP</li>
+                <li>Go</li>
+            </ul>
+            <ul class="engineering-category category">
+                <li>Software Development Lifecycle (SDLC)</li>
+                <li>Agile and Scrum</li>
+                <li> DevOps Principles</li>
+                <li>Software Testing and Quality Assurance</li>
+            </ul>
+            <ul class="block-chain-category category">
+                <li>Blockchain Fundamentals</li>
+                <li> Smart Contract Development</li>
+                <li>Cryptocurrency and Bitcoin Basic</li>
+            </ul>
+            <ul class="iot-category category">
+                <li>Introduction to loT
+                </li>
+                <li>IoT Platforms and Technologies
+                </li>
+                <li> IoT Security and Privacy</li>
+            </ul>
+            <ul class="cloud-category category">
+                <li> Introduction to Cloud Computing
+                </li>
+                <li>Amazon Web Services (AWS)
+                </li>
+                <li>Microsoft Azure</li>
+                <li>Google Cloud Platform (GCP)</li>
+                <li>DevOps Practices and Tools</li>
+            </ul>
+            <ul class="data-science-category category">
+                <li>Python for Data Science
+                </li>
+                <li>Data Analysis with Pandas
+                </li>
+                <li>NumPy and SciPy</li>
+                <li>Machine Learning Fundamentals</li>
+                <li>Deep Learning with TensorFlow or PyTorch</li>
+                <li>Natural Language Processing</li>
+            </ul>
+            <ul class="cybersecurity-category category">
+                <li> Introduction to Cybersecurity
+                </li>
+                <li>Ethical Hacking
+                </li>
+                <li>Network Security</li>
+                <li>Web Application Security</li>
+                <li> Cryptography</li>
+                <li> Incident Response and Forensics</li>
+            </ul>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="right-section">
+            <a href="{% url 'landing_page_before_login' %}" class="active">Home</a>
+            <a href="{% url 'my_learnings' %}">My Learnings</a>
+
+            <!-- <a href="{% url 'common_discussion_forum' %}">Discussion Forum</a> -->
+            <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i></a>
+            <div class="profile-container">
+               {% if profile == 10 %}
+                 <div class="profile">
+                    <img src="{% static 'assets/user.png' %}" alt="" width="40px">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                {% else %}
+                <div class="profile">
+                    <img src="{{ profile.profile_picture.url }}" alt="" width="40px">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                {% endif %}
+                <ul>
+                    <a href="{% url 'profile_page' %}">
+                        <li>Profile</li>
+                    </a>
+                    <a href="{% url 'certificate' %}">
+                        <li>My Certificates</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'payment_history' %}">
+                        <li>Payment History</li>
+                    </a>
+                    <a href="{% url 'referral' %}">
+                        <li>Referral</li>
+                    </a>
+                    <a href="{% url 'ticket' %}">
+                        <li>Support & Help</li>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <li>Log out</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="middle-section">
+        <a href="{% url 'landing_page_before_login' %}">
+            <p class="active">Home</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p>Courses</p>
+        </a>
+
+        <a href="{% url 'about_us' %}">
+            <p>About us</p>
+        </a>
+
+        <a href="{% url 'contact_us' %}">
+            <p>Contact us</p>
+        </a>
+        <a href="{% url 'faq' %}">
+            <p>FAQs</p>
+        </a>
+    </div>
+    <div class="right-section">
+        <a href="#"> <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i></a>
+        </a>
+        <button id="loginButton" class="btn loginButton">Sign in</button>
+        <button id="signupButton" class="btn signupButton">Create free account</button>
+    </div>
+</div>
+<div class="authentication-modal" id="auth-modal">
+    <div id="signup" class="auth signup">
+        <img class="close" src="{% static 'assets/landing_page/close.png' %}" width="25px" alt="Icon">
+        <h3 style="margin-bottom: 5px">Sign Up</h3>
+        <p style="margin-top: 0; font-size: 0.88rem;
+            font-weight: 400; margin-bottom: 40px">Sign Up to create account</p>
+            <form  method="post">
+                {% csrf_token %}
+                {{ studnetform.as_p }}
+
+        <button class="join" style="width: 100%">Join For Free</button>
+        </form>
+                <div class="break">
+            <hr>
+            <p style="font-size: 0.88rem; color: #98989A; font-weight: 300; padding: 6px">OR</p>
+            <hr>
+        </div>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/google.png' %}" alt="" width="20px">
+            <p>Continue with Google</p>
+        </button>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/facebook.png' %}" alt="" width="20px">
+            <p>Continue with Facebook</p>
+        </button>
+        <p style="font-size: 0.92rem">Already have an account with UPSKyED? <a href="{% url 'landing_page' %}" class="login">Log
+                In</a></p>
+    </div>
+
+    <div id="login" class="auth login">
+
+        <img class="close" src="{% static 'assets/landing_page/close.png' %}" width="25px" alt="Icon">
+        <h3 style="margin-bottom: 45px">Welcome back</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+        <a href="#" style="text-align: left; font-size: 0.82rem;margin-bottom: 30px">Forgot password?</a>
+        <a href="{% url 'landing_page' %}"><button class="join" style="width: 100%">Login</button></a>
+        </form>
+        <div class="break">
+            <hr>
+            <p style="font-size: 0.88rem; color: #98989A; font-weight: 300; padding: 6px">OR</p>
+            <hr>
+        </div>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/google.png' %}" alt="" width="20px">
+            <p>Continue with Google</p>
+        </button>
+        <button class="social-btn">
+            <img src="{% static 'assets/landing_page/facebook.png' %}" alt="" width="20px">
+            <p>Continue with Facebook</p>
+        </button>
+        <p style="font-size: 0.92rem">New to UPSKyED? <a href="#" class="signup">Sign Up</a></p>
+    </div>
+</div>
+    {% endif %}
+
+    <div class="header-section">
+      <img src="{% static 'assets/landing_page_before_login/bg1.png' %}" alt="" class="bg1">
+        <div class="upper-section">
+            <div class="left-container">
+                <h1>Up Your <span>Skills</span><br> To <span>Advance</span> Your<br> <span>Career</span> Path</h1>
+                <p>Learn UI-UX Design skills with weekend UX . The latest online<br> learning system and material that
+                    help
+                    your knowledge growing.</p>
+                <div class="button-container">
+                    <button>Get Started</button>
+                    <button>Get free trial</button>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <img src="{% static 'assets/landing_page_before_login/icon1.png' %}" alt="" width="20px">
+                        <p>Public Speaking</p>
+                    </div>
+                    <div class="feature">
+                        <img src="{% static 'assets/landing_page_before_login/icon2.png' %}" alt="" width="20px">
+                        <p>Career-Oriented</p>
+                    </div>
+                    <div class="feature">
+                        <img src="{% static 'assets/landing_page_before_login/icon3.png' %}" alt="" width="20px">
+                        <p>Creative Thinking</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-container">
+                <img src="{% static 'assets/landing_page_before_login/header-img.png' %}" alt="" width="600px">
+            </div>
+        </div>
+        <div class="lower-section">
+            <p><span style="color: #0085FF; font-weight: 600">250+</span><br>Collaboration</p>
+            <img src="{% static 'assets/landing_page_before_login/client1.png' %}" alt="" width="130px">
+            <img src="{% static 'assets/landing_page_before_login/client2.png' %}" alt="" width="130px">
+            <img src="{% static 'assets/landing_page_before_login/client3.png' %}" alt="" width="130px">
+            <img src="{% static 'assets/landing_page_before_login/client4.png' %}" alt="" width="130px">
+
+        </div>
+        <img src="{% static 'assets/landing_page_before_login/bg1.png' %}" alt="" class="bg2">
+
+    </div>
+    <div class="second-section">
+        <h4>Our Courses</h4>
+        <p class="all">All</p>
+        <div class="wrapper" style="margin-top: 40px;">
+            <button id="left" class="left"><img src="{% static 'assets/landing_page_before_login/chevron-right.png' %}"
+                    alt="" width="40px" style="transform: rotate(180deg)"></button>
+            <div class="carousel">
+                {% for course in courses %}
+                <div class="card">
+                    {% if course.image %}
+                        <img src="{{ course.image.url }}" alt="{{ course.title }}" width="250px">
+                    {% else %}
+                        <img src="/default_user.jpeg" alt="Default Course Image">
+                    {% endif %}
+
+                    <div class=" card-body">
+                        <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">{{ course.title }}</h5>
+                        <div class="inner-container">
+                            <p>Lesson:6</p>
+                            <p>Student: 198</p>
+                            <p>Beginner</p>
+                        </div>
+                        <div class="inner-container">
+                            <a href="{% url 'courses' course.id %}"><button>View Course</button></a>
+                            <p style="font-size: 1.1rem; font-weight: 400">₹{{ course.price }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="card">
+                    <img src="{% static 'assets/landing_page_before_login/img7.png' %}" class="card-img-top" alt="..."
+                        width="250px">
+
+                    <div class=" card-body">
+                        <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                            Beginners - Learn Programming from scratch</h5>
+                        <div class="inner-container">
+                            <p>Lesson:6</p>
+                            <p>Student: 198</p>
+                            <p>Beginner</p>
+                        </div>
+                        <div class="inner-container">
+                            <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                            <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="right" class="right"><img
+                    src="{% static 'assets/landing_page_before_login/chevron-right.png' %}" alt=""
+                    width="40px"></button>
+        </div>
+    </div>
+
+    <h4 style="font-weight: 600; font-size: 1.5rem; width: 85%; margin-right: auto; margin-left: auto">Professional
+        Courses</h4>
+    <div class="wrapper">
+        <button id="left" class="left"><img src="{% static 'assets/landing_page_before_login/chevron-right.png' %}"
+                alt="" width="40px" style="transform: rotate(180deg)"></button>
+        <div class="carousel">
+            {% for course in courses %}
+            {% if course.category == 'Tech Courses' %}
+            <div class="card">
+                <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}"
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">{{ course.title }}</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'courses' course.id %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹{{ course.price }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img5.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img6.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Learn Figma
+                        - UI/UX Design Essential Training</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img7.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img4.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Learn Figma
+                        - UI/UX Design Essential Training</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img7.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img7.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="right" class="right"><img src="{% static 'assets/landing_page_before_login/chevron-right.png' %}"
+                alt="" width="40px"></button>
+    </div>
+    <a href="{% url 'tech_courses' %}">
+        <h4
+            style="font-weight: 600; font-size: 1.5rem; width: 85%; margin-right: auto; margin-left: auto;margin-top: 50px">
+            Tech Courses</h4>
+    </a>
+    <div class="course-names-container">
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">WEB DEVELOPMENT</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">MOBILE APP DEVELOPMENT</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">PROGRAMMING LANGUAGES</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">SOFTWARE ENGINEERING</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">INTERNET OF THINGS</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">CLOUD COMPUTING</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">CYBER SECURITY</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">DATA SCIENCE & MACHINE LEARNING</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">GRAPHIC DESIGN</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">STOCK MARKET</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">UI/UX</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">EXCEL(BEGINEER TO ADVANCE)</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">DIGITAL MARKETING</p>
+        </a>
+        <a href="{% url 'tech_courses' %}">
+            <p class="course-name">R LANGUAGE</p>
+        </a>
+    </div>
+    <div class="fifth-heading" style="text-align: center; margin-left: auto; margin-right: auto;margin-top: 80px">
+        <h4 style="font-weight: 600; font-size: 1.8rem; text-align: center;"> CBSE Courses as per NCERT curriculum</h4>
+        <p style="font-weight: 500; font-size: 1.3rem;margin-top: 5px;">NCERT Courses for Students 9-12</p>
+    </div>
+    <div class="wrapper2">
+        <div class="carousel2">
+            {% for course in courses %}
+            {% if course.category == 'CBSE Courses' %}
+            <div class="card2">
+                <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}"
+                    width="250px">
+                <h5 class="card-title">{{ course.title }}</h5>
+                <div class="card-body2">
+                    <p class="academy">Academy Name</p>
+                    <p style="font-weight: 600;">Class 9th Math NCERT</p>
+                    <p class="academy">Duration</p>
+                    <div class="rating-container">
+                        <p class="rating">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>₹{{ course.price }}</p>
+                </div>
+                <a class="view-more" style="text-align: center;" href="{% url 'courses' course.id %}">
+                    <button>View More</button>
+                </a>
+            </div>
+            {% endif %}
+
+        {% endfor %}
+            <div class="card2">
+                <img src="{% static 'assets/landing_page/course-img.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+                <h5 class="card-title">Name of the
+                    Academy</h5>
+                <div class="card-body2">
+                    <p class="academy">Academy Name</p>
+                    <p style="font-weight: 600;">Class 10th Math NCERT</p>
+                    <p class="academy">Duration</p>
+                    <div class="rating-container">
+                        <p class="rating">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>₹3,699</p>
+                </div>
+                <a class="view-more" href="{% url 'grade_wise_courses' %}">
+                    <button>View More</button>
+                </a>
+            </div>
+            <div class="card2">
+                <img src="{% static 'assets/landing_page/course-img.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+                <h5 class="card-title">Name of the
+                    Academy</h5>
+                <div class="card-body2">
+                    <p class="academy">Academy Name</p>
+                    <p style="font-weight: 600;">Class 11th Math NCERT</p>
+                    <p class="academy">Duration</p>
+                    <div class="rating-container">
+                        <p class="rating">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>₹3,699</p>
+                </div>
+                <a class="view-more" href="{% url 'grade_wise_courses' %}">
+                    <button>View More</button>
+                </a>
+            </div>
+            <div class="card2">
+                <img src="{% static 'assets/landing_page/course-img.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+                <h5 class="card-title">Name of the
+                    Academy</h5>
+                <div class="card-body2">
+                    <p class="academy">Academy Name</p>
+                    <p style="font-weight: 600;">Class 12th Math NCERT</p>
+                    <p class="academy">Duration</p>
+                    <div class="rating-container">
+                        <p class="rating">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>₹3,699</p>
+                </div>
+                <a class="view-more" href="{% url 'grade_wise_courses' %}">
+                    <button>View More</button>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <h4 style="font-weight: 600; font-size: 1.5rem; text-align: left;width: 85%; margin-left: auto;margin-right: auto;">
+        Trending Now</h4>
+    <div class="trending-container">
+        <div class="first-container trend-containers">
+            <a href="{% url 'blog' %}" class="link">See UI design blogs <span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></a>
+            <a href="{% url 'blog' %}" class="trend-btn">Show all Trending Blogs</a>
+        </div>
+        <div class="second-container trend-containers">
+            <h5>Web Development</h5>
+            <h6>Javascript</h6>
+            <p class="link">See Javascript blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>Angular Js</h6>
+            <p class="link">See Angular Js blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>React Js</h6>
+            <p class="link">See React Js blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>Node Js</h6>
+            <p class="link">See Node Js blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+        </div>
+        <div class="third-container trend-containers">
+            <h5>Software Engineering</h5>
+            <h6>Software Development Lifecycle</h6>
+            <p class="link">See SDLC blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>Agile and Scrum</h6>
+            <p class="link">See Agile and Scrum blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>DevOps Principles</h6>
+            <p class="link">See DevOps Principles blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>Software Testing and Quality Assurance</h6>
+            <p class="link">See STQA blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+        </div>
+        <div class="fourth-container trend-containers">
+            <h5>Programming languages</h5>
+            <h6>Python</h6>
+            <p class="link">See Python blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>Java</h6>
+            <p class="link">See Java blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>C++</h6>
+            <p class="link">See C++ blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+            <h6>PHP</h6>
+            <p class="link">See PHP blog<span><img style="transform: rotate(90deg)"
+                        src="{% static 'assets/up-arrow.png' %}" alt="Icon" width="15px"></span></p>
+        </div>
+    </div>
+    <h4 style="font-weight: 600; font-size: 1.5rem; text-align: center;">Choose the program which is
+        right
+        for your goal’s</h4>
+    <div class="seventh-section">
+
+        <div class="programmes-containers">
+            <a href="{% url 'bundle_detail' bundle_id=1 %}"</a>
+                <div class="programme" style="padding-top: 50px">
+                    <h5>Single learning program</h5>
+                    <p style="width: 90%; margin-left: auto; margin-right: auto;font-weight: 300;">Learn the specialized
+                        courses here</p>
+                    <div class="inside-container">
+                        <h4>₹4,087 </h4>
+                        <p style="font-weight: 500; font-size: 0.85rem; opacity: 0.4 ">Cancel Anytime</p>
+                    </div>
+                    <div class="inside-container">
+                        <p>Visit an individual course or specialize your page to purchase</p>
+                    </div>
+                    <p>Earn a certification upon completion</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>Data Science & Machine
+                        Learning course</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>Cloud computing</p>
+                </div>
+            </a>
+            <a href="{% url 'bundle_detail' bundle_id=2 %}">
+                <div class="programme">
+                    <h5 style="margin-bottom: 50px; background: #000;color: #fff; font-weight: 500; padding: 5px;
+                ">Most popular program</h5>
+                    <h5>UPSKyED Plus</h5>
+                    <p style="width: 90%; margin-left: auto; margin-right: auto;font-weight: 300;">Complete multiple
+                        courses
+                        in short term in
+                        this program</p>
+                    <div class="inside-container">
+                        <h4>₹4,087 - ₹6,509</h4>
+                        <p style="font-weight: 500; font-size: 0.85rem; opacity: 0.4 ">Cancel Anytime</p>
+                    </div>
+                    <div class="inside-container">
+                        <p>Visit an individual course or specialize your page to purchase</p>
+                    </div>
+                    <p>Earn unlimited certificates</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>HTML/CSS</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>Javascript</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>Bootstrap</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>React Js</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>Angular Js</p>
+                </div>
+            </a>
+            <a href="{% url 'bundle_detail' bundle_id=3 %}">
+                <div class="programme" style="padding-top: 50px">
+                    <h5>Learning program</h5>
+                    <p style="width: 90%; margin-left: auto; margin-right: auto;font-weight: 300;">Learn the specialized
+                        courses here</p>
+                    <div class="inside-container">
+                        <h4>₹5,087</h4>
+                        <p style="font-weight: 500; font-size: 0.85rem; opacity: 0.4; ">Cancel Anytime</p>
+                    </div>
+                    <div class="inside-container">
+                        <p>Visit an individual course or specialize your page to purchase</p>
+                    </div>
+                    <p>Earn a certification upon completion</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>DevOps Practices and tools
+                    </p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>Microsoft Azure</p>
+                    <div class="line"></div>
+                    <p class="points"><span style="margin-right: 15px;"><i class="fa fa-check"
+                                aria-hidden="true"></i></span>AWS</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <h4 style="font-weight: 600; font-size: 1.5rem; width: 85%; margin-right: auto; margin-left: auto;margin-top: 60px">
+        Featured Courses
+        For You
+    </h4>
+    <div class="wrapper">
+        <button id="left" class="left"><img src="{% static 'assets/landing_page_before_login/chevron-right.png' %}"
+                alt="" width="40px" style="transform: rotate(180deg)"></button>
+        <div class="carousel">
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img4.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Learn Figma
+                        - UI/UX Design Essential Training</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img5.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img6.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Learn Figma
+                        - UI/UX Design Essential Training</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img7.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img4.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Learn Figma
+                        - UI/UX Design Essential Training</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img7.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/landing_page_before_login/img7.png' %}" class="card-img-top" alt="..."
+                    width="250px">
+
+                <div class=" card-body">
+                    <h5 class="card-title" style="font-weight: 500; font-size: 0.98rem; color: #000">Python for
+                        Beginners - Learn Programming from scratch</h5>
+                    <div class="inner-container">
+                        <p>Lesson:6</p>
+                        <p>Student: 198</p>
+                        <p>Beginner</p>
+                    </div>
+                    <div class="inner-container">
+                        <a href="{% url 'course' %}"><button>View Course</button></a>
+
+                        <p style="font-size: 1.1rem; font-weight: 400">₹3,699</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="right" class="right"><img src="{% static 'assets/landing_page_before_login/chevron-right.png' %}"
+                alt="" width="40px"></button>
+    </div>
+    <h4
+        style="font-weight: 600; font-size: 1.5rem; text-align: left; width: 85%; margin-left: auto;margin-right: auto;margin-bottom: 20px;margin-top: 40px;">
+        Top Recommendations For You</h4>
+    <div class="course-names-container">
+        <p class="course-name2">
+            DATA SCIENCE & MACHINE LEARNING
+        </p>
+        <p class="course-name2">
+            CYBERSECURITY</p>
+        <p class="course-name2">
+            REACT JS</p>
+        <p class="course-name2">
+            UI/UX</p>
+        <p class="course-name2">
+            iOS DEVELPMENT WITH SWIFT</p>
+        <p class="course-name2">
+            VEDIC MATHS</p>
+        <p class="course-name2">
+            GRAPHIC DESIGN</p>
+        <p class="course-name2">
+            STOCK MARKET</p>
+        <p class="course-name2">
+            CSS</p>
+        <p class="course-name2">
+            PHP</p>
+        <p class="course-name2">
+            C++</p>
+        <p class="course-name2">
+            PYTHON</p>
+    </div>
+    <footer class="footer-section">
+        <div class="company-details">
+            <div class="description">
+                <h3 style="font-weight: 600;color: #0085FF">E-Learning</h3>
+            </div>
+            <div class="app">
+                <p style="font-size: 1rem; color: #fff;">Top learning experiences that <br>create more
+                    talent in the world.</p>
+
+
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Company</li>
+                    <a href="{% url 'about_us' %}">
+                        <li>About us</li>
+                    </a>
+                    <a href="{% url 'faq' %}">
+                        <li>FAQs</li>
+                    </a>
+
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Social</li>
+                    <li>Twitter</li>
+                    <li>LinkedIn</li>
+                    <li>GitHub</li>
+                    <li>Dribble</li>
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-header">Legal</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-below-section">
+            <p>© 2024 E-Learning. All rights reserved.</p>
+            <div class="socials">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            </div>
+        </div>
+    </footer>
+    {% if user.is_authenticated %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.left-section .categories');
+            const categoryList = document.querySelector('.main-category');
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            categories.addEventListener('click', function () {
+                // Toggle the 'active' class on the main category list
+                categoryList.classList.toggle('active');
+                categoryLists.forEach(function (category) {
+                    category.classList.remove('active');
+                });
+            });
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Remove the 'active' class from all category lists
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+
+                    // Add the 'active' class to the clicked category list
+                    categoryLists[index].classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const profile = document.querySelector('.profile');
+            const listItems = document.querySelectorAll('.profile-container ul li');
+            const ul = document.querySelector('.profile-container ul');
+            const chevron = document.querySelector('.fa-chevron-down');
+
+            // Toggle 'active' class on ul when profile is clicked
+            profile.addEventListener('click', function () {
+                ul.classList.toggle('active');
+                chevron.classList.toggle('rotate');
+            });
+
+            // Add 'active' class to clicked li and remove from others
+            listItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Remove active class from all list items
+                    listItems.forEach(function (li) {
+                        li.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked item
+                    this.classList.add('active');
+                });
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all sliders on the page
+            const sliders = document.querySelectorAll(".wrapper");
+
+            sliders.forEach(function (slider) {
+                const carousel = slider.querySelector(".carousel");
+                const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+                const leftButton = slider.querySelector(".left");
+                const rightButton = slider.querySelector(".right");
+
+                leftButton.addEventListener("click", () => {
+                    carousel.scrollLeft -= firstCardWidth;
+                });
+
+                rightButton.addEventListener("click", () => {
+                    carousel.scrollLeft += firstCardWidth;
+                });
+            });
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+
+    {% else %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.left-section .categories');
+            const categoryList = document.querySelector('.main-category');
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            categories.addEventListener('click', function () {
+                // Toggle the 'active' class on the main category list
+                categoryList.classList.toggle('active');
+                categoryLists.forEach(function (category) {
+                    category.classList.remove('active');
+                });
+            });
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Remove the 'active' class from all category lists
+                    categoryLists.forEach(function (category) {
+                        category.classList.remove('active');
+                    });
+
+                    // Add the 'active' class to the clicked category list
+                    categoryLists[index].classList.add('active');
+                });
+            });
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginButton = document.getElementById("loginButton");
+            const signupButton = document.getElementById("signupButton");
+            const loginModal = document.getElementById("login");
+            const signupModal = document.getElementById("signup");
+            const modalContainer = document.getElementById("auth-modal");
+
+            function openModal(modal) {
+                modalContainer.classList.add("active");
+                modal.classList.add("active");
+            }
+
+            function closeModal() {
+                modalContainer.classList.remove("active");
+                loginModal.classList.remove("active");
+                signupModal.classList.remove("active");
+            }
+
+            loginButton.addEventListener("click", function () {
+                closeModal(); // Close any open modals first
+                openModal(loginModal);
+            });
+
+            signupButton.addEventListener("click", function () {
+                closeModal(); // Close any open modals first
+                openModal(signupModal);
+            });
+
+            modalContainer.addEventListener("click", function (event) {
+                if (event.target === modalContainer) {
+                    closeModal();
+                }
+            });
+
+            const closeModalButtons = document.querySelectorAll(".close");
+            closeModalButtons.forEach(button => {
+                button.addEventListener("click", closeModal);
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all sliders on the page
+            const sliders = document.querySelectorAll(".wrapper");
+
+            sliders.forEach(function (slider) {
+                const carousel = slider.querySelector(".carousel");
+                const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+                const leftButton = slider.querySelector(".left");
+                const rightButton = slider.querySelector(".right");
+
+                leftButton.addEventListener("click", () => {
+                    carousel.scrollLeft -= firstCardWidth;
+                });
+
+                rightButton.addEventListener("click", () => {
+                    carousel.scrollLeft += firstCardWidth;
+                });
+            });
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    {% endif %}
+</body>
+
+</html>

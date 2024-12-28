@@ -1,0 +1,16 @@
+<!-- assign_quiz.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Quiz</title>
+</head>
+<body>
+    <h1>Assign Quiz</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Assign Quiz</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,235 @@
+CSS CHANGES:
+
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+/* Header Styles */
+/* header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+} */
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* .company-name {
+    font-size: 1.5em;
+    font-weight: bold;
+} */
+
+nav {
+    /* display: flex;
+    align-items: center; */
+    position:relative;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    /* align-items: center;
+    margin-right: 20px; */
+}
+
+.nav-menu li {
+    margin-left: 20px;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    /* margin-right: 20px; */
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+    /* transition: 0.4s; */
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Navigation Styles */
+.nav {
+    /* position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+    z-index: 100; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.nav-logo p {
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.nav-menu ul {
+    display: flex;
+}
+
+.nav-menu ul li {
+    list-style-type: none;
+}
+
+.nav-menu ul li .link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    padding-bottom: 15px;
+    margin: 0 10px;
+}
+
+.link:hover, .active {
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+}
+
+.nav-button .btn {
+    width: 130px;
+    height: 40px;
+    background: #3E8EDE;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s ease;
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.nav-logo img {
+    width: 70px;
+    margin-right: 10px;
+    margin-top: -10px;
+}
+
+SCRIPTS1.JS
+FOR MOBILE VIEW
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+});
+
+
+ADD THE HAMBURGER CLASS AFTER YOUT PARAGRAPH AND BEFORE <DIV CLASS="NAV-MENU">
+
+FOR REFERANCE:
+
+ <body>
+<header>
+        <nav class="nav">
+            <div class="nav-logo">
+                <img src="{% static 'company_logo.png' %}" alt="Company Logo">
+                <p style="font-size: 28px; font-weight: bold;" >Meta Scifor Technologies</p>
+            </div>
+            <div class="hamburger">
+             <span></span>
+            <span></span>
+            <span></span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a onclick="window.location.href='/'" class="link active" style="font-size: 20px; font-weight: bold;">Home</a></li>
+                    <li><a onclick="window.location.href='/services'" class="link" style="font-size: 20px; font-weight: bold;">Services</a></li>
+                    <li><a onclick="window.location.href='/about-us'" class="link" style="font-size: 20px; font-weight: bold;">About</a></li>
+                    <li><a onclick="window.location.href='/case_study'" class="link" style="font-size: 20px; font-weight: bold;">Case Studies</a></li>
+                    <li><a href="#footer" class="link" style="font-size: 20px; font-weight: bold;">Contact</a></li>
+                    <li><a onclick="window.location.href='/community'" class="link" style="font-size: 20px; font-weight: bold;">Community</a></li>
+                    <li><a onclick="window.location.href='/carrer'" class="link" style="font-size: 20px; font-weight: bold;">Join Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <script src="{% static 'scripts1.js' %}"></script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Affiliate Marketers</title>
+</head>
+<body>
+    <h1>Search Affiliate Marketers</h1>
+    <form method="get" action="{% url 'admin_affiliate-marketer-search' %}">
+        <input type="text" name="query" placeholder="Search by name">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% if marketers %}
+            {% for marketer in marketers %}
+                <a href="{% url 'admin_affiliate-market-detail' marketer.id %}">{{ marketer.name }}</a>
+                <!-- Add more details about the marketer as needed -->
+            {% endfor %}
+        {% else %}
+            <li>No matching marketers found.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

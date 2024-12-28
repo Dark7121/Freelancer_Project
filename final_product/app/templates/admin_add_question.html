@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question</title>
+</head>
+<body>
+    <h1>Add Question</h1>
+    <form method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Question Details</legend>
+            {{ question_form.as_p }}
+        </fieldset>
+        <fieldset>
+            <legend>Choices</legend>
+            {{ option_formset.as_p }}
+        </fieldset>
+        <button type="submit">Add Question</button>
+    </form>
+</body>
+</html>

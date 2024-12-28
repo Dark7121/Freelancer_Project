@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_offers_voucher.css' %}">
+</head>
+<body>
+
+
+<!-- Container that contains "statics boxes" STARTS-->
+<h2 id="referral-details-heading">OFFERS</h2>
+
+<!-- Container that contains "statics boxes" ENDS-->
+
+<!-- Table Section STARTS -->
+<div class="total-row-current-page-container">
+    <div class="current-page">
+        <img src="../static/admin_img/student_management_img/course_enroll_img/home_icon.png" alt="" class="home-icon">
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info" id="studentManagement">Course Name</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz 1</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+    </div>
+    <div class="total-rows" id="totalCourses">Total Course Enrollments: 0</div>
+</div>
+<form method="post">
+    {% csrf_token %}
+<div class="create-voucher">
+    <h2>CREATE VOUCHER</h2>
+    <p>Generate voucher codes for distribution, facilitating promotional offers and discounts. create similar sentence for this one. Produce voucher codes to distribute, enabling promotional deals and discounts to be offered.
+    </p>
+</div>
+
+<section id="new-voucher-container">
+    <div class="voucher-code-container">
+        <h4>New Voucher Code</h4>
+        <input class="input-box" type="text" name="code" id="">
+    </div>
+    <div class="voucher-code-container">
+        <h4>Discount Type</h4>
+        <select class="form-select" id="discount_type" name="discount_type" required>
+            <option value="flat">Flat Amount</option>
+            <option value="percentage">Percentage with Limit</option>
+        </select>
+    </div>
+    <div class="valid-date-container">
+        <div class="valid-date" id="valid-from">
+            <h4>Valid From</h4>
+            <input class="input-box" type="date" name="start_date" id="">
+        </div>
+        <div class="valid-date" id="valid-to">
+            <h4>Valid To</h4>
+            <input class="input-box" type="date" name="end_date" id="">
+        </div>
+    </div>
+</section>
+
+<div id="ensure-total-rached">
+    <img src="../static/admin_img/marketing_img/warning.png" alt="">
+<p>
+    Please ensure your total reaches this minimum threshold before applying the voucher at checkout.
+</p>
+</div>
+
+<section id="criteria-section">
+    <h2>Criteria</h2>
+    <div class="criteria-input-wrapper">
+
+        <div class="criteria-input-container">
+            <h5>Discount Percentage</h5>
+            <input class="input-box criteria-input" type="number" name="discount" id="">
+        </div>
+        <div class="criteria-input-container">
+            <h5>Minimum Amount</h5>
+            <input class="input-box criteria-input" type="number" name="min_amount" id="">
+        </div>
+        <div class="criteria-input-container">
+            <h5>Discount Limit</h5>
+            <input class="input-box criteria-input" type="number" name="discount_limit" id="">
+        </div>
+
+        <div class="criteria-input-container">
+            <h5>No. of Courses</h5>
+            <input class="input-box criteria-input" type="number" name="num_courses" id="">
+        </div>
+        <br>
+        <div class="criteria-input-container">
+            <h5>Selective Course</h5>
+            <select  id="courses" name="courses[]" multiple="multiple" required>
+                {% for course in courses %}
+                    <option value="{{ course.id }}">{{ course.course_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+    </div>
+    <button type="submit" class="edit-btns">Create Voucher</button>
+</section>
+</form>
+
+<!-- Table Section STARTS -->
+
+<div class="referralTable-container">
+<table id="referralTable2">
+    <thead>
+        <tr>
+            <th>Code Name</th>
+            <th>Discount</th>
+            <th>Type</th>
+            <th>Valid From</th>
+            <th>Valid To</th>
+            <th>No. of Voucher Used</th>
+            <th><span id="status">Status</span></th>
+            <th><span id="action">Action</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for voucher in vouchers %}
+        <tr>
+            <td>{{ voucher.code }}</td>
+            <td>{{ voucher.discount }}{% if voucher.discount_type == 'percentage' %}%{% endif %}</td>
+            <td>{{ voucher.get_discount_type_display }}</td>
+            <td>{{ voucher.start_date }}</td>
+            <td>{{ voucher.end_date }}</td>
+            <td>{{ voucher.used_count }}</td>
+            <td>
+                <span class="badge {% if voucher.is_active %}bg-success{% else %}bg-secondary{% endif %}">
+                    {% if voucher.is_active %}Active{% else %}Paused{% endif %}
+                </span>
+            </td>
+            <td>
+                <span class="badge {% if voucher.is_active %}bg-success{% else %}bg-secondary{% endif %}">
+                    {% if voucher.is_active %}Active{% else %}Paused{% endif %}
+                </span>
+            </td>
+            <td>
+                <a href="{% url 'admin_edit_voucher' voucher.id %}" class="btn btn-warning btn-sm btn-custom btn-icon"><i class="fas fa-edit"></i>Edit</a>
+                {% if voucher.is_active %}
+                    <a href="{% url 'admin_pause_voucher' voucher.id %}" class="btn btn-secondary btn-sm btn-custom btn-icon"><i class="fas fa-pause"></i>Pause</a>
+                {% else %}
+                    <a href="{% url 'admin_unpause_voucher' voucher.id %}" class="btn btn-success btn-sm btn-custom btn-icon"><i class="fas fa-play"></i>Unpause</a>
+                {% endif %}
+                <a href="{% url 'admin_stop_voucher' voucher.id %}" class="btn btn-danger btn-sm btn-custom btn-icon"><i class="fas fa-stop"></i>Stop</a>
+                <a href="{% url 'admin_use_voucher' voucher.code %}" class="btn btn-primary btn-sm btn-custom btn-icon"><i class="fas fa-tag"></i>Use</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<!-- Pagination Controls STARTS -->
+<div class="pagination" id="pagination2">
+    <div class="select-page">Select by Page No. : <select id="pageSelect2" onchange="changePage2()">
+    </select></div>
+    <!-- <div id="currentPage">Page 1 of 1</div> -->
+    <div id="currentPage2">Page 1 of 1</div>
+    <img id="prevBtn2" class="next-previous-button" src="{% static 'admin_img/student_management_img/course_enroll_img/Arrow_left.png' %}" alt="Previous" onclick="prevPage2()">
+
+    <img id="nextBtn2" class="next-previous-button" src="{% static 'admin_img/student_management_img/course_enroll_img/Arrow_right.png' %}" alt="Next" onclick="nextPage2()">
+</div>
+<!-- Pagination Controls ENDS -->
+
+<!-- scripts -->
+
+
+<!-- select page script -->
+<script>
+   function goToCoursePage() {
+        window.location.href = "{% url 'admin_marketing_promotion_view_bills' %}";
+    }
+</script>
+
+<!-- go on studentManagement script -->
+<script>
+
+const studentManagement = document.querySelector('#studentManagement')
+studentManagement.onclick = function() {
+    window.location.href = "";
+};
+$(document).ready(function() {
+    $('#courses').select2({
+        placeholder: "Select courses",
+        allowClear: true
+    });
+    $('[data-bs-toggle="tooltip"]').tooltip();
+});
+</script>
+</body>
+</html>

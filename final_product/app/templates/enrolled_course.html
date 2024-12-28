@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrolled Courses</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-Learning</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'course_catalog' %}">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Enrolled Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'community_platform' %}">Community</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'mentorship_page' %}">Personal Mentorship</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Enrolled Courses -->
+<div class="container mt-5">
+    <h2>Enrolled Courses</h2>
+
+    <!-- Filter Dropdown -->
+    <div class="form-group">
+        <label for="categoryFilterSelect">Filter by Category:</label>
+        <select class="form-control" id="categoryFilterSelect">
+            <option value="all">All Categories</option>
+            <option value="Tech">Tech Courses</option>
+            <option value="CBSE">CBSE Courses</option>
+        </select>
+    </div>
+
+    <!-- Display Tech Courses -->
+    <div class="row" id="techCourses">
+        {% for enrollment in enrolled_courses %}
+            {% if enrollment.course.category == 'Tech Courses' %}
+                <div class="col-md-4 mb-4 enrolled-course-card" data-category="tech">
+                    <div class="card">
+                        <img src="{{ enrollment.course.image.url }}" class="card-img-top" alt="{{ enrollment.course.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ enrollment.course.title }}</h5>
+                            <p class="card-text">{{ enrollment.course.description }}</p>
+                            <a href="{% url 'start_course' course_id=enrollment.course.id %}" class="btn btn-primary">Start Course</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Display CBSE Courses -->
+    <div class="row" id="cbseCourses">
+        {% for enrollment in enrolled_courses %}
+            {% if enrollment.course.category == 'CBSE Courses' %}
+                <div class="col-md-4 mb-4 enrolled-course-card" data-category="cbse">
+                    <div class="card">
+                        <img src="{{ enrollment.course.image.url }}" class="card-img-top" alt="{{ enrollment.course.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ enrollment.course.title }}</h5>
+                            <p class="card-text">{{ enrollment.course.description }}</p>
+                            <a href="{% url 'start_course' course_id=enrollment.course.id %}" class="btn btn-primary">Start Course</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Bootstrap JS (Optional - Only if needed for JavaScript functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript for filter functionality -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("categoryFilterSelect").addEventListener("change", function() {
+        var selectedCategory = this.value.toLowerCase();
+        var enrolledCourseCards = document.querySelectorAll(".enrolled-course-card");
+        enrolledCourseCards.forEach(function(card) {
+            var category = card.getAttribute("data-category").toLowerCase();
+            if (selectedCategory === "all" || category === selectedCategory) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

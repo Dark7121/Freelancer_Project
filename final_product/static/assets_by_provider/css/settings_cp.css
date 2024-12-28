@@ -1,0 +1,546 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/* Import Poppins font style */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Import Raleway font style */
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+.Dashboard {
+  width: 100%;
+  display: flex;
+}
+
+/* CSS for left slider */
+.sidebar {
+  width: 20%;
+  background-color: #d2e6e4;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 10px;
+  height: 117vh;
+}
+
+.logoplusafter {
+  display: flex;
+}
+
+.after-logo p {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  color: #0b7077;
+}
+
+.logo p {
+  margin-left: 60px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #213452;
+  font-weight: bold;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+nav ul li {
+  margin-bottom: 20px;
+  width: 100%;
+  margin: 30px 10px;
+}
+
+nav ul li a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 19.96px;
+  text-decoration: none;
+  color: #444444;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a:hover {
+  color: #00796b;
+}
+
+.icon {
+  margin-right: 40px;
+  font-size: 20px;
+}
+
+.notification-dot {
+  background-color: red;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 20px;
+}
+
+/* CSS for Dashboard middle  */
+.first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin: 2%;
+}
+
+.crs {
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 25.83px;
+  color: #000000;
+}
+
+.custom-nav a {
+  font-family: "Raleway", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  line-height: 21.13px !important;
+  color: #000000 !important;
+}
+
+.Dashboard-middle {
+  width: 80%;
+  background: white;
+}
+
+.input-section {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-section input {
+  padding: 8px;
+  padding-left: 30px;
+  background: white;
+  border-radius: 10px;
+  width: 300px;
+  border: 1px solid #d0d5dd;
+  font-family: "Raleway", sans-serif;
+}
+
+.input-section img {
+  position: absolute;
+  left: 85%;
+  opacity: 0.7;
+}
+
+/* Dashboard right */
+
+.Dashboard-right {
+  margin-top: 2%;
+}
+.dash-right-card {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0.5px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin-bottom: 35px;
+}
+
+.profile-pic {
+  position: relative;
+}
+
+.profile-pic img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.online-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #28a745;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.user-info-right {
+  flex: 1;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.role {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.notifications {
+  position: relative;
+}
+
+.notification-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.notification-icon::before {
+  content: "\1F514";
+  font-size: 24px;
+  color: #6c757d;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4757;
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* bank details */
+
+.custom-container {
+  padding: 20px;
+}
+
+.custom-nav {
+  display: flex;
+  gap: 70px; /* Increased gap to add more space between links */
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+}
+
+.custom-nav a.custom-active {
+  color: #0b7077;
+  border-bottom: 2px solid #0b7077;
+}
+
+.ban-det {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #000000;
+}
+.custom-main {
+  padding: 20px;
+}
+
+.custom-form-container {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: flex-start;
+}
+
+.custom-form {
+  border: 2px solid #0b7077;
+  border-radius: 8px;
+  padding: 20px;
+  border-radius: 5px;
+  width: 553px;
+  margin-top: 2%;
+  height: 258px;
+}
+
+.custom-form input {
+  display: block;
+  /* width: calc(100% - 20px); */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #d9d9d9;
+}
+
+.b-n {
+  background-color: #d9d9d9;
+  width: 220px;
+  color: black;
+}
+
+.b-n-a {
+  width: 510px;
+  margin-top: 7%;
+  color: black;
+}
+
+.custom-form-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 7%;
+}
+
+.b-b {
+  width: 50%;
+  color: black;
+}
+
+.b-b-a {
+  width: 50%;
+  color: black;
+}
+
+.custom-card {
+  position: relative;
+  left: 5%;
+  margin-top: 2%;
+  width: 350px;
+  height: 180px;
+  background-image: url("../images/Dashboard/bankcard.png");
+  background-size: cover;
+  border-radius: 10px;
+  padding: 20px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+.Visa-h {
+  position: relative;
+  top: 80%;
+  left: 80%;
+}
+
+/* .custom-card-details {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+}
+
+.custom-card-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.custom-card-number {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.custom-card-expiry {
+  font-size: 1em;
+} */
+
+/* CSS for Footer Up Section */
+.footer-up {
+  width: auto;
+  background: #d2e6e4;
+  margin-top: 2%;
+  display: flex;
+}
+
+.foot-left {
+  width: 40%;
+  height: 50vh;
+}
+
+.foot-left h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #0b7077;
+  margin: 0px 80px 180px 80px;
+  position: relative;
+  top: 25%;
+}
+
+.foot-left p {
+  color: #03989e;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px 80px 180px 80px;
+}
+
+.foot-right {
+  width: 40%;
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product {
+  position: relative;
+  top: 10%;
+}
+
+.product h2 {
+  color: #98a2b3;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  line-height: 20px;
+}
+
+.product ul {
+  list-style: none;
+  color: #03989e;
+  display: inline;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  line-height: 24px;
+}
+
+.product ul li {
+  margin: 10px 0;
+}
+
+.product ul li a {
+  text-decoration: none;
+  color: #03989e;
+}
+
+/* CSS for Footer Section */
+
+.footer {
+  height: 20vh;
+  background: #03989e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.footer-left h2 {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  line-height: 24px;
+}
+
+.icon1 img {
+  margin-right: 20px;
+}
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 25%;
+  }
+
+  .Dashboard-middle {
+    width: 75%;
+  }
+
+  .Dashboard-right {
+    width: 100%;
+    max-width: 25%;
+  }
+
+  .chart-container {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 100%;
+    max-width: 30%;
+  }
+
+  .Dashboard-middle {
+    width: 70%;
+  }
+
+  .Dashboard-right {
+    width: 100%;
+    max-width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .Dashboard-middle {
+    width: 100%;
+  }
+
+  .Dashboard-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .input-section {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    width: 100%;
+  }
+
+  .footer-up,
+  .foot-left,
+  .foot-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .chart-header {
+    flex-direction: column;
+  }
+}

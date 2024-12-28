@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Marketer List</title>
+</head>
+<body>
+    <h1>Affiliate Marketer List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Commission Percentage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for marketer in marketers %}
+                <tr>
+                    <td>{{ marketer.name }}</td>
+                    <td>{{ marketer.email }}</td>
+                    <td>{{ marketer.commission_percentage }}</td>
+                    <td>
+                        <a href="{% url 'admin_affiliate-market-detail' marketer.id %}">Detail</a> |
+                        <a href="{% url 'admin_affiliate-marketer-update' marketer.id %}">Update</a> |
+                        <a href="{% url 'admin_affiliate-market-delete' marketer.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

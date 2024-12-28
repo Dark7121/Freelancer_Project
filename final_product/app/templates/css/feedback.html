@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .ticket-list {
+            width: 30%;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+        }
+
+        .chat-window {
+            width: 70%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-history {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .chat-message {
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .agent-message {
+            background-color: #e6f7ff;
+            text-align: right;
+        }
+
+        .user-message {
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .send-btn {
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .send-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="ticket-list">
+            <h3>Open Tickets</h3>
+            <ul>
+                <li><a href="#" onclick="selectTicket(1)">Ticket #1</a></li>
+                <li><a href="#" onclick="selectTicket(2)">Ticket #2</a></li>
+                <li><a href="#" onclick="selectTicket(3)">Ticket #3</a></li>
+            </ul>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window">
+            <h3>Chat with User</h3>
+            <div class="chat-history" id="chatHistory">
+            </div>
+            <div class="input-group">
+                <input type="text" id="chatInput" class="form-control" placeholder="Type your message...">
+                <button class="btn send-btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectTicket(ticketId) {
+            loadChatHistory(ticketId);
+        }
+
+        
+        function loadChatHistory(ticketId) {
+            const chatHistory = document.getElementById('chatHistory');
+            chatHistory.innerHTML = ''; 
+            
+            chatHistory.innerHTML += `
+                <div class="chat-message user-message">User: Hello, I need help with my account.</div>
+                <div class="chat-message agent-message">Agent: Sure, I can assist you with that.</div>
+            `;
+        }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatHistory = document.getElementById('chatHistory');
+            const message = chatInput.value;
+
+            if (message.trim() !== '') {
+                chatHistory.innerHTML += `
+                    <div class="chat-message agent-message">Agent: ${message}</div>
+                `;
+
+                chatInput.value = '';
+              
+            }
+        }
+    </script>
+</body>
+
+</html>

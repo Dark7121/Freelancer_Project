@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Student</h1>
+        <form method="post" action="{% url 'admin_edit-student' student.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" value="{{ student.Full_Name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile_no">Mobile Number</label>
+                <input type="text" class="form-control" id="mobile_no" name="mobile_no" value="{{ student.Mobile_no }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ student.EmailID }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob" value="{{ student.DOB|date:'Y-m-d' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="male" {% if student.Gender == 'male' %}selected{% endif %}>Male</option>
+                    <option value="female" {% if student.Gender == 'female' %}selected{% endif %}>Female</option>
+                </select>
+            </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="cart"><strong>Cart</strong></label>
+                <ul class="list-group" id="cart">
+                    {% for course in student.cart.all %}
+                        <li class="list-group-item">{{ course.course_name }}</li>
+                    {% empty %}
+                        <li class="list-group-item">No courses in cart.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="wishlist"><strong>Wishlist</strong></label>
+                <ul class="list-group" id="wishlist">
+                    {% for course in student.wishlist.all %}
+                        <li class="list-group-item">{{ course.course_name }}</li>
+                    {% empty %}
+                        <li class="list-group-item">No courses in wishlist.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ongoing_courses"><strong>Ongoing Courses</strong></label>
+                <ul class="list-group" id="ongoing_courses">
+                    {% for course in student.ongoing_courses.all %}
+                        <li class="list-group-item">{{ course.course_name }}</li>
+                    {% empty %}
+                        <li class="list-group-item">No ongoing courses.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="completed_courses"><strong>Completed Courses</strong></label>
+                <ul class="list-group" id="completed_courses">
+                    {% for course in student.completed_courses.all %}
+                        <li class="list-group-item">{{ course.course_name }}</li>
+                    {% empty %}
+                        <li class="list-group-item">No completed courses.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <button type="submit" class="btn btn-primary">Update Student</button>
+        </form>
+        <a href="{% url 'admin_student_management_database' %}" class="btn btn-secondary mt-3">Back to Student List</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

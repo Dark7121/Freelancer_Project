@@ -1,0 +1,650 @@
+/* Import Poppins font style */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Import Raleway font style */
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.Dashboard {
+  width: 100%;
+}
+
+.nav-profile-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #C8F7DC;
+  margin-right: 2rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #C8F7DC;
+  border-right: 2px solid #34C471;
+  border-bottom: 2px solid #34C471;
+  transform: rotateZ(-65deg);
+}
+.nav-profile-logo img{
+  height: 15px !important;
+  margin-left: 2px;
+  object-fit: cover !important;
+  transform: rotateZ(65deg);
+}
+
+/* CSS for left slider */
+.navbar {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.quiz-assignment-container{
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.quiz-items{
+  display: none;
+  flex-direction: column;
+  margin-top: 10px;
+  padding-top: 10px;
+  width: 100px;
+  height: 160px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  border: 2px solid rgba(128, 128, 128, 0.388);
+  text-align: center;
+}
+
+#quiz{
+  padding-right: 5px;
+  width: 100px;
+  background: none;
+  border: none;
+}
+
+#assignment-container{
+  position: absolute;
+  top: 10%;
+  left: 30%;
+}
+
+#assignment-container a{
+  text-decoration: none;
+  color: black;
+}
+
+.quiz-items a{
+  text-decoration: none;
+  width: 100%;
+  height: 53px;
+  color: black;
+}
+
+.quiz-container{
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.cc {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #444444;
+}
+
+
+.dropdown-items li {
+  list-style-type: none;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 19.96px;
+  color: #444444;
+}
+
+/* CSS for Dashboard middle  */
+.first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin: 2%;
+}
+
+.crs {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.input-section {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-section input {
+  padding: 8px;
+  padding-left: 30px;
+  background: white;
+  border-radius: 10px;
+  width: 300px;
+  border: 1px solid #d0d5dd;
+  font-family: "Raleway", sans-serif;
+}
+
+.input-section img {
+  position: absolute;
+  left: 85%;
+  opacity: 0.7;
+}
+
+/* Cards */
+
+.dash-mid-mid {
+  width: 65% !important;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  margin-left: 4%;
+}
+.card {
+  padding: 0px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #F5F6F8 !important;
+  border: none !important;
+  white-space: nowrap;
+}
+
+.card img {
+  position: relative;
+  top: 30%;
+  left: 5%;
+}
+
+.card .value {
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  top: 0%;
+  left: 110px;
+}
+.card .label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+  position: relative;
+  top: 0%;
+  left: 18%;
+}
+
+/* Graph */
+.rev-chart {
+  display: flex;
+  justify-content: space-between;
+}
+.chart-container {
+  width: 40%;
+  background-color: #d2e6e4;
+  padding: 20px;
+  margin-left: 2%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#revenueChart {
+  margin-top: 20px;
+}
+
+select {
+  background: #d2e6e4;
+  text-decoration: none;
+  border: none;
+}
+
+/* community */
+
+.community-container {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.h-cc {
+  display: flex;
+  justify-content: space-between;
+}
+
+#createPostBtn {
+  display: block;
+  background-color: #FF7675;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+#createPostBtn:hover {
+  background-color: #008f7a;
+}
+
+/* styles.css */
+/* community */
+
+.dis-cuss {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tb-head {
+  display: flex;
+  align-items: center;
+}
+
+.tb-head p {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.dis-cuss td {
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.dis-cuss tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dis-cuss tr td:nth-child(1),
+.dis-cuss tr th:nth-child(1) {
+  flex: 5;
+  text-align: left;
+}
+
+.dis-cuss tr td:nth-child(2),
+.dis-cuss tr th:nth-child(2),
+.dis-cuss tr td:nth-child(3) {
+  flex: 2;
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content1 {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 65% !important;
+  position: relative;
+}
+
+.close22 {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.discussion-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+.interaction {
+  display: flex;
+  gap: 40px;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  margin-left: 60px;
+}
+
+.interaction a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.interaction a .icon {
+  margin-right: 5px;
+}
+
+.like-link,
+.dislike-link,
+.share-link {
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.comment-section input {
+  flex-grow: 1;
+  padding: 10px;
+  margin-left: 60px;
+  margin-bottom: 20px;
+  width: 80%;
+  border: 2px solid #0b7077;
+}
+
+.comment-btn {
+  padding: 10px;
+  width: 10vw;
+  margin-left: 71%;
+  background: #49bbbd;
+  color: white;
+  font-weight: 500;
+}
+
+/* quizzes payout statement */
+
+.dashboard-container {
+  display: flex;
+  padding: 20px;
+}
+.ques2 {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  width: 10px;
+}
+
+.cp2 {
+  position: relative;
+  right: 52px;
+}
+
+.dashboard-quiz-content h6 {
+  margin-bottom: 5px;
+  font-size: 14px !important;
+}
+.dashboard-quiz-content p {
+  margin-bottom: 0;
+  font-size: 12px !important;
+}
+
+.dashboard-quizzes {
+  width: 30%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.dashboard-quizzes h2 {
+  margin-top: 0;
+  font-size: 15px;
+}
+.dashboard-quiz-item {
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 2px solid #444444;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  display: flex;
+}
+
+.dashboard-quiz-icon {
+  position: relative;
+  margin-right: 10px;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.dashboard-quiz-link {
+  text-decoration: none;
+  color: inherit;
+}
+.dashboard-quiz-item:hover {
+  background-color: #c5c5c5;
+}
+.dashboard-quiz-content {
+  flex-grow: 1;
+}
+
+/* earning */
+
+.earnings-table {
+  margin-top: 30px;
+  border-collapse: separate;
+  border: 1px solid black !important;
+  border-radius: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.earnings-table th,
+.earnings-table td {
+  padding: 10px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.earnings-table th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+.earnings-table tr:last-child td {
+  border-bottom: none;
+}
+.earnings-table .center {
+  text-align: center;
+}
+
+/* Assignment  */
+
+.dashboard-assignment-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+.dashboard-assignments h2 {
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.dashboard-assignment-item {
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border:2px solid black;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  display: flex;
+  /* width: 26vw; */
+}
+
+.dashboard-assignment-icon {
+  font-size: 24px;
+  margin-right: 25px;
+  position: relative;
+  background: #F3E4FF;
+  border-radius: 20%;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+}
+.cp2 {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  width: 30px;
+}
+
+.dashboard-assignment-status {
+  background-color: #E8EFF6;
+  border-radius: 10px;
+  padding: 2px 5px;
+  font-size: 11px;
+  align-self: flex-start;
+}
+.dashboard-assignments {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.dashboard-assignment-content {
+  flex-grow: 1;
+}
+
+.dashboard-assignment-content h3 {
+  font-size: 14px;
+}
+.dashboard-assignment-content p {
+  font-size: 12px;
+}
+
+.dashboard-assignment-item:hover {
+  background-color: #c5c5c5;
+}
+
+/* CSS for Dashboard Right */
+
+.Dashboard-right {
+  margin-top: 2%;
+}
+.dash-right-card {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0.5px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin-bottom: 35px;
+}
+
+.profile-pic {
+  position: relative;
+}
+
+.profile-pic img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.online-status {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #28a745;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.user-info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.role {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.notifications {
+  position: relative;
+}
+
+.notification-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.notification-icon::before {
+  content: "\1F514";
+  font-size: 24px;
+  color: #6c757d;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4757;
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+

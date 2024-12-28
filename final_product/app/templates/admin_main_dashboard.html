@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/admin_main_dashboard.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+<!-- Main container that contains "statics boxes", "graph" and "tables" -->
+
+<div class="container">
+        <h2 id="main-heading">DASHBOARD</h2>
+
+<!-- Container that contains "statics boxes", "graph" STARTS-->        
+        <div class="graph-enroll-boxes-wrapper">
+
+<!-- Container that contains "statics boxes" STARTS-->               
+        <div class="earning-enroll-container">
+            <div class="statics-box  total-enroll-count">
+                <div class="statics-box-heading">
+                <h2>Total enrollment Count</h2>
+                <p><span>900 </span>users
+                </p></div>
+                <img src="../static/admin_img/dashborad_img/total_enroll.png" alt="">
+            </div>
+            <div class="statics-box this-month-count">
+                <div class="statics-box-heading">
+                    <h2>This month count</h2>
+                    <p><span>768 </span>users
+                    </p></div>
+                <img src="../static/admin_img/dashborad_img/this_month_count.png" alt="">
+            </div>
+            <div class="statics-box total-earning">
+                <div class="statics-box-heading">
+                    <h2>Total Earnings</h2>
+                    <p><span>₹430.00</span>
+                    </p></div>
+                <img src="../static/admin_img/dashborad_img/total_earnings.png" alt="">
+            </div>
+            <div class="statics-box this-month-earning">
+                <div class="statics-box-heading">
+                    <h2>This month earnings</h2>
+                    <p><span>₹1290</span></p></div>
+                <img src="../static/admin_img/dashborad_img/this_month_earnings.png" alt="">
+            </div>
+        </div>
+<!-- Container that contains "statics boxes" ENDS-->  
+
+<!-- Container that contains "graph" STARTS-->   
+        <div class="graph-container">
+        <h1>ANALYTICS</h1>
+        <div class="graph">
+            <div class="chart-header">
+                <div class="activity">Activity</div>
+                <div class="months">Month</div>
+            </div>
+            <canvas id="abacusGraph" width="315" height="180"></canvas>
+        </div>
+    </div>
+<!-- Container that contains "graph" ENDS-->
+    
+</div> 
+
+<!-- Container that contains "statics boxes", "graph" ENDS-->    
+
+<!-- container that contains "tables" -->
+<div class="tables">
+    <div class="each-table-container">
+    <h2>COURSE EARNINGS</h2>
+    <table id="table1">
+        <thead>
+            <tr>
+                <th>S.no</th>
+                <th>Course name</th>
+                <th>Rating</th>
+                <th>No.of enrollments</th>
+                <th>Earnings</th>
+                <th>Commision</th>
+                <th>Net Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1.</td><td>Artificial intelligence</td><td>4.5</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+            <tr><td>2.</td><td>Artificial intelligence</td><td>4.8</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+            <tr><td>3.</td><td>Artificial intelligence</td><td>4.0</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+            <tr><td>4.</td><td>Artificial intelligence</td><td>5.0</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
+            <tr><td>5.</td><td>Artificial intelligence</td><td>4.1</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>    
+        </tbody>
+    </table>
+    </div>
+
+    <div class="each-table-container">
+    <h2>1:1 MENTORSHIP</h2>
+    <table id="table2">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Course name</th>
+                <th>Request date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="td-table2">John dye</td><td class="td-table2">Artificial intelligence</td><td class="td-table2">Mar 1,2023</td><td class="td-table2"><p class="green-status">Pending</p></td></tr>
+            <tr><td class="td-table2">John dye</td><td class="td-table2">Artificial intelligence</td><td class="td-table2">Mar 1,2023</td><td class="td-table2"><p class="purple-status">Complete</p></td></tr>
+            <tr><td class="td-table2">John dye</td><td class="td-table2">Artificial intelligence</td><td class="td-table2">Mar 1,2023</td><td class="td-table2"><p class="purple-status">Complete</p></td></tr>
+            <tr><td class="td-table2">John dye</td><td class="td-table2">Artificial intelligence</td><td class="td-table2">Mar 1,2023</td><td class="td-table2"><p class="green-status">Pending</p></td></tr>
+            <tr><td class="td-table2">John dye</td><td class="td-table2">Artificial intelligence</td><td class="td-table2">Mar 1,2023</td><td class="td-table2"><p class="green-status">Pending</p></td></tr> 
+        </tbody>
+    </table>
+    </div>
+
+    <div class="each-table-container">
+    <h2>COURSE PROVIDERS</h2>
+    <table id="table3">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Invoice No</th>
+                <th>Name</th>
+                <th>Month</th>
+                <th>Course Name</th>
+                <th>No.of enrollments</th>
+                <th>Per share</th>
+                <th>Amount</th>
+                <th>Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>2.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>3.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>4.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>5.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>6.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+          
+        </tbody>
+    </table>
+    </div>
+
+    <div class="each-table-container">
+    <h2>AFFILIATE MARKETERS</h2>
+    <table id="table4">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Invoice No</th>
+                <th>Name</th>
+                <th>Month</th>
+                <th>No.of enrollments</th>
+                <th>Per share</th>
+                <th>Amount</th>
+                <th>Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>2.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>3.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>4.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>5.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+            <tr><td>6.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
+           
+        </tbody>
+    </table>
+    </div>
+
+    <div class="each-table-container">
+    <h2>SUPPORT PANEL</h2>
+    <table id="table5">
+        <thead>
+            <tr>
+                <th>Ticket id</th>
+                <th>Created date</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>#16879</td><td>Mar 1,2023</td><td>John dye</td><td>My course</td><td>Can't find course</td><td><p class="green-status">open</p></td></tr>
+            <tr><td>#16879</td><td>Mar 1,2023</td><td>John dye</td><td>Payment</td><td>Refund</td><td><p class="green-status">open</p></td></tr>
+            <tr><td>#16879</td><td>Mar 1,2023</td><td>John dye</td><td>1:1 Mentorship</td><td>Change date</td><td><p class="purple-status">Closed</p></td></tr>
+            <tr><td>#16879</td><td>Mar 1,2023</td><td>John dye</td><td>Certificate</td><td>Change name</td><td><p class="purple-status">Closed</p></td></tr>
+            <tr><td>#16879</td><td>Mar 1,2023</td><td>John dye</td><td>Other</td><td>Other</td><td><p class="purple-status">Closed</p></td></tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+</div>
+    <script src="{% static 'js/admin_main_dashboard.js' %}"></script>
+</body>
+</html>

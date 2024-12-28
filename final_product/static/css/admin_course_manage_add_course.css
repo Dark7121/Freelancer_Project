@@ -1,0 +1,887 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #F3F4F6;
+    margin: 0;
+    padding: 0;
+    padding-left: 8vw;
+    box-sizing: border-box;
+}
+
+/* Add Course Heading */
+#add-course-heading {
+    margin-top: 30px;
+}
+/* Add Course Heading END */
+
+/* Current Page Information Styling STARTS */
+.total-row-current-page-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45vw;
+    margin-top: 30px;
+}
+
+.current-page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.current-page-info {
+    margin: 0px 5px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.home-icon {
+    margin-right: 5px;
+}
+
+.page-arrow, .home-icon {
+    width: 22px;
+    height: 22px;
+}
+/* Current Page Information Styling ENDS */
+
+.upload-img-container{
+    width: 20rem;
+    height: 13rem;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
+.image-preview{
+    width: 80%;
+    margin: 10px 10%;
+    height: 70%;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px gray;
+}
+
+.upload-btn-container{
+    display: flex;
+    align-items: center;
+}
+
+#upload-btn {
+    width: 120px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #02BCB7;
+    margin-left: 10%;
+}
+
+.upload-btn-container p{
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+/* Class Mentor Name Container STARTS */
+.class-mentor-name-container {
+    margin-top: 50px;
+}
+/* Class Mentor Name Container ENDS */
+
+/* Input Box STARTS */
+.input-box {
+    width: 25rem;
+    height: 55px;
+    padding-left: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+    padding: 10px; 
+    line-height: 1;
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+}
+
+.select-selected {
+    width: 22.9rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-top: 15px;
+    padding-left: 25px;
+    height: 32px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgb(177, 177, 177);
+}
+
+.select-items {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 25rem;
+    z-index: 1;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.select-items .options {
+    padding: 15px;
+    padding-left: 20%;
+    text-align: start;
+    cursor: pointer;
+    width: 19.1rem;
+    height: 30px;
+    justify-content: flex-start;
+    border-bottom: 2px solid #aaa8a8;
+}
+
+.select-items div:hover {
+    background-color: #ddd;
+}
+
+#custom-option{
+    padding-left: 16%;
+}
+
+#custom-input{
+    height: 35px;
+    width: 16rem;
+    padding-left: 30px;
+}
+
+#custom-input::placeholder{
+    color: #6B6464;
+    font-size: 15px;
+}
+
+.custom-file-input {
+    display: none;
+}
+
+
+/* Input Box ENDS */
+
+/* Class Description STARTS */
+#what-will-you-learn {
+    width: 80vw;
+    height: 60px;
+    align-content: start;
+    text-align: start;
+}
+
+.class-description-container {
+    width: 80vw;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+#skills-you-will-learn {
+    width: 80vw;
+}
+
+.toolbar {
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: #f9f9f9;
+}
+
+.toolbar button,
+.toolbar select {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.toolbar button:hover,
+.toolbar select:hover {
+    background: #ddd;
+}
+
+#class-description {
+    width: 100%;
+    height: 270px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #000;
+    overflow-y: scroll;
+    white-space: pre-wrap; /* Preserve formatting */
+}
+
+.tool-icons {
+    width: 40px;
+    height: 28px;
+}
+/* Class Description ENDS */
+
+/* Add New Modules Styling STARTS */
+#modules-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.heading-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading-container p {
+    color: #3442D9;
+}
+
+#first-module-container {
+    width: 58.5vw;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+    border: 1px solid rgb(189, 189, 189);
+}
+
+#arrow-img {
+    width: 25px;
+    height: 25px;
+    margin-right: 30px;
+}
+#arrow-img2 {
+    width: 25px;
+    height: 25px;
+    margin-right: 30px;
+}
+#arrow-img3 {
+    width: 25px;
+    height: 25px;
+    margin-right: 30px;
+}
+#arrow-img4 {
+    width: 25px;
+    height: 25px;
+    margin-right: 30px;
+}
+
+#arrow-img5 {
+    width: 25px;
+    height: 25px;
+    margin-right: 30px;
+}
+
+.artical-main-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#add-modules-container {
+    display: none;
+    transition: all 0.5s ease;
+    padding-bottom: 30px;
+}
+
+.main-modules-wrapper {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #F4F7FE;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+    border: 1px solid rgb(189, 189, 189);
+}
+
+.module-title-description {
+    margin: 50px;
+}
+
+#moduleTitle {
+    margin-right: 15px;
+}
+
+#module-title-input, #article-title-input {
+    width: 68%;
+}
+
+.module-description-container .description-heading {
+    margin: 20px 0px;
+}
+
+.module-descrption-editor {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+#articleDesription {
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+#module-description, #class-description {
+    width: 100%;
+    height: 170px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #000;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+}
+
+#sub-module {
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+/* Add New Modules Styling ENDS */
+
+/* Questions Styling STARTS */
+.questions {
+    width: 50vw;
+    height: 45vh;
+    margin: 40px 0px;
+    display: flex;
+    align-items: start;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+#ques-no1 {
+    width: fit-content;
+    margin-right: 30px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+}
+
+#option-button-container {
+    display: flex;
+    margin-left: 90px;
+}
+
+.options span {
+    width: 80px;
+    margin-right: 10px;
+}
+
+#ques1 {
+    margin-left: 48px;
+}
+/* Questions Styling ENDS */
+
+/* Status Buttons Styling STARTS */
+.purple-status {
+    color: #534FEB;
+    background-color: #F6F6FE;
+    width: 91px;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+    margin: 0;
+    height: 35px;
+    border: 0.5px solid #534FEB;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.green-status {
+    color: #069855;
+    background-color: #E6F5EE;
+    width: 66px;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 20px;
+    height: 35px;
+    border: 0.5px solid #069855;
+    cursor: pointer;
+}
+
+.purple-status:hover {
+    background-color: #e2e2fa;
+}
+
+.green-status:hover {
+    background-color: #ddf7ec;
+}
+/* Status Buttons Styling ENDS */
+
+/* Edit Buttons Styling STARTS */
+.edit-btns {
+    width: 120px;
+    height: 40px;
+    font-weight: 600;
+    padding: 10px 10px 10px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 20px;
+    color: white;
+    background-color: #FF7675;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-btns .button-content {
+    display: flex;
+    align-items: center;
+}
+
+.edit-btns img {
+    width: 20px;
+    height: 20px;
+}
+
+.img-margin-left {
+    margin-left: 5px;
+}
+
+#addAssignment {
+    width: 160px;
+}
+/* Edit Buttons Styling ENDS */
+
+/* Add Article Container Styling STARTS */
+.add-article-container {
+    width: 45vw;
+    height: 50px;
+    display: none;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+    padding-left: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+.add-article-container2 {
+    width: 50vw;
+    padding: 10px;
+    margin-bottom: 50px;
+    padding-left: 50px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+/* Add Article Container Styling ENDS */
+
+/* Save Draft Buttons Styling STARTS */
+.save-draft-btns {
+    margin: 40px 0px 10px 0px; 
+}
+
+.save-draft-btns .button-content {
+    justify-content: center;
+}
+
+.save-btns {
+    width: 90px;
+    position: relative;
+    height: 40px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+    color: white;
+    background-color: #FF7675;
+    border: none;
+    cursor: pointer;
+}
+/* Save Draft Buttons Styling ENDS */
+
+/* Add Video Wrapper Styling STARTS */
+.add-video-wrapper {
+    width: 80%;
+    height: 50px;
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    overflow: hidden;
+    margin: 50px;
+    margin-top: 0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+.add-video-wrapper2 {
+    width: 53vw;
+    padding: 10px;
+    margin: 50px;
+    margin-top: 0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+#videoTitle{
+    margin-left: 40px;
+}
+
+.add-video-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.module-title-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;   
+}
+
+.module-title-container .module-title {
+    width: 120px;
+}
+
+#or-container {
+    margin: 0px;
+}
+
+#or-text {
+    margin: 0%;
+}
+
+#video-edit-btns {
+    padding-left: 50px;
+}
+/* Add Video Wrapper Styling ENDS */
+
+/* Add Quiz Wrapper Styling STARTS */
+.add-quiz-wrapper {
+    width: 77.8%;
+    display: none;
+    cursor: pointer;
+    height: 45px;
+    overflow: hidden;
+    padding: 20px;
+    padding-top: 0px;
+    margin: 0px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+.add-quiz-wrapper2 {
+    width: 53vw;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+#quizTitleContainer{
+    margin-top: 10px;
+    width: 105%;
+}
+
+#addQuizTitle{
+    margin-left: 35px;
+}
+
+#arrow-img4{
+    margin-right: 50px;
+}
+
+#add-questions-btn {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#quizHeading {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#quizInput {
+    width: 80%;
+}
+
+#quizTitle {
+    margin-right: 20px;
+}
+
+.questionNo-timeLimit-cotainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#total-question {
+    margin-left: 25px;
+}
+
+#total-question-input, #time-limit {
+    width: 60px;
+}
+
+#total-question-input {
+    margin-left: 10px;
+}
+
+#time-limit {
+    margin-right: 25px;
+    margin-left: 5px;
+}
+
+.no-of-question {
+    display: flex;
+    align-items: center;
+}
+
+.no-of-question p {
+    width: 5rem;
+}
+/* Add Quiz Wrapper Styling ENDS */
+
+/* Resources Container Styling Starts */
+
+#resources-section{
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.upload-file-container{
+    width: 20rem;
+    height: 40px;
+    border: 1px solid black;
+    padding: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.upload-file-container2{
+    width: 28rem;
+    height: 40px;
+    border: 1px solid black;
+    padding: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.resources-container{
+    width: 80vw;
+    border-radius: 5px;
+    padding-bottom: 40px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgb(162, 162, 162);
+}
+
+.weekly-activity{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.weekly-activity h3{
+    margin-left: 50px;
+}
+
+#title-input{
+    width: 55%;
+    margin-left: 20px;
+    height: 45px;
+    padding-left: 10px;
+}
+
+.custom-file-label {
+    display: inline-block;
+    padding: 10px;
+    padding-left: 40px;
+    width: 90px;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+}
+
+.career-guidance{
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.career-guidance-label {
+    display: inline-block;
+    padding: 10px;
+    padding-left: 40px;
+    width: 90px;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+}
+
+.cloud-img{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    margin-right: 10px;
+    width: 25px;
+    height: 20px;
+}
+
+.file-info {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.input-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#career-guidance-description{
+    background-color: none;
+}
+
+#editor-container{
+    background-color: none;
+}
+
+#toolbar2 {
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: none;
+}
+
+/* Resources Container Styling ENDS */
+
+/* Table section Styling STARTS */
+
+#table-section{
+    margin: 50px 0px;
+}
+
+#table{
+    width: 80vw;
+    overflow-x: scroll;
+    border-collapse:collapse;
+    border: 1px solid rgb(154, 154, 154);
+}
+
+th, td{
+    padding: 10px 0px;
+    border: 1px solid rgb(154, 154, 154);
+}
+
+.enter-upload-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.enter-upload-box .upload-file-input{
+    margin-left: 80px;
+}
+
+/* Table section Styling ENDS */
+
+#mentorship-needed-or-not{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#mentorship-needed-or-not input{
+    width: 20px;
+    margin-left: 20px;
+}
+
+#course-amount{
+    display: flex;
+    align-items: center;
+}
+
+#course-amount input{
+    margin-left: 95px;
+    width: 10rem;
+    height: 40px;
+    font-size: 16px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+#draft-publish-btn{
+    width: 80vw;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+#exitBTN{
+    width: 180px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#publishBTN{
+    width: 180px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #02BCB7;
+}
+
+/* Button Colors Styling STARTS */
+.green-button {
+    background-color: #00B894;
+}
+
+.gray-button {
+    background-color: #6B6464;
+}
+/* Button Colors Styling ENDS */
+.add-article-container,
+.add-article-container2,
+.add-video-wrapper,
+.add-video-wrapper2,
+.add-quiz-wrapper,
+.add-quiz-wrapper2 {
+    transition: all 0.5s ease;
+}
+
+.arrow-img,
+#arrow-img2,
+#arrow-img3,
+#arrow-img4 {
+    transition: all 0.5s ease;
+    cursor: pointer;
+}

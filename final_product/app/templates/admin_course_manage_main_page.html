@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/admin_course_manage_main_page.css' %}">
+</head>
+<body>
+    <!-- Container that contains "statics boxes" STARTS-->
+<div class="heading-addbtn-container">
+<h1 id="add-course-heading">COURSES</h1>
+<div class="course-create-btn-container">
+<button class="edit-btns" id="create-bulk-course-btn" onclick="gotoBulkCourse()">Create Bulk Courses</button>
+<button class="edit-btns" onclick="gotoAddCourse()">Add Course</button>
+</div>
+</div>
+<!-- Container that contains "statics boxes" ENDS-->
+
+<!-- Container that contains "total-row-current-page" STARTS-->
+<div class="total-row-current-page-container">
+    <div class="current-page">
+        <img src="../static/admin_img/student_management_img/course_enroll_img/home_icon.png" alt="" class="home-icon">
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info" id="studentManagement">Course Name</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+        <p class="current-page-info">Quiz 1</p>
+        <img src="../static/admin_img/student_management_img/course_enroll_img/page_arrow.png" alt="" class="page-arrow">
+    </div>
+    <div class="search-box-container">
+        <input type="text" name="" id="search-box" placeholder="search course">
+    </div>
+    <div class="sort-container">
+    <button class="sort" onclick="sortItemVisible()">
+        <span>sort by</span>
+        <img src="../static/admin_img/course_management_img/course_profile_img/sort-filter.png" alt="">
+    </button>
+    <div class="sort-items" id="sort-items">
+        <div class="ul">
+            <div class="li">Ranking</div>
+            <div class="li">Latest</div>
+            <div class="li">Refferal Count</div>
+            <div class="li">Bonus</div>
+            <div class="li">Ascending</div>
+            <div class="li" id="descending">Descending</div>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- Container that contains "total-row-current-page" ENDS-->
+
+<section id="course-section">
+    <div class="row">
+        {% for course in courses %}
+        <div class="course-boxes" onclick="gotoCourseDetails()">
+            {% if course.image %}
+            <div class="course-img-container">
+                <img src="{{ course.image.url }}" alt="{{ course.course_name }}">
+            </div>
+            {% endif %}
+            <div class="category-price-container">
+                <p>{{ course.get_category_type_display }}</p>
+                <div class="price">
+                    <span class="line-between-price">$20.00</span>
+                    <span class="current-price">${{ course.price }}</span>
+                </div>
+            </div>
+            <p class="course-name">{{ course.course_name }}
+                <button class="green-status">Preview</button>
+                <button class="purple-status">Edit</button>
+            </p>
+
+            <div class="course-profile-rating">
+                <div class="profile-container">
+                    <div class="profile-img">
+                        <img src="../static/admin_img/course_management_img/course_profile_img/course-provider-profile.png" alt="">
+                    </div>
+                    <p>David Miller</p>
+                </div>
+                    <div class="rating-container">
+                        <img src="../static/admin_img/course_management_img/course_profile_img/star.png" alt="">
+                        <p>(4.5 Reviews)</p>
+                    </div>
+            </div>
+            <div class="course-box-footer">
+                <div class="course-timing-container">
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-1.png" alt="">
+                <span>05</span>
+                <span class="dot">.</span>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-2.png" alt="">
+                <span>11h 20m</span>
+                <span class="dot">.</span>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-3.png" alt="">
+                <span>22</span>
+                </div>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-triple-dot-icon.png" alt="" class="footer-triple-dot">
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+        <div class="course-boxes" onclick="gotoCourseDetails()">
+            <div class="course-img-container">
+                <img src="../static/admin_img/course_management_img/course_profile_img/profile1.png" alt="">
+            </div>
+            <div class="category-price-container">
+                <p>Development</p>
+                <div class="price">
+                    <span class="line-between-price">$20.00</span>
+                    <span class="current-price">$10.00</span>
+                </div>
+            </div>
+            <p class="course-name">Learning JavaScript With Imagination
+                <button class="green-status">Preview</button>
+                <button class="purple-status">Edit</button>
+            </p>
+            <div class="course-profile-rating">
+                <div class="profile-container">
+                    <div class="profile-img">
+                        <img src="../static/admin_img/course_management_img/course_profile_img/course-provider-profile.png" alt="">
+                    </div>
+                    <p>David Miller</p>
+                </div>
+                    <div class="rating-container">
+                        <img src="../static/admin_img/course_management_img/course_profile_img/star.png" alt="">
+                        <p>(4.5 Reviews)</p>
+                    </div>
+            </div>
+            <div class="course-box-footer">
+                <div class="course-timing-container">
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-1.png" alt="">
+                <span>05</span>
+                <span class="dot">.</span>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-2.png" alt="">
+                <span>11h 20m</span>
+                <span class="dot">.</span>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-3.png" alt="">
+                <span>22</span>
+                </div>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-triple-dot-icon.png" alt="" class="footer-triple-dot">
+            </div>
+        </div>
+        <div class="course-boxes" onclick="gotoCourseDetails()">
+            <div class="course-img-container">
+                <img src="../static/admin_img/course_management_img/course_profile_img/profile1.png" alt="">
+            </div>
+            <div class="category-price-container">
+                <p>Development</p>
+                <div class="price">
+                    <span class="line-between-price">$20.00</span>
+                    <span class="current-price">$10.00</span>
+                </div>
+            </div>
+            <p class="course-name">Learning JavaScript With Imagination
+                <button class="green-status">Preview</button>
+                <button class="purple-status">Edit</button>
+            </p>
+            <div class="course-profile-rating">
+                <div class="profile-container">
+                    <div class="profile-img">
+                        <img src="../static/admin_img/course_management_img/course_profile_img/course-provider-profile.png" alt="">
+                    </div>
+                    <p>David Miller</p>
+                </div>
+                    <div class="rating-container">
+                        <img src="../static/admin_img/course_management_img/course_profile_img/star.png" alt="">
+                        <p>(4.5 Reviews)</p>
+                    </div>
+            </div>
+            <div class="course-box-footer">
+                <div class="course-timing-container">
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-1.png" alt="">
+                <span>05</span>
+                <span class="dot">.</span>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-2.png" alt="">
+                <span>11h 20m</span>
+                <span class="dot">.</span>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-icon-3.png" alt="">
+                <span>22</span>
+                </div>
+                <img src="../static/admin_img/course_management_img/course_profile_img/footer-triple-dot-icon.png" alt="" class="footer-triple-dot">
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function gotoAddCourse(){
+        window.location.href = "{% url 'admin_course_manage_add_course' %}";
+    }
+    function gotoBulkCourse(){
+        window.location.href = "{% url 'admin_course_manage_bulk_course' %}";
+    }
+    function gotoCourseDetails(){
+        window.location.href = "{% url 'admin_course_details_page' %}";
+    }
+
+    const sortItems = document.getElementById('sort-items');
+function sortItemVisible() {
+    if (sortItems.style.display === "block") {
+        sortItems.style.display = "none";
+    } else {
+        sortItems.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

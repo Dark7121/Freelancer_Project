@@ -1,0 +1,1192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSKyED</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/course_after_login.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Righteous&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        a:hover {
+            color: #000;
+        }
+
+        .course-progress p {
+            margin-right: 10px;
+            font-size: 0.8rem !important
+        }
+
+        .card .play-btn {
+            position: absolute;
+            top: 35%;
+            left: 40%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 3rem;
+            cursor: pointer
+        }
+
+        .card .preview-text {
+            color: #fff;
+            font-weight: 600;
+            position: absolute;
+            bottom: 10px;
+            left: 30%;
+        }
+
+        .links .address div {
+            margin-bottom: 15px;
+        }
+
+        .modal-container {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* top: -1000px; */
+            bottom: 0;
+            left: 0;
+            top: 0;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+            z-index: 999;
+        }
+
+        .modal-container .cart-modal {
+            display: block !important;
+            background-color: #fff;
+            padding: 5px 20px 20px 20px;
+            width: 40%;
+        }
+
+        .modal-container p {
+            margin: 0
+        }
+
+        .modal-container h4 {
+            font-weight: 600;
+            font-size: 1.7rem
+        }
+
+        .cart-modal .close {
+            text-align: right;
+            font-size: 2.5rem;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .cart-modal .added-course {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0
+        }
+
+        .added-course img {
+            margin-right: 10px;
+        }
+
+        .added-course .rating-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 5px 0;
+            white-space: nowrap;
+        }
+
+        .cart-modal button {
+            background-color: #BDADAD;
+            border-radius: 50px;
+            border: none;
+            padding: 10px 40px;
+            font-weight: 600;
+        }
+
+        .card-modal button:hover {
+            background-color: #625858;
+            color: #fff
+        }
+
+        @media screen and (max-width: 1660px) {
+            .modal-container .cart-modal {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 1335px) {
+            .modal-container .cart-modal {
+                width: 60%;
+            }
+        }
+
+        @media screen and (max-width: 1070px) {
+            .cart-modal .divider {
+                flex-direction: column;
+            }
+
+            .divider .added-course {
+                flex-direction: column;
+            }
+
+            .added-course .course-info {
+                text-align: center;
+                margin: 20px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left-section">
+            <i id="Menu" class="fa fa-bars" aria-hidden="true" style="cursor: pointer"></i>
+            <div class="menu-categories inactive">
+                <img src="{% static 'assets/roadmap/stacked-books.png' %}" class="first-image" width="180px"
+                    alt="Stack of Books">
+                <img src="{% static 'assets/roadmap/open-book.png' %}" class="second-image" width="200px"
+                    alt="Stack of Books">
+                <img src="{% static 'assets/roadmap/stacked-books.png' %}" class="third-image" width="200px"
+                    alt="Stack of Books">
+                <img src="{% static 'assets/roadmap/open-book.png' %}" class="fourth-image" width="200px"
+                    alt="Stack of Books">
+                <div class="menu-container">
+                    <ul>
+                        <a href="{% url 'my_course' %}">
+                            <li>My Courses</li>
+                        </a>
+                        <a href="{% url 'certificate' %}">
+                            <li>Certificates</li>
+                        </a>
+                        <a href="{% url 'ticket' %}">
+                            <li>Support & Help</li>
+                        </a>
+                        <a href="{% url 'referral' %}">
+                            <li>Referral Program</li>
+                        </a>
+                        <a href="{% url 'payment_history' %}">
+                            <li>Payment History</li>
+                        </a>
+                        <a href="{% url 'blog' %}">
+                            <li>Blog</li>
+                        </a>
+                    </ul>
+
+                </div>
+            </div>
+            <a href="{% url 'landing_page_before_login' %}">
+                <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+            </a>
+            <div class="searchBar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="search" name="search" placeholder="Search">
+            </div>
+        </div>
+        <div class="right-section">
+            <p class="learnings">My Learnings</p>
+            <ul class="learnings-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+                <li class="ninth-category">Stock Market</li>
+                <li class="ninth-category">Graphic Design</li>
+                <li class="ninth-category">UI/UX</li>
+                <li class="ninth-category">Excel (Beginner to Advace)</li>
+                <li class="ninth-category">Digital Marketing</li>
+                <li class="ninth-category">R Language</li>
+            </ul>
+            <p class="categories">Categories</p>
+            <ul class="main-category">
+                <li class="first-category">Web Development</li>
+                <li class="second-category">Mobile App Development</li>
+                <li class="third-category">Programming Languages</li>
+                <li class="fourth-category"> Software Engineering</li>
+                <li class="fifth-category">Block Chain & Crypto Currency</li>
+                <li class="sixth-category">Internet of things</li>
+                <li class="seventh-category">Cloud Computing</li>
+                <li class="eight-category">Data Science & Machine Learning</li>
+                <li class="ninth-category">Cybersecurity</li>
+                <li class="ninth-category">Stock Market</li>
+                <li class="ninth-category">Graphic Design</li>
+                <li class="ninth-category">UI/UX</li>
+                <li class="ninth-category">Excel (Beginner to Advace)</li>
+                <li class="ninth-category">Digital Marketing</li>
+                <li class="ninth-category">R Language</li>
+            </ul>
+            <ul class="web-development-category category">
+                <li>HTML / CSS</li>
+                <li>Javascript</li>
+                <li>Bootstrap</li>
+                <li>React Js</li>
+                <li>Angular</li>
+                <li>Node Js</li>
+                <li>Express Js</li>
+            </ul>
+            <ul class="mobile-developement-category category">
+                <li>Android Development with Java/ Kotlin
+                </li>
+                <li>iOS Development with Swift</li>
+                <li> React Native </li>
+            </ul>
+            <ul class="programming-category category">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Ruby</li>
+                <li>PHP</li>
+                <li>Go</li>
+            </ul>
+            <ul class="engineering-category category">
+                <li>Software Development Lifecycle (SDLC)</li>
+                <li>Agile and Scrum</li>
+                <li> DevOps Principles</li>
+                <li>Software Testing and Quality Assurance</li>
+            </ul>
+            <ul class="block-chain-category category">
+                <li>Blockchain Fundamentals</li>
+                <li> Smart Contract Development</li>
+                <li>Cryptocurrency and Bitcoin Basic</li>
+            </ul>
+            <ul class="iot-category category">
+                <li>Introduction to loT
+                </li>
+                <li>IoT Platforms and Technologies
+                </li>
+                <li> IoT Security and Privacy</li>
+            </ul>
+            <ul class="cloud-category category">
+                <li> Introduction to Cloud Computing
+                </li>
+                <li>Amazon Web Services (AWS)
+                </li>
+                <li>Microsoft Azure</li>
+                <li>Google Cloud Platform (GCP)</li>
+                <li>DevOps Practices and Tools</li>
+            </ul>
+            <ul class="data-science-category category">
+                <li>Python for Data Science
+                </li>
+                <li>Data Analysis with Pandas
+                </li>
+                <li>NumPy and SciPy</li>
+                <li>Machine Learning Fundamentals</li>
+                <li>Deep Learning with TensorFlow or PyTorch</li>
+                <li>Natural Language Processing</li>
+            </ul>
+            <ul class="cybersecurity-category category">
+                <li> Introduction to Cybersecurity
+                </li>
+                <li>Ethical Hacking
+                </li>
+                <li>Network Security</li>
+                <li>Web Application Security</li>
+                <li> Cryptography</li>
+                <li> Incident Response and Forensics</li>
+            </ul>
+            <a href="{% url 'profile_page' %}">
+                <img class="logo" src="{% static 'assets/user.png' %}" alt="">
+
+            </a>
+            <p style="color: #fff; font-size: 0.9rem; margin-right: 10px">Student's Name</p>
+            <img id="toggleProfile" src="{% static 'assets/roadmap/down-arrow.png' %}" width="25px" alt=""
+                style="cursor: pointer">
+            <div class="profile-container inactive">
+                <a href="{% url 'profile_page' %}"><button class="profile-btn">Profile Setting Page</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="course-page-container">
+        <div class="first-container">
+            <div style="margin-left: 8%">
+                <h2>Course Name</h2>
+                <p>Description of the course</p>
+                <div class="rating-container">
+                    <p class="rating">4.0</p>
+                    <div class="rating-icons">
+                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                        <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                    </div>
+                    <p class="views">(views)</p>
+                </div>
+                <p style="font-size: 0.9rem">Created by which academy</p>
+                <div class="small-details flex">
+                    <div class="updated-date flex">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <p style="font-size: 0.9rem">Last updated on 03/05/2024</p>
+                    </div>
+                    <div class="language flex">
+                        <img src="{% static 'assets/course/globe.png' %}" alt="Link icon" width="20px"
+                            style="margin-bottom: 5px;">
+                        <p style="font-size: 0.9rem">English</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <h5>What you'll learn</h5>
+                <ul>
+                    <li>Extensive, informative and interesting video lecture</li>
+                    <li>Complete Code demonstrated in lecture</li>
+                    <li>Lab Exercises</li>
+                    <li>Lab Solution Sets</li>
+                    <li>All Powerpoint Demonstrations Used in Course</li>
+                    <li>Instructor contact Email for questions and clarifications</li>
+                    <li>Coverage of all important primary Javascript concepts</li>
+                </ul>
+            </div>
+            <h5>This course includes:</h5>
+            <ul style="margin-left: 5%">
+                <li>7.5 hours on-demand video</li>
+                <li>6 coding exercises</li>
+                <li>1 article</li>
+                <li>25 downloadable resources</li>
+                <li>Access on mobile and TV</li>
+                <li>Certificate of completion</li>
+            </ul>
+            <h5 style="margin-top: 30px;">Course content</h5>
+            <p>6 sections • 72 lectures • 7h 49m total length</p>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingOne">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <span>Module 1</span>
+                            <p style="opacity: 0.5;">1 lecture: 30min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module 1 : 1 lecture: 30 min
+                            </h6>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week 1 module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week 1 module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week 1</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>1 Graded assesment left</p>
+                                </div>
+                            </div>
+
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingTwo">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <span>Module 2</span>
+                            <p style="opacity: 0.5;">23 lectures: 4h 43min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTw0"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module 2 : 4h 43min
+                            </h6>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week 2 module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week 2 module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week 2</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>1 Graded assesment left</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingThree">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            <span>Module 3</span>
+                            <p style="opacity: 0.5;">1 lecture: 16min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module 3 : 1 lecture: 16min
+                            </h6>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week 3 module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week 3 module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week 3</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>1 Graded assesment left</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingFour">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseFour" aria-expanded="false"
+                            aria-controls="flush-collapseFour">
+                            <span>Module 4</span>
+                            <p style="opacity: 0.5;">8 lectures: 25min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module 4 : 8 lectures: 25min
+                            </h6>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week 4 module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week 4 module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week 4</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>1 Graded assesment left</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingFive">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseFive" aria-expanded="false"
+                            aria-controls="flush-collapseFive">
+                            <span>Module 5</span>
+                            <p style="opacity: 0.5;">4 lectures: 18min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module 5 : 4 lectures: 18min
+                            </h6>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week 5 module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week 5 module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week 5</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>1 Graded assesment left</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingSix">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                            <span>Module 6</span>
+                            <p style="opacity: 0.5;">3 lectures: 7min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module 6 : 3 lectures: 7min
+                            </h6>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week 6 module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week 6 module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week 6</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>1 Graded assesment left</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-headingSeven">
+                        <img src="{% static 'assets/course/down-arrow.png' %}" class="arrow-icon"
+                            style="margin-left: 10px" width="25px" alt="Up Arrow Icon">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                            aria-controls="flush-collapseSeven">
+                            <span>Module 7</span>
+                            <p style="opacity: 0.5;">3 lectures: 7min</p>
+                        </button>
+                    </div>
+                    <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h6 style="font-size: 1.2rem; font-weight: 300; opacity: 0.5">Module 7 : 3 lectures: 7min
+                            </h6>
+                            <p style="font-size: 0.9rem;margin-bottom: 10px">Welcome to the week 7 module , here u can
+                                know about the
+                                domain in depth manner about the
+                                course Welcome to the week 7 module , here u can know about the domain in depth manner
+                                about the course.</p>
+                            <p style="font-size: 1.1rem">Week 7</p>
+                            <div class="course-progress flex" style="margin-top: 10px">
+                                <div class="video-left flex">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    <p>3hr 3min of video left</p>
+                                </div>
+                                <div class="reading flex">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <p>10 min of readings left</p>
+                                </div>
+                                <div class="grade flex">
+                                    <img src="{% static 'assets/course/globe.png' %}" width="15px" alt="Link icon">
+                                    <p>1 Graded assesment left</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'module' %}">
+
+                                <p
+                                    style="margin-top: 15px; font-size: 0.9rem; font-weight: 500;position: relative; left: -13px;">
+                                    <span style="margin-bottom: 5px;">
+                                        <img src="{% static 'assets/course/up-arrow.png' %}" alt="Icon" width="18px"
+                                            style="transform: rotate(90deg);">
+                                    </span>Show more info about module
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="show-more-btn">Show more sections</button>
+            <h5>Requirements:</h5>
+            <ul style="margin-left: 5%">
+                <li>Some basic knowledge is required for this course.</li>
+            </ul>
+            <h5>Description:</h5>
+            <ul style="margin-left: 5%">
+                <li>Description of the course is written here</li>
+            </ul>
+
+            <a href="{% url 'roadmap_after_pg' %}" class="redirecting-btn">
+                <p>Roadmap</p>
+                <img src="{% static 'assets/course/up-arrow.png' %}" alt="Left arrow icon" width="25px"
+                    style="transform: rotate(90deg);">
+            </a>
+            <a href="{% url 'notes' %}" class="redirecting-btn">
+                <p>Notes of courses</p>
+                <img src="{% static 'assets/course/up-arrow.png' %}" alt="Left arrow icon" width="25px"
+                    style="transform: rotate(90deg);">
+            </a>
+            <a href="{% url 'download_pdf' %}" class="redirecting-btn">
+                <p>Sample Q/P & Ans</p>
+                <img src="{% static 'assets/course/up-arrow.png' %}" alt="Left arrow icon" width="25px"
+                    style="transform: rotate(90deg);">
+            </a>
+            <h5 style="margin-top: 20px">Instructions:</h5>
+            <ul style="margin-left: 5%">
+                <li>Include instructions here</li>
+            </ul>
+            <h5 style="margin-top: 25px">Ratings</h5>
+            <div class="reviews-container">
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px;">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="user flex">
+                        <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5rem"></i>
+                        <p class="username" style="font-weight: 600">Name</p>
+                    </div>
+                    <div class="rating-container" style="margin-left: 20px">
+                        <p class="rating" style="margin-bottom: 5px">4.0</p>
+                        <div class="rating-icons">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                            <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                        </div>
+                    </div>
+                    <p>comment will place over here</p>
+                    <div class="flex" style="justify-content: space-between;margin-top: 10px">
+                        <div class="like-btn flex">
+                            <i class="fa fa-thumbs-o-up" aria-hidden="true" onclick="toggleLike(this)"></i>
+                            <i class="fa fa-thumbs-up" aria-hidden="true" style="display: none;"></i>
+                            <p>Like</p>
+                        </div>
+                        <div class="dislike-btn flex">
+                            <i class="fa fa-thumbs-o-down" aria-hidden="true" onclick="toggleDislike(this)"></i>
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="display: none;"></i>
+                            <p>Dislike</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-container" class="modal-container">
+            <div id="cart-modal" class="cart-modal">
+                <div class="close">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                </div>
+                <h4>Added to Cart</h4>
+                <div class="divider" style="display: flex; align-items: center;justify-content: space-between;">
+                    <div class="added-course-container">
+                        <div class="added-course">
+                            <img src="{% static 'assets/landing_page/course.png' %}" class="card-img-top" alt="..."
+                                width="200px">
+                            <div class="course-info">
+                                <p>Name of the course</p>
+                                <p>Which Academy</p>
+                                <div class="rating-container">
+                                    <p class="rating">4.0</p>
+                                    <div class="rating-icons">
+                                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                        <img src="{% static 'assets/landing_page/favourite.png' %}" alt="" width="17px">
+                                        <img src="{% static 'assets/landing_page/star.png' %}" alt="" width="17pxpx">
+                                    </div>
+                                    <p class="views">(views)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href=""><button class="cart-btn">Go to cart</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="second-container">
+            <div class="card">
+                <div style="position:relative">
+                    <i class="fa fa-play-circle-o play-btn" aria-hidden="true"></i>
+                    <p class="preview-text">Preview this course</p>
+                    <img src="{% static 'assets/course/course.png' %}" alt="" width="200px">
+                </div>
+                <div class="card-body">
+                    <h4 style="font-weight: 700; font-size: 1.5rem">₹449</h4>
+                    <p style="font-size: 0.9rem;">Original Price ₹3099</p>
+                    <p style="font-size: 0.9rem;">Discount 86% off</p>
+                    <p style="font-size: 0.95rem; opacity: 0.5; margin-top: 15px">One day left for this offer!</p>
+                    <div class="buttons">
+                        <button class="cart-btn" id="open-modal-btn">Add to Cart</button>
+                        <div class="like">
+                            <i class="fa fa-heart inactive" aria-hidden="true" style="color: #EF0909"></i>
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section">
+        <div class="company-details">
+            <div class="description">
+                <a href="{% url 'landing_page_before_login' %}">
+                    <img class="logo" src="{% static 'assets/logo.png' %}" alt="">
+
+                </a>
+                <p style=" font-size: 0.9rem; text-align: justify;">Knowledge brings new beginnings.
+                    Knowlegopedia is an e-learning platform. It provides a wide range of technical knowledge through
+                    courses. It will lead you to modernization, technology, and innovation. It will also give you the
+                    knowledge to adapt to and transform society’s coming changes.</p>
+            </div>
+            <div class="app">
+                <p style="font-size: 1.1rem; font-weight: 600">Get this app on</p>
+                <div class="android">
+                    <img src="{% static 'assets/landing_page/playstore.png' %}" alt="Play store Logo" width="35px;"
+                        style="margin-right: 5px">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 500;">Android App On</p>
+                        <p style="font-size: 1.2rem;font-weight: 500; ">Google Play</p>
+                    </div>
+                </div>
+                <div class="apple">
+                    <img src="{% static 'assets/landing_page/appstore.png' %}" alt="Play store Logo" width="43px;"
+                        style="margin-right: 5px">
+                    <div>
+                        <p style="font-size: 0.6rem; font-weight: 600;">DOWNLOAD ON THE</p>
+                        <p style="font-size: 1.3rem;font-weight: 500; ">App Store</p>
+                    </div>
+                </div>
+            </div>
+            <div class="more-items">
+                <p style="font-size: 1.1rem; font-weight: 600; text-align: left; margin-left: 30px">More
+                </p>
+                <ul>
+                    <li>Press</li>
+                    <li>Investors</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
+                    <li>Help</li>
+                    <li>Accessibility</li>
+                    <li>Contact</li>
+                    <li>Article</li>
+                    <li>Directory</li>
+                    <li>Affiliates</li>
+                    <li>Manage Cookie Preferences</li>
+                </ul>
+            </div>
+            <div class="links">
+                <div class="socials">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    <i class="fa fa-google" aria-hidden="true"></i>
+                </div>
+                <div class="address">
+                    <div><i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p style="width: 200px">Devki Vihar, Bithoria no.1, Haldwani, Uttarakhand, India</p>
+                    </div>
+                    <div><i class="fa fa-phone" aria-hidden="true"></i>
+                        <p>Phone Number</p>
+                    </div>
+                    <div><i class="fa fa-envelope" aria-hidden="true"></i>
+                        <p>Email Address</p>
+                    </div>
+                    <div><img src="{% static 'assets/landing_page/globe.png' %}" width="20px" alt="Hyperlink icon"
+                            style="align-self: flex-start;">
+                        <p>Website link</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="font-weight: 600">© 2024 NAME. Inc. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.categories');
+            const categoryList = document.querySelector('.main-category');
+            const categoryLists = document.querySelectorAll('.category');
+            categories.addEventListener('click', function () {
+                // Toggle the visibility of the list
+                categoryList.style.display = categoryList.style.display === 'none' ? 'block' : 'none';
+                categoryLists.forEach(function (category) {
+                    category.style.display = 'none';
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelector('.learnings');
+            const categoryList = document.querySelector('.learnings-category');
+            const categoryLists = document.querySelectorAll('.category');
+            categories.addEventListener('click', function () {
+                // Toggle the visibility of the list
+                categoryList.style.display = categoryList.style.display === 'none' ? 'block' : 'none';
+                categoryLists.forEach(function (category) {
+                    category.style.display = 'none';
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainCategories = document.querySelectorAll('.main-category li');
+            const categoryLists = document.querySelectorAll('.category');
+
+            mainCategories.forEach(function (mainCategory, index) {
+                mainCategory.addEventListener('click', function () {
+                    // Hide all category lists
+                    const categoryList = categoryLists[index];
+                    categoryList.style.display = (categoryList.style.display === 'none') ? 'block' : 'none';
+
+                    // Hide all other category lists
+                    categoryLists.forEach(function (category, idx) {
+                        if (idx !== index) {
+                            category.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        document.getElementById('toggleProfile').addEventListener('click', function () {
+            const profileContainer = document.querySelector('.profile-container');
+            profileContainer.classList.toggle('inactive');
+        });
+
+        document.getElementById('Menu').addEventListener('click', function () {
+            const menuContainer = document.querySelector('.menu-categories');
+            menuContainer.classList.toggle('inactive');
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all like buttons
+            const likeButtons = document.querySelectorAll(".like");
+
+            // Loop through each like button
+            likeButtons.forEach(function (likeButton) {
+                // Select active and inactive heart icons within the current like button
+                const activeHeart = likeButton.querySelector(".fa-heart");
+                const inactiveHeart = likeButton.querySelector(".fa-heart-o");
+
+                // Add click event listener to the current like button
+                likeButton.addEventListener("click", function () {
+                    // Toggle the "inactive" class for both heart icons within the current like button
+                    activeHeart.classList.toggle("inactive");
+                    inactiveHeart.classList.toggle("inactive");
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            const arrowIcons = document.querySelectorAll('.arrow-icon');
+
+            accordionButtons.forEach(function (button, index) {
+                button.addEventListener('click', function () {
+                    arrowIcons[index].classList.toggle('rotate-icon');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            const showMoreBtn = document.querySelector('.show-more-btn');
+
+            // Hide last 3 accordion items initially
+            for (let i = 5; i < accordionItems.length; i++) {
+                accordionItems[i].style.display = 'none';
+            }
+
+            // Toggle visibility of last 3 accordions on button click
+            showMoreBtn.addEventListener('click', function () {
+                for (let i = 5; i < accordionItems.length; i++) {
+                    if (accordionItems[i].style.display === 'none') {
+                        accordionItems[i].style.display = 'block';
+                    } else {
+                        accordionItems[i].style.display = 'none';
+                    }
+                }
+
+                // Toggle button text
+                if (showMoreBtn.textContent === 'Show more sections') {
+                    showMoreBtn.textContent = 'Show less sections';
+                } else {
+                    showMoreBtn.textContent = 'Show more sections';
+                }
+            });
+        });
+
+        function toggleLike(element) {
+            const likeIcon = element.parentElement.querySelector('.fa.fa-thumbs-up');
+            const outlineLikeIcon = element.parentElement.querySelector('.fa.fa-thumbs-o-up');
+
+            likeIcon.style.display = likeIcon.style.display === 'none' ? 'inline-block' : 'none';
+            outlineLikeIcon.style.display = outlineLikeIcon.style.display === 'none' ? 'inline-block' : 'none';
+
+            // If like button is clicked, reset dislike button to 'thumbs-o-down'
+            const dislikeIcon = element.parentElement.nextElementSibling.querySelector('.fa.fa-thumbs-down');
+            const outlineDislikeIcon = element.parentElement.nextElementSibling.querySelector('.fa.fa-thumbs-o-down');
+            dislikeIcon.style.display = 'none';
+            outlineDislikeIcon.style.display = 'inline-block';
+        }
+
+        function toggleDislike(element) {
+            const dislikeIcon = element.parentElement.querySelector('.fa.fa-thumbs-down');
+            const outlineDislikeIcon = element.parentElement.querySelector('.fa.fa-thumbs-o-down');
+
+            dislikeIcon.style.display = dislikeIcon.style.display === 'none' ? 'inline-block' : 'none';
+            outlineDislikeIcon.style.display = outlineDislikeIcon.style.display === 'none' ? 'inline-block' : 'none';
+
+            // If dislike button is clicked, reset like button to 'thumbs-o-up'
+            const likeIcon = element.parentElement.previousElementSibling.querySelector('.fa.fa-thumbs-up');
+            const outlineLikeIcon = element.parentElement.previousElementSibling.querySelector('.fa.fa-thumbs-o-up');
+            likeIcon.style.display = 'none';
+            outlineLikeIcon.style.display = 'inline-block';
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the modal container
+            var modal = document.getElementById("modal-container");
+
+            // Get all buttons with the ID open-modal-btn
+            var buttons = document.querySelectorAll('#open-modal-btn');
+
+            // Attach click event listeners to all buttons
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Open the modal by setting its display style to block
+                    modal.style.display = "flex";
+                });
+            });
+
+            // Get the close button inside the modal
+            var closeButton = document.querySelector('.modal-container .close');
+
+            // Attach click event listener to the close button
+            closeButton.addEventListener('click', function () {
+                // Close the modal by setting its display style to none
+                modal.style.display = "none";
+            });
+
+            // Attach click event listener to close modal when clicking outside of it
+            window.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,396 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/* Import Poppins font style */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Import Raleway font style */
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Be Vietnam Pro&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS for the navigation bar */
+
+.navbar {
+  background-color: #d2e6e4;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0px;
+}
+
+.logo-logoh {
+  display: flex;
+}
+
+.logo-img {
+  width: 45px;
+  height: 54.5px;
+}
+
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #0b7077;
+  line-height: 48px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.navbar .nav-anchor {
+  color: #252641;
+  text-decoration: none;
+  margin-right: 4vw;
+  padding: 10px 20px;
+  transition: color 0.3s;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.navbar .nav-anchor:hover {
+  color: #fd661f;
+}
+
+.navbar .nav-left {
+  margin-left: 59px;
+}
+
+.navbar .nav-right {
+  margin-right: 5%;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 0.5;
+  font-family: "Raleway", sans-serif;
+}
+
+#provider-login {
+  color: #fd661f;
+  font-weight: 700;
+}
+
+.active {
+  color: #252641;
+}
+
+/* CSS for the login form */
+.login-section {
+  background-color: #d2e6e4;
+  /* height: 90vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  font-family: "Be Vietnam Pro", sans-serif;
+  width: 450px;
+  height: 600px;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+.login-heading-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.login-heading-container .login-heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.login-heading-container .login-description {
+  color: #4c4c4d;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.email-heading,
+.password-heading {
+  left: 0;
+  color: #262626;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.email-input,
+.password-input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  height: 45px;
+  margin-bottom: 10px;
+  border: 0.5px solid #cccccc47;
+  border-radius: 2px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.email-input:focus,
+.password-input:focus {
+  outline: none;
+  border-color: transparent;
+  background-color: #ebeaea;
+  box-shadow: none;
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 39px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.forgot-password {
+  margin-left: 68%;
+  font-size: 14px;
+  color: #4c4c4d;
+  text-decoration: none;
+}
+.remember-me-container {
+  display: flex;
+  margin: 20px 5px;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #4c4c4d;
+}
+#remember-me {
+  position: relative;
+  cursor: pointer;
+  -webkit-appearance: none;
+  padding: 5px;
+  border-radius: 4px;
+  background: rgba(3, 3, 3, 0.2);
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+}
+
+#remember-me:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#remember-me:checked {
+  background: rgba(3, 3, 3, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+    inset 15px 10px -12px rgba(255, 255, 255, 0.37);
+  color: #fff;
+}
+
+#remember-me:checked:after {
+  content: "\2714";
+  font-size: 10px;
+  position: absolute;
+  top: 0px;
+  left: 4px;
+  color: #fff;
+}
+
+.login-button {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #ff9500f1;
+  color: #ffffff;
+  cursor: pointer;
+  width: 100%;
+  height: 45px;
+  border: 0px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.login-button:hover {
+  background-color: #ff9500;
+}
+
+.or-line {
+  margin: 30px 0px;
+  position: relative;
+  text-align: center;
+  font-size: 13px;
+  color: #98989a;
+}
+
+.or-line::before,
+.or-line::after {
+  content: "";
+  display: block;
+  border-top: 1px solid #ccc;
+  position: absolute;
+  top: 50%;
+  width: 45%;
+}
+
+.or-line::before {
+  left: 0;
+}
+
+.or-line::after {
+  right: 0;
+}
+.login-with-google-container {
+  text-align: center;
+}
+.login-with-google {
+  background-color: #f7f7f8;
+  font-size: 13px;
+  font-weight: 600 !important;
+  color: #262626;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  border: 0.05px solid #cccccc2a;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+.login-with-google img {
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.form-sign-in-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 13px;
+  margin-left: 25%;
+}
+.form-sign-in {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #262626;
+  font-weight: 600;
+}
+.form-sign-in-container img {
+  width: 18px;
+  filter: contrast(150%);
+}
+
+/* CSS for Footer Up Section */
+
+.footer-up {
+  width: auto;
+  background: #d2e6e4;
+  /* margin-top: 2%; */
+  display: flex;
+}
+
+.foot-left {
+  width: 40%;
+  height: 50vh;
+}
+
+.foot-left h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #0b7077;
+  margin: 0px 80px 180px 80px;
+  position: relative;
+  top: 25%;
+}
+
+.foot-left p {
+  color: #03989e;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px 80px 180px 80px;
+}
+
+.foot-right {
+  width: 40%;
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product {
+  position: relative;
+  top: 10%;
+}
+
+.product h2 {
+  color: #98a2b3;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  line-height: 20px;
+}
+
+.product ul {
+  list-style: none;
+  color: #03989e;
+  display: inline;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  line-height: 24px;
+}
+
+.product ul li {
+  margin: 10px 0;
+}
+
+.product ul li a {
+  text-decoration: none;
+  color: #03989e;
+}
+
+/* CSS for Footer Section */
+
+.footer {
+  height: 20vh;
+  background: #03989e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.footer-left h2 {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  line-height: 24px;
+}
+
+.icon1 img {
+  margin-right: 20px;
+}

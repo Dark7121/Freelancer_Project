@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard_create_feedback.css' %}">
+</head>
+<body>
+
+<!-- Container that contains "statics boxes" STARTS-->   
+<h2 id="pending-payment-heading">Create a Feedback form</h2>
+<!-- Container that contains "statics boxes" ENDS--> 
+
+<div class="total-row-current-page-container">
+    <div class="current-page">
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/home_icon.png' %}" alt="" class="home-icon">
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info" id="studentManagement">Course Name</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info">Feedback</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+        <p class="current-page-info">Feedback 1</p>
+        <img src="{% static 'admin_img/student_management_img/course_enroll_img/page_arrow.png' %}" alt="" class="page-arrow">
+    </div>
+</div>
+
+<div class="feedback-form-title">
+    <h3>Feedback form title : </h3>
+    <div class="formTitleInput-addQuestion-container">
+    <input class="input-box" type="text" id="formTitleInput">
+    <button class="edit-btns" id="add-questions">Add Question</button>
+    </div>
+</div>
+
+<div class="questions" id="question1">
+    <span  id="ques-no1">1.</span>
+    <input class="input-box" type="text" id="qes1-input">
+</div>
+
+<div class="questions" id="question2">
+    <div class="main-question-container" id="ques2">
+    <span id="ques-no2">2.</span>
+    <input class="input-box" type="text" id="">
+    </div>
+    <div class="options">
+    <span></span>
+    <textarea class="input-box" name="" id="textArea"></textarea>
+    </div>
+</div>
+
+<div class="questions" id="question3">
+    <div class="options" id="ques3">
+        <span id="ques-no3">3.</span>
+        <input class="input-box" type="text" id="">
+    </div>
+    <div class="options" id="option-button-container"> 
+        <button class="purple-status">Add Option</button>
+    </div>
+    <div class="options">
+        <span>Option 1</span>
+        <input class="input-box" type="text" id="">
+    </div>
+    <div class="options">
+        <span>Option 2</span>
+        <input class="input-box" type="text" id="">
+    </div>
+    <div class="options">
+        <span>Option 3</span>
+        <input class="input-box" type="text" id="">
+    </div>
+</div>
+
+<div class="submit-btn">
+    <button class="edit-btns" type="submit" id="submit-btn">Submit</button>
+</div>
+
+</body>
+</html>

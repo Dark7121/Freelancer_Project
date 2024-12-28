@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/admin_begin_class_dashboard_container.css' %}" />
+  </head>
+  <body>
+
+    <div class="container">
+      <!-- Navbar STARTS -->
+      <section class="teachers-navbar">
+        <div class="teachers-navbar-right">
+          <div class="nav-profile-logo">
+            <img src="{% static 'admin_img/Teachers_page_img/profile_img.png' %}" alt="" />
+          </div>
+          <img class="bell-icon" src="{% static 'admin_img/Teachers_page_img/bell.png' %}" alt="" />
+        </div>
+      </section>
+      <!-- Navbar ENDS -->
+
+      <div class="sidebar">
+        <div class="teachers-navbar-left">
+          <div class="logo">
+            <img id="logo-icon" src="{%static 'admin_img/Teachers_page_img/icon.png' %}" alt="" />
+            <img id="logo-name" src="../static/admin_img/dashborad_img/nav_bar/up_sky_ed.png" alt="" />
+          </div>
+        </div>
+
+        <ul class="sidebar-item-container">
+          <li class="sidebar-item active hidden-text" data-page="{% url 'admin_main_dashboard' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/dashboard.png" alt="" /><span>Dashboard</span>
+          </div>
+          </li>
+          <li class="sidebar-item dropdown hidden-text" data-page="{% url 'admin_course_manage_main_page' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/course.png" alt="" /><span>Course Management</span>
+           <img class="icon-arrow down-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-down.png" alt="Down Arrow" />
+           <img class="icon-arrow up-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-up.png" alt="Up Arrow" style="display: none;" />
+          </div>
+            <ul class="dropdown-content">
+              <li data-page="{% url 'admin_course_manage_main_page' %}">Courses</li>
+              <li data-page="{% url 'admin_one_to_one_Mentorship' %}">1:1 Mentorship</li>
+            </ul>
+          </li>
+          <li class="sidebar-item hidden-text" data-page="{% url 'admin_dashboard_analytics' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/analytics.png" alt="" /><span>Analytics</span>
+              </div>
+          </li>
+          <li class="sidebar-item hidden-text" data-page="{% url 'admin_dashboard_support_panel_chat' %}" id="support-panel">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/Support.png" alt="" /><span>Support Panel</span>
+              </div>
+          </li>
+          <li class="sidebar-item dropdown hidden-text" data-page="{% url 'admin_marketing_promotion_referal' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/marketing.png" alt="" /><span>Referral Program Info</span>
+          </li>
+          <li class="sidebar-item dropdown hidden-text" data-page="{% url 'admin_affiliate_marketing_main_page' %}" >
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/affiliate.png" alt="" /><span>Affiliate Marketing</span>
+             <img class="icon-arrow down-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-down.png" alt="Down Arrow" />
+              <img class="icon-arrow up-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-up.png" alt="Up Arrow" style="display: none;" />
+          </div>
+            <ul class="dropdown-content">
+              <li data-page="{% url 'admin_affiliate_marketing_main_page' %}" >Affiliate Marketing Database</li>
+              <li data-page="{% url 'admin_affiliate_marketing_payments' %}">Payments</li>
+            </ul>
+          </li>
+          <li class="sidebar-item hidden-text" data-page="{% url 'admin_student_management_database' %}" id="student-manage">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/student.png" alt="" /><span>Student Management</span>
+              </div>
+          </li>
+          <li class="sidebar-item hidden-text" data-page="{% url 'admin_formfeedback_list' %}" id="feedback">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/feedback.png" alt="" /><span>Feedback</span>
+            </div>
+          </li>
+          <li class="sidebar-item dropdown hidden-text" data-page="{% url 'admin_provider_management_dashboard' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/provider.png" alt="" /><span>Provider Management</span>
+              <img class="icon-arrow down-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-down.png" alt="Down Arrow" />
+              <img class="icon-arrow up-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-up.png" alt="Up Arrow" style="display: none;" />
+          </div>
+            <ul class="dropdown-content">
+              <li data-page="{% url 'admin_provider_management_payment' %}">Payments</li>
+              <li data-page="{% url 'admin_course_provider_database' %}">Course Provider Database</li>
+            </ul>
+          </li>
+          <li class="sidebar-item hidden-text" data-page="{% url 'admin_offers_voucher' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/offers.png" alt="" /><span>Manage Vouchers</span>
+              </div>
+          </li>
+          <li class="sidebar-item hidden-text" data-page="{% url 'admin_blog' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/Blog.png" alt="" /><span>Blogs</span>
+              </div>
+          </li>
+          <li class="sidebar-item dropdown hidden-text" data-page="{% url 'admin_about_us' %}">
+            <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/manage_pages.png" alt="" /><span>Manage Pages</span>
+              <img class="icon-arrow down-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-down.png" alt="Down Arrow" />
+              <img class="icon-arrow up-arrow" src="../static/admin_img/dashborad_img/side_bar/arrow-up.png" alt="Up Arrow" style="display: none;" />
+          </div>
+            <ul class="dropdown-content">
+              <li data-page="{% url 'admin_about_us' %}">About Us</li>
+            </ul>
+          </li>
+          <li class="sidebar-item2 hidden-text" >
+              <a href=# id="log-out-anchor">
+                <div class="sidebar-logo-cover">
+            <img src="../static/admin_img/dashborad_img/side_bar/Log out.png" alt="" />
+            <p id="log-out">Log Out</p>
+          </div>
+          </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- iframe STARTS -->
+      <iframe id="contentFrame" src="{% url 'admin_main_dashboard' %}"></iframe>
+      <!-- iframe ENDS -->
+    </div>
+
+    <script src="{% static 'js/admin_begin_class_dashboard_container.js' %}"> </script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    padding-left: 8vw;
+    box-sizing: border-box;
+}
+
+#pending-payment-heading {
+    margin-top: 30px;
+}
+
+/* Current page information styling */
+.total-row-current-page-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    margin-top: 30px;
+}
+
+.current-page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.current-page-info {
+    margin: 0px 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.home-icon {
+    margin-right: 5px;
+}
+
+.page-arrow, .home-icon {
+    width: 22px;
+    height: 22px;
+}
+
+
+/* Table styling */
+.table-container {
+    margin-top: 40px;
+}
+
+table {
+    width: 80%;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 30px;
+    border-collapse: collapse; /* Ensure borders are combined */
+}
+
+table th, table td {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    border: 2px solid rgba(144, 144, 144, 0.815); /* Set the cell borders */
+}
+
+table th {
+    font-weight: bold;
+    background-color: #e4e4e4;
+}
+
+table th:first-child, table td:first-child {
+    width: 80px;
+}
+
+thead {
+    color: #212121;
+}
+
+tr {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+tr:hover {
+    box-shadow: 0px 3px 2px rgba(128, 128, 128, 0.849);
+}
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 20px 50px;
+    width: 75vw;
+}
+
+.pagination .next-previous-button {
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+
+.next-previous-button:hover {
+    background-color: rgb(197, 195, 195);
+}
+
+.page-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.select-page {
+    margin-right: 30px;
+}
+
+#pageSelect{
+    border-radius: 5px;
+    padding: 2px;
+    border: none;
+    background-color: rgb(226, 226, 226);
+    box-shadow: 0px 0px 5px rgb(177, 177, 177);
+}
+
+#pageSelect option{
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.green-status{
+    color:#069855;
+    background-color: #E6F5EE;
+    width: 66px !important;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 0;
+    height: 25px !important;
+    border: 0.5px solid #069855;
+    cursor: pointer;
+}

@@ -1,0 +1,376 @@
+html,body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body h1, h2, h3, h4, h5, h6, p {
+    margin: 0
+}
+
+body a {
+    text-decoration: none;
+    color: #000
+}
+
+a:hover {
+    color: #000 !important;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none !important;
+}
+ul {
+    list-style: none;
+}
+
+.wrapper {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+}
+.heading-container {
+    padding: 40px 30px 40px 30px;
+    background: #0085FF;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.heading-container h4 {
+font-size: 600;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+ .main-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    flex:1;
+}
+
+.main-container h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.first-container {
+    width: 65%;
+}
+
+.second-container {
+    width: 25%;
+    border: 1px solid #000;
+    padding: 25px;
+    margin: 20px;
+    position: relative;
+    bottom: 0;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+
+.coupon-input {
+border: 1px solid #000;
+background-color: #fff;
+padding: 10px;
+}
+
+.coupon-btn {
+    padding: 11px;
+    background: #695B5B;
+    border: none;
+    color: #fff
+}
+
+.billing-address {
+    width: 100%;
+}
+.billing-address .dropdown {
+    width: 90%;
+    position: relative;
+}
+
+.billing-address .dropdown:hover {
+    cursor: pointer;
+}
+
+.billing-address .dropdown .select{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 10px;
+    width: 100%;
+    background: #302D2D61;
+}
+.select p {
+    margin-bottom: 0;
+}
+
+.dropdown .select img.rotate {
+    transform: rotate(180deg)
+}
+
+
+.billing-address .dropdown ul {
+padding-left: 0 ;
+margin-top: 3px;
+display: none;
+position: absolute;
+width: 100%;
+}
+
+.dropdown ul.active {
+    display: block;
+}
+
+.billing-address .dropdown li {
+border: 1px solid #000;
+border-bottom: none;
+padding: 10px;
+background-color: #fff;
+z-index: 10;
+width: 100%;
+position: relative
+}
+.billing-address .dropdown li:last-child {
+    border-bottom: 1px solid #000;
+}
+
+.billing-address .dropdown li:hover {
+    cursor: pointer;
+background-color: #EDEDED;
+}
+
+.billing-address .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* .billing-address select {
+    background: #302D2D61;
+border: 1px solid #000;
+padding: 15px;
+width: 90%
+} */
+.accordion .accordion-button{
+    z-index: 1 !important
+}
+
+.accordion .accordion-item {
+    margin: 20px;
+    border: 1px solid #000;
+    border-radius: 0 !important
+}
+
+.accordion-item .accordion-header {
+    border-top: 1px solid #000;
+}
+
+.accordion-button::after {
+    display: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #000 !important;
+    background: #D8CECE !important;
+    box-shadow: none !important;
+}
+
+.accordion-button.collapsed {
+    box-shadow: none !important;
+}
+
+.accordion-button::before {
+    content :'';
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.accordion .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.accordion .form-group label {
+    font-weight: 600;
+}
+
+.accordion .form-group input {
+    padding: 7px;
+    width: 100%;
+}
+
+.accordion .two-input input{
+    width: 50%;
+    padding: 15px;
+}
+
+.second-container .flex {
+    margin-left: 10px;
+    margin-right:10px
+}
+
+.second-container .line {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    margin-bottom: 10px;
+}
+
+.second-container .note {
+    font-size: 0.9rem;
+    opacity: 0.56 ;
+    margin-top: 35px;
+}
+
+.second-container .subscription-btn {
+    border: none;
+    padding: 15px 35px;
+    background: #0085FF;
+    color: #fff;
+    border-radius: 30px;
+margin-left: auto;
+margin-top: 15px;
+}
+
+.second-container .subscription-btn:hover {
+    background-color: #006dd2;
+}
+
+.footer-section {
+    background-color: #101828;
+    padding-top: 40px;
+    padding-bottom: 15px;
+    padding-left: auto;
+    padding-right: auto;
+    text-align: center;
+  }
+
+  .footer-section li {
+    text-align: left;
+    color: #fff !important;
+  }
+
+  .company-details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .app p {
+    margin: 0 0 0 10px;
+  }
+
+  .more-items {
+    margin: 15px;
+  }
+
+  .more-items ul {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .footer-section li {
+  margin-bottom: 5px;
+
+  }
+
+  .footer-section .list-header {
+  color: #98A2B3 !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  }
+
+  .footer-section li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  }
+
+
+  .socials i {
+    font-size: 1.5rem;
+    margin-right: 12px;
+    color: #98A2B3
+  }
+
+  .socials i:hover {
+  cursor: pointer;
+  color: #fff
+  }
+
+  .footer-below-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #98A2B3;
+  }
+
+
+@media screen and (max-width: 1300px) {
+    .first-container {
+        width: 55%;
+    }
+    .second-container {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .first-container, .second-container {
+        width: 90%
+    }
+}
