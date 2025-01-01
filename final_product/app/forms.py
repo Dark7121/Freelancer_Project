@@ -370,24 +370,27 @@ class Admin_VoucherForm(forms.ModelForm):
     class Meta:
         model = Admin_Voucher
 
-        fields = ['code', 'discount', 'expiration_date']
+        fields = ['code', 'discount', 'expiration_date', 'courses']  #Added Course here
 
         widgets = {
             'code': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter voucher code'}),
             'discount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter discount'}),
             'expiration_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+           'courses': forms.ModelMultipleChoiceField(queryset=Course.objects.all(), widget=forms.SelectMultiple(attrs={'class': 'form-control'}), required=False),  # Use ModelMultipleChoiceField and SelectMultiple
         }
 
         labels = {
             'code': 'Voucher Code',
             'discount': 'Discount',
             'expiration_date': 'Expiration Date',
+            'courses': 'Applicable Courses',
         }
 
         help_texts = {
             'code': 'Unique code for the voucher.',
             'discount': 'Discount percentage or amount.',
             'expiration_date': 'Expiration date of the voucher.',
+            #'courses': 'Select courses this voucher applies to.',
         }
 
     def clean(self):

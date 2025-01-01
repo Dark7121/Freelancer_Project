@@ -71,7 +71,7 @@ function renderTable() {
             <td class="actions">
                 <p class="details">${courses[i].detail}</p>
                 <p class="edit">${courses[i].edit}</p>
-                <button class="suspend">${courses[i].suspend}</button>
+                <button class="suspend" data-index="${i}">${courses[i].suspend}</button>
             </td>
         `;
         tableBody.appendChild(row);
@@ -119,7 +119,7 @@ function renderTable2() {
             <td class="actions">
                 <p class="details">${courses2[i].detail}</p>
                 <p class="edit">${courses2[i].edit}</p>
-                <button class="activate">${courses2[i].activate}</button>
+                <button class="activate" data-index="${i}">${courses2[i].activate}</button>
             </td>
         `;
         tableBody2.appendChild(row2);
@@ -185,17 +185,22 @@ function changePage2() {
 }
 
 function addSuspendListeners() {
-    const buttons2 = document.querySelectorAll(".suspend");
-    buttons2.forEach((button, index) => {
-        button.addEventListener('click', () => {
+    const buttons = document.querySelectorAll(".suspend");
+    buttons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const index = event.target.getAttribute('data-index');
+            console.log(`Suspend clicked for row index: ${index}`);
             popUpContainer.style.display = "block";
         });
     });
 }
+
 function addActivateListeners() {
     const buttons = document.querySelectorAll(".activate");
-    buttons.forEach((button, index) => {
-        button.addEventListener('click', () => {
+    buttons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const index = event.target.getAttribute('data-index');
+            console.log(`Activate clicked for row index: ${index}`);
             popUpContainer2.style.display = "block";
         });
     });

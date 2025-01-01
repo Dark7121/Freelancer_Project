@@ -86,15 +86,10 @@
         </div>
 
         <div class="criteria-input-container">
-            <h5>No. of Courses</h5>
-            <input class="input-box criteria-input" type="number" name="num_courses" id="">
-        </div>
-        <br>
-        <div class="criteria-input-container">
             <h5>Selective Course</h5>
-            <select  id="courses" name="courses[]" multiple="multiple" required>
+            <select id="id_courses" class="form-control" multiple>
                 {% for course in courses %}
-                    <option value="{{ course.id }}">{{ course.course_name }}</option>
+                    <option value="{{ course.id }}">{{ course.name }}</option> 
                 {% endfor %}
             </select>
         </div>

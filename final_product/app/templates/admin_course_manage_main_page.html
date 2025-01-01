@@ -55,7 +55,7 @@
 <section id="course-section">
     <div class="row">
         {% for course in courses %}
-        <div class="course-boxes" onclick="gotoCourseDetails()">
+        <div class="course-boxes" onclick="gotoCourseDetails('{{ course.id }}')">
             {% if course.image %}
             <div class="course-img-container">
                 <img src="{{ course.image.url }}" alt="{{ course.course_name }}">
@@ -195,9 +195,9 @@
     function gotoBulkCourse(){
         window.location.href = "{% url 'admin_course_manage_bulk_course' %}";
     }
-    function gotoCourseDetails(){
-        window.location.href = "{% url 'admin_course_details_page' %}";
-    }
+    function gotoCourseDetails(courseId) {
+    window.location.href = `/courses/${courseId}/`; // Update the URL pattern as per your Django URL configuration
+}
 
     const sortItems = document.getElementById('sort-items');
 function sortItemVisible() {

@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model, update_session_auth_hash
 from .forms import *
+from .models import *
 import random
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate, login, logout
@@ -20,6 +21,7 @@ from .forms import BlogPostForm, BlogCommentForm
 from django.http import JsonResponse
 from .models import Course, Message
 import json
+from decimal import Decimal, InvalidOperation
 
 # Create your views here.
 
@@ -237,15 +239,17 @@ def register_CP(request):
 '''
 
 def about_us(request):
-    profile = []
+    profile_image = 10  # Default value if no profile exists or user is not logged in
+
     if request.user.is_authenticated:
-        profile_data = get_object_or_404(Profile, user=request.user)
-    if request.user.is_authenticated:
-        if profile_data.profile_picture:
-            profile = get_object_or_404(Profile, user=request.user)
-        else:
-            profile = 10
-    return render(request, 'about_us.html',{'profile':profile})
+        try:
+            profile_data = Profile.objects.get(user=request.user)
+            if profile_data.profile_picture:
+                profile_image = profile_data
+        except Profile.DoesNotExist:
+            pass  # Keep default profile_image = 10
+
+    return render(request, 'about_us.html', {'profile': profile_image})
 
 def contact_us(request):
     return render(request, 'contact_us.html')
@@ -377,12 +381,16 @@ def courses(request,course_id):
 
     profile_image = []
     if request.user.is_authenticated:
-        profile_data = get_object_or_404(Profile, user=request.user)
-    if request.user.is_authenticated:
-        if profile_data.profile_picture:
-            profile_image = get_object_or_404(Profile, user=request.user)
-        else:
-            profile_image = 10
+        try:
+            profile_data = Profile.objects.get(user=request.user)
+            if profile_data.profile_picture:
+                profile_image = profile_data.profile_picture.url
+            else:
+                profile_image = 10  # Default value or placeholder
+        except Profile.DoesNotExist:
+            profile_image = 10  # Default value if no profile exists
+    else:
+        profile_image = 10  # Default for unauthenticated users
     course = Course.objects.get(id=course_id)
     courses = [course]
     return render(request, 'course.html',{'courses': courses,'form': form,'studnetform':studnetform,'profile': profile_image})
@@ -432,8 +440,13 @@ def my_learnings(request):
     else:
         filtered_courses = [data for data in course_progress_data if data['progress_percentage'] < 100]
 
-    std = request.user.student
-    wishlist_courses = std.wishlist.all()
+    if request.user.is_authenticated:
+        # Fetch the logged-in student's profile
+        student = get_object_or_404(Student, user=request.user)
+        # Retrieve wishlist courses
+        wishlist_courses = student.wishlist.all()
+    else:
+        wishlist_courses = []
 
     profile_image = None
     if request.user.is_authenticated:
@@ -458,12 +471,16 @@ def cart(request):
 
     profile_image = []
     if request.user.is_authenticated:
-        profile_data = get_object_or_404(Profile, user=request.user)
-    if request.user.is_authenticated:
-        if profile_data.profile_picture:
-            profile_image = get_object_or_404(Profile, user=request.user)
-        else:
-            profile_image = 10
+        try:
+            profile_data = Profile.objects.get(user=request.user)
+            if profile_data.profile_picture:
+                profile_image = profile_data.profile_picture.url
+            else:
+                profile_image = 10  # Default value or placeholder
+        except Profile.DoesNotExist:
+            profile_image = 10  # Default value if no profile exists
+    else:
+        profile_image = 10  # Default for unauthenticated users
     return render(request, 'cart.html', {'cart_courses': cart_courses,'profile':profile_image})
 
 def search_page(request):
@@ -773,7 +790,14 @@ def download_certificate(request, certificate_id):
         return response
 
 def single_certificate(request,course_id):
-    profile_image = get_object_or_404(Profile, user=request.user)
+    profile_image = None
+    if request.user.is_authenticated:
+        profile_data = Profile.objects.filter(user=request.user).first()  # Fetch profile if exists
+        if profile_data and profile_data.profile_picture:
+            profile_image = profile_data
+        else:
+            profile_image = None
+
     user = Student.objects.get(user=request.user)
     # Calculate grades for the student
     # Assuming calculate_grade_for_student is defined elsewhere
@@ -945,100 +969,111 @@ def payment_history(request):
             profile_image = 10
     return render(request, 'payment_history.html', {'payments': payments,'profile':profile_image})
 
+@login_required
 def profile_page(request):
-    if request.method == 'POST':
-        email_form = EmailChangeForm(request.POST, instance=request.user)
-        password_form = PasswordChangeForm(request.user, request.POST)
-        if email_form.is_valid():
-            email_form.save()
-            return redirect('profile_page')
-        elif password_form.is_valid():
-            password_form.save()
-            # Update the session to prevent users from being logged out after changing password
-            update_session_auth_hash(request, request.user)
-            # Redirect to update profile page after successful update
-            return redirect('profile_page')
-    else:
-        email_form = EmailChangeForm(instance=request.user)
-        password_form = PasswordChangeForm(request.user)
+    profile, _ = Profile.objects.get_or_create(user=request.user)
+    profile_image = profile if profile.profile_picture else 10
 
+    # Initialize forms
+    profileform = ProfileUpdateForm(instance=profile)
+    #notificationform = NotificationSettingsForm(instance=request.user.notificationsettings)
+    privacyform = PrivacySettingsForm(instance=getattr(request.user, 'privacysettings', None))
+    email_form = EmailChangeForm(instance=request.user)
+    password_form = PasswordChangeForm(request.user)
     work_experience_form = WorkExperienceForm()
-    if request.method == 'POST':
-        work_experience_form = WorkExperienceForm(request.POST)
-        if work_experience_form.is_valid():
-            work_experience = work_experience_form.save(commit=False)
-            work_experience.user = request.user
-            work_experience.save()
-            messages.success(request, 'Work experience has been added successfully.')
-            return redirect('profile_page')
-
     education_form = EducationForm()
-    if request.method == 'POST':
-        education_form = EducationForm(request.POST)
-        if education_form.is_valid():
-            education = education_form.save(commit=False)
-            education.user = request.user
-            education.save()
-            return redirect('profile_page')
-
     project_form = ProjectForm()
-    if request.method == 'POST':
-        project_form = ProjectForm(request.POST)
-        if project_form.is_valid():
-            project = project_form.save(commit=False)
-            project.user = request.user
-            project.save()
-            return redirect('profile_page')
 
     payments = PaymentHistory.objects.filter(user=request.user)
 
-    try:
-        privacy_settings = request.user.privacysettings
-    except PrivacySettings.DoesNotExist:
-        privacy_settings = PrivacySettings(user=request.user)
-
     if request.method == 'POST':
-        privacyform = PrivacySettingsForm(request.POST, instance=privacy_settings)
-        if privacyform.is_valid():
-            privacyform.save()
-            return redirect('profile_page')
-    else:
-        privacyform = PrivacySettingsForm(instance=privacy_settings)
+        # Identify which form was submitted
+        action = request.POST.get('action')
 
-    try:
-        settings = NotificationSettings.objects.get(user=request.user)
-    except NotificationSettings.DoesNotExist:
-        settings = NotificationSettings(user=request.user)
+        if action == 'update_profile':
+            profileform = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
+            if profileform.is_valid():
+                profileform.save()
+                messages.success(request, "Profile updated successfully.")
+                return redirect('profile_page')
 
-    if request.method == 'POST':
-        notificationform = NotificationSettingsForm(request.POST, instance=settings)
-        if notificationform.is_valid():
-            notificationform.save()
-            return redirect('profile_page')
-    else:
-        notificationform = NotificationSettingsForm(instance=settings)
+        
+        elif action == 'update_email':
+            email_form = EmailChangeForm(request.POST, instance=request.user)
+            if email_form.is_valid():
+                email_form.save()
+                messages.success(request, "Email updated successfully.")
+                return redirect('profile_page')
+            else:
+                for error in email_form.errors.values():
+                    messages.error(request, error)
 
-    profile, created = Profile.objects.get_or_create(user=request.user)
-
-    if request.method == 'POST':
-        profileform = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
-        if profileform.is_valid():
-            profileform.save()
-            return redirect('profile_page')  # Redirect to update profile page after successful update
-    else:
-        profileform = ProfileUpdateForm(instance=profile)
-
-    profile_image = []
-    if request.user.is_authenticated:
-        profile_data = get_object_or_404(Profile, user=request.user)
-    if request.user.is_authenticated:
-        if profile_data.profile_picture:
-            profile_image = get_object_or_404(Profile, user=request.user)
-        else:
-            profile_image = 10
+        elif action == 'update_password':
+            password_form = PasswordChangeForm(request.user, request.POST)
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, "Password updated successfully.")
+                return redirect('profile_page')
+            else:
+                for error in password_form.errors.values():
+                    messages.error(request, error)
 
 
-    return render(request, 'profile_page.html',{'profileform': profileform,'notificationform':notificationform,'privacyform':privacyform,'payments': payments,'project_form': project_form,'email_form': email_form, 'password_form': password_form,'work_experience_form': work_experience_form,'education_form': education_form,'profile':profile_image})
+        elif action == 'add_work_experience':
+            work_experience_form = WorkExperienceForm(request.POST)
+            if work_experience_form.is_valid():
+                work_experience = work_experience_form.save(commit=False)
+                work_experience.user = request.user
+                work_experience.save()
+                messages.success(request, "Work experience added successfully.")
+                return redirect('profile_page')
+
+        elif action == 'add_education':
+            education_form = EducationForm(request.POST)
+            if education_form.is_valid():
+                education = education_form.save(commit=False)
+                education.user = request.user
+                education.save()
+                messages.success(request, "Education details added successfully.")
+                return redirect('profile_page')
+
+        elif action == 'add_project':
+            project_form = ProjectForm(request.POST)
+            if project_form.is_valid():
+                project = project_form.save(commit=False)
+                project.user = request.user
+                project.save()
+                messages.success(request, "Project added successfully.")
+                return redirect('profile_page')
+
+        elif action == 'update_privacy':
+            privacyform = PrivacySettingsForm(request.POST, instance=privacyform.instance)
+            if privacyform.is_valid():
+                privacyform.save()
+                messages.success(request, "Privacy settings updated successfully.")
+                return redirect('profile_page')
+
+        elif action == 'update_notifications':
+            notificationform = NotificationSettingsForm(request.POST, instance=notificationform.instance)
+            if notificationform.is_valid():
+                notificationform.save()
+                messages.success(request, "Notification settings updated successfully.")
+                return redirect('profile_page')
+
+    return render(request, 'profile_page.html', {
+        'profileform': profileform,
+        #'notificationform': notificationform,
+        'privacyform': privacyform,
+        'payments': payments,
+        'project_form': project_form,
+        'email_form': email_form,
+        'password_form': password_form,
+        'work_experience_form': work_experience_form,
+        'education_form': education_form,
+        'profile': profile_image,
+    })
+
 
 def bundle_detail(request, bundle_id):
     bundle = get_object_or_404(Bundle, id=bundle_id)
@@ -1454,24 +1489,28 @@ def add_to_cart(request, course_id):
 
 
 def remove_from_cart(request, course_id):
-    course = get_object_or_404(Course, pk=course_id)
     if request.method == 'POST':
         if request.user.is_authenticated:  # Ensure the user is authenticated
             student = request.user.student
-            if student.cart.filter(pk=course_id).exists():
-                student.cart.remove(course)
-                return redirect('cart')  # Redirect to the cart page after removal
+            try:
+                course = Course.objects.get(pk=course_id)  # Fetch the course by ID
+                if student.cart.filter(pk=course_id).exists():
+                    student.cart.remove(course)  # Remove the course from the cart
+            except Course.DoesNotExist:
+                # Handle the case where the course doesn't exist
+                return redirect('cart')
+            return redirect('cart')  # Redirect to the cart page after removal
     return redirect('cart')
 
-
+@login_required
 def add_to_wishlist(request, course_id):
     if request.method == 'POST':
-        course = Course.objects.get(id=course_id)
+        course = get_object_or_404(Course, id=course_id)
         student = request.user.student
         student.wishlist.add(course)  # Assuming 'wishlist' is the name of the ManyToManyField in the Student model
         return redirect('courses', course_id=course_id)
     else:
-        return redirect('courses')  # Redirect to course catalog if not a POST request
+        return redirect('course')  # Redirect to course catalog if not a POST request
 
 
 def wishlist(request):
@@ -3242,13 +3281,21 @@ def admin_course_manage_add_course(request):
         # Handle form submission with default values
         course_name = request.POST.get('courseName', '')
         description = request.POST.get('description', '')
-        price = request.POST.get('price', 0.00)
+        price_str = request.POST.get('price', '0.00').strip()
         category_type = request.POST.get('categoryType', 'c1')  # Default to 'Tech Courses'
         what_you_will_learn = request.POST.get('whatYouWillLearn', 'No details provided')
         skills_you_will_gain = request.POST.get('skillsYouWillGain', 'No details provided')
         mentor_id = request.POST.get('mentor', None)
         category_id = request.POST.get('category', None)
         is_active = request.POST.get('isActive', 'on') == 'on'  # Convert to boolean
+
+        if not price_str:  # If the string is empty, assign default
+            price_str = '0.00'
+
+        try:
+            price = Decimal(price_str)
+        except InvalidOperation:
+            return HttpResponseBadRequest("Invalid price format.")
 
         try:
             mentor = Admin_Mentor.objects.get(id=mentor_id) if mentor_id else None
@@ -3570,13 +3617,21 @@ def admin_course_details_assignments(request):
 def admin_course_details_main_quiz(request):
     return render(request, 'admin_course_details_main_quiz.html')
 
+@login_required
 def admin_blog(request):
     blogs = BlogPost.objects.all()
-    profile = None
+    profile_image = None  # Default value for profile_image
     if request.user.is_authenticated:
-        profile_data = get_object_or_404(Profile, user=request.user)
-        profile = profile_data if profile_data.profile_picture else None
-    return render(request, 'admin_blog.html', {'blogs': blogs}, {'profile': profile})
+        try:
+            profile_data = Profile.objects.get(user=request.user)
+            if profile_data.profile_picture:
+                profile_image = profile_data
+            else:
+                profile_image = 10
+        except Profile.DoesNotExist:
+            profile_image = 10  # Default profile image indicator
+    return render(request, 'admin_blog.html', {'blogs': blogs, 'profile': profile_image})
+
 
 def admin_create_blog(request):
     if request.method == 'POST':

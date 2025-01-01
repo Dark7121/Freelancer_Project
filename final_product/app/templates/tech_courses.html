@@ -220,8 +220,11 @@
                 
 
                 <div class="card2">
-                    <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}"
-                        width="250px">
+                    {% if course.image %}
+                        <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}" width="250px">
+                    {% else %}
+                        <img src="/default_user.jpeg" alt="Default Course Image">
+                    {% endif %}
                     <div class="card-body2">
                         <p style="font-weight: 600;">{{ course.title }}</p>
                         <p class="academy">Duration</p>

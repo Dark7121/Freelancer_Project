@@ -186,7 +186,7 @@
                         <p style="font-weight: 600;margin-top: 8px" class="progress-p">Progress {{ course_progress.progress_percentage }}%</p>
                         <div class="progress-container">
                             <div class="progress" style="height: 10px">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:{{ course_progress.progress_percentage }}%;"></div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:'{{ course_progress.progress_percentage }}%;'"></div>
                             </div>
 
                             <p style="font-weight: 300; font-size: 0.8rem">Ends on July 21, 2024</p>
@@ -225,74 +225,79 @@
 
             </div>
             <div class="liked-container containers">
-                {% for course in wishlist_courses %}
-                <div class="card">
-                    <div class="image-container">
-                        <p class="time"><span><img src="{{ course.image.url }}" alt="{{ course.title }}"
-                                    width="16px" style="margin-right: 5px"></span> 1 hr 2 mins</p>
-                        <h2>Our Courses</h2>
-                        <div class="course-img">
-                            <img src="{% static 'assets/my-learnings/img1.jpeg' %}" alt="">
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        <h4>{{ course.title }}</h4>
-                        <div class="ratings">
-                            <p style="font-weight: 500;
-                        color: #0085FF;
-                        margin-right: 10px;
-                        font-size: 1.1rem">4.2</p>
-                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="20px">
-                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="20px">
-                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="20px">
-                            <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="" width="20px">
-                            <img src="{% static 'assets/landing_page/star2.png' %}" alt="" width="20px">
-                            <p style="
-                        color: #969696;
-                        margin-left: 10px;
-                        ">(125)</p>
-                        </div>
-                        <div class="user-info">
-                            <img src="{{ course.image.url }}" alt="" class="user-img">
-                            <div>
-                                <p style="font-weight: 500">{{ user.username }}</p>
-                                <p style="color: #667085">2001 Enrolled</p>
+                {% if wishlist_courses %}
+                    {% for course in wishlist_courses %}
+                    <div class="card">
+                        <!-- Image and Course Info -->
+                        <div class="image-container">
+                            <p class="time">
+                                <span>
+                                    <img src="{{ course.image.url }}" alt="{{ course.title }}" width="16px" style="margin-right: 5px">
+                                </span> 
+                                1 hr 2 mins
+                            </p>
+                            <h2>Our Courses</h2>
+                            <div class="course-img">
+                                <img src="{{ course.image.url }}" alt="{{ course.title }}">
                             </div>
                         </div>
-                        <div class="para">
-                            <p>{{ course.description }}</p>
+            
+                        <!-- Course Details -->
+                        <div class="content">
+                            <h4>{{ course.title }}</h4>
+                            <div class="ratings">
+                                <p style="font-weight: 500; color: #0085FF; margin-right: 10px; font-size: 1.1rem">4.2</p>
+                                <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="Rating" width="20px">
+                                <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="Rating" width="20px">
+                                <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="Rating" width="20px">
+                                <img src="{% static 'assets/landing_page/favourite2.png' %}" alt="Rating" width="20px">
+                                <img src="{% static 'assets/landing_page/star2.png' %}" alt="Star" width="20px">
+                                <p style="color: #969696; margin-left: 10px;">(125)</p>
+                            </div>
+                            <div class="user-info">
+                                <img src="{{ course.image.url }}" alt="User Image" class="user-img">
+                                <div>
+                                    <p style="font-weight: 500">{{ course.instructor.username }}</p>
+                                    <p style="color: #667085">2001 Enrolled</p>
+                                </div>
+                            </div>
+                            <div class="para">
+                                <p>{{ course.description|truncatewords:30 }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="action-container">
-                        <div>
-                            <p>Remove</p>
-                            <form method="post" action="{% url 'remove_from_wishlist' course.id %}">
+            
+                        <!-- Wishlist and Cart Actions -->
+                        <div class="action-container">
+                            <div>
+                                <p>Remove</p>
+                                <form method="post" action="{% url 'remove_from_wishlist' course.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" style="background-color: white; border: 0;">
+                                        <img src="{% static 'assets/my-learnings/close.png' %}" alt="Remove" width="20px">
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="vertical-line"></div>
+                        <div class="price-container">
+                            <div>
+                                <h6>Total:</h6>
+                                <h4>₹{{ course.price }}</h4>
+                            </div>
+                            <form method="post" action="{% url 'add_to_cart' course.id %}">
                                 {% csrf_token %}
-                                <button type="submit" style="background-color:white;border:0;" > <img src="{% static 'assets/my-learnings/close.png' %}" alt="" width="20px">
+                                <button type="submit" style="background-color: white; border: 0;">
+                                    <img src="{% static 'assets/my-learnings/cart.png' %}" alt="Cart" width="20px">
                                 </button>
                             </form>
                         </div>
                     </div>
-                    <div class="vertical-line"></div>
-                    <div class="price-container">
-                        <div>
-                            <h6>Total:</h6>
-                            <h4>₹{{ course.price }}</h4>
-
-                        </div>
-                        <form method="post" action="{% url 'add_to_cart' course.id %}">
-                            {% csrf_token %}
-                            <button type="submit" style="background-color:white;border:0;" > <img src="{% static 'assets/my-learnings/close.png' %}" alt="" width="20px">
-                                <a href="{% url 'view_course_details' course.id %}"> <button>Add to Cart</button></a>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                {% empty %}
-                <h2>Empty Wishlist</h2>
-                {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <h2>Your wishlist is empty!</h2>
+                {% endif %}
             </div>
+            
 
         </div>
         <footer class="footer-section">

@@ -238,7 +238,8 @@ textarea {
     <div class="image-preview">
     </div>
     <div class="upload-btn-container">
-    <button class="edit-btns" id="upload-btn">Upload</button>
+    <button class="edit-btns" id="upload-btn", type="button">Upload</button>
+    <input type="file" id="course-image" name="courseImage" accept="image/*" style="display: none;" />
     <p>Sample .jpg</p>
     </div>
 </div>
@@ -641,6 +642,20 @@ textarea {
 </form>
 <!-- <script  src="{% static 'js/admin_course_manage_add_course.js' %}" > -->
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const uploadButton = document.getElementById('upload-btn');
+    const fileInput = document.getElementById('course-image');
+
+    uploadButton.addEventListener('click', () => {
+        fileInput.click(); // Trigger the file input click event
+    });
+
+    fileInput.addEventListener('change', () => {
+        const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'No file chosen';
+        uploadButton.textContent = `Selected: ${fileName}`; // Update button text with the selected file name
+    });
+});
+
  document.addEventListener('DOMContentLoaded', () => {
     const firstModule = document.querySelector("#first-module-container");
     const moduleDetails = document.querySelector("#add-modules-container");

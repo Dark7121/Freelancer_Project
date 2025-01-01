@@ -217,6 +217,7 @@
                         <div class="all-input">
                             {% csrf_token %}
                             {{ profileform.as_p }}
+                            <input type="hidden" name="action" value="update_profile"> <!--Changed here-->
                         </div>
                         <div class="save-btn btn-container">
                             <button class="purple-btn">Save</button>
@@ -234,15 +235,25 @@
                     </div>
                     <div class="bottom-container">
                         <div class="all-input">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
 
                             <form method="post">
                             <div class="form-group block">
                                 {% csrf_token %}
                                 {{ email_form.as_p }}
+                                <input type="hidden" name="action" value="update_email">
+                                <div class="change-pwd-btn btn-container"></div>
+                                    <button class="purple-btn">Change Email</button>
+                                </div>
                                 {{ password_form.as_p }}
-                            </div>
-                            <div class="change-pwd-btn btn-container">
-                                <button class="purple-btn">Change Password</button>
+                                <input type="hidden" name="action" value="update_password">
+                                <div class="change-pwd-btn btn-container">
+                                    <button class="purple-btn">Change Password</button>
+                                </div>
                             </div>
                         </div>
                     </form>
