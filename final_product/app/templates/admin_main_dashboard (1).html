@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'css/admin_main_dashboard.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/admin_main_dashboard.css' %}"> -->
+     <link rel="stylesheet" href="../css/admin_main_dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -71,97 +73,103 @@
         <!-- Container that contains "statics boxes", "graph" ENDS-->
 
         <!-- container that contains "tables" -->
-        <div class="each-table-container">
-        <h2>COURSE EARNINGS</h2>
-        <table id="table_course_earnings">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Course Name</th>
-                    <th>No. of Enrollments</th>
-                    <th>Earnings</th>
-                    <th>Commission</th>
-                    <th>Net Profit</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for course in course_earnings %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ course.title }}</td>
-                    <td>{{ course.enrollments_count }}</td>
-                    <td>{{ course.total_earnings }}</td>
-                    <td>{{ course.commission }}</td>
-                    <td>{{ course.net_profit }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        </div>
-
-
-
+        <div class="tables">
+            <div class="each-table-container">
+                <h2>COURSE EARNINGS</h2>
+                <table id="table1">
+                    <thead>
+                        <tr>
+                            <th>S.no</th>
+                            <th>Course name</th>
+                            <th>Rating</th>
+                            <th>No.of enrollments</th>
+                            <th>Earnings</th>
+                            <th>Commision</th>
+                            <th>Net Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for course in courses %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ course.name }}</td>
+                            <td>{{ course.rating|default:"N/A" }}</td>
+                            <td>{{ course.no_of_enrollments|default:0 }}</td>
+                            <td>₹ {{ course.earnings|floatformat:2 }}</td>
+                            <td>₹ {{ course.commission|floatformat:2 }}</td>
+                            <td>₹ {{ course.net_profit|floatformat:2 }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7">No courses available.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
             <div class="each-table-container">
                 <h2>1:1 MENTORSHIP</h2>
                 <table id="table2">
                     <thead>
                         <tr>
-                            <th>S.No</th>
-                            <th>Mentor</th>
-                            <th>Course</th>
-                            <th>Request Date</th>
+                            <th>Name</th>
+                            <th>Course name</th>
+                            <th>Request date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for mentorship in mentorship_requests %}
+                        {% for mentor in mentors %}
                         <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ mentorship.mentor__name }}</td>
-                            <td>{{ mentorship.course__course_name }}</td>
-                            <td>{{ mentorship.request_date }}</td>
-                            <td>
-                                <p class="{% if mentorship.status == 'Pending' %}green-status{% else %}purple-status{% endif %}">
-                                    {{ mentorship.status }}
+                            <td class="td-table2">{{ mentor.name }}</td>
+                            <td class="td-table2">{{ mentor.course_name }}</td>
+                            <td class="td-table2">{{ mentor.request_date }}</td>
+                            <td class="td-table2">
+                                <p class="{% if mentor.status == 'Pending' %}green-status{% else %}purple-status{% endif %}">
+                                    {{ mentor.status }}
                                 </p>
                             </td>
                         </tr>
-                        {% empty %}
-                        <tr>
-                            <td colspan="4">No mentorship requests found.</td>
-                        </tr>
                         {% endfor %}
-                    </tbody>
+                    </tbody>                    
                 </table>
-
             </div>
 
             <div class="each-table-container">
                 <h2>COURSE PROVIDERS</h2>
-                <table>
-                <thead>
-                    <tr>
-                        <th>Provider Name</th>
-                        <th>Total Courses</th>
-                        <th>No. of Enrollments</th>
-                        <th>Total Earnings</th>
-                        <th>Provider Share</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for provider in course_providers %}
-                    <tr>
-                        <td>{{ provider.first_name }} {{ provider.last_name }}</td>
-                        <td>{{ provider.total_courses }}</td>
-                        <td>{{ provider.total_enrollments }}</td>
-                        <td>{{ provider.total_earnings|default_if_none:"0.00" }}</td>
-                        <td>{{ provider.per_share|default_if_none:"0.00" }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
+                <table id="table3">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Invoice No</th>
+                            <th>Name</th>
+                            <th>Month</th>
+                            <th>Course Name</th>
+                            <th>No.of enrollments</th>
+                            <th>Per share</th>
+                            <th>Amount</th>
+                            <th>Pay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for provider in course_providers %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>#{{ provider.invoice_no }}</td>
+                            <td>{{ provider.name }}</td>
+                            <td>{{ provider.month }}</td>
+                            <td>{{ provider.course_name }}</td>
+                            <td>{{ provider.no_of_enrollments }} users</td>
+                            <td>${{ provider.per_share }}</td>
+                            <td>${{ provider.amount }}</td>
+                            <td>
+                                <p class="green-status">Pay</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
 
             <div class="each-table-container">
@@ -174,18 +182,24 @@
                             <th>Name</th>
                             <th>Month</th>
                             <th>No.of enrollments</th>
+                            <th>Per share</th>
                             <th>Amount</th>
+                            <th>Pay</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for marketer in affiliate_marketers %}
                         <tr>
                             <td>{{ forloop.counter }}</td>
-                            <td>{{ marketer.invoice_id }}</td>
+                            <td>#{{ marketer.invoice_no }}</td>
                             <td>{{ marketer.name }}</td>
-                            <td>{{ marketer.month|date:"F Y" }}</td>
-                            <td>{{ marketer.total_enrollments }}</td>
-                            <td>{{ marketer.total_amount }}</td>
+                            <td>{{ marketer.month }}</td>
+                            <td>{{ marketer.no_of_enrollments }} users</td>
+                            <td>${{ marketer.per_share }}</td>
+                            <td>${{ marketer.amount }}</td>
+                            <td>
+                                <p class="green-status">Pay</p>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -197,7 +211,6 @@
                 <table id="table5">
                     <thead>
                         <tr>
-                            <th>S.No</th>
                             <th>Ticket id</th>
                             <th>Created date</th>
                             <th>Name</th>
@@ -209,16 +222,17 @@
                     <tbody>
                         {% for ticket in support_tickets %}
                         <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ ticket.unique_id }}</td>
-                            <td>{{ ticket.timestamp }}</td>
-                            <td>{{ ticket.user }}</td>
+                            <td>#{{ ticket.ticket_id }}</td>
+                            <td>{{ ticket.created_date }}</td>
+                            <td>{{ ticket.name }}</td>
                             <td>{{ ticket.category }}</td>
                             <td>{{ ticket.sub_category }}</td>
                             <td>
-                                <p class="{% if ticket.status == 'open' %}green-status{% else %}purple-status{% endif %}">
-                                    {{ ticket.status }}
-                                </p>
+                                {% if ticket.status == 'open' %}
+                                    <p class="green-status">{{ ticket.status }}</p>
+                                {% else %}
+                                    <p class="purple-status">{{ ticket.status }}</p>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}
@@ -227,14 +241,9 @@
             </div>
         </div>
 
-<br>
-    <br>
-    <br>
-    <br>
-    <div id="monthly-incomes" style="display: none;">{{ monthly_incomes|safe }}</div>
-
-    <script src="{% static 'js/admin_main_dashboard.js' %}"></script>
+    </div>
+    <!-- <script src="{% static 'js/admin_main_dashboard.js' %}"></script> -->
+     <script src="../js/admin_main_dashboard.js"></script>
 </body>
-
 
 </html>

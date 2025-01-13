@@ -1,54 +1,5 @@
-const courses = [
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", suspend:"Suspend"},
-    
-];
-
-const courses2 = [
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-    {name: 'John Dye', email: 'johndye@gmail.com', phonenum: "9688564654",  month: "Mar 19, 24", no_of_enrollment: '500 Users', detail: "Detail", edit:"Edit", activate:"Activate"},
-];
+const activeAccounts =  JSON.parse(document.getElementById('active-accounts-data').textContent);
+const suspendedAccounts =  JSON.parse(document.getElementById('suspended-accounts-data').textContent);
 
 const rowsPerPage = 10;
 let currentPage = 1;
@@ -63,15 +14,15 @@ function renderTable() {
     for (let i = start; i < end; i++) {
         const row = document.createElement('tr');
         row.innerHTML = ` 
-            <td>${courses[i].name}</td>
-            <td>${courses[i].email}</td>
-            <td>${courses[i].phonenum}</td>
-            <td>${courses[i].month}</td>
-            <td>${courses[i].no_of_enrollment}</td>
+            <td>${activeAccounts[i].name}</td>
+            <td>${activeAccounts[i].email_id}</td>
+            <td>${activeAccounts[i].phone_number}</td>
+            <td>${activeAccounts[i].date_of_creation}</td>
+            <td>${activeAccounts[i].total_enrollment_count}</td>
             <td class="actions">
-                <p class="details">${courses[i].detail}</p>
-                <p class="edit">${courses[i].edit}</p>
-                <button class="suspend" data-index="${i}">${courses[i].suspend}</button>
+                <p class="details">${activeAccounts[i].detail}</p>
+                <p class="edit">${activeAccounts[i].edit}</p>
+                <button class="suspend" data-index="${i}">${activeAccounts[i].suspend}</button>
             </td>
         `;
         tableBody.appendChild(row);
@@ -91,7 +42,7 @@ function renderTable() {
         tableBody.appendChild(row);
     }
 
-    document.getElementById('currentPage').innerText = `Page ${currentPage} of ${Math.ceil(courses.length / rowsPerPage)}`;
+    document.getElementById('currentPage').innerText = `Page ${currentPage} of ${Math.ceil(activeAccounts.length / rowsPerPage)}`;
     addSuspendListeners()
 }
 
@@ -111,15 +62,15 @@ function renderTable2() {
     for (let i = start2; i < end2; i++) {
         const row2 = document.createElement('tr');
         row2.innerHTML = ` 
-            <td>${courses2[i].name}</td>
-            <td>${courses2[i].email}</td>
-            <td>${courses2[i].phonenum}</td>
-            <td>${courses2[i].month}</td>
-            <td>${courses2[i].no_of_enrollment}</td>
+            <td>${suspendedAccounts[i].name}</td>
+            <td>${suspendedAccounts[i].email_id}</td>
+            <td>${suspendedAccounts[i].phone_number}</td>
+            <td>${suspendedAccounts[i].date_of_creation}</td>
+            <td>${suspendedAccounts[i].total_enrollment_count}</td>
             <td class="actions">
-                <p class="details">${courses2[i].detail}</p>
-                <p class="edit">${courses2[i].edit}</p>
-                <button class="activate" data-index="${i}">${courses2[i].activate}</button>
+                <p class="details">${suspendedAccounts[i].detail}</p>
+                <p class="edit">${suspendedAccounts[i].edit}</p>
+                <button class="activate" data-index="${i}">${suspendedAccounts[i].activate}</button>
             </td>
         `;
         tableBody2.appendChild(row2);
@@ -138,20 +89,20 @@ function renderTable2() {
         `;
         tableBody2.appendChild(row2);
     }
-    document.getElementById('currentPage2').innerText = `Page ${currentPage2} of ${Math.ceil(courses2.length / rowsPerPage2)}`;
+    document.getElementById('currentPage2').innerText = `Page ${currentPage2} of ${Math.ceil(suspendedAccounts.length / rowsPerPage2)}`;
     addActivateListeners();
 }
 
 
 function nextPage() {
-    const totalPages = Math.ceil(courses.length / rowsPerPage);
+    const totalPages = Math.ceil(activeAccounts.length / rowsPerPage);
     if (currentPage < totalPages) {
         currentPage++;
         renderTable();
     }
 }
 function nextPage2() {
-    const totalPages2 = Math.ceil(courses2.length / rowsPerPage2);
+    const totalPages2 = Math.ceil(suspendedAccounts.length / rowsPerPage2);
     if (currentPage2 < totalPages2) {
         currentPage2++;
         renderTable2();

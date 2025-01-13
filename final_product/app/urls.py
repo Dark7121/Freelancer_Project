@@ -132,7 +132,7 @@ urlpatterns = [
     path('course_provider/base/', BASE_CP, name='provider_base'),
     #path('accounts/', include('django.contrib.auth.urls')),
     #path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
-    #path('course_provider/register', register_CP, name = 'provider_register'),
+    path('course_provider/register', register_CP, name = 'provider_register'),
     #path('doLogin', user_login.DO_LOGIN, name="provider_doLogin"),
     path('course_provider/upload_course/', upload_course_CP, name='provider_upload_course'),  #UPLOAD COURSE
     path('course_provider/course/<int:pk>/detail/', course_detail_CP, name='provider_course_detail'),
@@ -262,7 +262,7 @@ urlpatterns = [
     path('begin_class_dashboard_container', admin_begin_class_dashboard_container,name='admin_begin_class_dashboard_container'),
     path('main_dashboard', admin_main_dashboard,name='admin_main_dashboard'),
     path('student_management/<int:pk>/', admin_student_management,name='admin_student_management'),
-    #path('signup', admin_signup,name='admin_signup'),
+    path('signup', admin_signup,name='admin_signup'),
     path('student_management_course_enroll', admin_student_management_course_enroll,name='admin_student_management_course_enroll'),
     path('student_management_referral_detail', admin_student_management_referral_detail,name='admin_student_management_referral_detail'),
     path('student_management_payment_details', admin_student_management_payment_details,name='admin_student_management_payment_details'),

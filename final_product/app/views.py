@@ -21,7 +21,12 @@ from .forms import BlogPostForm, BlogCommentForm
 from django.http import JsonResponse
 from .models import Course, Message
 import json
+from datetime import datetime
 from decimal import Decimal, InvalidOperation
+from django.shortcuts import render
+from django.db.models import Sum, Count
+from django.db.models import Q
+from django.db.models import F, DecimalField, ExpressionWrapper
 
 # Create your views here.
 
@@ -168,7 +173,7 @@ def landing_page_before_login(request):      #Student login
 
     return render(request, 'landing_page_before_login.html', {'courses': courses,'form': form,'studnetform':studnetform,'profile':profile_image})
 
-'''
+
 def register_CP(request):
     courses = Course.objects.all()  # Fetch courses if needed for context
     
@@ -236,7 +241,7 @@ def register_CP(request):
         'courses': courses,  # Pass courses if needed in the template
         'profile': profile,
     })
-'''
+
 
 def about_us(request):
     profile_image = 10  # Default value if no profile exists or user is not logged in
@@ -443,8 +448,10 @@ def my_learnings(request):
     if request.user.is_authenticated:
         # Fetch the logged-in student's profile
         student = get_object_or_404(Student, user=request.user)
+        std = request.user.student
         # Retrieve wishlist courses
-        wishlist_courses = student.wishlist.all()
+        wishlist_courses = std.wishlist.all()
+        print(wishlist_courses)
     else:
         wishlist_courses = []
 
@@ -3188,7 +3195,7 @@ def admin_login_page(request):
         form = Admin_LoginForm()
 
     return render(request, 'admin_login_page.html', {'form': form})
-
+'''
 def admin_signup(request):
     if request.method == 'POST':
         form = Admin_AdminForm(request.POST)
@@ -3223,15 +3230,151 @@ def admin_signup(request):
         form = Admin_AdminForm()
 
     return render(request, 'admin_signup.html', {'form': form})
-'''
+
 def admin_teachers(request):
     return render(request, 'admin_teachers.html')
 
 def admin_begin_class_dashboard_container(request):
     return render(request, 'admin_begin_class_dashboard_container.html')
 
+
+from django.db.models import F, Sum, Count, DecimalField, ExpressionWrapper
+from django.utils.timezone import now
+from django.db.models.functions import TruncMonth
+from .models import (
+    Course,
+    Enrollment,
+    Admin_Payment,
+    Admin_CourseProvider,
+    Admin_AffiliateMarketer,
+    Ticket,
+    Admin_Mentorship,
+)
+
 def admin_main_dashboard(request):
-    return render(request, 'admin_main_dashboard.html')
+    # Total enrollments
+    total_enrollment_count = Enrollment.objects.count()
+    this_month_count = Enrollment.objects.filter(enrollment_date__month=now().month).count()
+
+    # Total earnings
+    total_earnings = Admin_Payment.objects.aggregate(
+        total=Sum('amount_paid', default=0)
+    )['total'] or 0
+    this_month_earnings = Admin_Payment.objects.filter(
+        date_of_payment__month=now().month
+    ).aggregate(total=Sum('amount_paid', default=0))['total'] or 0
+
+    # COURSE EARNINGS
+    course_earnings = Course.objects.annotate(
+        enrollments_count=Count('payments'),  # Count related payments as enrollments
+        total_earnings=Sum('payments__amount_paid'),  # Sum the amount_paid field in payments
+        commission=ExpressionWrapper(
+            F('total_earnings') * 0.1,  # Calculate 10% commission
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        ),
+        net_profit=ExpressionWrapper(
+            F('total_earnings') - F('commission'),  # Subtract commission from earnings
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        )
+    )
+
+    # 1:1 MENTORSHIP
+    mentorship_requests = Admin_Mentorship.objects.select_related('course', 'mentor').values(
+        'course__course_name', 'mentor__name', 'request_date', 'status'
+    )
+
+    # COURSE PROVIDERS
+    course_providers = Admin_CourseProvider.objects.annotate(
+        total_courses=Count('courses'),  # Count the total courses provided by the provider
+        total_enrollments=Count('courses__payments'),  # Count enrollments via payments
+        total_earnings=Sum('courses__payments__amount_paid', default=0),  # Sum earnings from payments
+        per_share=ExpressionWrapper(
+            F('total_earnings') * 0.05,  # Calculate 5% share for providers
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        )
+    )
+
+    # AFFILIATE MARKETERS
+    affiliate_marketers = Admin_AffiliateMarketer.objects.annotate(
+        total_enrollments=Count('enrolled_users', distinct=True),
+        total_amount=Sum('sales__sale_amount', default=0),
+        per_share=ExpressionWrapper(
+            F('total_amount') * 0.1,  # Assuming 10% commission
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        ),
+        invoice_id=F('sales__invoice_id'),  # Fetch invoice number
+        month=TruncMonth('sales__sale_date')  # Group by month
+    ).values('name', 'total_enrollments', 'total_amount', 'per_share', 'invoice_id', 'month')
+
+    # SUPPORT PANEL
+    support_tickets = Ticket.objects.select_related('user', 'category', 'subcategory').all()
+
+    # Render context
+    context = {
+        'total_enrollment_count': total_enrollment_count,
+        'this_month_count': this_month_count,
+        'total_earnings': total_earnings,
+        'this_month_earnings': this_month_earnings,
+        'course_earnings': course_earnings,
+        'mentorship_requests': mentorship_requests,
+        'course_providers': course_providers,
+        'affiliate_marketers': affiliate_marketers,
+        'support_tickets': support_tickets,
+    }
+
+    return render(request, 'admin_main_dashboard.html', context)
+
+
+'''
+def admin_main_dashboard(request):
+    # Total and this month's enrollments
+    total_enrollment_count = Student.objects.filter(
+        Q(ongoing_courses__isnull=False) | Q(completed_courses__isnull=False)
+    ).distinct().count()
+
+    current_month = datetime.now().month
+    this_month_count = Student.objects.filter(
+        Q(ongoing_courses__created_at__month=current_month) | Q(completed_courses__created_at__month=current_month)
+    ).distinct().count()
+
+    courses = Course.objects.annotate(
+        no_of_enrollments=Count('completed_students', distinct=True) + Count('ongoing_students', distinct=True),
+        earnings=ExpressionWrapper(F('price') * total_enrollment_count, output_field=DecimalField()),
+        commission=ExpressionWrapper(F('price') * 0.1, output_field=DecimalField()),
+        net_profit=ExpressionWrapper(F('price') * total_enrollment_count - (F('price') * 0.1), output_field=DecimalField())
+    ).all()
+
+    # Total and this month's earnings
+    total_earnings = courses.aggregate(total=Sum('earnings'))['total'] or 0
+    this_month_earnings = courses.filter(created_at__month=current_month).aggregate(total=Sum('earnings'))['total'] or 0
+
+    # Fetch mentorship requests
+    mentors = MentorshipRequest.objects.all()
+
+    # Fetch course providers
+    course_providers = Admin_CourseProvider.objects.all()
+
+    # Fetch affiliate marketers
+    affiliate_marketers = Admin_AffiliateMarketer.objects.all()
+
+    # Fetch support tickets
+    support_tickets = Ticket.objects.all()
+
+    # Pass data to the template
+    context = {
+        'total_enrollment_count': total_enrollment_count,
+        'this_month_count': this_month_count,
+        'total_earnings': total_earnings,
+        'this_month_earnings': this_month_earnings,
+        'courses': courses,
+        'mentors': mentors,
+        'course_providers': course_providers,
+        'affiliate_marketers': affiliate_marketers,
+        'support_tickets': support_tickets,
+    }
+    return render(request, 'admin_main_dashboard.html', context)
+'''
+
 
 def admin_student_management(request,pk):
     student = get_object_or_404(Student, pk=pk)
@@ -3442,11 +3585,63 @@ def admin_affiliate_marketing_main_page(request):
     marketers = Admin_AffiliateMarketer.objects.all()
     return render(request, 'admin_affiliate_marketing_main_page.html', {'marketers': marketers})
 
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from .models import Admin_ReferralProgram, Admin_ReferralLink
+
 def admin_marketing_promotion_referal(request):
-    return render(request, 'admin_marketing_promotion_referal.html')
+    # Fetch all referral programs
+    referrals = Admin_ReferralProgram.objects.all()
+
+    # Sort referrals based on query parameter
+    sort_by = request.GET.get('sort', 'default')
+    if sort_by == 'referral_code':
+        referrals = referrals.order_by('partner_name')  # Replace with the appropriate field if needed
+    elif sort_by == 'referral_count':
+        referrals = referrals.order_by('-referral_count')
+
+    # Pagination
+    paginator = Paginator(referrals, 10)  # Show 10 items per page
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+
+    # Context to pass to the template
+    context = {
+        'page_obj': page_obj,  # Paged referral programs
+        'breadcrumb': ['Dashboard', 'Marketing', 'Referral Program'],
+        'total_course_enrollments': referrals.aggregate(total=Sum('referral_count'))['total'] or 0,
+    }
+
+    return render(request, 'admin_marketing_promotion_referal.html', context)
+
+from django.shortcuts import render
+from django.core.paginator import Paginator
+from .models import Admin_Voucher, Admin_Enrollment
 
 def admin_marketing_promotion_view_bills(request):
-    return render(request, 'admin_marketing_promotion_view_bills.html')
+    # Fetch all voucher data
+    vouchers = Admin_Voucher.objects.all()
+
+    # Sorting
+    sort_by = request.GET.get('sort', 'default')
+    if sort_by == 'voucher':
+        vouchers = vouchers.order_by('code')  # Sort by voucher code
+
+    # Pagination
+    paginator = Paginator(vouchers, 10)  # 10 vouchers per page
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+
+    # Context data for rendering the template
+    context = {
+        'breadcrumb2': ['Dashboard', 'Marketing', 'View Bills'],  # Breadcrumb navigation
+        'total_course_enrollments2': Admin_Enrollment.objects.count(),
+        'page_obj': page_obj,  # Paged voucher data
+        'courses2': list(page_obj.object_list.values()),  # Pass to JavaScript for dynamic rendering
+    }
+
+    return render(request, 'admin_marketing_promotion_view_bills.html', context)
+
 
 class FormFeedbackListView(ListView):
     model = Admin_FormFeedback
@@ -3535,8 +3730,180 @@ def admin_course_manage_main_page(request):
         courses = courses.filter(category_type=category_filter)
     return render(request, 'admin_course_manage_main_page.html', {'courses': courses})
 
+'''
 def admin_provider_management_dashboard(request):
-    return render(request, 'admin_provider_management_dashboard.html')
+    # Fetching data from the backend
+    total_enrollment_count = Payment.objects.aggregate(Sum('no_of_enrollments'))['no_of_enrollments__sum'] or 0
+    total_earnings = Payment.objects.aggregate(Sum('amount'))['amount__sum'] or 0
+    total_payout = Payment.objects.filter(pay_status='Paid').aggregate(Sum('amount'))['amount__sum'] or 0
+    total_net_profit = total_earnings - total_payout
+
+    this_month_payments = Payment.objects.filter(month__month=request.GET.get('month', 1))
+    this_month_count = this_month_payments.aggregate(Sum('no_of_enrollments'))['no_of_enrollments__sum'] or 0
+    this_month_earning = this_month_payments.aggregate(Sum('amount'))['amount__sum'] or 0
+    this_month_payout = this_month_payments.filter(pay_status='Paid').aggregate(Sum('amount'))['amount__sum'] or 0
+    this_month_net_profit = this_month_earning - this_month_payout
+
+    # Querying the Payment, ProviderEarnings, and CourseEarnings tables
+    course_providers = Admin_CourseProvider.objects.all()
+    # Fetching and combining data for the PAYMENT table
+    payments = list()
+    for course_provider in course_providers:
+        for_invoice_no = Admin_PayoutDetail.objects.filter(course_provider=course_provider)
+        invoice_no = for_invoice_no.transaction_id
+        for_name = Admin_CourseProvider.objects.filter(course_provider=course_provider)
+        name = for_name.first_name + " " + for_name.last_name
+
+        month = for_invoice_no.first().payout_date.strftime("%B")
+
+        courses = for_name.courses.all()
+        course_name = for_name.courses
+
+        course_ids = [course.id for course in courses]
+
+        # Get students in ongoing_courses
+        ongoing_students = Student.objects.filter(ongoing_courses__id__in=course_ids)
+
+        # Get students in completed_courses
+        completed_students = Student.objects.filter(completed_courses__id__in=course_ids)
+
+        # Combine both sets and remove duplicates
+        total_students = ongoing_students.union(completed_students).distinct()
+
+        no_of_enrollments = total_students.count()
+        per_share = for_invoice_no.amount * (0.10)
+        amount = for_invoice_no.amount
+
+    for course in courses:
+        payment_entry = {
+            'invoice_no': invoice_no,
+            'name': name,
+            'month': month,  # Use the month of payout date
+            'course_name': course_name,
+            'no_of_enrollments': no_of_enrollments,
+            'per_share': per_share,
+            'amount': amount
+        }
+        payments.append(payment_entry)
+
+    # Fetching and combining data for the PROVIDER EARNINGS table
+    provider_earnings = list()
+    additional_provider_earnings = 
+    for entry in additional_provider_earnings:
+        provider_earnings.append(entry)
+
+    # Fetching and combining data for the COURSE EARNINGS table
+    course_earnings = list(CourseEarnings.objects.all())
+    # Add more data from another model to course_earnings
+    extra_course_earnings = SomeOtherModel.objects.filter(type="course")
+    for entry in extra_course_earnings:
+        course_earnings.append(entry)
+
+    # Rendering the template with context data
+    context = {
+        'total_enrollment_count': total_enrollment_count,
+        'total_earnings': total_earnings,
+        'total_payout': total_payout,
+        'total_net_profit': total_net_profit,
+        'this_month_count': this_month_count,
+        'this_month_earning': this_month_earning,
+        'this_month_payout': this_month_payout,
+        'this_month_net_profit': this_month_net_profit,
+        'payments': payments,
+        'provider_earnings': provider_earnings,
+        'course_earnings': course_earnings,
+    }
+    return render(request, 'admin_provider_management_dashboard.html', context)
+'''
+
+from django.db.models import Sum, Count, F, ExpressionWrapper, DecimalField
+from django.utils.timezone import now
+from .models import (
+    Course,
+    Admin_Payment,
+    Admin_CourseProvider,
+)
+
+def admin_provider_management_dashboard(request):
+    # Statistics for the dashboard
+    total_enrollment_count = Admin_Payment.objects.count()
+    this_month_count = Admin_Payment.objects.filter(
+        date_of_payment__month=now().month
+    ).count()
+
+    total_earnings = Admin_Payment.objects.aggregate(
+        total=Sum('amount_paid', default=0)
+    )['total']
+    this_month_earnings = Admin_Payment.objects.filter(
+        date_of_payment__month=now().month
+    ).aggregate(total=Sum('amount_paid', default=0))['total']
+
+    total_payout = 0  # Adjust if you have a payout model or logic
+    total_net_profit = total_earnings - total_payout if total_earnings else 0
+
+    this_month_payout = 0  # Adjust logic for monthly payout
+    this_month_net_profit = this_month_earnings - this_month_payout if this_month_earnings else 0
+
+    # PAYMENT Table
+    payments = Admin_Payment.objects.annotate(
+        name=F('student__user__username'),
+        course_name=F('course__course_name'),
+        month=F('date_of_payment__month'),
+        no_of_enrollments=Count('enrollment'),
+        per_share=ExpressionWrapper(
+            F('amount_paid') * 0.05,
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        ),
+        pay_status=F('status')
+    )
+
+    # PROVIDER EARNINGS Table
+    provider_earnings = Admin_CourseProvider.objects.annotate(
+        provider_name=F('first_name'),
+        no_of_courses=Count('courses'),
+        no_of_enrollments=Count('courses__payments'),
+        total_earnings=Sum('courses__payments__amount_paid', default=0),
+        total_commission=ExpressionWrapper(
+            F('total_earnings') * 0.1,
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        ),
+        net_profit=ExpressionWrapper(
+            F('total_earnings') - F('total_commission'),
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        )
+    )
+
+    # COURSE EARNINGS Table
+    course_earnings = Course.objects.annotate(
+        provider_name=F('provider__first_name'),
+        no_of_enrollments=Count('payments'),
+        earnings=Sum('payments__amount_paid', default=0),
+        commission=ExpressionWrapper(
+            F('earnings') * 0.1,
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        ),
+        net_profit=ExpressionWrapper(
+            F('earnings') - F('commission'),
+            output_field=DecimalField(max_digits=10, decimal_places=2)
+        )
+    )
+
+    # Render the template with context
+    context = {
+        'total_enrollment_count': total_enrollment_count,
+        'this_month_count': this_month_count,
+        'total_earnings': total_earnings,
+        'total_payout': total_payout,
+        'total_net_profit': total_net_profit,
+        'this_month_earning': this_month_earnings,
+        'this_month_payout': this_month_payout,
+        'this_month_net_profit': this_month_net_profit,
+        'payments': payments,
+        'provider_earnings': provider_earnings,
+        'course_earnings': course_earnings,
+    }
+    return render(request, 'admin_provider_management_dashboard.html', context)
+
 
 def admin_affiliate_marketing_payments(request):
     return render(request, 'admin_affiliate_marketing_payments.html')

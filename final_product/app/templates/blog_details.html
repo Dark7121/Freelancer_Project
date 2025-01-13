@@ -189,8 +189,8 @@
                 </form>
                 {% endif %}
                 {% endif %}
-                {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.title }}" width="100%">
+                {% if post.thumbnail %}
+                <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" width="100%">
                 {% endif %}
                 <div class="flex small-details">
                     <div class="flex">
@@ -357,7 +357,7 @@
                     {% for post in all_posts %}
                     <div class="flex post">
                         <div class="flex post">
-                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
+                            <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" class="post-img">
                             <div class="block">
                                 <div class="flex">
                                     <i class="fa fa-calendar-o" aria-hidden="true"></i>

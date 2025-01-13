@@ -86,7 +86,7 @@ class Course(models.Model):
     skills_you_will_gain = models.TextField(default='No details provided')
     is_active = models.BooleanField(default=True)
     provider = models.ForeignKey('Admin_CourseProvider', on_delete=models.CASCADE,
-                                 default=None,null=True,blank=True)
+                                 default=1,null=True,blank=True)
 
     def __str__(self):
         return self.title
@@ -288,6 +288,11 @@ class Mentorship(models.Model):
     phone_number = models.CharField(max_length=15)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='mentorship_request')  # Assuming each mentorship is associated with a course
     timestamp = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(
+        max_length=20,
+        choices=[('Pending', 'Pending'), ('Accepted', 'Accepted'), ('Rejected', 'Rejected')],
+        default='Pending'
+    )  # Add mentorship status
 
     def __str__(self):
         return f"Mentorship for {self.user.username}"
@@ -837,6 +842,8 @@ class Admin_Quiz_Result(models.Model):
 
 
 class Admin_Voucher(models.Model):
+    student = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+
     code = models.CharField(max_length=100, unique=True, help_text="Unique code for the voucher")
     discount = models.DecimalField(max_digits=10, decimal_places=2,
                                    help_text="Discount value (percentage or flat amount)")
@@ -889,12 +896,15 @@ class Admin_AffiliateMarketer(models.Model):
 class Admin_EnrolledUser(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     marketer = models.ForeignKey(Admin_AffiliateMarketer, related_name='enrolled_users', on_delete=models.CASCADE)
+    enrollment_date = models.DateTimeField(null=True, blank=True)  # Temporarily make it nullable
 
 
 class Admin_Sale(models.Model):
     sale_amount = models.DecimalField(max_digits=10, decimal_places=2)
     marketer = models.ForeignKey(Admin_AffiliateMarketer, related_name='sales', on_delete=models.CASCADE)
     enrolled_user = models.ForeignKey(Admin_EnrolledUser, related_name='sales', on_delete=models.CASCADE)
+    invoice_id = models.CharField(max_length=100, unique=True, blank=True, null=True)  # Add this
+    sale_date = models.DateTimeField(null=True, blank=True)  # Temporarily allow null values
 
 
 class Admin_AffiliateAccount(models.Model):
@@ -935,17 +945,21 @@ class Admin_CourseProviderCourse(models.Model):
 
 class Admin_PayoutDetail(models.Model):
     course_provider = models.ForeignKey(Admin_CourseProvider, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='payout_details', blank=True, null=True)  # Ensure this exists
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     payout_date = models.DateField()
     payout_method = models.CharField(max_length=50)
     transaction_id = models.CharField(max_length=100, blank=True, null=True)
-    payment_status = models.CharField(max_length=50, blank=True, null=True)
 
-    # Other fields as needed
+    # Add payment_status if needed
+    payment_status = models.CharField(
+        max_length=20,
+        choices=[('pending', 'Pending'), ('completed', 'Completed')],
+        default='pending'
+    )
 
     def __str__(self):
-        return f"Payout for {self.course_provider.user.username} - {self.amount} on {self.payout_date}"
-
+        return f"Payout for {self.course_provider} - {self.amount} on {self.payout_date}"
 
 class Admin_PayoutBill(models.Model):
     payout_detail = models.ForeignKey(Admin_PayoutDetail, on_delete=models.CASCADE)
@@ -1038,8 +1052,10 @@ class Admin_ClickTracking(models.Model):
 class Admin_ReferralProgram(models.Model):
     partner_name = models.CharField(max_length=200)
     email = models.EmailField()
+    code = models.CharField(max_length=20, default='DEFAULT_CODE')  # Add default value
     referral_count = models.PositiveIntegerField(default=0)
     total_bonus_earned = models.PositiveIntegerField(default=0)
+
 
     def __str__(self):
         return self.partner_name
@@ -1171,8 +1187,8 @@ class Ticket(models.Model):
     ]
 
     user = models.ForeignKey(CustomeUser, related_name='tickets', on_delete=models.CASCADE)
-    category = models.ForeignKey(Admin_Category, on_delete=models.SET_NULL, null=True)
-    subcategory = models.ForeignKey(Admin_Subcategory, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Admin_Category, on_delete=models.SET_NULL, null=True, blank=True)
+    subcategory = models.ForeignKey(Admin_Subcategory, on_delete=models.SET_NULL, null=True, blank=True)
     reason = models.TextField(max_length=500, choices=REASON_CHOICES)
     description = models.TextField()
     attachment = models.FileField(upload_to='tickets/', null=True, blank=True)
@@ -1393,9 +1409,20 @@ class Admin_PreviousQP(models.Model):
 
 # Model for 1-1 Mentorship (Optional Feature)
 class Admin_Mentorship(models.Model):
-    course = models.OneToOneField(Course, on_delete=models.CASCADE, related_name='mentorship', blank=True, null=True)
+    course = models.OneToOneField(
+        Course, on_delete=models.CASCADE, related_name='mentorship', blank=True, null=True
+    )
+    mentor = models.ForeignKey(
+        Admin_Mentor, on_delete=models.SET_NULL, null=True, blank=True, related_name='mentorships'
+    )
     is_enabled = models.BooleanField(default=False)
     session_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    request_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)  # Add the request date
+    status = models.CharField(
+        max_length=20,
+        choices=[('Pending', 'Pending'), ('Accepted', 'Accepted'), ('Rejected', 'Rejected')],
+        default='Pending'
+    )
 
     def __str__(self):
         return f"Mentorship for {self.course.course_name}" if self.course else "General Mentorship"
@@ -1441,6 +1468,7 @@ class Admin_Payment(models.Model):
 
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='payments')
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='payments')
+    enrollment = models.ForeignKey('Enrollment', on_delete=models.CASCADE, related_name='admin_payment', blank=True, null=True)
     amount_paid = models.DecimalField(max_digits=10, decimal_places=2)
     date_of_payment = models.DateTimeField(auto_now_add=True)
     invoice_id = models.CharField(max_length=100, unique=True)

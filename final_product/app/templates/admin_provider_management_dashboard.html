@@ -5,163 +5,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowlegopedia</title>
+    <title>Knowlegopedia - Provider Management</title>
     <link rel="stylesheet" href="{% static 'css/admin_provider_management.css' %}">
 </head>
 <body>
+    <!-- Welcome Back Heading -->
+    <h3 id="welcome-back-heading">Welcome Back</h3>
 
-<!-- Container that contains "statics boxes" and "Manager Details" STARTS-->   
-
-<h3 id="welcome-back-heading">Welcome Back</h1>   
-
-<!-- Container that contains "statics boxes" STARTS-->               
-<div class="earning-enroll-container">
-    <div class="statics-box  total-enroll-count">
-        <div class="statics-box-heading">
-        <h2>Total enrollment Count</h2>
-        <p><span>900 </span>users
-        </p></div>
-        <img src="../static/admin_img/dashborad_img/total_enroll.png" alt="">
-    </div>
-    <div class="statics-box total-earning">
-        <div class="statics-box-heading">
-            <h2>Total Earnings</h2>
-            <p><span>₹430.00</span>
-            </p></div>
-            <img src="../static/admin_img/dashborad_img/total_earnings.png" alt="">
+    <!-- Statistics Boxes -->
+    <div class="earning-enroll-container">
+        <div class="statics-box total-enroll-count">
+            <div class="statics-box-heading">
+                <h2>Total Enrollment Count</h2>
+                <p><span>{{ total_enrollment_count }}</span> users</p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/total_enroll.png' %}" alt="">
         </div>
-    <div class="statics-box total-payout">
+
+        <div class="statics-box total-earning">
+            <div class="statics-box-heading">
+                <h2>Total Earnings</h2>
+                <p><span>₹ {{ total_earnings }}</span></p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/total_earnings.png' %}" alt="">
+        </div>
+
+        <div class="statics-box total-payout">
             <div class="statics-box-heading">
                 <h2>Total Payout</h2>
-                <p><span>$768</span></p></div>
-                <img src="../static/admin_img/dashborad_img/total_payout.png" alt="">
+                <p><span>₹ {{ total_payout }}</span></p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/total_payout.png' %}" alt="">
         </div>
-    <div class="statics-box total-net-profit">
-                <div class="statics-box-heading">
-                    <h2>Total Net Profit</h2>
-                    <p><span>$768</span></p></div>
-                    <img src="../static/admin_img/dashborad_img/total_payout.png" alt="">
-        </div>
-    <div class="statics-box this-month-count">
-                    <div class="statics-box-heading">
-                        <h2>This month count</h2>
-                        <p><span>768 </span>users
-                        </p></div>
-                    <img src="../static/admin_img/dashborad_img/this_month_count.png" alt="">
-        </div>
-    <div class="statics-box this-month-earning">
-        <div class="statics-box-heading">
-            <h2>This month earnings</h2>
-            <p><span>₹1290</span></p></div>
-        <img src="../static/admin_img/dashborad_img/this_month_earnings.png" alt="">
-    </div>
-    <div class="statics-box this-month-payout">
-        <div class="statics-box-heading">
-            <h2>This month payout</h2>
-            <p><span>₹1290</span></p></div>
-        <img src="../static/admin_img/dashborad_img/this-month-payout.png" alt="">
-    </div>
-    <div class="statics-box this-month-net-profit">
-        <div class="statics-box-heading">
-            <h2>This month net profit</h2>
-            <p><span>₹430.00</span></p></div>
-        <img src="../static/admin_img/dashborad_img/total_earnings.png" alt="">
-    </div>
-</div>
-<!-- Container that contains "statics boxes" ENDS--> 
 
-<!-- Container that contains "statics boxes" and "Manager Details" ENDS-->   
+        <div class="statics-box total-net-profit">
+            <div class="statics-box-heading">
+                <h2>Total Net Profit</h2>
+                <p><span>₹ {{ total_net_profit }}</span></p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/total_payout.png' %}" alt="">
+        </div>
 
-<!-- Container that contains "tables" STARTS -->
-<div class="tables">
-    
-        <!-- Container that contains " PAYMENT table" -->
+        <div class="statics-box this-month-count">
+            <div class="statics-box-heading">
+                <h2>This Month Count</h2>
+                <p><span>{{ this_month_count }}</span> users</p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/this_month_count.png' %}" alt="">
+        </div>
+
+        <div class="statics-box this-month-earning">
+            <div class="statics-box-heading">
+                <h2>This Month Earnings</h2>
+                <p><span>₹ {{ this_month_earning }}</span></p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/this_month_earnings.png' %}" alt="">
+        </div>
+
+        <div class="statics-box this-month-payout">
+            <div class="statics-box-heading">
+                <h2>This Month Payout</h2>
+                <p><span>₹ {{ this_month_payout }}</span></p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/this-month-payout.png' %}" alt="">
+        </div>
+
+        <div class="statics-box this-month-net-profit">
+            <div class="statics-box-heading">
+                <h2>This Month Net Profit</h2>
+                <p><span>₹ {{ this_month_net_profit }}</span></p>
+            </div>
+            <img src="{% static 'admin_img/dashborad_img/total_earnings.png' %}" alt="">
+        </div>
+    </div>
+
+    <!-- Payment Table -->
+    <div class="tables">
         <div class="each-table-container">
-        <h2>PAYMENT</h2>
-        <table id="table2">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Invoice No</th>
-                    <th>Name</th>
-                    <th>Month</th>
-                    <th>Course Name</th>
-                    <th>No.of enrollments</th>
-                    <th>Per share</th>
-                    <th>Amount</th>
-                    <th>Pay</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
-                <tr><td>2.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
-                <tr><td>3.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
-                <tr><td>4.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
-                <tr><td>5.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
-                <tr><td>6.</td><td>#16879</td><td>John dye</td><td>Mar,2023</td><td>Artificial intelligence</td><td>500 users</td><td>$50</td><td>$35</td><td><p class="green-status">Pay</p></td></tr>
-              
-            </tbody>
-        </table>
+            <h2>PAYMENT</h2>
+            <table id="table2">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Invoice No</th>
+                        <th>Name</th>
+                        <th>Month</th>
+                        <th>Course Name</th>
+                        <th>No. of Enrollments</th>
+                        <th>Per Share</th>
+                        <th>Amount</th>
+                        <th>Pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for payment in payments %}
+                    <tr>
+                        <td>{{ forloop.counter }}.</td>
+                        <td>{{ payment.invoice_id }}</td>
+                        <td>{{ payment.name }}</td>
+                        <td>{{ payment.month }}</td>
+                        <td>{{ payment.course_name }}</td>
+                        <td>{{ payment.no_of_enrollments }}</td>
+                        <td>₹ {{ payment.per_share }}</td>
+                        <td>₹ {{ payment.amount_paid }}</td>
+                        <td><p class="{% if payment.pay_status == 'completed' %}green-status{% else %}red-status{% endif %}">
+                            {{ payment.pay_status }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
 
-        <!-- Container that contains " COURSE EARNINGS table" -->
+        <!-- Provider Earnings Table -->
         <div class="each-table-container">
             <h2>PROVIDER EARNINGS</h2>
             <table id="table3">
                 <thead>
                     <tr>
-                        <th>S.no</th>
+                        <th>S.No</th>
                         <th>Provider Name</th>
-                        <th>No. of course</th>
-                        <th>No.of enrollments</th>
+                        <th>No. of Courses</th>
+                        <th>No. of Enrollments</th>
                         <th>Total Earnings</th>
-                        <th>Total Commision</th>
+                        <th>Total Commission</th>
                         <th>Net Profit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1.</td><td>John Dye</td><td>4</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr><td>2.</td><td>John Dye</td><td>4</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr><td>3.</td><td>John Dye</td><td>8</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr><td>4.</td><td>John Dye</td><td>5</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr><td>5.</td><td>John Dye</td><td>6</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>    
+                    {% for earning in provider_earnings %}
+                    <tr>
+                        <td>{{ forloop.counter }}.</td>
+                        <td>{{ earning.provider_name }}</td>
+                        <td>{{ earning.no_of_courses }}</td>
+                        <td>{{ earning.no_of_enrollments }}</td>
+                        <td>₹ {{ earning.total_earnings }}</td>
+                        <td>₹ {{ earning.total_commission }}</td>
+                        <td>₹ {{ earning.net_profit }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
 
-        <!-- Container that contains " COURSE EARNINGS table" -->
+        <!-- Course Earnings Table -->
         <div class="each-table-container">
             <h2>COURSE EARNINGS</h2>
             <table id="table1">
                 <thead>
                     <tr>
-                        <th>S.no</th>
+                        <th>S.No</th>
                         <th>Provider Name</th>
-                        <th>Course name</th>
-                        <th>Rating</th>
-                        <th>No.of enrollments</th>
+                        <th>Course Name</th>
+                        <th>No. of Enrollments</th>
                         <th>Earnings</th>
-                        <th>Commision</th>
+                        <th>Commission</th>
                         <th>Net Profit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="goToProviderManagement()"><td>1.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.5</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr onclick="goToProviderManagement()"><td>2.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.8</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr onclick="goToProviderManagement()"><td>3.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.0</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr onclick="goToProviderManagement()"><td>4.</td><td>John Dye</td><td>Artificial intelligence</td><td>5.0</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>
-                    <tr onclick="goToProviderManagement()"><td>5.</td><td>John Dye</td><td>Artificial intelligence</td><td>4.1</td><td>500 users</td><td>$50</td><td>$35</td><td>$50</td></tr>    
+                    {% for course in course_earnings %}
+                    <tr>
+                        <td>{{ forloop.counter }}.</td>
+                        <td>{{ course.provider }}</td>
+                        <td>{{ course.course_name }}</td>
+                        <td>{{ course.no_of_enrollments }}</td>
+                        <td>₹ {{ course.earnings }}</td>
+                        <td>₹ {{ course.commission }}</td>
+                        <td>₹ {{ course.net_profit }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-<!-- Container that contains "tables" ENDS -->
-
-<script>
-    function goToProviderManagement() {
-        window.location.href = "{% url 'admin_provider_management' %}";
-    }
-
-</script>
+<br>
+<br>
+<br>
 </body>
 </html>
